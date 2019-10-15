@@ -1,0 +1,8 @@
+\BOOKMARK [2][]{Outline0.1}{Kernel Rescaling}{}% 1
+\BOOKMARK [2][]{Outline0.2}{Parameter Pruning and Sharing}{}% 2
+\BOOKMARK [3][]{Outline0.2.1.5}{Quantization and Binarization}{Outline0.2}% 3
+\BOOKMARK [3][]{Outline0.2.2.8}{Pruning and Sharing}{Outline0.2}% 4
+\BOOKMARK [3][]{Outline0.2.3.11}{Structural Matrix}{Outline0.2}% 5
+\BOOKMARK [2][]{Outline0.3}{Low Rank Factoriazation}{}% 6
+\BOOKMARK [2][]{Outline0.4}{Transferred/compact convolutional Filters}{}% 7
+\BOOKMARK [2][]{Outline0.5}{Knowledge distillation}{}% 8

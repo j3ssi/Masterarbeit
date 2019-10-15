@@ -1,0 +1,94 @@
+%========================================================================================
+% Latex-Beamer-Template
+% TU Dortmund, Informatik Lehrstuhl VII
+%========================================================================================
+%\documentclass[10pt]{beamer}
+\documentclass[10pt]{beamer}
+
+\usetheme{tufi}
+\usepackage{wasysym}
+\usepackage{ucs}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{pgfpages}
+\newcommand\tabrotate[1]{\begin{turn}{90}\rlap{#1}\end{turn}}
+
+\newcommand\MyBox[2]{
+  \fbox{\lower0.75cm
+    \vbox to 1.7cm{\vfil
+      \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+      \vfil}%
+  }%
+}
+
+%========================================================================================
+% Hier Vortragstitel, Autor und Vortragsdatum eintragen
+\pdfinfo
+{
+  /Title       (Effizientes Training eines CNNs im Kontext bla bla blubb)
+  /Creator     (TeX)
+  /Author      (Jessica Bühler)
+}
+
+
+\title{Masterarbeit -- Effizientes Training eines CNNs im Kontext bla bla blubb}
+\author{Jessica Bühler}
+\date{\today}
+%========================================================================================
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Übersicht}
+    \tableofcontents[currentsection,hideallsubsections]
+  }
+}
+
+\AtBeginSubsection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Übersicht}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+  }
+}
+
+\newcommand<>{\highlighton}[1]{%
+  \alt#2{\structure{#1}}{{#1}}
+}
+
+\newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+
+%=Inhalt=================================================================================
+\section{Einführung}
+
+\begin{frame}{Fragestellung}
+Ein Traininsdurchlauf von CNNs kann sehr zeitaufwendig sein. Wird dieser Prozess dann mehrfach durchlaufen, in dem verschiedene Hyperparameter / Startwerte probiert werden kann dieser Prozess sehr schnell zeitlich explodieren. Wie lässt sich das Finden der besten Architektur in Bezug auf die Accuracy effizienter gestalten?
+\end{frame}
+
+\section{Kernel rescaling}
+
+
+\section{dvolver}
+
+
+
+
+
+
+
+\end{document}
