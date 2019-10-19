@@ -1,9 +1,5 @@
 \babel@toc {ngerman}{}
-\beamer@sectionintoc {1}{Kernel Rescaling}{2}{0}{1}
-\beamer@sectionintoc {2}{Parameter Pruning and Sharing}{4}{0}{2}
-\beamer@subsectionintoc {2}{1}{Quantization and Binarization}{5}{0}{2}
-\beamer@subsectionintoc {2}{2}{Pruning and Sharing}{8}{0}{2}
-\beamer@subsectionintoc {2}{3}{Structural Matrix}{11}{0}{2}
-\beamer@sectionintoc {3}{Low Rank Factoriazation}{13}{0}{3}
-\beamer@sectionintoc {4}{Transferred/compact convolutional Filters}{14}{0}{4}
-\beamer@sectionintoc {5}{Knowledge distillation}{15}{0}{5}
+\beamer@sectionintoc {1}{Einf\IeC {\"u}hrung}{2}{0}{1}
+\beamer@sectionintoc {2}{Fixed Point arithmetic}{4}{0}{2}
+\beamer@sectionintoc {3}{Accelerated CNN Training Through Approximation}{7}{0}{3}
+\beamer@sectionintoc {4}{Kernel rescaling}{10}{0}{4}
