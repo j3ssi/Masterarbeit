@@ -1,5 +1,22 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}
+\defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {1}{Einf\IeC {\"u}hrung}{2}{0}{1}
-\beamer@sectionintoc {2}{Fixed Point arithmetic}{4}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{M\IeC {\"o}glichkeiten zum Zeiteinsparen auf arithmetischen Niveau}{4}{0}{2}
+\defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {3}{Accelerated CNN Training Through Approximation}{7}{0}{3}
-\beamer@sectionintoc {4}{Kernel rescaling}{10}{0}{4}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {4}{PruneTrain}{12}{0}{4}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {5}{Effizient Neural Network Search}{15}{0}{5}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {6}{Weniger Trainingsdaten}{20}{0}{6}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {7}{Accelerating Training of Deep Neural Networks with a Standardization Loss}{24}{0}{7}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {8}{Kernel rescaling}{27}{0}{8}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {9}{Accelerated Training for CNN Distributed Deep Learning through Automatic Resource-Aware Layer Placement}{29}{0}{9}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {10}{TreeCNN}{32}{0}{10}

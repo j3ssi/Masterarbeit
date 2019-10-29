@@ -1,0 +1,136 @@
+% Encoding: UTF-8
+
+@Article{S3Pool,
+  author        = {Shuangfei Zhai and Hui Wu and Abhishek Kumar and Yu Cheng and Yongxi Lu and Zhongfei Zhang and Rog{\'{e}}rio Schmidt Feris},
+  title         = {S3Pool: Pooling with Stochastic Spatial Sampling},
+  journal       = {CoRR},
+  year          = {2016},
+  volume        = {abs/1611.05138},
+  archiveprefix = {arXiv},
+}
+
+@Article{dvolver,
+  author  = {Guillaume Michel and Mohammed Amine Alaoui and Alice Lebois and Amal Feriani and Mehdi Felhi},
+  title   = {{DVOLVER:} Efficient Pareto-Optimal Neural Network Architecture Search},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1902.01654},
+}
+
+@Article{net2net,
+  author = {Chen, Tianqi and Goodfellow, Ian and Shlens, Jonathon},
+  title  = {Net2Net: Accelerating Learning via Knowledge Transfer},
+  year   = {2015},
+  month  = {11},
+}
+
+@Article{prunetrain,
+  author  = {Sangkug Lym and Esha Choukse and Siavash Zangeneh and Wei Wen and Mattan Erez and Sujay Shanghavi},
+  title   = {PruneTrain: Gradual Structured Pruning from Scratch for Faster Neural Network Training},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1901.09290},
+}
+
+@Article{approxTensor,
+  author  = {Menachem Adelman and Mark Silberstein},
+  title   = {Faster Neural Network Training with Approximate Tensor Operations},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1805.08079},
+}
+
+@Article{accelerate,
+  author  = {Marc Baboulin and Alfredo Buttari and Jack J. Dongarra and Jakub Kurzak and Julie Langou and Julien Langou and Piotr Luszczek and Stanimire Tomov},
+  title   = {Accelerating Scientific Computations with Mixed Precision Algorithms},
+  journal = {CoRR},
+  year    = {2008},
+  volume  = {abs/0808.2794},
+}
+
+@InProceedings{pmlr-v37-gupta15,
+  author    = {Suyog Gupta and Ankur Agrawal and Kailash Gopalakrishnan and Pritish Narayanan},
+  title     = {Deep Learning with Limited Numerical Precision},
+  booktitle = {Proceedings of the 32nd International Conference on Machine Learning},
+  year      = {2015},
+  editor    = {Francis Bach and David Blei},
+  volume    = {37},
+  series    = {Proceedings of Machine Learning Research},
+  pages     = {1737--1746},
+  month     = {07--09 Jul},
+  publisher = {PMLR},
+}
+
+@Article{stochasticGradient,
+  author  = {Linnan Wang and Yi Yang and Martin Renqiang Min and Srimat T. Chakradhar},
+  title   = {Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent},
+  journal = {CoRR},
+  year    = {2016},
+  volume  = {abs/1603.05544},
+}
+
+@Article{survey,
+  author  = {Yu Cheng and Duo Wang and Pan Zhou and Tao Zhang},
+  title   = {A Survey of Model Compression and Acceleration for Deep Neural Networks},
+  journal = {CoRR},
+  year    = {2017},
+  volume  = {abs/1710.09282},
+}
+
+@Article{standardLoss,
+  author  = {Jasmine Collins and Johannes Ball{\'{e}} and Jonathon Shlens},
+  title   = {Accelerating Training of Deep Neural Networks with a Standardization Loss},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1903.00925},
+}
+
+@Article{resourceAware,
+  author  = {Jay H. Park and Sunghwan Kim and Jinwon Lee and Myeongjae Jeon and Sam H. Noh},
+  title   = {Accelerated Training for {CNN} Distributed Deep Learning through Automatic Resource-Aware Layer Placement},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1901.05803},
+}
+
+@Article{AcceleratingCT,
+  author  = {Xucheng Ye and Jianlei Yang and Pengcheng Dai and Yiran Chen and Weisheng Zhao},
+  title   = {Accelerating CNN Training by Sparsifying Activation Gradients},
+  journal = {ArXiv},
+  year    = {2019},
+  volume  = {abs/1908.00173},
+}
+
+@Article{treeCNN,
+  author  = {Deboleena Roy and Priyadarshini Panda and Kaushik Roy},
+  title   = {Tree-CNN: {A} Deep Convolutional Neural Network for Lifelong Learning},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1802.05800},
+}
+
+@Article{learningStructure,
+  author  = {Rohit Keshari and Mayank Vatsa and Richa Singh and Afzel Noore},
+  title   = {Learning Structure and Strength of {CNN} Filters for Small Sample Size Training},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1803.11405},
+}
+
+@Article{KernelRescaling,
+  author  = {Pedro Porto Buarque de Gusm{\~{a}}o and Gianluca Francini and Skjalg Leps{\o}y and Enrico Magli},
+  title   = {Fast Training of Convolutional Neural Networks via Kernel Rescaling},
+  journal = {CoRR},
+  year    = {2016},
+  volume  = {abs/1610.03623},
+}
+
+@Article{AcceleratedCNN,
+  author  = {Ziheng Wang and Sree Harsha Nelaturu},
+  title   = {Accelerated CNN Training Through Gradient Approximation},
+  journal = {ArXiv},
+  year    = {2019},
+  volume  = {abs/1908.05460},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
