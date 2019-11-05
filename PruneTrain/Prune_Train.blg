@@ -1,0 +1,9 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[1] Config.pm:305> INFO - Logfile is 'Prune_Train.blg'
+[166] biber:313> INFO - === Mi Nov  6, 2019, 00:29:47
+[202] Biber.pm:371> INFO - Reading 'Prune_Train.bcf'
+[276] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[286] Utils.pm:169> WARN - The file 'Prune_Train.bcf' does not contain any citations!
+[294] bbl.pm:617> INFO - Writing 'Prune_Train.bbl' with encoding 'UTF-8'
+[294] bbl.pm:720> INFO - Output to Prune_Train.bbl
+[294] Biber.pm:110> INFO - WARNINGS: 1

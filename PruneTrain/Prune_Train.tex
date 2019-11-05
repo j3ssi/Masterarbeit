@@ -1,0 +1,265 @@
+%========================================================================================
+% Latex-Beamer-Template
+% TU Dortmund, Informatik Lehrstuhl VII
+%========================================================================================
+\documentclass[10pt]{beamer}
+
+\usetheme{tufi} 
+\usepackage{amsmath}
+
+\usepackage{wasysym}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{pgfpages}
+\usepackage[backend=biber]{biblatex}
+\bibliography{Literatur.bib}
+
+\newcommand\tabrotate[1]{\begin{turn}{90}\rlap{#1}\end{turn}}
+\newcommand\MyBox[2]{
+  \fbox{\lower0.75cm
+    \vbox to 1.7cm{\vfil
+      \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+      \vfil}%
+  }%
+}
+
+%========================================================================================
+% Hier Vortragstitel, Autor und Vortragsdatum eintragen
+\pdfinfo
+{
+  /Title       (Zeit-Effizientes Training von Convolutional Neural Networks)
+  /Creator     (TeX)
+  /Author      (Jessica Bühler)
+}
+
+
+\title{Masterarbeit -- Zeit-Effizientes Training von Convolutional Neural Networks}
+\subtitle{Zwischenstand}
+\author{Jessica Bühler}
+\date{\today}
+%========================================================================================
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \frame<handout:0>[allowframebreaks]
+  {
+    \frametitle{Übersicht}
+    \tableofcontents[currentsection,hideallsubsections]
+  }
+}
+
+\AtBeginSubsection[]
+{
+  \frame<handout:0>[allowframebreaks]
+  {
+    \frametitle{Übersicht}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+  }
+}
+
+\newcommand<>{\highlighton}[1]{%
+  \alt#2{\structure{#1}}{{#1}}
+}
+
+\newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+
+%=Inhalt=================================================================================
+\begin{frame}{Zusammenhang Hardware und Zeitersparnis}
+ In der Praxis wird für das Trainieren eines CNNs in der Regel eine Grafikkarte genutzt.
+ Für die Bearbeitung meiner Masterarbeit stehen mir momentan zur Verfügung:
+ \begin{itemize}
+  \item Geforce 750Ti mit 2 Gb mit CUDA-Version 5.0
+  \item Geforce 1070 mit 11 Gb mit CUDA-Version 6.1
+  \item Lehrstuhlserver mit ?? mit ?? Gb mit CUDA-Version ??
+ \end{itemize}
+ 
+ Die großen Unterschiede im Speicher machen es notwendig unterschiedlich große Netze zu trainieren. Wie gross ist der Unterschied im Gewinn bei der Trainingszeit?
+\end{frame}
+
+\section{Prune Train}
+
+\begin{frame}{Code}
+ https://bitbucket.org/lph\_tools/prunetrain/src/master/
+\end{frame}
+
+
+
+\begin{frame}{Was ist Pruning?}
+\begin{itemize}
+ \item Modell Pruning reduziert die Zahl der zu lernenden Parameter in einem dichten Netzwerk, sodass die Inferenzkosten und die Speicherlast reduziert werden.Dabei soll so wenig wie möglich Accuracy verloren gehen.
+ \item Hauptziel ist als das Verbessern der Inferenz, aber auch das Training kann signifikant schneller werden.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Pruning währenddem Training -- bisherige Vorgehensweise}
+\begin{itemize}
+ \item Man kann durch das Hinzufügen von Normalisationstermen prunen. Hierfür kann eine $L_1$-Norm oder ein sog. ``group lasso'' verwendet werden.
+ \item gropu lasso verwendet $L_1$ oder $L_2$ Normen von Gruppen von Gewichten für strukturelles Pruning. Daher werden vom Optimierungsprozess hier kleine absolute ?? Werte für Gewichte oder Gruppen von Gewichten bevorzugt. Dies für zu einem nicht mehr dichten Netz.
+ \item Durch das beibehalten der nicht mehr dichten Sturuktur kommtes allerdings nicht zu Gewinnen im Trainingsprozess.
+ \item wird die dichte Struktur nicht beibehalten so wurde bisher komplexes Dataindexing notwendig, welches die Performance verkleinert. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Pruning währenddem Training -- neue Vorgehensweise}
+\begin{itemize}
+ \item Eine Vorarbeit rekonfiguiert das CNN genau einmal währenddem Training und arbeitet danach mit dem kleineren Modell. Allerdings ist der Rekonfigurierungszeitpunkt vorher nicht festgelegt, was diese Herangehensweise problematisch oder sogar kontraproduktiv macht.
+ \item Daher nun Prune Train mit:
+ \begin{itemize}
+  \item Beschleunigung des Trainingsmechanismus des CNN welches das Model währenddem Training pruned.
+  \item Der Prune-Prozess startet bereits bei der ersten Epoche
+  \item Es wird ein sog. ``group lasso'' Regulierungsverfahren als Basis für die Linienausdünnung benutzt. Die Gewichte werden regelmässig gepruned.
+  \item Das CNN wird regelmässig reconfiguriert um das Modell kleiner und so das Training schneller zu machen.
+ \end{itemize}
+\end{itemize}
+ 
+\end{frame}
+
+
+\begin{frame}{Die 3 zentralen Optimierungsverfahren von PruneTrain}
+  \begin{itemize}
+   \item eine systematische Methode zur Berechnung des group lasso Regularisierung Sanktions Koeffizienten beim Beginn des Trainings.
+   \item Kanal union, ein Speicheraufruf kosteneffizientes und Index-freies Kanal Pruning Verfahren für moderne CNNs mit Kurzschlussverbindungen.
+   \item Ein dynamische Mini-Batch Adjustment, dass die Größe des Mini-Batch anpasst. Dies geschieht durch beobachten des Speicherkapazitätgebrauchs einer Trainingsiteration nach jeder Pruning reconfiguration.
+  \end{itemize} 
+  \end{frame}
+
+
+\begin{frame}{group lasso Regularisierung Sanktions Koeffizienten}
+\begin{itemize}
+ \item Der group lasso Regularisierung Sanktions Koeffizienten ist ein Hyperparameter, der einen Trade-off  zwischen der Modellgröße und der Accuracy bildet.
+ \item Voherige Arbeiten suchen nach einem geeignetem Sanktionsmaß, was das Einbeziehen des Prunings vom Anfang des Trainings sehr teuer macht.
+ \item Unser Mechanismus kontrolliert die Group lasso Regularisierungstärke und erreicht eine hohe Modellpruningrate mit nur einem kleinen Einfluss auf die Accuracy bei nur einem Trainingsdurchlauf.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+  Short-cut connections (e.g., resid-
+ual blocks in ResNet [15]) are widely used in modern CNNs [16–18].
+Pruning all the zeroed channels of such CNNs require frequent
+tensor reshaping to match channel indices between layers. Such
+reshaping or indexing decreases performance. Our channel union
+algorithm does not require any zeroed channel indexing and tensor
+reshaping, and can thus accelerate convolution layer performance
+by 1.9X on average compared to a dense baseline; if indexing is
+used, training is slowed down rather than accelerated.
+
+\end{frame}
+
+\begin{frame}{}
+ Dynamic mini-batch adjust-
+ment compensates for the reduced data parallelism of the smaller
+pruned model by increasing the mini-batch size. This both im-
+proves HW resource utilization in processing a pruned model and
+reduces the communication overhead by decreasing the model up-
+date frequency. When increasing the mini-batch size, our algorithm
+increases the learning rate by the same ratio to avoid affecting
+accuracy [19].
+
+\end{frame}
+
+
+\begin{frame}{}
+Pruning Algorithmen sind
+\begin{itemize}
+ \item strukturiert oder
+ \item unstrukturiert.
+\end{itemize}
+Unstrukturiertes Pruning kann die maximale Modellverkleinerung erarbeiten braucht aber feine Indexing. Daher ineffizient.
+
+Struktuiertes Pruning entfernt oder reduziert feines Indexing und sorgt für ein besseres Ausnutzen der Hardware und realisiert daher einen Performancegewinn.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Strukturiertes Pruning}
+In diesem Paper werden zwei Arten von strukturiertem Pruning gezeigt:
+\begin{itemize}
+ \item Versuch und Irrtum basiertes strukturelles Pruning: Startes mit einem vortrainiertem dichten Modell und versuche dann Gewichte in einem strukturellen Vorgehen zu entfernen, sodass eher ganz Kanäle entfernt werden als einzelne Gewichte. Nicht wichtige Kanäle werden basierend auf ihrem Wert der Gewichte oder wegen Hinweise durch die Regression entfernt.Die entfernten Knäle können wieder eingebunden werden, falls der Verlust an accuracy zugroß ist. Diese Verfahren ist zwar effective, allerdings vergrössert sich der Suchraum mit der Komplexität des Modells. Dadurch kann die Pruning Zeit signifikant anwachsen. Ausserdem sorgt diese Verhfaren durch die Vewendung eines vortrainierten Netzes zu keiner Zeiteinsparung beim Training.
+    \item Ein alternativer Mechanismus nutzt Parameterregularisierung. Dies optimiert den Trainingsfehler und sorgt simultan dafür, dass die absluten Werte der Gewichte oder von Gruppen von Werten gegen Null gehen.  Group lasso Regularisierung wird benutzt um die Gewichte strukturell zu verdünnen durch die Zuweisung einer Regularisierungssanktion zu $L_2$ Normen von Gruppen von Gewichten Der Regularisierungsbasierte Pruning Ansatz fügt noch ein Regularisierungsfunktion zum Fehlermass hinzu und minimiert bestimmte Gewichte oder Gruppen davon durch die Backpropagation. Eventuell können Gewichte sogar ganz auf Null gesetzt und dann gepruned werden.
+
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Mathematische Grundlagen -- Baseline Pruning}
+ $$ \underset{min}{W} \left( \frac{1}{N} \sum_{i=1}^{N} l(y_i,f(x_i, W)) + \sum_{g=1}^{G} \lambda_g \cdot || W_g ||_2 \right) $$
+ \begin{itemize}
+  \item $ \frac{1}{N} \sum_{i=1}^{N} l(y_i,f(x_i, W))$ Standard-Kreuzentropie
+  \item $\sum_{g=1}^{G} \lambda_g \cdot || W_g ||_2 $ group lasso Regulierungsterm
+  \item $f(x_i)$ Vorhersage des Netzwerks auf Eingabe $x_i$
+  \item $W$ Gewichte
+  \item $l$ Verlustfunktion der Klassifikation und Grundwahrheit $y_i$
+  \item $N$ Minibatchgröße
+  \item $G$ Zahl von Gruppen
+  \item $\lambda$ Verdünnungskoeffizient
+ \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Mathematische Grundlagen -- Group lasso Design}
+$$ \lambda \cdot \sum_{l=1}^{L} \left( \sum_{c_l=1}^{C_l} || W_{c_l,:,:,:} ||_2 + \sum_{k_l=1}^{K_l} || W_{:,k_l,:,:}||_2 \right) $$ 
+Design eines speziellen Groupo Lasso Regulierers, der Gewichte jedes Kanals (Input oder Output) und jeder Schicht gruppiert. $\lambda$ wird als einziger globaler Regularisierungsfaktor gewählt, da so der Fokus auf dem Vermindern der Rechenzeit liegt und nicht auf der Modellgröße. Dies hat zur Folge, dass vorallem große Features verdünnt werden, was zu einer größeren Verminderung der Rechenleistung führt.
+\end{frame}
+
+
+\begin{frame}{Setup des Regularisierungssanktionskoeffizienten}
+ Um die Lasso Group Regularisierung vom Anfang des Trainings zu benutzen sollteder Koeffizient $\lambda$ sinnvoll gewählt werden. Dies sorgt für eine hohe Vorhersageaccuracy und einer hohen Pruning Rate. Um zeitintensives Hyperparametertuning zu vermeiden wird hier eine neue Methode eingeführt:
+ 
+ $$LPR=\frac{\lambda \sum_{g}^{G}|| W_{g,:} ||}{l(y_i,f(x_i,W))+\lambda \sum_{g}^{G}||W_{g,:} ||)} $$
+ 
+ Berechnet wird dies durch setzen von zufälligen Werten, mit denen die Gewichte initialisiert werden. LPR wird einmal berechnet und dann bis zum Ende weiter benutzt.
+\end{frame}
+
+
+\begin{frame}{Schichtentfernung durch Überlappende Regulierungsgruppen}
+ Ist nicht notwendig, da Schichten die nicht relevant sind eh irgendwann gepruned werden.
+\end{frame}
+
+\begin{frame}{Frühes Gewichtspruning}
+ Gewicht auf 0 -> Gradient auf 0 -> Erholung sehr unwahrscheinlich
+\end{frame}
+
+
+
+\begin{frame}{Robustness des Reconfigurationsintervalls}
+ Nach jedem solchen Intervall werden Input und Outputkanäle die 0 sind gepruned. Um ein Missverhältnis zwischen den Dimensionen zu verhindern wird nur die Verbindung von 2 verdünnten Kanälen von 2 aufeinanderfolgenden Schichten gepruned. Alle Trainingsvariablen bleiben gleich.
+ Das Reconfigurationsintervall ist ist der einzige zusätzliche Hyperparameter. Zu gross gewählt würde der Intervallparameter zu wenig Zeitverbesserung bringen. Zu klein gewählt könnte er die Lernqualität beeinflussen.
+\end{frame}
+
+\begin{frame}{Channel Union}
+ 
+\end{frame}
+
+
+\begin{frame}{Dynamisches Mini-Batch Adjustment}
+ 
+\end{frame}
+
+
+\begin{frame}{Evaluierung}
+ 
+\end{frame}
+
+
+\begin{frame}{Conclusion}
+ 
+\end{frame}
+
+
+
+
+\end{document}

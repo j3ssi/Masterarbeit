@@ -50,7 +50,7 @@
 
 \AtBeginSection[]
 {
-  \frame<handout:0>
+  \frame<handout:0>[allowframebreaks]
   {
     \frametitle{Übersicht}
     \tableofcontents[currentsection,hideallsubsections]
@@ -59,7 +59,7 @@
 
 \AtBeginSubsection[]
 {
-  \frame<handout:0>
+  \frame<handout:0>[allowframebreaks]
   {
     \frametitle{Übersicht}
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
@@ -117,6 +117,31 @@ Precision Algorithms kann bei der Berechnung der Formel helfen
  \end{itemize}
 \end{frame}
 
+\begin{frame}{Accelerating CNN Training by Sparsifying Activation
+Gradients}
+ agation procedure of Convolution Neural Networks (CNNs) training. However,
+an important known observation is that the majority of these gradients are close
+to zero, imposing little impact on weights update. These gradients can be then
+pruned to achieve high gradient sparsity during CNNs’ training and reduce the
+computational cost. In particular, we randomly change a gradient to zero or a
+threshold value if the gradient is below the threshold which is determined by the
+statistical distribution of activation gradients. We also theoretically proved that
+the training convergence of the CNN model can be guaranteed when the above
+activation gradient sparsification method is applied. We evaluated our method on
+AlexNet, MobileNet, ResNet-{18, 34, 50, 101, 152} with CIFAR-{10, 100} and
+ImageNet datasets. Experimental results show that our method can substantially
+reduce the computational cost with negligible accuracy loss or even accuracy im-
+provement. Finally, we analyzed the benefits that the sparsity of activation gradi-
+ents introduced in detail.
+\end{frame}
+
+\begin{frame}{Accelerating CNN Training by Sparsifying Activation
+Gradients}
+\begin{itemize}
+ \item In wiefern macht das Probleme zusammen mit einer Gradientenapproximation?
+\end{itemize}
+
+\end{frame}
 
 \begin{frame}{Accelerated CNN Training Through Gradient Approximation (2019) }
  Training deep convolutional neural networks such as VGG and ResNet by gradient descent is an expensive exercise requiring specialized hardware such as GPUs. Recent works have examined the possibility of approximating the gradient computation while maintaining the same convergence properties. While promising, the approximations only work on relatively small datasets such as MNIST. They also fail to achieve real wall-clock speedups due to lack of efficient GPU implementations of the proposed approximation methods. In this work, we explore three alternative methods to approximate gradients, with an efficient GPU kernel implementation for one of them. We achieve wall-clock speedup with ResNet-20 and VGG-19 on the CIFAR-10 dataset upwards of 7 percent, with a minimal loss in validation accuracy.
@@ -228,6 +253,34 @@ identification accuracy by at least 10\%.
 \end{frame}
 
 
+\section{Wavelet}
+
+\begin{frame}{Learning a Wavelet-Like Auto-Encoder
+to Accelerate Deep Neural Networks (2017)}
+Accelerating deep neural networks (DNNs) has been attracting increasing attention as it can benefit a wide range of applications, e.g., enabling mobile systems with limited computing resources to own powerful visual recognition ability.
+A practical strategy to this goal usually relies on a two-stage
+process: operating on the trained DNNs (e.g., approximating
+the convolutional filters with tensor decomposition) and finetuning the amended network, leading to difficulty in balancing the trade-off between acceleration and maintaining recognition performance. In this work, aiming at a general and
+comprehensive way for neural network acceleration, we develop a Wavelet-like Auto-Encoder (WAE) that decomposes
+the original input image into two low-resolution channels
+(sub-images) and incorporate the WAE into the classification
+neural networks for joint training. The two decomposed channels, in particular, are encoded to carry the low-frequency information (e.g., image profiles) and high-frequency (e.g., image details or noises), respectively, and enable reconstructing
+the original input image through the decoding process. Then,
+we feed the low-frequency channel into a standard classification network such as VGG or ResNet and employ a very
+lightweight network to fuse with the high-frequency channel
+to obtain the classification result. Compared to existing DNN
+acceleration solutions, our framework has the following advantages: i) it is tolerant to any existing convolutional neural networks for classification without amending their structures; ii) the WAE provides an interpretable way to preserve the main components of the input image for classification. 
+\end{frame}
+
+\begin{frame}{Learning a Wavelet-Like Auto-Encoder
+to Accelerate Deep Neural Networks}
+ \begin{itemize}
+   \item Lässt sich der WAE einmal trainieren um dann Zeit zu sparen beim weiteren Verbessern der Architektur?
+  \end{itemize}
+
+\end{frame}
+
+
 
 \section{Accelerating Training of Deep Neural Networks with a Standardization Loss}
 
@@ -323,9 +376,56 @@ Network for Incremental Learning}
  \item ist nur für inkrementelles Lernen schneller
  \item Jedes Problem lässt sich künstlich inkrementell machen
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Suchbegriffe}
+ \begin{itemize}
+  \item reducing learning time cnn arxiv 
+  \item wavelet cnn training arxiv
+  \item cnn find efficienct best network arvix
+  \item cnn acceleration training arxiv
+  \item cnn time optimized training arxiv
+  \item cnn shrink for training arxiv
+ \end{itemize}
 
 \end{frame}
 
+\begin{frame}{verwendete Datensets}
+ \begin{table}[]
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+                     & MNIST & C-10 & C-100 & STL- 10 & I.Net & NORB \\\hline
+S3 Pool              &       & x        & x         & x       &          &      \\\hline
+Dvolver              &       &          &           &         & x        &      \\\hline
+Net2Net              &       &          &           &         & x        &      \\ \hline
+PruneTrain           &       & x        & x         &         & x        &      \\\hline
+Tensor approx        & x     &          & x         &         &          &      \\\hline
+mixed precision      &       &          &           &         &          &      \\\hline
+gradient approx      &       & x        &           &         &          &      \\\hline
+standard loss        &       &          &           &         & x        &      \\\hline
+ressource aware      &       &          &           &         & x        &      \\\hline
+sparsifying gradient &       & x        & x         &         & x        &      \\\hline
+Tree CNN             &       & x        & x         &         &          &      \\\hline
+Small Data           & x     & x        &           &         &          & x    \\\hline
+Kernel rescaling     &       &          &           &         & x        &      \\ \hline
+Wavelet              &       &          &           &         & x \\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}{Ablaufplan}
+ \begin{enumerate}
+  \item Theoretische Grundlage erarbeiten um Experimente aufzusetzen
+  \item Parallel: \begin{itemize}
+         \item Experimente durchführen
+         \item Theoretische Grundlagen aufschreiben
+        \end{itemize}
+  \item Ergebnis der Experimente auswerten
+  \item Ergebnis aufschreiben
+ \end{enumerate}
+
+\end{frame}
 
 
 \begin{frame}[allowframebreaks]
