@@ -1,0 +1,19 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{DMM{\etalchar{+}}18}
+
+\bibitem[AS18]{approxTensor}
+Menachem Adelman and Mark Silberstein.
+\newblock Faster neural network training with approximate tensor operations.
+\newblock {\em CoRR}, abs/1805.08079, 2018.
+
+\bibitem[DMM{\etalchar{+}}18]{FPGpu}
+Dipankar Das, Naveen Mellempudi, Dheevatsa Mudigere, Dhiraj~D. Kalamkar,
+  Sasikanth Avancha, Kunal Banerjee, Srinivas Sridharan, Karthik Vaidyanathan,
+  Bharat Kaul, Evangelos Georganas, Alexander Heinecke, Pradeep Dubey,
+  Jes{\'{u}}s Corbal, Nikita Shustrov, Roman Dubtsov, Evarist Fomenko, and
+  Vadim~O. Pirogov.
+\newblock Mixed precision training of convolutional neural networks using
+  integer operations.
+\newblock {\em CoRR}, abs/1802.00930, 2018.
+
+\end{thebibliography}

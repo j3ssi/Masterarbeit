@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: LS7-Thesis.aux
+A level-1 auxiliary file: frontpage.aux
+A level-1 auxiliary file: notation.aux
+A level-1 auxiliary file: Einleitung.aux
+A level-1 auxiliary file: KapitelPartA/Einleitung.aux
+A level-1 auxiliary file: KapitelPartA/Arithmetik.aux
+A level-1 auxiliary file: KapitelPartA/Gradient.aux
+A level-1 auxiliary file: KapitelPartA/Trainingsdaten.aux
+A level-1 auxiliary file: KapitelPartA/Struktur.aux
+A level-1 auxiliary file: KapitelPartA/Andere.aux
+A level-1 auxiliary file: KapitelPartB/Einleitung.aux
+A level-1 auxiliary file: KapitelPartB/Durchfuehrung.aux
+A level-1 auxiliary file: appendix.aux
+The style file: alpha.bst
+Database file #1: Literature.bib
+You've used 2 entries,
+            2543 wiz_defined-function locations,
+            582 strings with 5321 characters,
+and the built_in function-call counts, 1149 in all, are:
+= -- 96
+> -- 114
+< -- 0
++ -- 43
+- -- 43
+* -- 105
+:= -- 223
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 27
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 26
+empty$ -- 41
+format.name$ -- 44
+if$ -- 205
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 2
+newline$ -- 14
+num.names$ -- 6
+pop$ -- 21
+preamble$ -- 1
+purify$ -- 29
+quote$ -- 0
+skip$ -- 26
+stack$ -- 0
+substring$ -- 14
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 0
+while$ -- 6
+width$ -- 3
+write$ -- 29

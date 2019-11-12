@@ -1,0 +1,14 @@
+\chapter{Beschleunigung der Convolution}
+
+Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab von:
+\todo{Fehlt hier noch etwas?}
+\begin{itemize}
+ \item der Filtergr\"osse
+ \item der Bildgr\"osse
+ \item dem verwendeten Zahlenformat
+\end{itemize}
+Beim Verändern der Filter- oder der Bildgr\"osse, um Trainingszeit zu sparen, ver\"andert sich auch die Erkennungsleistung \todo{cite}. Dies ist beim Verändern des verwendeten Zahlenformats nicht umbedingt gegeben. Standardformat ist eine 32 Bit Gleitkommazahl. Die einfachste Methode hier Trainingszeit zu sparen ist das Halbieren der Bitanzahl auf 16 Bit. Eine weitere Methode ist das Benutzen von Dynamischen Festkommazahlen.
+
+
+
+Quelle: \cite{FPGpu}

@@ -145,33 +145,25 @@
 \end{frame}
 
 
-\begin{frame}{}
-  Short-cut connections (e.g., resid-
-ual blocks in ResNet [15]) are widely used in modern CNNs [16–18].
-Pruning all the zeroed channels of such CNNs require frequent
-tensor reshaping to match channel indices between layers. Such
-reshaping or indexing decreases performance. Our channel union
-algorithm does not require any zeroed channel indexing and tensor
-reshaping, and can thus accelerate convolution layer performance
-by 1.9X on average compared to a dense baseline; if indexing is
-used, training is slowed down rather than accelerated.
-
+\begin{frame}{Kurzschlussverbindungen und Union Channel}
+\begin{itemize}
+ \item Kurzschlussverbindungen werden in modernen CNNs häufig genutzt.
+ \item Prunning aller genullten Kanäle solcher CNNs brauchen regelmässige Tensor Umordnung um die Kanalindizes zwischen den Schichten zu matchen. Dies vermindert die Performance.
+ \item Diese Umordnung wird durch den Channel Union Algorithmus vermieden. Daher folgt eine 1.9 fache Beschleunigung des Convolutional Layetrs.
+\end{itemize}
 \end{frame}
 
-\begin{frame}{}
- Dynamic mini-batch adjust-
-ment compensates for the reduced data parallelism of the smaller
-pruned model by increasing the mini-batch size. This both im-
-proves HW resource utilization in processing a pruned model and
-reduces the communication overhead by decreasing the model up-
-date frequency. When increasing the mini-batch size, our algorithm
-increases the learning rate by the same ratio to avoid affecting
-accuracy [19].
-
+\begin{frame}{Dynmaisches Minibatch Adjustment}
+\begin{itemize}
+ \item Dynmaisches Mini Batch Adjustment kompensiert die verminderte Datenparallelität aufgrund des kleineren geprunten Modells durch Erhöhung der Mini-Batch Größe.
+ \item Dies sorgt sowohl für bessere Ausnutzung der Hardware ressourcen als auch zur Reduzierung des KOmmunikation overheads durch eine Verminderte Modell Update Frequenz.
+ \item Beim Erhöhen der Mini-Batch Größe wird auch die Lernrate mit demselben Verhältnis erhöht, um die Accuracy nicht zu verändern.
+ \end{itemize}
+ 
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Pruning Algorithmen}
 Pruning Algorithmen sind
 \begin{itemize}
  \item strukturiert oder
@@ -230,7 +222,7 @@ Design eines speziellen Groupo Lasso Regulierers, der Gewichte jedes Kanals (Inp
 \end{frame}
 
 \begin{frame}{Frühes Gewichtspruning}
- Gewicht auf 0 -> Gradient auf 0 -> Erholung sehr unwahrscheinlich
+ Gewicht auf 0 -> Gradient auf 0 -> Erholung sehr unwahrscheinlich -> Daher kann ein auf 0 gesetztes Gewicht gepruned werden.
 \end{frame}
 
 
@@ -240,18 +232,59 @@ Design eines speziellen Groupo Lasso Regulierers, der Gewichte jedes Kanals (Inp
  Das Reconfigurationsintervall ist ist der einzige zusätzliche Hyperparameter. Zu gross gewählt würde der Intervallparameter zu wenig Zeitverbesserung bringen. Zu klein gewählt könnte er die Lernqualität beeinflussen.
 \end{frame}
 
-\begin{frame}{Channel Union}
- 
+\begin{frame}{Channel Union vs. Channel Gating}
+\begin{itemize}
+ \item Channel Union mildern das Vanishing Gradient Problem und öerlauben so tiefe Netze und hohe Accuracy.
+ \item Hier werden 2 Ansätze benutzt, um die passende Dimesionierung zu gewährleisten:
+ \begin{itemize}
+  \item Channel Gating Schichten
+  \item Channel Union
+ \end{itemize}
+ \item Channel Gating braucht die schon erwähnt Umordnung der Tensoren, Channel Union nicht.
+ \item Channel Union prunt nur die Verbindungen von verdünnten Kanälen von allen benarchbarten Schichten in einer Rest-Phase.
+ \item Channel Union wird benutzt da es mehr Rechenzeit spart als Channel Gating
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}{Dynamisches Mini-Batch Adjustment}
- 
+Bei der Evaluierung zeigt sich, dass die erhofften Effekte des Mini Batch Adjustment passieren.
 \end{frame}
 
 
 \begin{frame}{Evaluierung}
- 
+\begin{itemize}
+ \item 4 Matriken zur Evaluierung: Training und Inference FLOPs, gemessenen Trainingszeit, und Validierungsaccuracy. 
+\end{itemize}
+
+Training time does not include network architecture reconfiguration time, which we do optimize and occurs only once in many
+epochs. We compare the training results of ResNet and VGG using
+PruneTrain with the dense baseline. We use the same number of
+training iterations for both the dense baseline and PruneTrain to
+show the actual training time saved by PruneTrain. We use 182
+epochs [15] and 90 epochs to train CNNs on CIFAR and ImageNet,
+respectively.
+For ResNet32 and ResNet50 on CIFAR10, PruneTrain reduces the
+training FLOPs by ∼50% with a minor accuracy drop compared to
+the dense baseline. The compressed models after training show only
+34% and 30% of the dense baseline inference cost for ResNet32 and
+ResNet50, respectively. The results of ResNet32/50 on CIFAR100
+show similar patterns, which exhibits the robustness of PruneTrain,
+given that CIFAR100 is a more difficult classification problem. For
+CIFAR100, PruneTrain reduces the training and inference FLOPs
+by 32% and 46% for ResNet32, and 53% and 69% for ResNet50, while
+losing only 1.4% and 0.7% of validation accuracy, respectively com-
+pared to the dense baseline. These results show that PruneTrain
+reduces more training FLOPs from a deeper CNN model, since
+more unimportant channels and layers are sparsified and removed
+early in the training. PruneTrain also achieves high model compres-
+sion with similar validation accuracy loss for both VGG models on
+CIFAR.
+PruneTrain also shows high training cost savings for ResNet50
+trained on ImageNet: 40%, 30%, and 3% for three different prun-
+ing strengths (0.25, 0.2, and 0.1). Thus, we conclude that Prune-
+Train is robust to changes in CNN model and dataset complexity.
+The trained ResNet50 shows 53%, 44%, and 12% reduced inference
 \end{frame}
 
 

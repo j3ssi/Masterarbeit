@@ -1,0 +1,30 @@
+\BOOKMARK [0][]{pdf:title.0}{Front page}{}% 1
+\BOOKMARK [0][]{pdf:toc.0}{Inhaltsverzeichnis}{}% 2
+\BOOKMARK [0][]{pdf:Notation.0}{Mathematical Notation}{}% 3
+\BOOKMARK [0][]{chapter.1}{Einleitung}{}% 4
+\BOOKMARK [-1][]{part.1}{Literatur zum Zeit-Effizienten Training von CNNs}{}% 5
+\BOOKMARK [0][]{chapter.2}{\334bersicht \374ber die Methoden zur Beschleunigung des Trainings}{part.1}% 6
+\BOOKMARK [0][]{chapter.3}{Beschleunigung der Convolution}{part.1}% 7
+\BOOKMARK [0][]{chapter.4}{Beschleunigung der Berechnung des Gradienten}{part.1}% 8
+\BOOKMARK [1][-]{section.4.1}{Verd\374nnung des Aktivierungsgradienten zur Beschleunigung des Gradienten}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.2}{Beschleunigung des Trainings durch Graditenapproximation}{chapter.4}% 10
+\BOOKMARK [0][]{chapter.5}{Verfahren um weniger Trainingsdaten zu verwenden}{part.1}% 11
+\BOOKMARK [1][-]{section.5.1}{Stochastisches Pooling}{chapter.5}% 12
+\BOOKMARK [1][-]{section.5.2}{Lernen von Struktur und St\344rke von CNNs}{chapter.5}% 13
+\BOOKMARK [0][]{chapter.6}{Strukturelle Ver\344nderungen zur Beschleunigung des Trainings}{part.1}% 14
+\BOOKMARK [1][-]{section.6.1}{Prune Train}{chapter.6}% 15
+\BOOKMARK [1][-]{section.6.2}{Net 2 Net}{chapter.6}% 16
+\BOOKMARK [1][-]{section.6.3}{Kernel rescaling}{chapter.6}% 17
+\BOOKMARK [1][-]{section.6.4}{Resource Aware Layer Replacement}{chapter.6}% 18
+\BOOKMARK [0][]{chapter.7}{Weitere Herangehensweisen}{part.1}% 19
+\BOOKMARK [1][-]{section.7.1}{Tree CNN}{chapter.7}% 20
+\BOOKMARK [1][-]{section.7.2}{Standardization Loss}{chapter.7}% 21
+\BOOKMARK [1][-]{section.7.3}{Wavelet}{chapter.7}% 22
+\BOOKMARK [-1][]{part.2}{Praktischer Teil\205 Arbeitstitel}{}% 23
+\BOOKMARK [0][]{chapter.8}{Einleitung}{part.2}% 24
+\BOOKMARK [0][]{chapter.9}{Durchf\374hrung}{part.2}% 25
+\BOOKMARK [-1][]{part.3}{Additional information}{}% 26
+\BOOKMARK [0][]{chapter*.5}{List of Figures}{part.3}% 27
+\BOOKMARK [0][]{chapter*.6}{List of Algorithms}{part.3}% 28
+\BOOKMARK [0][]{chapter*.7}{List of Listings}{part.3}% 29
+\BOOKMARK [0][]{chapter*.7}{Literaturverzeichnis}{part.3}% 30

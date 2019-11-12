@@ -141,4 +141,12 @@
   volume  = {abs/1712.07493},
 }
 
+@Article{FPGpu,
+  author  = {Dipankar Das and Naveen Mellempudi and Dheevatsa Mudigere and Dhiraj D. Kalamkar and Sasikanth Avancha and Kunal Banerjee and Srinivas Sridharan and Karthik Vaidyanathan and Bharat Kaul and Evangelos Georganas and Alexander Heinecke and Pradeep Dubey and Jes{\'{u}}s Corbal and Nikita Shustrov and Roman Dubtsov and Evarist Fomenko and Vadim O. Pirogov},
+  title   = {Mixed Precision Training of Convolutional Neural Networks using Integer Operations},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1802.00930},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
