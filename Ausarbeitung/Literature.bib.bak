@@ -149,4 +149,25 @@
   volume  = {abs/1802.00930},
 }
 
+@Book{CNNBook,
+  title     = {Deep Learning},
+  publisher = {MIT Press},
+  year      = {2016},
+  author    = {I. Goodfellow and Y. Bengio and A. Courville},
+}
+
+@Misc{github,
+  author       = {A. Deshpande},
+  title        = {A Beginner's Guide To Understanding Convolutional Neural Networks},
+  howpublished = {\url{https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/}},
+  note         = {Aufgerufen am 17.10.2018},
+}
+
+@Article{CNNImg,
+  author  = {J.F. Couchot and R. Couturier and C. Guyeux and M. Salomon},
+  title   = {Steganalysis via a Convolutional Neural Network using Large Convolution Filters},
+  journal = {CoRR},
+  year    = {2016},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

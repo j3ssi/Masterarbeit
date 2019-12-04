@@ -149,4 +149,18 @@
   volume  = {abs/1802.00930},
 }
 
+@Misc{github,
+  author       = {A. Deshpande},
+  title        = {A Beginner's Guide To Understanding Convolutional Neural Networks},
+  howpublished = {\url{https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/}},
+  note         = {Aufgerufen am 17.10.2018},
+}
+
+@Book{CNNBook,
+  title     = {Deep Learning},
+  publisher = {MIT Press},
+  year      = {2016},
+  author    = {I. Goodfellow and Y. Bengio and A. Courville},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

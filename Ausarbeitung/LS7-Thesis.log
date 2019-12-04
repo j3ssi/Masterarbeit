@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  11 NOV 2019 22:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  18 NOV 2019 19:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1146,8 +1146,15 @@ phy)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-german/germanb.ldf
 Language: germanb 2016/11/02 v2.9 German support for babel (traditional orthogr
 aphy)
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+))
+
+Package babel Warning: Last declared language option is `ngerman',
+(babel)                but the last processed one was `german'.
+(babel)                The main language cannot be set as both a global
+(babel)                and a package option. Use `main=ngerman' as
+(babel)                option. Reported on input line 460.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks40
 \inpenc@posthook=\toks41
@@ -1592,8 +1599,22 @@ Package csquotes Info: ... configuration file loaded successfully.
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
-))
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+)
+Package csquotes Info: Option 'babel' depreciated.
+(csquotes)             Using 'autostyle'.
+Package csquotes Info: Enabling multilingual quotes.
+Package csquotes Info: Redefining alias 'german' -> 'german/quotes'.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/breakurl/breakurl.sty
+Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
+
+
+Package breakurl Warning: You are using breakurl while processing via pdflatex.
+
+(breakurl)                \burl will be just a synonym of \url.
+(breakurl)                 on input line 48.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
@@ -1633,6 +1654,10 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@lastruleclass=\count313
 \@thisrulewidth=\dimen293
 )
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box63
+)
 
 Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              with a KOMA-Script class is not recommended.
@@ -1645,7 +1670,7 @@ Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              `\addtokomafont' for the page style elements need
 (scrbook)              explicite user intervention to work.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 141.
+(scrbook)              package `fancyhdr' on input line 144.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
@@ -1666,7 +1691,7 @@ Package: extramarks 2017/06/30 v3.9a Extra marks for LaTeX
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count314
-\lst@gtempboxa=\box63
+\lst@gtempboxa=\box64
 \lst@token=\toks44
 \lst@length=\count315
 \lst@currlwidth=\dimen294
@@ -1682,12 +1707,12 @@ Package: extramarks 2017/06/30 v3.9a Extra marks for LaTeX
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count320
 \lst@skipnumbers=\count321
-\lst@framebox=\box64
+\lst@framebox=\box65
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 174.
+Package scrhack Info: loading listings hack on input line 177.
 
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/listings.hak
 File: listings.hak 2017/09/07 v3.24 KOMA-Script package (hacking package listin
@@ -1719,8 +1744,6 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-Package csquotes Info: Adjusting default style.
-Package csquotes Info: Redefining alias 'default' -> 'german'.
  (./LS7-Thesis.aux (./frontpage.aux) (./notation.aux) (./Einleitung.aux)
 (./KapitelPartA/Einleitung.aux) (./KapitelPartA/Arithmetik.aux)
 (./KapitelPartA/Gradient.aux) (./KapitelPartA/Trainingsdaten.aux)
@@ -1729,28 +1752,28 @@ Package csquotes Info: Redefining alias 'default' -> 'german'.
 (./appendix.aux))
 \openout1 = `LS7-Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 210.
-LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count327
 \scratchdimen=\dimen298
-\scratchbox=\box65
+\scratchbox=\box66
 \nofMPsegments=\count328
 \nofMParguments=\count329
 \everyMPshowfont=\toks47
@@ -1775,8 +1798,8 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box66
-Package hyperref Info: Link coloring OFF on input line 210.
+\AtBeginShipoutBox=\box67
+Package hyperref Info: Link coloring OFF on input line 213.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1786,9 +1809,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count333
 )
-LaTeX Info: Redefining \ref on input line 210.
-LaTeX Info: Redefining \pageref on input line 210.
-LaTeX Info: Redefining \nameref on input line 210.
+LaTeX Info: Redefining \ref on input line 213.
+LaTeX Info: Redefining \pageref on input line 213.
+LaTeX Info: Redefining \nameref on input line 213.
 
 (./LS7-Thesis.out) (./LS7-Thesis.out)
 \@outlinefile=\write4
@@ -1833,50 +1856,50 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count334
-Package scrhack Info: undefining \float@addtolists on input line 210.
+Package scrhack Info: undefining \float@addtolists on input line 213.
 \openout2 = `frontpage.aux'.
 
  (./frontpage.tex
-<images/tud_logo_cmyk.pdf, id=126, 338.90414pt x 54.59576pt>
+<images/tud_logo_cmyk.pdf, id=154, 338.90414pt x 54.59576pt>
 File: images/tud_logo_cmyk.pdf Graphic file (type pdf)
 <use images/tud_logo_cmyk.pdf>
-Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 9.
+Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 6.
 (pdftex.def)             Requested size: 236.86919pt x 38.15929pt.
-LaTeX Font Info:    Try loading font information for T1+aess on input line 13.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-<images/fi_text.pdf, id=127, 344.36014pt x 40.84068pt>
+<images/fi_text.pdf, id=155, 255.95625pt x 18.0675pt>
 File: images/fi_text.pdf Graphic file (type pdf)
 <use images/fi_text.pdf>
-Package pdftex.def Info: images/fi_text.pdf  used on input line 19.
-(pdftex.def)             Requested size: 311.88118pt x 36.98857pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+Package pdftex.def Info: images/fi_text.pdf  used on input line 16.
+(pdftex.def)             Requested size: 256.0748pt x 18.07709pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 101.
+(hyperref)                removing `\@alpha' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 101.
+(hyperref)                removing `\c@page' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 101.
+(hyperref)                removing `\@alpha' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 101.
+(hyperref)                removing `\c@page' on input line 73.
 
 [1
 
@@ -1887,54 +1910,51 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 > <./images/fi_text.pdf>])
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 220.
+(hyperref)                removing `\@alpha' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 220.
+(hyperref)                removing `\c@page' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 220.
+(hyperref)                removing `\@alpha' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 220.
+(hyperref)                removing `\c@page' on input line 223.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.220 \pagestyle{empty} \cleardoublepage
+l.223 \pagestyle{empty} \cleardoublepage
                                          [2
 
 
 
 ] (./LS7-Thesis.toc
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@alpha' on input line 28.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 23.
+(hyperref)                removing `\c@page' on input line 28.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 23.
+(hyperref)                removing `\@alpha' on input line 28.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 23.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 23.
+(hyperref)                removing `\c@page' on input line 28.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 ...e {9}Durchf\IeC {\"u}hrung}{21}{chapter.9}
+l.28 ...\numberline {6.3}Wavelet}{17}{section.6.3}
                                                    [3
 
 
@@ -1945,50 +1965,50 @@ l.23 ...e {9}Durchf\IeC {\"u}hrung}{21}{chapter.9}
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 227.
+(hyperref)                removing `\@alpha' on input line 230.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 227.
+(hyperref)                removing `\c@page' on input line 230.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 227.
+(hyperref)                removing `\@alpha' on input line 230.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 227.
+(hyperref)                removing `\c@page' on input line 230.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.227 \cleardoublepage
+l.230 \cleardoublepage
                        \pagestyle{headings} [4]
 \openout2 = `notation.aux'.
 
  (./notation.tex)
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 233.
+(hyperref)                removing `\@alpha' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 233.
+(hyperref)                removing `\c@page' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 233.
+(hyperref)                removing `\@alpha' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 233.
+(hyperref)                removing `\c@page' on input line 236.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.233 \include{notation}
+l.236 \include{notation}
                          [5
 
 
@@ -1998,25 +2018,25 @@ l.233 \include{notation}
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 234.
+(hyperref)                removing `\@alpha' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 234.
+(hyperref)                removing `\c@page' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 234.
+(hyperref)                removing `\@alpha' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 234.
+(hyperref)                removing `\c@page' on input line 237.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234 \cleardoublepage
+l.237 \cleardoublepage
                        [6
 
 
@@ -2026,11 +2046,53 @@ l.234 \cleardoublepage
 
  (./Einleitung.tex
 chapter 1.
-) [1
+<images/cnn.pdf, id=232, 460.4814pt x 317.22054pt>
+File: images/cnn.pdf Graphic file (type pdf)
+<use images/cnn.pdf>
+Package pdftex.def Info: images/cnn.pdf  used on input line 17.
+(pdftex.def)             Requested size: 320.0935pt x 220.5136pt.
+[1
 
 
 
-] [2
+ <./images/cnn.pdf>]
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 29.
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/omsaer.fd
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+<images/filter.pdf, id=260, 642.4pt x 291.0875pt>
+File: images/filter.pdf Graphic file (type pdf)
+<use images/filter.pdf>
+Package pdftex.def Info: images/filter.pdf  used on input line 37.
+(pdftex.def)             Requested size: 213.39568pt x 96.69432pt.
+<images/cnn_maus.pdf, id=266, 329.55121pt x 228.3732pt>
+File: images/cnn_maus.pdf Graphic file (type pdf)
+<use images/cnn_maus.pdf>
+Package pdftex.def Info: images/cnn_maus.pdf  used on input line 50.
+(pdftex.def)             Requested size: 106.69783pt x 73.93814pt.
+<images/cnn_maus_p.pdf, id=267, 728.7225pt x 255.95625pt>
+File: images/cnn_maus_p.pdf Graphic file (type pdf)
+<use images/cnn_maus_p.pdf>
+Package pdftex.def Info: images/cnn_maus_p.pdf  used on input line 52.
+(pdftex.def)             Requested size: 213.39568pt x 74.95184pt.
+
+[2 <./images/filter.pdf>]
+<images/cnn_maus_n.pdf, id=286, 725.71124pt x 258.9675pt>
+File: images/cnn_maus_n.pdf Graphic file (type pdf)
+<use images/cnn_maus_n.pdf>
+Package pdftex.def Info: images/cnn_maus_n.pdf  used on input line 60.
+(pdftex.def)             Requested size: 213.39568pt x 76.14975pt.
+) [3 <./images/cnn_maus.pdf> <./images/cnn_maus_p.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/cnn_maus_p.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+> <./images/cnn_maus_n.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/cnn_maus_n.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>] [4
 
 
 
@@ -2038,59 +2100,50 @@ chapter 1.
 \openout2 = `KapitelPartA/Einleitung.aux'.
 
  (./KapitelPartA/Einleitung.tex
-part I.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1.
-[3
-
-
-
-] [4]
 chapter 2.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 4.
+
 ) [5
+
 
 
 ]
 \openout2 = `KapitelPartA/Arithmetik.aux'.
 
- (./KapitelPartA/Arithmetik.tex [6
+ (./KapitelPartA/Arithmetik.tex
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 4.
+ [6
+
+
+]) [7]
+\openout2 = `KapitelPartA/Gradient.aux'.
+
+ (./KapitelPartA/Gradient.tex
+[8
 
 
 
 
 ]
 chapter 3.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 4.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 6.
-(/usr/share/texlive/texmf-dist/tex/latex/ae/omsaer.fd
-File: omsaer.fd 1999/12/27
 )
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
-) [7]
-\openout2 = `KapitelPartA/Gradient.aux'.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-(./KapitelPartA/Gradient.tex [8
-
-
-
-
-]
-chapter 4.
-) [9]
+ [9]
+[10]
 \openout2 = `KapitelPartA/Trainingsdaten.aux'.
 
- (./KapitelPartA/Trainingsdaten.tex [10
+ (./KapitelPartA/Trainingsdaten.tex
+chapter 4.
+) [11
 
 
 
 
 ]
-chapter 5.
-) [11]
 \openout2 = `KapitelPartA/Struktur.aux'.
 
  (./KapitelPartA/Struktur.tex [12
@@ -2099,18 +2152,18 @@ chapter 5.
 
 
 ]
-chapter 6.
-) [13]
+chapter 5.
+[13] [14]) [15]
 \openout2 = `KapitelPartA/Andere.aux'.
 
- (./KapitelPartA/Andere.tex [14
+ (./KapitelPartA/Andere.tex [16
 
 
 
 
 ]
-chapter 7.
-) [15] [16
+chapter 6.
+) [17] [18
 
 
 
@@ -2118,30 +2171,30 @@ chapter 7.
 \openout2 = `KapitelPartB/Einleitung.aux'.
 
  (./KapitelPartB/Einleitung.tex
-part II.
+part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
 (scrkbase)              on input line 1.
-[17
+[19
 
 
 
-] [18]
-chapter 8.
-) [19
+] [20]
+chapter 7.
+) [21
 
 
 ]
 \openout2 = `KapitelPartB/Durchfuehrung.aux'.
 
- (./KapitelPartB/Durchfuehrung.tex [20
+ (./KapitelPartB/Durchfuehrung.tex [22
 
 
 
 
 ]
-chapter 9.
-) [21] [22
+chapter 8.
+) [23] [24
 
 
 
@@ -2149,39 +2202,28 @@ chapter 9.
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
-part III.
+part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
 (scrkbase)              on input line 5.
-[23
+[25
 
 
 
-] [24]) (./LS7-Thesis.lof)
+] [26]) (./LS7-Thesis.lof)
 \tf@lof=\write6
 \openout6 = `LS7-Thesis.lof'.
 
- [25
-
-
-
-] [26
-
-
-] (./LS7-Thesis.loa)
-\tf@loa=\write7
-\openout7 = `LS7-Thesis.loa'.
-
  [27
+
 
 
 ] [28
 
 
-]
-(./LS7-Thesis.lol)
-\tf@lol=\write8
-\openout8 = `LS7-Thesis.lol'.
+] (./LS7-Thesis.loa)
+\tf@loa=\write7
+\openout7 = `LS7-Thesis.loa'.
 
  [29
 
@@ -2189,49 +2231,92 @@ Package scrkbase Info: You've told me to use the font selection of the element
 ] [30
 
 
-] (./LS7-Thesis.bbl) [31
+]
+(./LS7-Thesis.lol)
+\tf@lol=\write8
+\openout8 = `LS7-Thesis.lol'.
+
+ [31
+
+
+] [32
+
+
+] (./LS7-Thesis.bbl
+LaTeX Font Info:    Try loading font information for T1+aett on input line 14.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 11--16
+\T1/aett/m/n/12 h u b\OML/cmm/m/it/12 : \T1/aett/m/n/12 i o\OML/cmm/m/it/12 =\T
+1/aett/m/n/12 A -[] B e g i n n e r % 2 7 s -[]G u i d e -[] T o -[]U n d e r s
+ t a n d i n g -[] C o n v o l u t i o n a l -[]
+ []
+
+) [33
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
- (./LS7-Thesis.aux
-(./frontpage.aux) (./notation.aux) (./Einleitung.aux)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 297.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 297.
+ (./LS7-Thesis.aux (./frontpage.aux) (./notation.aux) (./Einleitung.aux)
 (./KapitelPartA/Einleitung.aux) (./KapitelPartA/Arithmetik.aux)
 (./KapitelPartA/Gradient.aux) (./KapitelPartA/Trainingsdaten.aux)
 (./KapitelPartA/Struktur.aux) (./KapitelPartA/Andere.aux)
 (./KapitelPartB/Einleitung.aux) (./KapitelPartB/Durchfuehrung.aux)
 (./appendix.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
-Package rerunfilecheck Info: File `LS7-Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3FC0DA6BCC7D503024F0D7F926A426B9;2078.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 297.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
+
+
+Package rerunfilecheck Warning: File `LS7-Thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `LS7-Thesis.out':
+(rerunfilecheck)             Before: B62528C60C4CF155416B5531F5D2B1E0;2744
+(rerunfilecheck)             After:  F9F087FA59A154FCB2D93708D4F37C79;2744.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 297.
  ) 
 Here is how much of TeX's memory you used:
- 34399 strings out of 492982
- 641127 string characters out of 6134895
- 799773 words of memory out of 5000000
- 37238 multiletter control sequences out of 15000+600000
- 574784 words of font info for 108 fonts, out of 8000000 for 9000
+ 34689 strings out of 492982
+ 646050 string characters out of 6134895
+ 805421 words of memory out of 5000000
+ 37459 multiletter control sequences out of 15000+600000
+ 590563 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,11n,100p,10451b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb>
-Output written on LS7-Thesis.pdf (37 pages, 155351 bytes).
+ 73i,11n,100p,10459b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.14} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.13} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on LS7-Thesis.pdf (39 pages, 487343 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 466 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 344 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -13,7 +13,7 @@
 \RequirePackage{ifthen}
 \newcommand \Thesistyp{Masterarbeit}
 \newcommand \Author{Jessica B\"uhler}
-\newcommand \Thesistitle{Zeit-Effizientes Training von Convolutional Neural Networks}
+\newcommand \Thesistitle{Zeit-effizientes Training von Convolutional Neural Networks}
 \newcommand \FirstSupervisor{Prof.~Dr.~Heinrich~M\"uller}
 \newcommand \SecondSupervisor{M.Sc.~Matthias~Fey}
 \newcommand \FirstChair{Lehrstuhl VII}
@@ -36,7 +36,7 @@
   \pdfoutput=1
   \pdftrue
   \message{pdfLaTeX}
-  \documentclass[pdftex,12pt,a4paper,twoside, ngerman]{scrbook}
+  \documentclass[pdftex,12pt,a4paper,twoside,ngerman,numbers=noenddot]{scrbook}
   \usepackage{float}
   \usepackage[pdftex]{thumbpdf}
   \usepackage[pdftex]{pdflscape}
@@ -49,7 +49,7 @@
 \else
   \pdffalse
   \message{LaTeX}
-  \documentclass[dvips,12pt,a4paper,twoside, ngerman]{scrbook}
+  \documentclass[dvips,12pt,a4paper,twoside,ngerman,numbers=noenddot]{scrbook}
   \usepackage{float}
   \usepackage{graphicx}
   \usepackage{epsf}
@@ -100,20 +100,23 @@
 \usepackage{scrhack}
 % -------------------------------------------------------------------
 %
-\usepackage[german]{babel}
+\usepackage[german,ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
-%\inputencoding{utf8}
 
 % -------------------------------------------------------------------
 \usepackage[numbers,sort,square]{natbib}
 
 % -------------------------------------------------------------------
-\usepackage{csquotes}
+\usepackage[babel,german=quotes]{csquotes}
 
 % -------------------------------------------------------------------
 \usepackage{url}
+\usepackage[hyphenbreaks]{breakurl}
+\def\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0%
+\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\-}%
 
 % -------------------------------------------------------------------
 \usepackage[margin=0pt,font=small,labelfont=bf]{caption}
@@ -122,7 +125,7 @@
 \usepackage{booktabs}
 
 % -------------------------------------------------------------------
-%\usepackage{eurosym}
+\usepackage{eurosym}
 
 % -------------------------------------------------------------------
 \renewcommand{\baselinestretch}{1.25}
@@ -197,10 +200,10 @@ breaklines=true
 
 % -------------------------------------------------------------------
 % Algorithmen anpassen
-\renewcommand{\algorithmicrequire}{\textit{Input:}}
-\renewcommand{\algorithmicensure}{\textit{Output:}}
-\floatname{algorithm}{Algorithm}
-\renewcommand{\listalgorithmname}{List of Algorithms}
+\renewcommand{\algorithmicrequire}{\textit{Eingabe:}}
+\renewcommand{\algorithmicensure}{\textit{Ausgabe:}}
+\floatname{algorithm}{Algorithmus}
+\renewcommand{\listalgorithmname}{Algorithmenverzeichnis}
 \renewcommand{\algorithmiccomment}[1]{\color{grau}{// #1}}
 
 
@@ -229,7 +232,7 @@ breaklines=true
 % Mathematische Notation -----------------------------------------------
 %
 \pagestyle{empty}
-\pdfbookmark{Mathematical Notation}{pdf:Notation}
+\pdfbookmark{Mathematische Notation}{pdf:Notation}
 \include{notation}
 \cleardoublepage
 
@@ -270,18 +273,18 @@ breaklines=true
 
 %
 \listoffigures
-\addcontentsline{toc}{chapter}{List of Figures}
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 \cleardoublepage
 
 %
 \listofalgorithms
-\addcontentsline{toc}{chapter}{List of Algorithms}
+\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
 \cleardoublepage
 
 %
-\renewcommand{\lstlistlistingname}{List of Listings}
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 \lstlistoflistings
-\addcontentsline{toc}{chapter}{List of Listings}
+\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
 \cleardoublepage
 
 %
