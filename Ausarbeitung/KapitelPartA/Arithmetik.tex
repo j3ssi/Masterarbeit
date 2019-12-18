@@ -1,5 +1,8 @@
 \section{Verringerung der für Berechnungen nötige Zeit}
 
+
+
+
 Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab von:
 \todo{Fehlt hier noch etwas?}
 \begin{itemize}
@@ -12,12 +15,23 @@ Die beiden alternativen Methoden haben unterschiedliche Anforderungen an die Aus
 
 
 \subsection{Berechnung mit 16 Bit Gleitkomma}
+\cite{ieee}
+Die 16 Bit Gleitkommazahl unterscheidet sich nicht nur in der Länge von der 32 Bit Zahl sondern aus der unterschiedlichen Länge erwachsen Unterschiede in den darstellbaren Zahlen. In Tabelle \ref{tab:numbers} sind diese Unterschiede dargestellt. 
 
-Die 16 Bit Gleitkommazahl unterscheidet sich nicht nur in der Länge von der 32 Bit Zahl sondern aus der unterschiedlichen Länge erwachsen Unterschiede in den darstellbaren Zahlen. In Tabelle \todo{ref} sind diese Unterschiede dargestellt.
+\begin{table}[H]
+\captionof{table}{Darstellbare Zahlen von 16 und 32 Bit}
+\label{tab:numbers}
+\begin{tabular}{|c|c|c|}
+\hline                                       & 16 Bit                             & 32 Bit              \\ \hline
+kleinste darstellbare positive Zahl    & $0.61  \cdot 10^{-4}$              & $1.1755 \cdot 10^{–38}$ \\ \hline
+grösste darstellbare positive Ganzzahl & $65504$                            & $ 3.403 \cdot 10^{38}$  \\ \hline
+minimal subnormale Zahl                & $2^{–24} \approxeq 5.96 \cdot 10^{–8}$ & $ 2^{–149}$         \\ \hline
+\end{tabular}
+\end{table}
 
+Subnormale Zalen ergeben sich, wenn der Exponent 0 ist und \todo[inline]{subnormale Zahlen}
 
-
-
+Durch diese Unterschiede im Umfang der darstellbaren Zahlen ergibt sich ein direkter Unterschied im Training eines CNNs. Durch den Wechsel auf 16 Bit ist ein bestimmter Teil der Gradienten gleich Null. 
 
 Diese Nachteile von 16 Bit Gleitkommazahlen können durch drei Techniken abgemeildert oder sogar komplett aufgehoben werden:
 \begin{itemize}

@@ -1,6 +1,6 @@
-\chapter{Strukturelle Veränderungen zur Beschleunigung des Trainings}
+\section{Strukturelle Veränderungen zur Beschleunigung des Trainings}
 
-\section{Pruning um Trainingszeit zu minimieren}
+\subsection{Pruning um Trainingszeit zu minimieren}
 Pruning ist eine Technik, die entwickelt wurde, um die Inferenzzeit eines neuronalen Netzwerks zu reduzieren. Das Pruningverfahren wird auf das bereits trainierte Netz angewendet. Dabei wird entschieden, welche Gewichte nur einen minimalen Effekt auf das Klassifikationsergebnis haben um diese zu entfernen.
 
 Aktueller Gegenstand der Forschung ist hier die Frage, ob diese kleineren Netzwerke nicht bereits ab Epoche Null trainiert werden können, um so Trainingszeit zu sparen. Dieser Ansatz wurde in verschiedenen Veröffentlichungen untersucht:
@@ -10,7 +10,7 @@ Aktueller Gegenstand der Forschung ist hier die Frage, ob diese kleineren Netzwe
 \end{itemize}
 Zunächst werden die einzelen Verfahren erläutert, um sie danach miteinander zu vergleichen.
 
-\subsection{Prune Train}
+\subsubsection{Prune Train}
 Prune Train fügt einen Normalisierungsterm zur Loss-Funktion des Netzwerkes hinzu. Dies geschieht, damit der Optimierungsprozess dazu gezwungen wird möglichst kleine Gewichte zu wählen. Durch diesen Prozess wird aus dem dense Netz ein sparse Netz. Dieses sparse Netz sorgt allerdings noch nicht für weniger Zeitbedarf einer Trainingsepoche, da für ein Sparse aufwändige Datenindextechniken notwendig sind. Daher wird bei diesem Verfahren das Netz rekonfiguiert um das Modell kleiner und die Struktur wieder dense zu machen.
 Dabei hat Prune Train drei zentrale Optimierungsverfahren:
 \begin{itemize}
@@ -54,13 +54,13 @@ Um die Lasso Group Regularisierung vom Anfang des Trainings zu benutzen solltede
  Das Reconfigurationsintervall ist ist der einzige zusätzliche Hyperparameter. Zu gross gewählt würde der Intervallparameter zu wenig Zeitverbesserung bringen. Zu klein gewählt könnte er die Lernqualität beeinflussen.
 4 Matriken zur Evaluierung: Training und Inference FLOPs, gemessenen Trainingszeit, und Validierungsaccuracy. 
 
+\subsubsection{The Lottery Ticket Hypothesis}
 
 
-
-\section{Net 2 Net}
-
-
-\section{Kernel rescaling}
+\subsection{Net 2 Net}
 
 
-\section{Resource Aware Layer Replacement}
+\subsection{Kernel rescaling}
+
+
+\subsection{Resource Aware Layer Replacement}
