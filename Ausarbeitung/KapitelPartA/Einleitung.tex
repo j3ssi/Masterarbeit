@@ -2,7 +2,22 @@
 
 \section{Funktionsweise eines CNN}\label{sec:conv}
 Die Quelle für dieses Unterkapitel ist soweit nicht anders vermerkt ein Buch über \enquote{Deep Learning} \cite{CNNBook}.
-Ein CNN besteht in der Regel aus mehreren Conv-Layern und einem oder mehreren Fully-Connected Layern. Die Conv-Layer sind dabei das Herzstück dieser Netzform. Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
+CNNs sind neuronale Netze, die in mindestens einer ihrer Schichten die Faltung anstelle der allgemeinen Matrixmultiplikation verwenden. Als Eingabedaten sind für das CNN gridförmige Daten geeignet. Da Bilder im Computer in der Regel gridförmig abgespeichert werden, ist die Bildverarbeitung eine große Anwendungsdomäne von CNNs. Im Bereich der Bildverarbeitung werden CNNs beispielsweise für diese Aufgaben verwendet:
+
+\begin{itemize}
+ \item Bildklassifikation
+ \item Bildsegmentierung
+ \item Bildmanipulation
+\end{itemize}
+
+
+\subsection{Faltung}
+\todo[inline]{Erkläre wie die Faltung im Kontext eines CNNs funktioniert}
+
+
+
+\begin{comment}
+Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
 
 
 \begin{figure}[h]
@@ -68,16 +83,17 @@ Pooling ist eine Operation, die die Größe der Feature-Map verkleinert und somi
 Die Fully-Connected-Layer errechnen aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.  
 
 Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen des Fully-Connected Layers trainierbar. Das heißt durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und des Fully-Connected Layer so zu verändern, dass das gesamte CNN besser klassifizieren kann. Für diese Veränderung wird ein Gradientenabstiegsverfahren, welches rückwärts durch die Schichten propagiert wird, benutzt.
+\end{comment}
 
+\todo[inline]{CNN Erklärung}
+
+
+
+\section{Suchbegriffe}
+\todo[inline]{verwendete Suchbegriffe}
+
+\section{verwendete Datensets}
+\todo[inline]{verwendete Datensets}
 
 \section{Überblick über die gängigen Methoden}
-
-
-
-\subsection{Suchbegriffe}
-
-
-
-\subsection{verwendete Datensets}
-
-
+\todo[inline]{kurzer Sectioneinleitungstext über die gängigen Methoden}

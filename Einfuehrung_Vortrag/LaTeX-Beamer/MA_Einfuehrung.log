@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  29 OCT 2019 15:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  11 FEB 2020 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1523,8 +1523,8 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 47.
 
-Overfull \hbox (1069.75636pt too wide) detected at line 47
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) detected at line 47
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -1532,8 +1532,8 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 3.59998pt on input line 49.
 
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -1551,474 +1551,93 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 7.19995pt on input line 77.
 
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [2
 
 ]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [3
 
 
 ]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+<grafik/cnn.jpeg, id=214, 1259.70625pt x 425.59pt>
+File: grafik/cnn.jpeg Graphic file (type jpg)
+<use grafik/cnn.jpeg>
+Package pdftex.def Info: grafik/cnn.jpeg  used on input line 86.
+(pdftex.def)             Requested size: 245.83282pt x 83.05139pt.
+
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [4
 
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ <./grafik/cnn.jpeg>]
+<grafik/module12.jpg, id=251, 642.4pt x 481.8pt>
+File: grafik/module12.jpg Graphic file (type jpg)
+<use grafik/module12.jpg>
+Package pdftex.def Info: grafik/module12.jpg  used on input line 95.
+(pdftex.def)             Requested size: 276.559pt x 207.4199pt.
+
+Overfull \vbox (58.3078pt too high) detected at line 95
+ []
+
+
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [5
 
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ <./grafik/module12.jpg>]
+<grafik/module14.jpg, id=292, 642.4pt x 481.8pt>
+File: grafik/module14.jpg Graphic file (type jpg)
+<use grafik/module14.jpg>
+Package pdftex.def Info: grafik/module14.jpg  used on input line 104.
+(pdftex.def)             Requested size: 276.559pt x 207.4199pt.
+
+Overfull \vbox (58.3078pt too high) detected at line 104
+ []
+
+
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [6
 
+ <./grafik/module14.jpg>]
+<grafik/resnet.png, id=329, 337.26pt x 148.555pt>
+File: grafik/resnet.png Graphic file (type png)
+<use grafik/resnet.png>
+Package pdftex.def Info: grafik/resnet.png  used on input line 113.
+(pdftex.def)             Requested size: 245.83282pt x 108.28557pt.
 
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [7
 
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ <./grafik/resnet.png>]
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [8
 
 ]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Overfull \hbox (1098.97903pt too wide) has occurred while \output is active
+  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [9
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[10
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[11
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[12
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[13
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[14
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[15
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[16
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[17
-
-
-]
-Overfull \vbox (23.2163pt too high) detected at line 180
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[18
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[19
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[20
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[21
-
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[22
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[23
-
-]
-Overfull \vbox (11.2163pt too high) detected at line 212
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[24
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[25
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[26
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[27
-
-
-]
-Overfull \vbox (81.42531pt too high) detected at line 222
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[28
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[29
-
-]
-Overfull \vbox (33.50633pt too high) detected at line 253
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[30
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[31
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[32
-
-
-]
-Overfull \vbox (95.32434pt too high) detected at line 273
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[33
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[34
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[35
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[36
-
-
-]
-Overfull \vbox (23.32434pt too high) detected at line 315
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[37
-
-]
-Overfull \vbox (2.2163pt too high) detected at line 338
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[38
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[39
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[40
-
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[41
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[42
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[43
-
-
-]
-Overfull \vbox (41.2163pt too high) detected at line 354
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[44
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[45
-
-] (./MA_Einfuehrung.toc)
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[46
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[47
-
-
-]
-Overfull \vbox (21.50633pt too high) detected at line 370
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[48
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[49
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[50
-
-]
-LaTeX Font Info:    Try loading font information for U+msa on input line 414.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 414.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for U+wasy on input line 414.
-
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
-File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
-)
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 414.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 414.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 414.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 414.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 414.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 4.49997pt on input line 414.
-
-Overfull \hbox (6.78694pt too wide) in paragraph at lines 414--414
- [] 
- []
-
-
-Overfull \vbox (8.3218pt too high) detected at line 414
- []
-
-
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[51
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[52
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[53
-
- </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[54
-
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[55
-
-
-]
-Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
-  [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[56
-
 
 ]
 \tf@nav=\write8
@@ -2030,11 +1649,11 @@ Overfull \hbox (1069.75636pt too wide) has occurred while \output is active
 \tf@snm=\write10
 \openout10 = `MA_Einfuehrung.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
  (./MA_Einfuehrung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
 
 
 Package rerunfilecheck Warning: File `MA_Einfuehrung.out' has changed.
@@ -2042,28 +1661,93 @@ Package rerunfilecheck Warning: File `MA_Einfuehrung.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `MA_Einfuehrung.out':
-(rerunfilecheck)             Before: 12C74E3A53C0047B612F8F84F4061C93;694
-(rerunfilecheck)             After:  FE895148D268EB276D6CAC4796D6AFFD;740.
+(rerunfilecheck)             Before: FE895148D268EB276D6CAC4796D6AFFD;740
+(rerunfilecheck)             After:  776801B50DB9DA962C5747BB903D8969;48.
 Package logreq Info: Writing requests to 'MA_Einfuehrung.run.xml'.
 \openout1 = `MA_Einfuehrung.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26245 strings out of 492982
- 490128 string characters out of 6134895
- 945804 words of memory out of 5000000
- 29101 multiletter control sequences out of 15000+600000
- 33970 words of font info for 47 fonts, out of 8000000 for 9000
+ 25869 strings out of 492982
+ 482663 string characters out of 6134895
+ 939263 words of memory out of 5000000
+ 28856 multiletter control sequences out of 15000+600000
+ 24416 words of font info for 30 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 56i,17n,61p,1592b,1974s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvro8a.pfb>
-Output written on MA_Einfuehrung.pdf (56 pages, 207395 bytes).
+ 56i,17n,61p,781b,1974s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Navigation10} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation15} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation53} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation46} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation42} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation39} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation35} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation31} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation26} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation20} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation16} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation56} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.11} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.10} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.9} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.8} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.7} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.6} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.5} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.4} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2} has been referenced but does not exist,
+ replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on MA_Einfuehrung.pdf (9 pages, 194992 bytes).
 PDF statistics:
- 2312 PDF objects out of 2487 (max. 8388607)
- 2206 compressed objects within 23 object streams
- 141 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

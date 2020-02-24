@@ -1,4 +1,4 @@
-\section{Verringerung der für Berechnungen nötige Zeit}
+\subsection{Verringerung der für Berechnungen nötige Zeit}
 
 
 
@@ -9,12 +9,13 @@ Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab v
  \item der Filtergr\"osse
  \item der Bildgr\"osse
  \item dem verwendeten Zahlenformat
+ 
 \end{itemize}
 Beim Verändern der Filter- oder der Bildgr\"osse, um Trainingszeit zu sparen, ver\"andert sich auch die Erkennungsleistung \todo{cite}. Dies ist beim Verändern des verwendeten Zahlenformats nicht umbedingt gegeben. Standardformat ist eine 32 Bit Gleitkommazahl. Die einfachste Methode hier Trainingszeit zu sparen ist das Halbieren der Bitanzahl auf 16 Bit. Eine weitere Methode ist das Benutzen von 16 Bit Dynamischen Festkommazahlen.
 Die beiden alternativen Methoden haben unterschiedliche Anforderungen an die Ausführungsplattform. Diese Anforderungen und die Besonderheiten der beiden Verfahren werden in den folgenden zwei Unterkapiteln näher beleuchtet.
 
 
-\subsection{Berechnung mit 16 Bit Gleitkomma}
+\paragraph{Berechnung mit 16 Bit Gleitkomma}
 \cite{ieee}
 Die 16 Bit Gleitkommazahl unterscheidet sich nicht nur in der Länge von der 32 Bit Zahl sondern aus der unterschiedlichen Länge erwachsen Unterschiede in den darstellbaren Zahlen. In Tabelle \ref{tab:numbers} sind diese Unterschiede dargestellt. 
 
@@ -40,10 +41,6 @@ Diese Nachteile von 16 Bit Gleitkommazahlen können durch drei Techniken abgemei
  \item Arithmetische Präzision 
 \end{itemize}
 
-Diese drei Techniken werden in den drei folgenden Unterkpaiteln behandelt.
-
-\subsubsection{32 Bit Mastergewichte und Updates}
-
 Beim Trainieren von neuronalen Netzwerken mit 16 Bit Gleitkommazahlen werden die Gewichte, Aktivierungen und Gradienten im 16 Bit Format gespeichert. Die Speicherung der Gewichte als 32 Bit Mastergewichte hat zwei mögliche Erklärungen, die aber nicht immer zutreffen müssen. 
 
 Um nach einem Forward Druchlauf des Netzes die Gewichte abzudaten wird ein Gradientenabstiegsverfahren benutzt. Hierbei werden die Gradienten der Gewichte berechnet. Um für die Funktion, die das CNN approximiert einen besseren Approximationserfolg zu erlangen wird dann dieser Gradient mit der Lernrate multipliziert. Wird dieses Produkt in 16 Bit abgespeichert, so ist in viele Fällen das Produkt der beiden Zahlen gleich Null. Dies liegt an der Taqtsache, dass wie in Tabelle \todo{ref} zu sehen ist die kleinste darstellbare Zahl in 16 Bit wesentlich grösser ist als in 32 Bit.
@@ -55,9 +52,6 @@ Aus den beiden Gründen wird das in Abbildung \todo{ref} gezeigte Schema zum Tra
 
 \missingfigure{Schema}
 
-\subsubsection{Sklaierung der Loss-Funktion}
-
-\subsubsection{Arithmetische Präzision}
 
 
 \subsection{Berechnung mit 16 Bit Dynamischen Festkommazahlen}

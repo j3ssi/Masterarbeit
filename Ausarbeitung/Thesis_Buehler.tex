@@ -206,6 +206,7 @@ breaklines=true
 \renewcommand{\listalgorithmname}{Algorithmenverzeichnis}
 \renewcommand{\algorithmiccomment}[1]{\color{grau}{// #1}}
 
+\usepackage{verbatim}
 
 % -------------------------------------------------------------------
 % -------------------------------------------------------------------
@@ -232,6 +233,9 @@ breaklines=true
 % Mathematische Notation -----------------------------------------------
 %
 \pagestyle{empty}
+
+\listoftodos
+
 \pdfbookmark{Mathematische Notation}{pdf:Notation}
 \include{notation}
 \cleardoublepage
@@ -244,6 +248,7 @@ breaklines=true
 \include{Einleitung}
 
 \cleardoublepage
+
 \include{KapitelPartA/Einleitung}
 
 \include{KapitelPartA/Arithmetik}

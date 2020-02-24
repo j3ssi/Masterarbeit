@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: LS7-Thesis.aux
+The top-level auxiliary file: Thesis_Buehler.aux
 A level-1 auxiliary file: frontpage.aux
 A level-1 auxiliary file: notation.aux
 A level-1 auxiliary file: Einleitung.aux
@@ -16,45 +16,45 @@ A level-1 auxiliary file: appendix.aux
 The style file: alpha.bst
 Database file #1: Literature.bib
 Warning--I didn't find a database entry for "ieee"
-You've used 5 entries,
+You've used 2 entries,
             2543 wiz_defined-function locations,
-            600 strings with 5761 characters,
-and the built_in function-call counts, 2149 in all, are:
-= -- 186
-> -- 167
-< -- 2
-+ -- 63
-- -- 62
-* -- 166
-:= -- 397
-add.period$ -- 16
-call.type$ -- 5
-change.case$ -- 45
-chr.to.int$ -- 5
-cite$ -- 5
-duplicate$ -- 68
-empty$ -- 116
-format.name$ -- 68
-if$ -- 404
+            584 strings with 5277 characters,
+and the built_in function-call counts, 1192 in all, are:
+= -- 95
+> -- 120
+< -- 0
++ -- 46
+- -- 46
+* -- 110
+:= -- 231
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 27
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 28
+empty$ -- 46
+format.name$ -- 47
+if$ -- 213
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 30
-num.names$ -- 15
-pop$ -- 55
+missing$ -- 3
+newline$ -- 14
+num.names$ -- 6
+pop$ -- 28
 preamble$ -- 1
-purify$ -- 51
+purify$ -- 30
 quote$ -- 0
-skip$ -- 50
+skip$ -- 22
 stack$ -- 0
-substring$ -- 36
-swap$ -- 5
-text.length$ -- 2
-text.prefix$ -- 2
+substring$ -- 14
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
+type$ -- 12
 warning$ -- 0
-while$ -- 13
-width$ -- 8
-write$ -- 67
+while$ -- 6
+width$ -- 4
+write$ -- 28
 (There was 1 warning)

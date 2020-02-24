@@ -1,19 +1,6 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{DMM{\etalchar{+}}18}
 
-\bibitem[CCGS16]{CNNImg}
-J.F. Couchot, R.~Couturier, C.~Guyeux, and M.~Salomon.
-\newblock Steganalysis via a convolutional neural network using large
-  convolution filters.
-\newblock {\em CoRR}, 2016.
-
-\bibitem[Des]{github}
-A.~Deshpande.
-\newblock A beginner's guide to understanding convolutional neural networks.
-\newblock
-  \url{https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/}.
-\newblock Aufgerufen am 17.10.2018.
-
 \bibitem[DMM{\etalchar{+}}18]{FPGpu}
 Dipankar Das, Naveen Mellempudi, Dheevatsa Mudigere, Dhiraj~D. Kalamkar,
   Sasikanth Avancha, Kunal Banerjee, Srinivas Sridharan, Karthik Vaidyanathan,
@@ -28,10 +15,5 @@ Dipankar Das, Naveen Mellempudi, Dheevatsa Mudigere, Dhiraj~D. Kalamkar,
 I.~Goodfellow, Y.~Bengio, and A.~Courville.
 \newblock {\em Deep Learning}.
 \newblock MIT Press, 2016.
-
-\bibitem[Hay98]{neural}
-S.~Haykin.
-\newblock {\em Neural Networks: A Comprehensive Foundation}.
-\newblock Prentice Hall PTR, Upper Saddle River, NJ, USA, 2nd edition, 1998.
 
 \end{thebibliography}

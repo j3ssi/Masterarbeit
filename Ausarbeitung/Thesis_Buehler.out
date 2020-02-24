@@ -1,0 +1,49 @@
+\BOOKMARK [0][]{pdf:title.0}{Front page}{}% 1
+\BOOKMARK [0][]{pdf:toc.0}{Inhaltsverzeichnis}{}% 2
+\BOOKMARK [0][]{pdf:Notation.0}{Mathematische Notation}{}% 3
+\BOOKMARK [0][]{chapter.1}{Einleitung}{}% 4
+\BOOKMARK [1][-]{section.1.1}{Motivation und Hintergrund dieser Arbeit}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Aufbau der Arbeit}{chapter.1}% 6
+\BOOKMARK [0][]{chapter.2}{Stand der Wissenschaft}{}% 7
+\BOOKMARK [1][-]{section.2.1}{Funktionsweise eines CNN}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.1.1}{Faltung}{section.2.1}% 9
+\BOOKMARK [1][-]{section.2.2}{Suchbegriffe}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{verwendete Datensets}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{\334berblick \374ber die g\344ngigen Methoden}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.4.1}{Verringerung der f\374r Berechnungen n\366tige Zeit}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.2}{Berechnung mit 16 Bit Dynamischen Festkommazahlen}{section.2.4}% 14
+\BOOKMARK [1][-]{section.2.5}{Beschleunigung der Berechnung des Gradientenabstiegsverfahren}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.5.1}{Accelerating CNN Training by Sparsifying Activation Gradients}{section.2.5}% 16
+\BOOKMARK [2][-]{subsection.2.5.2}{Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks}{section.2.5}% 17
+\BOOKMARK [2][-]{subsection.2.5.3}{Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}{section.2.5}% 18
+\BOOKMARK [2][-]{subsection.2.5.4}{Accelerated CNN Training Through Gradient Approximation}{section.2.5}% 19
+\BOOKMARK [1][-]{section.2.6}{Verfahren um weniger Trainingsdaten zu verwenden}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.6.1}{Stochastisches Pooling}{section.2.6}% 21
+\BOOKMARK [2][-]{subsection.2.6.2}{Lernen von Struktur und St\344rke von CNNs}{section.2.6}% 22
+\BOOKMARK [1][-]{section.2.7}{Strukturelle Ver\344nderungen zur Beschleunigung des Trainings}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.7.1}{Pruning um Trainingszeit zu minimieren}{section.2.7}% 24
+\BOOKMARK [2][-]{subsection.2.7.2}{Net 2 Net}{section.2.7}% 25
+\BOOKMARK [2][-]{subsection.2.7.3}{Kernel rescaling}{section.2.7}% 26
+\BOOKMARK [2][-]{subsection.2.7.4}{Resource Aware Layer Replacement}{section.2.7}% 27
+\BOOKMARK [1][-]{section.2.8}{Weitere Herangehensweisen}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.8.1}{Tree CNN}{section.2.8}% 29
+\BOOKMARK [2][-]{subsection.2.8.2}{Standardization Loss}{section.2.8}% 30
+\BOOKMARK [2][-]{subsection.2.8.3}{Wavelet}{section.2.8}% 31
+\BOOKMARK [0][]{chapter.3}{Experimentelle Untersuchung der m\366glichen Strategien}{}% 32
+\BOOKMARK [1][-]{section.3.1}{Experimentales Setup}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.2}{\334berblick \374ber die m\366glichen Strategien}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.2.1}{Zahlenformate}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.2}{Beschleunigung der Berechnung des Gradientenabstiegverfahren}{section.3.2}% 36
+\BOOKMARK [2][-]{subsection.3.2.3}{Verfahren um weniger Trainingsdaten zu verwenden}{section.3.2}% 37
+\BOOKMARK [2][-]{subsection.3.2.4}{Strukturelle Ver\344nderungen}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.5}{andere Herangehensweisen}{section.3.2}% 39
+\BOOKMARK [2][-]{subsection.3.2.6}{Tensorflow vs. PyTorch}{section.3.2}% 40
+\BOOKMARK [1][-]{section.3.3}{Durchf\374hrung der Experimente}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.1}{Kombination von Net2Net mit PruneTrain}{section.3.3}% 42
+\BOOKMARK [1][-]{section.3.4}{Evaluation der Ergebenisse}{chapter.3}% 43
+\BOOKMARK [0][]{chapter.4}{Konklusion}{}% 44
+\BOOKMARK [-1][]{part.1}{Additional information}{}% 45
+\BOOKMARK [0][]{chapter*.23}{Abbildungsverzeichnis}{part.1}% 46
+\BOOKMARK [0][]{chapter*.24}{Algorithmenverzeichnis}{part.1}% 47
+\BOOKMARK [0][]{chapter*.25}{Quellcodeverzeichnis}{part.1}% 48
+\BOOKMARK [0][]{chapter*.25}{Literaturverzeichnis}{part.1}% 49

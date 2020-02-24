@@ -6,7 +6,7 @@
 
 \section{Experimentales Setup}
 
-Welche Hardware und damit zusammenhängend welche Versionen der dazugehörenden Software ind vorhanden ---- Daraus erwächst die Auswahl welche Strategien überhaupt möglich sind 
+Welche Hardware und damit zusammenhängend welche Versionen der dazugehörenden Software sind vorhanden ---- Daraus erwächst die Auswahl welche Strategien überhaupt möglich sind 
 
 
 \section{Überblick über die möglichen Strategien}
@@ -16,7 +16,7 @@ Hier werden nur die Strategien aufgeführt, welche überhaupt auf vernünftig gr
 Die Strategien sind aufgeteilt in Unterkapitel. 
 
 Alle möglichen Kombinationen von Strategien sind zuviele. Daher sinnvolle Vorauswahl treffen.  
-
+Bei mehreren gleichartigen/ konkurierenden Ansätze drekter Vergleich und dann den besten auswählen.
 \subsection{Zahlenformate}
 
 \begin{itemize}
@@ -25,17 +25,61 @@ Alle möglichen Kombinationen von Strategien sind zuviele. Daher sinnvolle Vorau
  \item DFP 16 with Swalp
 \end{itemize}
 
-
+DFP 16 bisher nur auf CPU sinnvoll
 
 \subsection{Beschleunigung der Berechnung des Gradientenabstiegverfahren}
+
+
+\subsubsection{Accelerating CNN Training by Sparsifying Activation Gradients}
+
+Funktioniert nur auf Toy-Benchmarks
+
+
+\subsubsection{Weight Normalization: A Simple Reparameterization
+to Accelerate Training of Deep Neural Networks}
+
+
+Könnte funktionieren. Code für Lasagne: https://github.com/TimSalimans/weight_norm
+
+
+\subsubsection{Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}
+
+Interessant bisher kein Code verfügbar
+
+
+\subsubsection{Accelerated CNN Training Through Gradient Approximation }
+
+Interessant bisher kein Code verfügbar
+
 
 
 
 \subsection{Verfahren um weniger Trainingsdaten zu verwenden}
 
 
+\subsubsection{Stochastisches Pooling}
+
+Klingt sehr interessant und könnte für deutlich kleinere Trainingsdatenmenge sorgen
+
+https://github.com/Shuangfei/s3pool
+
+
+\subsection{Lernen von Struktur und Stärke von CNNs}
+
+bisher kein Code verfügbar.Klingt aber interessant
+
+
 \subsection{Strukturelle Veränderungen}
 
+
+\subsubsection{PruneTrain}
+
+Code vorhanden
+
+
+\subsubsection{Net2Net}
+
+Code vorhanden
 
 \subsection{andere Herangehensweisen}
 
@@ -44,6 +88,12 @@ Alle möglichen Kombinationen von Strategien sind zuviele. Daher sinnvolle Vorau
 
 \subsection{Tensorflow vs. PyTorch}
 
+
+\section{Durchführung der Experimente}
+
+
+\subsection{Kombination von Net2Net mit PruneTrain}
+Jedes Bildklassifizierungsproblem hat 
 
 
 \section{Evaluation der Ergebenisse}

@@ -2,21 +2,3 @@
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {1}{Einf\IeC {\"u}hrung}{2}{0}{1}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {2}{M\IeC {\"o}glichkeiten zum Zeiteinsparen auf arithmetischen Niveau}{5}{0}{2}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{PruneTrain}{16}{0}{3}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {4}{Effizient Neural Network Search}{20}{0}{4}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {5}{Weniger Trainingsdaten}{26}{0}{5}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {6}{Wavelet}{31}{0}{6}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {7}{Accelerating Training of Deep Neural Networks with a Standardization Loss}{35}{0}{7}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {8}{Kernel rescaling}{39}{0}{8}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {9}{Accelerated Training for CNN Distributed Deep Learning through Automatic Resource-Aware Layer Placement}{42}{0}{9}
-\defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {10}{TreeCNN}{46}{0}{10}
