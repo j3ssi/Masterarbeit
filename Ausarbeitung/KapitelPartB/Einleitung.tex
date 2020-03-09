@@ -2,11 +2,10 @@
 
 
 
-
-
 \section{Experimentales Setup}
-
-Welche Hardware und damit zusammenhängend welche Versionen der dazugehörenden Software sind vorhanden ---- Daraus erwächst die Auswahl welche Strategien überhaupt möglich sind 
+Server mit 4 Graka:
+2 mal Geforce GTX 1080 Ti mit CUDA Version 10.1 
+2 mal Geforce RTX 2080 Ti mit CUDA Version 10.1
 
 
 \section{Überblick über die möglichen Strategien}
@@ -27,6 +26,8 @@ Bei mehreren gleichartigen/ konkurierenden Ansätze drekter Vergleich und dann d
 
 DFP 16 bisher nur auf CPU sinnvoll
 
+FP16 nur auf RTX 2080 sinnvoll
+
 \subsection{Beschleunigung der Berechnung des Gradientenabstiegverfahren}
 
 
@@ -39,7 +40,7 @@ Funktioniert nur auf Toy-Benchmarks
 to Accelerate Training of Deep Neural Networks}
 
 
-Könnte funktionieren. Code für Lasagne: https://github.com/TimSalimans/weight_norm
+Könnte funktionieren. Code für Lasagne: https://github.com/TimSalimans/weight\_norm
 
 
 \subsubsection{Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}
@@ -90,6 +91,13 @@ Code vorhanden
 
 
 \section{Durchführung der Experimente}
+Arbeite auf Grundlage des PruneTrain Codes.
+
+
+\subsection{Einfluss der Batch Größe}
+Im PruneTrain paper ist angegeben, dass die Batch Size so gross gewählt wird, dass der GPU Speicher ausgenutzt wird. 
+Es gibt Paper, die in Frage stelen, ob eine grössere Batch Size nicht der Performance schadet \cite{largeBatch}
+
 
 
 \subsection{Kombination von Net2Net mit PruneTrain}

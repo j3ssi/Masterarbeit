@@ -156,18 +156,31 @@
   author    = {I. Goodfellow and Y. Bengio and A. Courville},
 }
 
-@Misc{github,
-  author       = {A. Deshpande},
-  title        = {A Beginner's Guide To Understanding Convolutional Neural Networks},
-  howpublished = {\url{https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/}},
-  note         = {Aufgerufen am 17.10.2018},
-}
-
 @Article{CNNImg,
   author  = {J.F. Couchot and R. Couturier and C. Guyeux and M. Salomon},
   title   = {Steganalysis via a Convolutional Neural Network using Large Convolution Filters},
   journal = {CoRR},
   year    = {2016},
+}
+
+@Book{neural,
+  title     = {Neural Networks: A Comprehensive Foundation},
+  publisher = {Prentice Hall PTR},
+  year      = {1998},
+  author    = {Haykin, S.},
+  address   = {Upper Saddle River, NJ, USA},
+  edition   = {2nd},
+}
+
+@InCollection{largeBatch,
+  author    = {Hoffer, Elad and Hubara, Itay and Soudry, Daniel},
+  title     = {Train longer, generalize better: closing the generalization gap in large batch training of neural networks},
+  booktitle = {Advances in Neural Information Processing Systems 30},
+  publisher = {Curran Associates, Inc.},
+  year      = {2017},
+  editor    = {I. Guyon and U. V. Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+  pages     = {1731--1741},
+  url       = {http://papers.nips.cc/paper/6770-train-longer-generalize-better-closing-the-generalization-gap-in-large-batch-training-of-neural-networks.pdf},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

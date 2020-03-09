@@ -1,22 +1,31 @@
 \chapter{Stand der Wissenschaft}
-
-\section{Funktionsweise eines CNN}\label{sec:conv}
+Diese Kapitel soll dem Leser eine Übersicht über den aktuellen Stand der Wissenschaft geben. Zu diesem Zweck hat dieses Kapitel zwei Teile. Im ersten Teil wird zunächst grundlegend die Funktionsweise von CNNs erläutert. Im zweiten Teil des Kapitels wird ein Überblick über die bisherigen wissenschaftlichen Erkenntnisse im Themenbereich dieser Arbeit vorgetellt.
+\section{Funktionsweise eines CNNs}\label{sec:conv}
 Die Quelle für dieses Unterkapitel ist soweit nicht anders vermerkt ein Buch über \enquote{Deep Learning} \cite{CNNBook}.
-CNNs sind neuronale Netze, die in mindestens einer ihrer Schichten die Faltung anstelle der allgemeinen Matrixmultiplikation verwenden. Als Eingabedaten sind für das CNN gridförmige Daten geeignet. Da Bilder im Computer in der Regel gridförmig abgespeichert werden, ist die Bildverarbeitung eine große Anwendungsdomäne von CNNs. Im Bereich der Bildverarbeitung werden CNNs beispielsweise für diese Aufgaben verwendet:
 
-\begin{itemize}
- \item Bildklassifikation
- \item Bildsegmentierung
- \item Bildmanipulation
-\end{itemize}
+CNNs sind spezielle neuronale Netze. Der Unterschied zu einem \enquote{Multilayer-Perzeptron (MLP)\footnote{Die Hintergründe des MLPs und allgemein neuronaler Netzwerke werden hier nicht behandelt. Für eine Einführung in neuronale Netzwerke kann aber \cite{neural} herangezogen werden}} ist, dass bei einem MLP jede Verbindung zwischen Neuronen und die Neuronen selber ein eigenes trainierbares Gewicht haben. Aus diesen trainierbaren Werten wird mittels einer Matrixmultiplikation mit den Eingabedaten bzw. den Daten der vorherigen Schicht die Ausgabe jedes Neurons berechnet.
+Im Gegensatz dazu sind CNNs neuronale Netze, die in mindestens einer ihrer Schichten die Faltung anstelle der allgemeinen Matrixmultiplikation verwenden.
 
 
-\subsection{Faltung}
-\todo[inline]{Erkläre wie die Faltung im Kontext eines CNNs funktioniert}
+Dies bedeutet, dass die Eingabedaten für ein CNN für diese Faltung geeignet sein müssen. Geeignet für die Faltung sind Eingabedaten, die gridförmig angeordnet sind. Bilddaten sind ein grosser Anwendungsbereich für CNNs.
+
+Bei der Faltung wird auf die Eingabedaten bzw- die Daten dr vorherigen Schicht ein Kernel angewendet.
+
+In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Grösse des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Featuremap.
+Mehrere dieser Kernel bilden zusammen ein Convolutional Layer. \todo[inline]{bis hier}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.45 \textwidth,keepaspectratio=true]{images/convolution.png}
+ % convolution.png: 342x321 px, 72dpi, 12.06x11.32 cm, bb=0 0 342 321
+ \label{fig:faltung}
+ \caption{Definition der Faltung \cite{CNNBook}}
+\end{figure}
+
+In einem CNN werden mehrere dieser Convolutional Layer hintereinander geschaltet, um komplexe Features erkennen zu können. 
 
 
 
-\begin{comment}
 Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
 
 
@@ -27,9 +36,6 @@ Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fi
   \label{fig:cnn}
 \end{figure}
 
-
-Der Unterschied zu einem \enquote{Multilayer-Perzeptron (MLP)\footnote{Die Hintergründe des MLPs und allgemein neuronaler Netzwerke werden hier nicht behandelt. Für eine Einführung in neuronale Netzwerke kann aber \cite{neural} herangezogen werden}} ist, dass bei einem MLP jede Verbindung zwischen Neuronen und die Neuronen selber ein eigenes trainierbares Gewicht haben. Ein MLP ist ein klassisches neuronales Netz, welches nur aus Fully-Connected Layern besteht. Beim CNN werden pro Schicht in einem Layer nur die Elemente der Filtermaske trainiert. Zusammen mit der viel kleineren Größe der Filter ergibt sich beim CNN im Vergleich zum MLP eine geringere Anzahl an Parametern die trainiert werden.
-
 In Abbildung \ref{fig:cnn} ist zu sehen, dass ein CNN aus hintereinander geschalteten Conv-Layer besteht. Die Funktion der Conv-Layer wird nun näher betrachtet.
 
 Wie in Abbildung \ref{fig:cnn} zu sehen ist, ist ein Conv-Layer die hintereinander Schaltung verschiedener Operationen:
@@ -38,39 +44,6 @@ Wie in Abbildung \ref{fig:cnn} zu sehen ist, ist ein Conv-Layer die hintereinand
  \item Anwendung der Aktivierungsfunktion ReLU
  \item Pooling
 \end{itemize}
-Die Funktionsweise dieser Filter wird nun anhand eines Beispiels, welches in Abbildung \ref{fig:maus} zu sehen ist, erklärt.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/filter.pdf}
-  \caption{Filter graphische und numerische Repräsentation \cite{github}}
-  \label{fig:filter}
-\end{figure}
-
-Ein Filter hat in der Regel eine Größe, die viel kleiner als das Gesamtbild ist. Die Mitte dieses Filter wird dann an jeder Bildposition aufgelegt. Nun wird aus den jeweils aufeinander liegenden Feldern ein Produkt gebildet. Die Ergebnisse der Produkte werden addiert, normiert und in der Feature Map abgespeichert. In Abbildung \ref{fig:filter} ist ein Filter, der eine gebogene Linie erkennt, zu sehen. 
-Die positive Erkennung einer ähnlich gekrümmten Linie ist in Abbildung \ref{fig:maus} zu sehen. Wie eine negative Erkennung aussieht, ist in Abbildung \ref{fig:maus_n} zu sehen. 
-Bei mehreren hintereinander geschalteten Conv-Layern werden die erkannten Features komplexer. So ist die Klassifikation von komplexen Mustern möglich.
-
-Bei der Faltung des Filter mit dem Input Bild werden nur lineare Operationen verwendet. Um mit dem Netz komplexe Erkennung zu ermöglichen, benötigt es Nicht-Linearität. Diese Nicht-Linearität wird mit der Rectified Linear Unit (ReLu) erreicht. Dieses ReLu wird auf das Ergebnis der Faltung angewendet. 
-
-\begin{figure}
-    \centering
-    \begin{subfigure}{\includegraphics[width=0.25\textwidth]{images/cnn_maus.pdf}}
-    \end{subfigure}
-    \begin{subfigure}{\includegraphics[width=0.5\textwidth]{images/cnn_maus_p.pdf}}
-    \end{subfigure}
-    \caption{positive Erkennung des Features \enquote{gebogene Linie} \cite{github}}
-    \label{fig:maus}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/cnn_maus_n.pdf}
-  \caption{negative Erkennung des Features \enquote{gebogene Linie} \cite{github}}
-  \label{fig:maus_n}
-\end{figure}
-
-
 
 Abbildung \ref{fig:cnn} beinhaltet auch noch die Begriffe Stride und Padding, welche für das Verstehen dieser Arbeit zwar nicht notwendig sind, hier der Vollständigkeit halber trotzdem erklärt werden. 
 
@@ -83,17 +56,8 @@ Pooling ist eine Operation, die die Größe der Feature-Map verkleinert und somi
 Die Fully-Connected-Layer errechnen aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.  
 
 Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen des Fully-Connected Layers trainierbar. Das heißt durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und des Fully-Connected Layer so zu verändern, dass das gesamte CNN besser klassifizieren kann. Für diese Veränderung wird ein Gradientenabstiegsverfahren, welches rückwärts durch die Schichten propagiert wird, benutzt.
-\end{comment}
-
-\todo[inline]{CNN Erklärung}
 
 
-
-\section{Suchbegriffe}
-\todo[inline]{verwendete Suchbegriffe}
-
-\section{verwendete Datensets}
-\todo[inline]{verwendete Datensets}
 
 \section{Überblick über die gängigen Methoden}
 \todo[inline]{kurzer Sectioneinleitungstext über die gängigen Methoden}

@@ -4,13 +4,15 @@
 
 
 Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab von:
-\todo{Fehlt hier noch etwas?}
 \begin{itemize}
+ \item dem verwendeten Zahlenformat
  \item der Filtergr\"osse
  \item der Bildgr\"osse
- \item dem verwendeten Zahlenformat
- 
+ \item dem verwendetem Stride und Padding
 \end{itemize}
+
+
+
 Beim Verändern der Filter- oder der Bildgr\"osse, um Trainingszeit zu sparen, ver\"andert sich auch die Erkennungsleistung \todo{cite}. Dies ist beim Verändern des verwendeten Zahlenformats nicht umbedingt gegeben. Standardformat ist eine 32 Bit Gleitkommazahl. Die einfachste Methode hier Trainingszeit zu sparen ist das Halbieren der Bitanzahl auf 16 Bit. Eine weitere Methode ist das Benutzen von 16 Bit Dynamischen Festkommazahlen.
 Die beiden alternativen Methoden haben unterschiedliche Anforderungen an die Ausführungsplattform. Diese Anforderungen und die Besonderheiten der beiden Verfahren werden in den folgenden zwei Unterkapiteln näher beleuchtet.
 
