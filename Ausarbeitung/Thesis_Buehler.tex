@@ -12,7 +12,7 @@
 
 \RequirePackage{ifthen}
 \newcommand \Thesistyp{Masterarbeit}
-\newcommand \Author{Jessica B\"uhler}
+\newcommand \Author{Jessica Buehler}
 \newcommand \Thesistitle{Zeit-effizientes Training von Convolutional Neural Networks}
 \newcommand \FirstSupervisor{Prof.~Dr.~Heinrich~M\"uller}
 \newcommand \SecondSupervisor{M.Sc.~Matthias~Fey}
@@ -36,12 +36,13 @@
   \pdfoutput=1
   \pdftrue
   \message{pdfLaTeX}
-  \documentclass[pdftex,12pt,a4paper,twoside,ngerman,numbers=noenddot]{scrbook}
+  
+  \documentclass[pdftex,12pt,a4paper,twoside,numbers=noenddot]{scrbook}
   \usepackage{float}
-  \usepackage[pdftex]{thumbpdf}
+  %\usepackage[pdftex]{thumbpdf}
   \usepackage[pdftex]{pdflscape}
   \usepackage[pdftex]{graphicx}
-  \usepackage[pdftex]{hyperref}
+  \usepackage[pdftex, pdfencoding=auto]{hyperref}
   \usepackage{pdfpages}
   \pdfoutput=1
   \pdfcompresslevel=9
@@ -49,21 +50,22 @@
 \else
   \pdffalse
   \message{LaTeX}
-  \documentclass[dvips,12pt,a4paper,twoside,ngerman,numbers=noenddot]{scrbook}
+  \documentclass[dvips,12pt,a4paper,twoside,numbers=noenddot]{scrbook}
   \usepackage{float}
   \usepackage{graphicx}
   \usepackage{epsf}
-  \usepackage[dvips]{hyperref}
+  \usepackage[dvips, pdfencoding=auto]{hyperref}
   \DeclareGraphicsExtensions{.eps}
 \fi
 
-
+\usepackage{silence}
+\WarningFilter{scrbook}{Usage of package `fancyhdr'}
 %
 \hypersetup
 {
     pdfauthor = {\Author},
     pdftitle = {\Thesistitle},
-    pdfsubject = {\Thesistyp, TU Dortmund, Fakultät Informatik},
+    pdfsubject = {\Thesistyp, TU Dortmund, Fakultaet Informatik},
     pdfproducer = {LaTeX},
     pdfview = FitV,
     pdfstartview = FitV,
@@ -100,7 +102,7 @@
 \usepackage{scrhack}
 % -------------------------------------------------------------------
 %
-\usepackage[german,ngerman]{babel}
+\usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
@@ -113,10 +115,10 @@
 
 % -------------------------------------------------------------------
 \usepackage{url}
-\usepackage[hyphenbreaks]{breakurl}
-\def\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
-\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0%
-\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\-}%
+%\usepackage[hyphenbreaks]{breakurl}
+%\def\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+%\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0%
+%\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\-}%
 
 % -------------------------------------------------------------------
 \usepackage[margin=0pt,font=small,labelfont=bf]{caption}
@@ -216,16 +218,17 @@ breaklines=true
 
 % Front Page ---------------------------------------------------------
 %
-\pdfbookmark{Front page}{pdf:title}
+%\pdfbookmark[0]{Titlepage}{title}
+
+%\pdfbookmark{Deckblatt}{pdf:title}
 \pagenumbering{alpha}
 \pagestyle{empty}
-\include{frontpage}
-
+\input{frontpage}
 \pagestyle{empty} \cleardoublepage
 
 % Inhaltsverzeichnis -------------------------------------------------
 %
-\pdfbookmark{Inhaltsverzeichnis}{pdf:toc}
+%\pdfbookmark{Inhaltsverzeichnis}{pdf:toc}
 \tableofcontents
 
 \cleardoublepage \pagestyle{headings}
@@ -236,8 +239,8 @@ breaklines=true
 
 \listoftodos
 
-\pdfbookmark{Mathematische Notation}{pdf:Notation}
-\include{notation}
+%\pdfbookmark{Mathematische Notation}{pdf:Notation}
+\input{notation}
 \cleardoublepage
 
 \pagenumbering{arabic}

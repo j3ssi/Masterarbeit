@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  8 MAR 2020 22:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  12 MAR 2020 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -127,16 +127,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box29
 )
-(/usr/share/texlive/texmf-dist/tex/generic/thumbpdf/thumbpdf.sty
-Package: thumbpdf 2014/07/15 v3.16 Inclusion of thumbnails (HO)
-
-
-Package thumbpdf Warning: Compressed PDF objects of PDF 1.5 are not supported.
-
-
-Package thumbpdf Warning: Thumbnail data file `Thesis_Buehler.tpt' not found.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
@@ -228,6 +219,15 @@ File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4383.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+)
 )
 Package hyperref Info: Hyper figures OFF on input line 4509.
 Package hyperref Info: Link nesting OFF on input line 4514.
@@ -322,17 +322,44 @@ File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count103
 \AM@templatesizebox=\box31
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 77.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 77.
-Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 77.
+(/usr/share/texlive/texmf-dist/tex/latex/silence/silence.sty
+Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
+sages
+\sl@Save=\count104
+\sl@StateNumber=\count105
+\sl@MessageCount=\count106
+\sl@Casualties=\count107
+\sl@Filter=\toks19
+\sl@Message=\toks20
+\sl@UnexpandedMessage=\toks21
+\sl@Mess@ge=\toks22
+\sl@WarningCount=\count108
+\sl@WarningNumber=\count109
+\sl@WarningCasualties=\count110
+\sl@TempBOW=\toks23
+\sl@BankOfWarnings=\toks24
+LaTeX Info: Redefining \GenericWarning on input line 433.
+\sl@ErrorCount=\count111
+\sl@ErrorNumber=\count112
+\sl@ErrorCasualties=\count113
+\sl@TempBOE=\toks25
+\sl@BankOfErrors=\toks26
+LaTeX Info: Redefining \GenericError on input line 601.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-pdfdoc.def
+File: se-pdfdoc.def 2016/05/16 v1.11 stringenc: PDFDocEncoding
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 79.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 79.
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 79.
 
-Package hyperref Info: Option `plainpages' set `false' on input line 77.
+Package hyperref Info: Option `plainpages' set `false' on input line 79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count104
-\Gm@cntv=\count105
-\c@Gm@tempcnt=\count106
+\Gm@cnth=\count114
+\Gm@cntv=\count115
+\c@Gm@tempcnt=\count116
 \Gm@bindingoffset=\dimen113
 \Gm@wd@mp=\dimen114
 \Gm@odd@mp=\dimen115
@@ -341,7 +368,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutheight=\dimen118
 \Gm@layouthoffset=\dimen119
 \Gm@layoutvoffset=\dimen120
-\Gm@dimlist=\toks19
+\Gm@dimlist=\toks27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
@@ -353,7 +380,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
+\@emptytoks=\toks28
 \ex@=\dimen121
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -363,13 +390,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count107
+\inf@bad=\count117
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count118
+\leftroot@=\count119
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count120
+\DOTSCASE@=\count121
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -378,26 +405,26 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen123
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+\macc@depth=\count122
+\c@MaxMatrixCols=\count123
 \dotsspace@=\muskip11
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
-\tag@help=\toks21
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
-\andhelp@=\toks22
+\c@parentequation=\count124
+\dspbrk@lvl=\count125
+\tag@help=\toks29
+\row@=\count126
+\column@=\count127
+\maxfields@=\count128
+\andhelp@=\toks30
 \eqnshift@=\dimen124
 \alignsep@=\dimen125
 \tagshift@=\dimen126
 \tagwidth@=\dimen127
 \totwidth@=\dimen128
 \lineht@=\dimen129
-\@envbody=\toks23
+\@envbody=\toks31
 \multlinegap=\skip61
 \multlinetaggap=\skip62
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks32
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -419,10 +446,10 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigbottomskip=\skip65
 \subfigcapmargin=\dimen131
 \subfiglabelskip=\skip66
-\c@subfigure=\count119
-\c@lofdepth=\count120
-\c@subtable=\count121
-\c@lotdepth=\count122
+\c@subfigure=\count129
+\c@lofdepth=\count130
+\c@subtable=\count131
+\c@lotdepth=\count132
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -440,17 +467,17 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks25
-\XKV@tempa@toks=\toks26
+\XKV@toks=\toks33
+\XKV@tempa@toks=\toks34
 )
-\XKV@depth=\count123
+\XKV@depth=\count133
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks27
+\pgfutil@everybye=\toks35
 \pgfutil@tempdima=\dimen132
 \pgfutil@tempdimb=\dimen133
 
@@ -471,12 +498,12 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks28
-\pgfkeys@temptoks=\toks29
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks30
+\pgfkeys@tmptoks=\toks38
 ))
 \pgf@x=\dimen134
 \pgf@y=\dimen135
@@ -488,13 +515,13 @@ ex
 \pgf@yc=\dimen141
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count124
-\c@pgf@countb=\count125
-\c@pgf@countc=\count126
-\c@pgf@countd=\count127
-\t@pgf@toka=\toks31
-\t@pgf@tokb=\toks32
-\t@pgf@tokc=\toks33
+\c@pgf@counta=\count134
+\c@pgf@countb=\count135
+\c@pgf@countc=\count136
+\c@pgf@countd=\count137
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -510,8 +537,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count128
-\pgfsyssoftpath@bigbuffer@items=\count129
+\pgfsyssoftpath@smallbuffer@items=\count138
+\pgfsyssoftpath@bigbuffer@items=\count139
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -525,11 +552,11 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen142
-\pgfmath@count=\count130
+\pgfmath@count=\count140
 \pgfmath@box=\box35
-\pgfmath@toks=\toks34
-\pgfmath@stack@operand=\toks35
-\pgfmath@stack@operation=\toks36
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -549,7 +576,7 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count131
+\c@pgfmathroundto@lastzeros=\count141
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
@@ -587,7 +614,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box36
 \pgf@hbox=\box37
 \pgf@layerbox@main=\box38
-\pgf@picture@serial@count=\count132
+\pgf@picture@serial@count=\count142
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
@@ -620,7 +647,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen166
-\pgf@sys@shading@range@num=\count133
+\pgf@sys@shading@range@num=\count143
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -668,8 +695,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen169
 \pgffor@skip=\dimen170
-\pgffor@stack=\toks37
-\pgffor@toks=\toks38
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
@@ -677,7 +704,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count134
+\pgf@plot@mark@count=\count144
 \pgfplotmarksize=\dimen171
 )
 \tikz@lastx=\dimen172
@@ -690,18 +717,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box42
 \tikz@tempbox=\box43
 \tikz@tempbox@bg=\box44
-\tikztreelevel=\count135
-\tikznumberofchildren=\count136
-\tikznumberofcurrentchild=\count137
-\tikz@fig@count=\count138
+\tikztreelevel=\count145
+\tikznumberofchildren=\count146
+\tikznumberofcurrentchild=\count147
+\tikz@fig@count=\count148
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count139
-\pgfmatrixcurrentcolumn=\count140
-\pgf@matrix@numberofcolumns=\count141
+\pgfmatrixcurrentrow=\count149
+\pgfmatrixcurrentcolumn=\count150
+\pgf@matrix@numberofcolumns=\count151
 )
-\tikz@expandcount=\count142
+\tikz@expandcount=\count152
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -711,7 +738,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 zlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-\c@@todonotes@numberoftodonotes=\count143
+\c@@todonotes@numberoftodonotes=\count153
 )
 (/usr/share/texlive/texmf-dist/tex/latex/textpos/textpos.sty
 Package: textpos 2016/06/07 v1.8
@@ -727,7 +754,7 @@ Grid set 16 x 16 = 37.34424pt x 52.81541pt
 \TPboxrulesize=\dimen182
 \TP@ox=\dimen183
 \TP@oy=\dimen184
-\TP@tbargs=\toks39
+\TP@tbargs=\toks47
 \TP@prevdepth=\dimen185
 TextBlockOrigin set to 0pt x 0pt
 )
@@ -750,18 +777,18 @@ Package: expl3 2018/02/21 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2018/02/21 L3 programming layer (code)
-\c_max_int=\count144
-\l_tmpa_int=\count145
-\l_tmpb_int=\count146
-\g_tmpa_int=\count147
-\g_tmpb_int=\count148
-\g__intarray_font_int=\count149
-\g__prg_map_int=\count150
-\c_log_iow=\count151
-\l_iow_line_count_int=\count152
-\l__iow_line_target_int=\count153
-\l__iow_one_indent_int=\count154
-\l__iow_indent_int=\count155
+\c_max_int=\count154
+\l_tmpa_int=\count155
+\l_tmpb_int=\count156
+\g_tmpa_int=\count157
+\g_tmpb_int=\count158
+\g__intarray_font_int=\count159
+\g__prg_map_int=\count160
+\c_log_iow=\count161
+\l_iow_line_count_int=\count162
+\l__iow_line_target_int=\count163
+\l__iow_one_indent_int=\count164
+\l__iow_indent_int=\count165
 \c_zero_dim=\dimen186
 \c_max_dim=\dimen187
 \l_tmpa_dim=\dimen188
@@ -780,77 +807,77 @@ Package: expl3 2018/02/21 L3 programming layer (code)
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-\l_keys_choice_int=\count156
-\c__fp_leading_shift_int=\count157
-\c__fp_middle_shift_int=\count158
-\c__fp_trailing_shift_int=\count159
-\c__fp_big_leading_shift_int=\count160
-\c__fp_big_middle_shift_int=\count161
-\c__fp_big_trailing_shift_int=\count162
-\c__fp_Bigg_leading_shift_int=\count163
-\c__fp_Bigg_middle_shift_int=\count164
-\c__fp_Bigg_trailing_shift_int=\count165
-\c__fp_rand_size_int=\count166
-\c__fp_rand_four_int=\count167
-\c__fp_rand_eight_int=\count168
-\l__sort_length_int=\count169
-\l__sort_min_int=\count170
-\l__sort_top_int=\count171
-\l__sort_max_int=\count172
-\l__sort_true_max_int=\count173
-\l__sort_block_int=\count174
-\l__sort_begin_int=\count175
-\l__sort_end_int=\count176
-\l__sort_A_int=\count177
-\l__sort_B_int=\count178
-\l__sort_C_int=\count179
-\l__tl_build_start_index_int=\count180
-\l__tl_build_index_int=\count181
-\l__tl_analysis_normal_int=\count182
-\l__tl_analysis_index_int=\count183
-\l__tl_analysis_nesting_int=\count184
-\l__tl_analysis_type_int=\count185
-\l__regex_internal_a_int=\count186
-\l__regex_internal_b_int=\count187
-\l__regex_internal_c_int=\count188
-\l__regex_balance_int=\count189
-\l__regex_group_level_int=\count190
-\l__regex_mode_int=\count191
-\c__regex_cs_in_class_mode_int=\count192
-\c__regex_cs_mode_int=\count193
-\l__regex_catcodes_int=\count194
-\l__regex_default_catcodes_int=\count195
-\c__regex_catcode_D_int=\count196
-\c__regex_catcode_S_int=\count197
-\c__regex_catcode_L_int=\count198
-\c__regex_catcode_O_int=\count199
-\c__regex_catcode_A_int=\count266
-\c__regex_all_catcodes_int=\count267
-\l__regex_show_lines_int=\count268
-\l__regex_min_state_int=\count269
-\l__regex_max_state_int=\count270
-\l__regex_left_state_int=\count271
-\l__regex_right_state_int=\count272
-\l__regex_capturing_group_int=\count273
-\l__regex_min_pos_int=\count274
-\l__regex_max_pos_int=\count275
-\l__regex_curr_pos_int=\count276
-\l__regex_start_pos_int=\count277
-\l__regex_success_pos_int=\count278
-\l__regex_curr_char_int=\count279
-\l__regex_curr_catcode_int=\count280
-\l__regex_last_char_int=\count281
-\l__regex_case_changed_char_int=\count282
-\l__regex_curr_state_int=\count283
-\l__regex_step_int=\count284
-\l__regex_min_active_int=\count285
-\l__regex_max_active_int=\count286
-\l__regex_replacement_csnames_int=\count287
-\l__regex_match_count_int=\count288
-\l__regex_min_submatch_int=\count289
-\l__regex_submatch_int=\count290
-\l__regex_zeroth_submatch_int=\count291
-\g__regex_trace_regex_int=\count292
+\l_keys_choice_int=\count166
+\c__fp_leading_shift_int=\count167
+\c__fp_middle_shift_int=\count168
+\c__fp_trailing_shift_int=\count169
+\c__fp_big_leading_shift_int=\count170
+\c__fp_big_middle_shift_int=\count171
+\c__fp_big_trailing_shift_int=\count172
+\c__fp_Bigg_leading_shift_int=\count173
+\c__fp_Bigg_middle_shift_int=\count174
+\c__fp_Bigg_trailing_shift_int=\count175
+\c__fp_rand_size_int=\count176
+\c__fp_rand_four_int=\count177
+\c__fp_rand_eight_int=\count178
+\l__sort_length_int=\count179
+\l__sort_min_int=\count180
+\l__sort_top_int=\count181
+\l__sort_max_int=\count182
+\l__sort_true_max_int=\count183
+\l__sort_block_int=\count184
+\l__sort_begin_int=\count185
+\l__sort_end_int=\count186
+\l__sort_A_int=\count187
+\l__sort_B_int=\count188
+\l__sort_C_int=\count189
+\l__tl_build_start_index_int=\count190
+\l__tl_build_index_int=\count191
+\l__tl_analysis_normal_int=\count192
+\l__tl_analysis_index_int=\count193
+\l__tl_analysis_nesting_int=\count194
+\l__tl_analysis_type_int=\count195
+\l__regex_internal_a_int=\count196
+\l__regex_internal_b_int=\count197
+\l__regex_internal_c_int=\count198
+\l__regex_balance_int=\count199
+\l__regex_group_level_int=\count266
+\l__regex_mode_int=\count267
+\c__regex_cs_in_class_mode_int=\count268
+\c__regex_cs_mode_int=\count269
+\l__regex_catcodes_int=\count270
+\l__regex_default_catcodes_int=\count271
+\c__regex_catcode_D_int=\count272
+\c__regex_catcode_S_int=\count273
+\c__regex_catcode_L_int=\count274
+\c__regex_catcode_O_int=\count275
+\c__regex_catcode_A_int=\count276
+\c__regex_all_catcodes_int=\count277
+\l__regex_show_lines_int=\count278
+\l__regex_min_state_int=\count279
+\l__regex_max_state_int=\count280
+\l__regex_left_state_int=\count281
+\l__regex_right_state_int=\count282
+\l__regex_capturing_group_int=\count283
+\l__regex_min_pos_int=\count284
+\l__regex_max_pos_int=\count285
+\l__regex_curr_pos_int=\count286
+\l__regex_start_pos_int=\count287
+\l__regex_success_pos_int=\count288
+\l__regex_curr_char_int=\count289
+\l__regex_curr_catcode_int=\count290
+\l__regex_last_char_int=\count291
+\l__regex_case_changed_char_int=\count292
+\l__regex_curr_state_int=\count293
+\l__regex_step_int=\count294
+\l__regex_min_active_int=\count295
+\l__regex_max_active_int=\count296
+\l__regex_replacement_csnames_int=\count297
+\l__regex_match_count_int=\count298
+\l__regex_min_submatch_int=\count299
+\l__regex_submatch_int=\count300
+\l__regex_zeroth_submatch_int=\count301
+\g__regex_trace_regex_int=\count302
 \c_empty_box=\box47
 \l_tmpa_box=\box48
 \l_tmpb_box=\box49
@@ -894,22 +921,22 @@ Package: expl3 2018/02/21 L3 programming layer (code)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count293
+\l__driver_color_stack_int=\count303
 \l__driver_tmp_box=\box62
 ))
 Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2018/02/21 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count294
-\g__xparse_grabber_int=\count295
-\l__xparse_m_args_int=\count296
-\l__xparse_mandatory_args_int=\count297
-\l__xparse_v_nesting_int=\count298
+\l__xparse_current_arg_int=\count304
+\g__xparse_grabber_int=\count305
+\l__xparse_m_args_int=\count306
+\l__xparse_mandatory_args_int=\count307
+\l__xparse_v_nesting_int=\count308
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count299
+\etb@tempcnta=\count309
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1123,22 +1150,6 @@ Package: babel 2018/02/14 3.18 The Babel package
 (/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2018/02/14 3.18 Babel switching mechanism
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngerman.ldf
-Language: ngerman 2016/11/02 v2.9 German support for babel (new orthography)
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
-Language: ngermanb 2016/11/02 v2.9 German support for babel (new orthography)
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count300
-\U@D=\dimen273
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count301
-)
-Package babel Info: Making " an active character on input line 125.
-))
 (/usr/share/texlive/texmf-dist/tex/generic/babel-german/german.ldf
 Language: german 2016/11/02 v2.9 German support for babel (traditional orthogra
 phy)
@@ -1146,18 +1157,21 @@ phy)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-german/germanb.ldf
 Language: germanb 2016/11/02 v2.9 German support for babel (traditional orthogr
 aphy)
-))
 
-Package babel Warning: Last declared language option is `ngerman',
-(babel)                but the last processed one was `german'.
-(babel)                The main language cannot be set as both a global
-(babel)                and a package option. Use `main=ngerman' as
-(babel)                option. Reported on input line 460.
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count310
+\U@D=\dimen273
 
-) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count311
+)
+Package babel Info: Making " an active character on input line 139.
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks40
-\inpenc@posthook=\toks41
+\inpenc@prehook=\toks48
+\inpenc@posthook=\toks49
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -1463,6 +1477,8 @@ Now handling font encoding U ...
 ... no UTF-8 mapping file for font encoding U
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
@@ -1579,17 +1595,17 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip76
 \bibsep=\skip77
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count302
+\c@NAT@ctr=\count312
 )
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2018/02/11 v5.2c context-sensitive quotations (JAW)
-\csq@reset=\count303
-\csq@gtype=\count304
-\csq@glevel=\count305
-\csq@qlevel=\count306
-\csq@maxlvl=\count307
-\csq@tshold=\count308
-\csq@ltx@everypar=\toks42
+\csq@reset=\count313
+\csq@gtype=\count314
+\csq@glevel=\count315
+\csq@qlevel=\count316
+\csq@maxlvl=\count317
+\csq@tshold=\count318
+\csq@ltx@everypar=\toks50
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2018/02/11 v5.2c csquotes generic definitions (JAW)
@@ -1605,16 +1621,7 @@ Package csquotes Info: Option 'babel' depreciated.
 Package csquotes Info: Enabling multilingual quotes.
 Package csquotes Info: Redefining alias 'german' -> 'german/quotes'.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/breakurl/breakurl.sty
-Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
-
-
-Package breakurl Warning: You are using breakurl while processing via pdflatex.
-
-(breakurl)                \burl will be just a synonym of \url.
-(breakurl)                 on input line 48.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
@@ -1629,7 +1636,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@hangindent=\dimen280
 )
 Package caption Info: KOMA-Script document class.
-\c@ContinuedFloat=\count309
+\c@ContinuedFloat=\count319
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: subfigure package is loaded.
@@ -1646,32 +1653,18 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \cmidrulesep=\dimen288
 \cmidrulekern=\dimen289
 \defaultaddspace=\dimen290
-\@cmidla=\count310
-\@cmidlb=\count311
+\@cmidla=\count320
+\@cmidlb=\count321
 \@aboverulesep=\dimen291
 \@belowrulesep=\dimen292
-\@thisruleclass=\count312
-\@lastruleclass=\count313
+\@thisruleclass=\count322
+\@lastruleclass=\count323
 \@thisrulewidth=\dimen293
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box63
 )
-
-Class scrbook Warning: Usage of package `fancyhdr' together
-(scrbook)              with a KOMA-Script class is not recommended.
-(scrbook)              I'd suggest to use 
-(scrbook)              package `scrlayer' or `scrlayer-scrpage', because
-(scrbook)              they support KOMA-Script classes.
-(scrbook)              With `fancyhdr' several features of class `scrbook'
-(scrbook)              like options `headsepline', `footsepline' or command
-(scrbook)              `\MakeMarkcase' and the commands `\setkomafont' and
-(scrbook)              `\addtokomafont' for the page style elements need
-(scrbook)              explicite user intervention to work.
-(scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 144.
-
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
@@ -1687,32 +1680,32 @@ s
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/extramarks.sty
 Package: extramarks 2017/06/30 v3.9a Extra marks for LaTeX
-\@temptokenb=\toks43
+\@temptokenb=\toks51
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count314
+\lst@mode=\count324
 \lst@gtempboxa=\box64
-\lst@token=\toks44
-\lst@length=\count315
+\lst@token=\toks52
+\lst@length=\count325
 \lst@currlwidth=\dimen294
-\lst@column=\count316
-\lst@pos=\count317
+\lst@column=\count326
+\lst@pos=\count327
 \lst@lostspace=\dimen295
 \lst@width=\dimen296
-\lst@newlines=\count318
-\lst@lineno=\count319
+\lst@newlines=\count328
+\lst@lineno=\count329
 \lst@maxwidth=\dimen297
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count320
-\lst@skipnumbers=\count321
+\c@lstnumber=\count330
+\lst@skipnumbers=\count331
 \lst@framebox=\box65
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 177.
+Package scrhack Info: loading listings hack on input line 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/listings.hak
 File: listings.hak 2017/09/07 v3.24 KOMA-Script package (hacking package listin
@@ -1726,64 +1719,66 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 Package tocbasic Info: setting babel extension for `loa' on input line 95.
-\@float@every@algorithm=\toks45
-\c@algorithm=\count322
+\@float@every@algorithm=\toks53
+\c@algorithm=\count332
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count323
-\c@ALC@line=\count324
-\c@ALC@rem=\count325
-\c@ALC@depth=\count326
+\c@ALC@unique=\count333
+\c@ALC@line=\count334
+\c@ALC@rem=\count335
+\c@ALC@depth=\count336
 \ALC@tlm=\skip87
 \algorithmicindent=\skip88
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks46
+\@enLab=\toks54
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks47
-\verbatim@line=\toks48
+\every@verbatim=\toks55
+\verbatim@line=\toks56
 \verbatim@in@stream=\read2
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(./Thesis_Buehler.aux (./frontpage.aux) (./notation.aux))
+(./Thesis_Buehler.aux)
 \openout1 = `Thesis_Buehler.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 216.
+LaTeX Font Info:    ... okay on input line 216.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
+\scratchcounter=\count337
 \scratchdimen=\dimen298
 \scratchbox=\box66
-\nofMPsegments=\count328
-\nofMParguments=\count329
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count330
+\nofMPsegments=\count338
+\nofMParguments=\count339
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count340
 \MPscratchDim=\dimen299
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
-\everyMPtoPDFconversion=\toks50
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
+\everyMPtoPDFconversion=\toks58
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1801,7 +1796,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 214.
+Package hyperref Info: Link coloring OFF on input line 216.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1809,11 +1804,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count333
+\c@section@level=\count343
 )
-LaTeX Info: Redefining \ref on input line 214.
-LaTeX Info: Redefining \pageref on input line 214.
-LaTeX Info: Redefining \nameref on input line 214.
+LaTeX Info: Redefining \ref on input line 216.
+LaTeX Info: Redefining \pageref on input line 216.
+LaTeX Info: Redefining \nameref on input line 216.
 
 (./Thesis_Buehler.out) (./Thesis_Buehler.out)
 \@outlinefile=\write4
@@ -1857,12 +1852,10 @@ ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count334
-Package scrhack Info: undefining \float@addtolists on input line 214.
-\openout2 = `frontpage.aux'.
-
+\c@lstlisting=\count344
+Package scrhack Info: undefining \float@addtolists on input line 216.
  (./frontpage.tex
-<images/tud_logo_cmyk.pdf, id=202, 338.90414pt x 54.59576pt>
+<images/tud_logo_cmyk.pdf, id=190, 338.90414pt x 54.59576pt>
 File: images/tud_logo_cmyk.pdf Graphic file (type pdf)
 <use images/tud_logo_cmyk.pdf>
 Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 6.
@@ -1872,7 +1865,7 @@ LaTeX Font Info:    Try loading font information for T1+aess on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-<images/fi_text.pdf, id=203, 255.95625pt x 18.0675pt>
+<images/fi_text.pdf, id=191, 255.95625pt x 18.0675pt>
 File: images/fi_text.pdf Graphic file (type pdf)
 <use images/fi_text.pdf>
 Package pdftex.def Info: images/fi_text.pdf  used on input line 16.
@@ -1888,11 +1881,11 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@alpha' on input line 73.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\c@page' on input line 73.
 
 
@@ -1907,41 +1900,39 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 
-
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/tud_logo_cmyk.pdf
 > <./images/fi_text.pdf>])
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 224.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 227.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 227.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 224.
+(hyperref)                removing `\@alpha' on input line 227.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 224.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 224.
+(hyperref)                removing `\c@page' on input line 227.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.224 \pagestyle{empty} \cleardoublepage
+l.227 \pagestyle{empty} \cleardoublepage
                                          [2
-
 
 
 ] (./Thesis_Buehler.toc
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@alpha' on input line 33.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\c@page' on input line 33.
 
 
@@ -1966,67 +1957,65 @@ l.33 ... {\"o}glichen Strategien}{13}{section.3.2}
 
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 231.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 234.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 231.
+(hyperref)                removing `\@alpha' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 231.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 231.
+(hyperref)                removing `\c@page' on input line 234.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.231 \cleardoublepage
+l.234 \cleardoublepage
                        \pagestyle{headings} [4] (./Thesis_Buehler.tdo)
 \tf@tdo=\write6
 \openout6 = `Thesis_Buehler.tdo'.
 
 
+(./notation.tex
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 240.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 240.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 5.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 240.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 5.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 240.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.240 \include{notation}
-                         [5
-
-
-
-
-]
-\openout2 = `notation.aux'.
-
- (./notation.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@alpha' on input line 5.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\c@page' on input line 5.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.5 \chapter
+            *{Mathematical Notation} \label{Notation} [5
+
+
+
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\c@page' on input line 5.
 
 
@@ -2045,59 +2034,57 @@ l.5 \chapter
             *{Mathematical Notation} \label{Notation} [6
 
 
-
 ])
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 240.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 244.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 244.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 240.
+(hyperref)                removing `\@alpha' on input line 244.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 240.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 240.
+(hyperref)                removing `\c@page' on input line 244.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.240 \include{notation}
-                         [7]
+l.244 \cleardoublepage
+                       [7]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 241.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 241.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 244.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 241.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 244.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 241.
+(hyperref)                removing `\@alpha' on input line 244.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\c@page' on input line 244.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 \cleardoublepage
+l.244 \cleardoublepage
                        [8
-
 
 
 ] (./Einleitung.tex
 chapter 1.
 LaTeX Font Info:    Try loading font information for OMS+aer on input line 11.
-(/usr/share/texlive/texmf-dist/tex/latex/ae/omsaer.fd
+(/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
@@ -2114,60 +2101,29 @@ ine 16.
 (./KapitelPartA/Einleitung.tex
 chapter 2.
 
-Package natbib Warning: Citation `neural' on page 3 undefined on input line 6.
-
-
 Overfull \hbox (10.74617pt too wide) in paragraph at lines 6--8
 []\T1/aer/m/n/12 CNNs sind spe-zi-el-le neu-ro-na-le Net-ze. Der Un-ter-schied 
 zu ei-nem ^^R  Multilayer-Perzeptron
  []
 
-
-Package caption Warning: \label without proper reference on input line 21.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:faltung' on page 3 undefined on input line 14.
-
-<images/convolution.png, id=326, 343.2825pt x 322.20375pt>
+<images/convolution.png, id=315, 343.2825pt x 322.20375pt>
 File: images/convolution.png Graphic file (type png)
 <use images/convolution.png>
-Package pdftex.def Info: images/convolution.png  used on input line 19.
+Package pdftex.def Info: images/convolution.png  used on input line 17.
 (pdftex.def)             Requested size: 192.0548pt x 180.26079pt.
 [3
 
 
 ]
-<images/cnn.pdf, id=342, 460.4814pt x 317.22054pt>
+<images/cnn.pdf, id=331, 460.4814pt x 317.22054pt>
 File: images/cnn.pdf Graphic file (type pdf)
 <use images/cnn.pdf>
-Package pdftex.def Info: images/cnn.pdf  used on input line 34.
+Package pdftex.def Info: images/cnn.pdf  used on input line 33.
 (pdftex.def)             Requested size: 320.0935pt x 220.5136pt.
-
-
-Package natbib Warning: Citation `CNNImg' on page 4 undefined on input line 35.
-
-
-
-Package natbib Warning: Citation `CNNImg' on page 4 undefined on input line 35.
-
-
-[4 <./images/convolution.png> <./images/cnn.pdf>])
+ [4 <./images/convolution.png> <./images/cnn.pdf>])
 (./KapitelPartA/Arithmetik.tex [5]
 
 Package natbib Warning: Citation `ieee' on page 6 undefined on input line 21.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 31.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 31.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 31.
 
 [6]) (./KapitelPartA/Gradient.tex [7]) (./KapitelPartA/Trainingsdaten.tex)
 (./KapitelPartA/Struktur.tex [8] [9] [10]) (./KapitelPartA/Andere.tex) [11]
@@ -2201,12 +2157,7 @@ Package scrkbase Info: You've told me to use the font selection of the element
 [19
 
 
-] [20]) (./Thesis_Buehler.lof
-
-Package natbib Warning: Citation `CNNImg' on page 21 undefined on input line 5.
-
-
-)
+] [20]) (./Thesis_Buehler.lof)
 \tf@lof=\write7
 \openout7 = `Thesis_Buehler.lof'.
 
@@ -2223,7 +2174,8 @@ Package natbib Warning: Citation `CNNImg' on page 21 undefined on input line 5.
  [23
 
 
-] [24
+]
+[24
 
 
 ] (./Thesis_Buehler.lol)
@@ -2233,8 +2185,7 @@ Package natbib Warning: Citation `CNNImg' on page 21 undefined on input line 5.
  [25
 
 
-]
-[26
+] [26
 
 
 ] (./Thesis_Buehler.bbl)
@@ -2245,32 +2196,23 @@ Package natbib Warning: There were undefined citations.
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
- (./Thesis_Buehler.aux (./frontpage.aux) (./notation.aux)
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+ (./Thesis_Buehler.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `Thesis_Buehler.out' has not changed.
-(rerunfilecheck)             Checksum: F79193CA08CEBB1BF7B6B92DD2E352B0;3966.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
+(rerunfilecheck)             Checksum: C34F4A93F2AF90A04F6C7BB16C398A42;4191.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
  ) 
 Here is how much of TeX's memory you used:
- 34655 strings out of 492982
- 644989 string characters out of 6134895
- 797804 words of memory out of 5000000
- 37451 multiletter control sequences out of 15000+600000
- 592909 words of font info for 145 fonts, out of 8000000 for 9000
+ 38039 strings out of 492982
+ 689097 string characters out of 6134895
+ 828792 words of memory out of 5000000
+ 40851 multiletter control sequences out of 15000+600000
+ 590073 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,12n,100p,10463b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,12n,100p,10455b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -2291,10 +2233,10 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis_Buehler.pdf (35 pages, 441268 bytes).
+Output written on Thesis_Buehler.pdf (35 pages, 441603 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 496 compressed objects within 5 object streams
- 108 named destinations out of 1000 (max. 500000)
- 425 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 556 PDF objects out of 1000 (max. 8388607)
+ 488 compressed objects within 5 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 

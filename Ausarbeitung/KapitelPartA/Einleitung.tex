@@ -12,46 +12,31 @@ Dies bedeutet, dass die Eingabedaten für ein CNN für diese Faltung geeignet se
 Bei der Faltung wird auf die Eingabedaten bzw- die Daten dr vorherigen Schicht ein Kernel angewendet.
 
 In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Grösse des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Featuremap.
-Mehrere dieser Kernel bilden zusammen ein Convolutional Layer. \todo[inline]{bis hier}
-
-\begin{figure}[h]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.45 \textwidth,keepaspectratio=true]{images/convolution.png}
  % convolution.png: 342x321 px, 72dpi, 12.06x11.32 cm, bb=0 0 342 321
+ \caption{Abbildung zur Faltung \cite{CNNBook}}
  \label{fig:faltung}
- \caption{Definition der Faltung \cite{CNNBook}}
 \end{figure}
+Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen Erste Feature-Maps. Diese Feature-Maps werden im nächsten Schritt Komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird ReLU als Aktivierungsfunktion benutzt\footnote{Für Erklärung Relu siehe \cite{neural}}. Um Overfitting zu vermeiden kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Pooling verkleinert die Größe der Feature-Map verkleinert.
+
+Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt ob und wenn ja wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben die Pixel am Rand des Bildes(bzw. der Featuremap der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.  
+
+Beim Anwenden des Kernels auf die Eingabe kann jedes Teilbild oder weniger Teilbilder verwendet werden. Dies wird über den Parameter Stride kommuniziert. Beim Stride von Eins wird jedes Teilbild verwendet. Wird der Stride auf 2 gesetzt, so wird nach jedem verwendetem Teilbild eines ausgesetzt.
+
 
 In einem CNN werden mehrere dieser Convolutional Layer hintereinander geschaltet, um komplexe Features erkennen zu können. 
-
-
-
-Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
-
-
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth]{images/cnn.pdf}
   \caption{Convolutional Neural Net \cite{CNNImg}}
   \label{fig:cnn}
 \end{figure}
 
-In Abbildung \ref{fig:cnn} ist zu sehen, dass ein CNN aus hintereinander geschalteten Conv-Layer besteht. Die Funktion der Conv-Layer wird nun näher betrachtet.
 
-Wie in Abbildung \ref{fig:cnn} zu sehen ist, ist ein Conv-Layer die hintereinander Schaltung verschiedener Operationen:
-\begin{itemize}
- \item Faltung des Eingabebildes mit dem Kernel
- \item Anwendung der Aktivierungsfunktion ReLU
- \item Pooling
-\end{itemize}
 
-Abbildung \ref{fig:cnn} beinhaltet auch noch die Begriffe Stride und Padding, welche für das Verstehen dieser Arbeit zwar nicht notwendig sind, hier der Vollständigkeit halber trotzdem erklärt werden. 
-
-Padding löst das Problem, das entsteht, wenn der Mittelpunkt des Filters auf ein Pixel im Randbereich gelegt wird. Hier taucht das Problem auf, dass der Filter auch auf nicht vorhandenen Pixeln aufliegt und die Filteroperation hier somit nicht definiert ist. Padding setzt nun den Rand fort oder belegt diesen Rand mit einem festgelegten Wert, um dort eine gültige Filteroperation zu erzeugen. 
-
-Stride ist der Parameter, der bestimmt um wie viele Felder der Filter nach der Anwendung verschoben werden soll. Bei größerem Stride kann die entstehende Feature-Map verkleinert werden.
-
-Pooling ist eine Operation, die die Größe der Feature-Map verkleinert und somit Overfitting vermeidet.
+Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
 
 Die Fully-Connected-Layer errechnen aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.  
 
@@ -59,5 +44,5 @@ Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, s
 
 
 
-\section{Überblick über die gängigen Methoden}
-\todo[inline]{kurzer Sectioneinleitungstext über die gängigen Methoden}
+\section{Überblick über die bisherigen wissenschaftlichen Methoden}
+In diesem Unterkapitel wird ein Überblick über die bisher erforschten Methoden des schnelleren Trainieren und desEffizienten Architekturverbesserns gegeben. In Paragraph \ref{sec:fp16} wird die Verwendung von anderen Zahlenformaten zur Zeiteinsparung beim Training gegeben. In Paragraph xxx wird erläutert, wie sich das Gradientenabstiegsverfahren beschleunigen lässt. 
