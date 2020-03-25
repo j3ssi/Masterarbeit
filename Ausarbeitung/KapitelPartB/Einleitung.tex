@@ -1,107 +1,15 @@
-\chapter{Experimentelle Untersuchung der möglichen Strategien}
+\chapter{Experimente -- Arbeitstitel}
 
+Zunächst PruneTrain untersuchen. 
 
+Dann PruneTrain als MorphNet
 
-\section{Experimentales Setup}
-Server mit 4 Graka:
-2 mal Geforce GTX 1080 Ti mit CUDA Version 10.1 
-2 mal Geforce RTX 2080 Ti mit CUDA Version 10.1
+Untersuchen welche Methoden aus 2.3 überhaupt sinnvoll auf grössere Datensätze anwendebar sind und funktionieren.
 
-
-\section{Überblick über die möglichen Strategien}
-
-Welchen Strategien aus Kapitel 2 sind überhaupt durchführbar und welche sind kombinierbar?
-Hier werden nur die Strategien aufgeführt, welche überhaupt auf vernünftig grossen Datensätzen funktionieren und von der Technik her möglich sind.
-Die Strategien sind aufgeteilt in Unterkapitel. 
-
-Alle möglichen Kombinationen von Strategien sind zuviele. Daher sinnvolle Vorauswahl treffen.  
-Bei mehreren gleichartigen/ konkurierenden Ansätze drekter Vergleich und dann den besten auswählen.
-\subsection{Zahlenformate}
-
-\begin{itemize}
- \item FP16 bereits probiert
- \item DFP 16 without Swalp
- \item DFP 16 with Swalp
-\end{itemize}
-
-DFP 16 bisher nur auf CPU sinnvoll
-
-FP16 nur auf RTX 2080 sinnvoll
-
-\subsection{Beschleunigung der Berechnung des Gradientenabstiegverfahren}
-
-
-\subsubsection{Accelerating CNN Training by Sparsifying Activation Gradients}
-
-Funktioniert nur auf Toy-Benchmarks
-
-
-\subsubsection{Weight Normalization: A Simple Reparameterization
-to Accelerate Training of Deep Neural Networks}
-
-
-Könnte funktionieren. Code für Lasagne: https://github.com/TimSalimans/weight\_norm
-
-
-\subsubsection{Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}
-
-Interessant bisher kein Code verfügbar
-
-
-\subsubsection{Accelerated CNN Training Through Gradient Approximation }
-
-Interessant bisher kein Code verfügbar
+Die sinnvollen Methoden auf PruneTrain als Morphnet anwenden.
 
 
 
 
-\subsection{Verfahren um weniger Trainingsdaten zu verwenden}
 
 
-\subsubsection{Stochastisches Pooling}
-
-Klingt sehr interessant und könnte für deutlich kleinere Trainingsdatenmenge sorgen
-
-https://github.com/Shuangfei/s3pool
-
-
-\subsection{Lernen von Struktur und Stärke von CNNs}
-
-bisher kein Code verfügbar.Klingt aber interessant
-
-
-\subsection{Strukturelle Veränderungen}
-
-
-\subsubsection{PruneTrain}
-
-Code vorhanden
-
-
-\subsubsection{Net2Net}
-
-Code vorhanden
-
-\subsection{andere Herangehensweisen}
-
-
-
-
-\subsection{Tensorflow vs. PyTorch}
-
-
-\section{Durchführung der Experimente}
-Arbeite auf Grundlage des PruneTrain Codes.
-
-
-\subsection{Einfluss der Batch Größe}
-Im PruneTrain paper ist angegeben, dass die Batch Size so gross gewählt wird, dass der GPU Speicher ausgenutzt wird. 
-Es gibt Paper, die in Frage stelen, ob eine grössere Batch Size nicht der Performance schadet \cite{largeBatch}
-
-
-
-\subsection{Kombination von Net2Net mit PruneTrain}
-Jedes Bildklassifizierungsproblem hat 
-
-
-\section{Evaluation der Ergebenisse}
