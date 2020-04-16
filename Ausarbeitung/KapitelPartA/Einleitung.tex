@@ -41,6 +41,18 @@ Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fi
 Die Fully-Connected-Layer errechnen aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.  
 
 Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen des Fully-Connected Layers trainierbar. Das heißt durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und des Fully-Connected Layer so zu verändern, dass das gesamte CNN besser klassifizieren kann. Für diese Veränderung wird ein Gradientenabstiegsverfahren, welches rückwärts durch die Schichten propagiert wird, benutzt.
+\section{ResNet -- eine neuere CNN-Architektur}
+Die wachsende Tiefe bei CNN-Architekturen geschieht mit dem Hintergrund, dass tiefere Netze grössere Modellkomplexität haben. Die klassische CNN-Architektur mit hintereinander geschalteten Conv-Layern schafft es bei wachsender Tiefe des Netzes nicht diese Komplexität in bessere Klassifikationsleistung umzusetzen.
+\todo{experiment}
+
+Neuere CNN-Architekturen schaffen es dieses Problem zu vermeiden. Ein dieser neueren Architekturen ist das ResNet. Das ResNet ist ein Residualnetz, welches Kurzschlussverbindungen einführt. In \todo{Abbildung} ist zu sehen wie eine Kurzschlussverbindung aussieht.
+
+Vermieden wird damit im Vergleich zu einem klassischen CNN das Problem des verschwindenden Gradientens. Bei einem klassischen CNN wird mit der letzten Schicht begonnen und der Gradient wird durch die Kettenregel bis zur ersten Schicht berechnet. Je qTiefer das Netz wird desto kleiner werden die Veränderungen des Gradienten für die ersten Schichten. Diese konvergieren dann sehr langsam bzw. teilweise gar nicht mehr in Richtung der gewünschten Richtung. \todo{cite}
+
+
+Residuale Netze vermeiden dies, indem sie aus vielen kleineren Netzen bestehen. Hier wird der Gradient nicht auf einer Linie zur Eingangsschicht zurück propagiert, sondern auch über die Kurzschlussverbindungen. So entsteht ein Netz, welches sehr viel tiefer sein kann ohne die Probleme des verschwindenden Gradienten zu haben. Durch dieses Wegfallen dieses Problems lassen sich mit Residualen Netzen bessere Traningsfehler und Testfehlerraten erreichen.
+
+Eine weitere Technik, die in residualen Netzen verwendet wird ist die der Bottleneck Blocks. Dies resultiert aus dem Problem der stark steigenden Trainingszeiten bei tieferen Netzen. Ein Bottleneck Block ist in Abbildung \todo{Abb.} zusehen. Die erste Schicht dieses Blocks wir verwendet um der Featuremap der vorherigen Schicht kleiner zu machen. Somit kann die mittlere Schicht wesentlich schneller berechnet werden. Zum Abschluss wird in der letzten Schicht die ursprüngliche Grösse der Featuremap wieder hergestellt.
 
 
 

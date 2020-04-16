@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  25 MAR 2020 04:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  5 APR 2020 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1859,7 +1859,7 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count344
 Package scrhack Info: undefining \float@addtolists on input line 217.
  (./frontpage.tex
-<images/tud_logo_cmyk.pdf, id=190, 338.90414pt x 54.59576pt>
+<images/tud_logo_cmyk.pdf, id=198, 338.90414pt x 54.59576pt>
 File: images/tud_logo_cmyk.pdf Graphic file (type pdf)
 <use images/tud_logo_cmyk.pdf>
 Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 6.
@@ -1869,7 +1869,7 @@ LaTeX Font Info:    Try loading font information for T1+aess on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-<images/fi_text.pdf, id=191, 255.95625pt x 18.0675pt>
+<images/fi_text.pdf, id=199, 255.95625pt x 18.0675pt>
 File: images/fi_text.pdf Graphic file (type pdf)
 <use images/fi_text.pdf>
 Package pdftex.def Info: images/fi_text.pdf  used on input line 16.
@@ -1931,14 +1931,10 @@ l.228 \pagestyle{empty} \cleardoublepage
 
 
 ] (./Thesis_Buehler.toc
-Overfull \hbox (0.65143pt too wide) in paragraph at lines 13--13
+Overfull \hbox (0.65143pt too wide) in paragraph at lines 14--14
  [][] [][]\T1/aer/m/n/12 Beschleunigung der Be-rech-nung des Gra-di-en-ten-ab-s
 tiegs-ver-fah- 
  []
-
-
-Underfull \vbox (badness 1242) has occurred while \output is active []
-
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1960,7 +1956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...C {\"o}\IeC {\ss }e}{14}{subsection.3.2.2}
+l.37 ...ersuchung von PruneTrain}{13}{section.3.2}
                                                    [3
 
 
@@ -1990,39 +1986,38 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.235 \cleardoublepage
-                       \pagestyle{headings} [4] (./Thesis_Buehler.tdo)
-\tf@tdo=\write6
-\openout6 = `Thesis_Buehler.tdo'.
-
-
-(./notation.tex
+                       \pagestyle{headings} [4] (./Thesis_Buehler.tdo
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 5.
+(hyperref)                removing `\@alpha' on input line 27.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 5.
+(hyperref)                removing `\c@page' on input line 27.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 5.
+(hyperref)                removing `\@alpha' on input line 27.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 5.
+(hyperref)                removing `\c@page' on input line 27.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5 \chapter
-            *{Mathematical Notation} \label{Notation} [5
+l.27 ...hl zu aufw\IeC {\"a}ndig}{20}{section*.47}
+                                                   [5
 
 
 
 
-]
+])
+\tf@tdo=\write6
+\openout6 = `Thesis_Buehler.tdo'.
+
+ (./notation.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@alpha' on input line 5.
@@ -2112,7 +2107,7 @@ Overfull \hbox (10.74617pt too wide) in paragraph at lines 6--8
 zu ei-nem ^^R  Multilayer-Perzeptron
  []
 
-<images/convolution.png, id=354, 343.2825pt x 322.20375pt>
+<images/convolution.png, id=368, 343.2825pt x 322.20375pt>
 File: images/convolution.png Graphic file (type png)
 <use images/convolution.png>
 Package pdftex.def Info: images/convolution.png  used on input line 17.
@@ -2121,7 +2116,7 @@ Package pdftex.def Info: images/convolution.png  used on input line 17.
 
 
 ]
-<images/cnn.pdf, id=373, 460.4814pt x 317.22054pt>
+<images/cnn.pdf, id=387, 460.4814pt x 317.22054pt>
 File: images/cnn.pdf Graphic file (type pdf)
 <use images/cnn.pdf>
 Package pdftex.def Info: images/cnn.pdf  used on input line 32.
@@ -2131,7 +2126,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./images/convolution.png>]) (./KapitelPartA/Morphnet.tex)
 (./KapitelPartA/Arithmetik.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2662) has occurred while \output is active []
 
  [5 <./images/cnn.pdf>]
 LaTeX Font Info:    Try loading font information for OMS+aer on input line 10.
@@ -2157,61 +2152,71 @@ chapter 3.
 ) (./KapitelPartB/Experimente.tex [13
 
 
-]
-<KapitelPartB/Images/batchSizevsTime.png, id=445, 291.33844pt x 276.28218pt>
+] [14]
+
+LaTeX Warning: Reference `tab:batchSize' on page 15 undefined on input line 53.
+
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 55.
+
+<KapitelPartB/Images/batchSizevsTime.png, id=464, 291.33844pt x 276.28218pt>
 File: KapitelPartB/Images/batchSizevsTime.png Graphic file (type png)
 <use KapitelPartB/Images/batchSizevsTime.png>
 Package pdftex.def Info: KapitelPartB/Images/batchSizevsTime.png  used on input
- line 64.
+ line 87.
 (pdftex.def)             Requested size: 341.43437pt x 323.81374pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>] [16]
-<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=462, 291.33844pt x 276.28218pt
+Underfull \vbox (badness 1478) has occurred while \output is active []
+
+ [15]
+Overfull \hbox (1.13962pt too wide) in paragraph at lines 115--116
+[]\T1/aer/m/n/12 Zunächst wird über-prüft wei-viel Trai-ning-flop, Trai-nings-z
+eit und an-de-re grös-sen durch
+ []
+
+[16 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>] [17]
+<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=482, 291.33844pt x 276.28218pt
 >
 File: KapitelPartB/Images/timeVsBatchSize_Amp.png Graphic file (type png)
 <use KapitelPartB/Images/timeVsBatchSize_Amp.png>
 Package pdftex.def Info: KapitelPartB/Images/timeVsBatchSize_Amp.png  used on i
-nput line 142.
+nput line 191.
 (pdftex.def)             Requested size: 341.43437pt x 323.81374pt.
+ [18]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 198.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Font Info:    Try loading font information for T1+aett on input line 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (54.30902pt too wide) in paragraph at lines 149--150
+Overfull \hbox (54.30902pt too wide) in paragraph at lines 198--199
 [][]$\T1/aett/m/n/12 https : / / developer . download . nvidia . com / video / 
 gputechconf / gtc / 2019 / presentation /
  []
 
 
-Overfull \hbox (3.3513pt too wide) in paragraph at lines 149--150
+Overfull \hbox (3.3513pt too wide) in paragraph at lines 198--199
 \T1/aett/m/n/12 s9998-[]automatic-[]mixed-[]precision-[]in-[]pytorch . pdf$[] \
 T1/aer/m/n/12 zeigt, dass be-züg-lich der Ac-
  []
 
-[17]
-Overfull \hbox (22.62865pt too wide) in paragraph at lines 162--163
+[19 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>]
+Overfull \hbox (22.62865pt too wide) in paragraph at lines 211--212
 []\T1/aer/m/n/12 Könnte funk-tio-nie-ren. Co-de für Lasa-gne: htt-ps://github.c
 om/TimSalimans/weight_norm 
  []
 
-[18 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>])
-(./KapitelPartB/Evaluation.tex [19] [20
-
-
-]
+) (./KapitelPartB/Evaluation.tex [20]
 chapter 4.
-) [21] [22
+) [21
+
+
+] [22
 
 
 ] (./appendix.tex
@@ -2267,14 +2272,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
 Package rerunfilecheck Info: File `Thesis_Buehler.out' has not changed.
-(rerunfilecheck)             Checksum: 75D5D6494A149D8CF2C3E9FD7930BBEF;3811.
+(rerunfilecheck)             Checksum: 9865A970910718EEF91B9D9E56555765;4006.
+
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
  ) 
 Here is how much of TeX's memory you used:
- 38155 strings out of 492982
- 691378 string characters out of 6134895
- 831888 words of memory out of 5000000
- 40927 multiletter control sequences out of 15000+600000
+ 38169 strings out of 492982
+ 691597 string characters out of 6134895
+ 835126 words of memory out of 5000000
+ 40936 multiletter control sequences out of 15000+600000
  592066 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,100p,10455b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2302,10 +2311,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis_Buehler.pdf (39 pages, 493798 bytes).
+Output written on Thesis_Buehler.pdf (39 pages, 500195 bytes).
 PDF statistics:
- 636 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
- 130 named destinations out of 1000 (max. 500000)
- 411 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 652 PDF objects out of 1000 (max. 8388607)
+ 575 compressed objects within 6 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 427 words of extra memory for PDF output out of 10000 (max. 10000000)
 

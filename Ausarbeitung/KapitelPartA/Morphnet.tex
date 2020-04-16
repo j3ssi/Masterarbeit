@@ -1,2 +1,85 @@
+\subsection{PruneTrain}
+Pruning ist eine Technik, die entwickelt wurde, um die Inferenzzeit eines neuronalen Netzwerks zu reduzieren. Das Pruningverfahren wird auf das bereits trainierte Netz angewendet. Dabei wird entschieden, welche Gewichte nur einen minimalen Effekt auf das Klassifikationsergebnis haben um diese zu entfernen.
+
+Aktueller Gegenstand der Forschung ist hier die Frage, ob diese kleineren Netzwerke nicht bereits ab Epoche Null trainiert werden können, um so Trainingszeit zu sparen. Dieser Ansatz wurde in verschiedenen Veröffentlichungen untersucht:
+\begin{itemize}
+ \item Prune Train 
+ \item The Lottery Ticket Hypothesis
+\end{itemize}
+Zunächst werden die einzelen Verfahren erläutert, um sie danach miteinander zu vergleichen.
+
+\subsubsection{Prune Train}
+Prune Train fügt einen Normalisierungsterm zur Loss-Funktion des Netzwerkes hinzu. Dies geschieht, damit der Optimierungsprozess dazu gezwungen wird möglichst kleine Gewichte zu wählen. Durch diesen Prozess wird aus dem dense Netz ein sparse Netz. Dieses sparse Netz sorgt allerdings noch nicht für weniger Zeitbedarf einer Trainingsepoche, da für ein Sparse aufwändige Datenindextechniken notwendig sind. Daher wird bei diesem Verfahren das Netz rekonfiguiert um das Modell kleiner und die Struktur wieder dense zu machen.
+Dabei hat Prune Train drei zentrale Optimierungsverfahren:
+\begin{itemize}
+   \item eine systematische Methode zur Berechnung des group lasso Regularisierung Sanktions Koeffizienten beim Beginn des Trainings.
+   \item Kanal union, ein Speicheraufruf kosteneffizientes und Index-freies Kanal Pruning Verfahren für moderne CNNs mit Kurzschlussverbindungen.
+   \item Ein dynamische Mini-Batch Adjustment, dass die Größe des Mini-Batch anpasst. Dies geschieht durch beobachten des Speicherkapazitätgebrauchs einer Trainingsiteration nach jeder Pruning reconfiguration.
+\end{itemize} 
+
+Der group lasso Regularisierung Sanktions Koeffizienten ist ein Hyperparameter, der einen Trade-off  zwischen der Modellgröße und der Accuracy bildet.
+Voherige Arbeiten suchen nach einem geeignetem Sanktionsmaß, was das Einbeziehen des Prunings vom Anfang des Trainings sehr teuer macht.
+Unser Mechanismus kontrolliert die Group lasso Regularisierungstärke und erreicht eine hohe Modellpruningrate mit nur einem kleinen Einfluss auf die Accuracy bei nur einem Trainingsdurchlauf.
+Kurzschlussverbindungen werden in modernen CNNs häufig genutzt.
+Prunning aller genullten Kanäle solcher CNNs brauchen regelmässige Tensor Umordnung um die Kanalindizes zwischen den Schichten zu matchen. Dies vermindert die Performance.
+Diese Umordnung wird durch den Channel Union Algorithmus vermieden. Daher folgt eine 1.9 fache Beschleunigung des Convolutional Layetrs.
+
+Dynmaisches Mini Batch Adjustment kompensiert die verminderte Datenparallelität aufgrund des kleineren geprunten Modells durch Erhöhung der Mini-Batch Größe.
+Dies sorgt sowohl für bessere Ausnutzung der Hardware ressourcen als auch zur Reduzierung des KOmmunikation overheads durch eine Verminderte Modell Update Frequenz. Beim Erhöhen der Mini-Batch Größe wird auch die Lernrate mit demselben Verhältnis erhöht, um die Accuracy nicht zu verändern.
+ $$ \underset{min}{W} \left( \frac{1}{N} \sum_{i=1}^{N} l(y_i,f(x_i, W)) + \sum_{g=1}^{G} \lambda_g \cdot || W_g ||_2 \right) $$
+ \begin{itemize}
+  \item $ \frac{1}{N} \sum_{i=1}^{N} l(y_i,f(x_i, W))$ Standard-Kreuzentropie
+  \item $\sum_{g=1}^{G} \lambda_g \cdot || W_g ||_2 $ group lasso Regulierungsterm
+  \item $f(x_i)$ Vorhersage des Netzwerks auf Eingabe $x_i$
+  \item $W$ Gewichte
+  \item $l$ Verlustfunktion der Klassifikation und Grundwahrheit $y_i$
+  \item $N$ Minibatchgröße
+  \item $G$ Zahl von Gruppen
+  \item $\lambda$ Verdünnungskoeffizient
+\end{itemize}
+
+$$ \lambda \cdot \sum_{l=1}^{L} \left( \sum_{c_l=1}^{C_l} || W_{c_l,:,:,:} ||_2 + \sum_{k_l=1}^{K_l} || W_{:,k_l,:,:}||_2 \right) $$ 
+Design eines speziellen Groupo Lasso Regulierers, der Gewichte jedes Kanals (Input oder Output) und jeder Schicht gruppiert. $\lambda$ wird als einziger globaler Regularisierungsfaktor gewählt, da so der Fokus auf dem Vermindern der Rechenzeit liegt und nicht auf der Modellgröße. Dies hat zur Folge, dass vorallem große Features verdünnt werden, was zu einer größeren Verminderung der Rechenleistung führt.
+
+Um die Lasso Group Regularisierung vom Anfang des Trainings zu benutzen sollteder Koeffizient $\lambda$ sinnvoll gewählt werden. Dies sorgt für eine hohe Vorhersageaccuracy und einer hohen Pruning Rate. Um zeitintensives Hyperparametertuning zu vermeiden wird hier eine neue Methode eingeführt:
+ 
+ $$LPR=\frac{\lambda \sum_{g}^{G}|| W_{g,:} ||}{l(y_i,f(x_i,W))+\lambda \sum_{g}^{G}||W_{g,:} ||)} $$
+ 
+ Berechnet wird dies durch setzen von zufälligen Werten, mit denen die Gewichte initialisiert werden. LPR wird einmal berechnet und dann bis zum Ende weiter benutzt.
+
+ 
+ Nach jedem solchen Intervall werden Input und Outputkanäle die 0 sind gepruned. Um ein Missverhältnis zwischen den Dimensionen zu verhindern wird nur die Verbindung von 2 verdünnten Kanälen von 2 aufeinanderfolgenden Schichten gepruned. Alle Trainingsvariablen bleiben gleich.
+ Das Reconfigurationsintervall ist ist der einzige zusätzliche Hyperparameter. Zu gross gewählt würde der Intervallparameter zu wenig Zeitverbesserung bringen. Zu klein gewählt könnte er die Lernqualität beeinflussen.
+4 Matriken zur Evaluierung: Training und Inference FLOPs, gemessenen Trainingszeit, und Validierungsaccuracy. 
+
+\subsubsection{The Lottery Ticket Hypothesis}
+
+Eine Richtungsweisende Arbeit die in Verbindung mit Pruning hat den Titel "' The Lottery Ticket Hypothesis"`. 
+
+
+\todo[inline]{inhalt}
+
+Dies widerspricht allerdings nicht der Idee des PruneTrain sondern schafft theoretische Grundlage um neuronale Netze besser zu verstehen.
+
+
+
+
+\subsection{Net2Net}
+
+Net2Net behandelt die Veränderung der Netzstruktur während des Trainings bei weiterverwendeten Gewichten. 
+Ein Netz kann hier sowohl breiter als auch tiefer gemacht werden.
+
+\subsubsection{Tieferes Netz}
+
+
+
+\subsubsection{Breiteres Netz}
+
+
+im
+Das Paper beinhaltet keine Methoden, in wieweit dies in einen Trainingsprozess integriert werden kann.
+
+
 \subsection{MorphNet}
+
 

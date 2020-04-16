@@ -6,21 +6,23 @@
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{7}{section*.13}
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{7}{section*.14}
 \contentsline {todo}{Figure: Schema}{7}{section*.14}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Tabelle}{14}{section*.21}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Wie gut fittet die Geraden die gegebenen Punkte}{14}{section*.22}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ \IeC {\"U}berpr\IeC {\"u}fe, ob dies auch bei einem anderen Datensatz funktioniert. Es sollte funktionieren, wenn die Gr\IeC {\"o}sse eines anderen Datensatzes ins Verh\IeC {\"a}ltnis zu der Gr\IeC {\"o}sse in Cifar10 gesetzt wird}{14}{section*.23}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Untersuche, ob largeBatch auch auf ein PruneTrain Netzwerk anwendbar ist.}{15}{section*.25}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Untersuche, ob die Gr\IeC {\"o}sse des Batches beeinflusst, wie viel vom Netz geprunt wird}{15}{section*.26}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Nachvollziehen der PruneTrain Ergebnisse mit dieser Implementierung}{16}{section*.27}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Zeige wie Net2Net aus einem Netzwerk ein tieferes oder breiteres Netz macht}{16}{section*.28}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Vollziehe mit PrunTrain + Net2Net nach, ob dies funktioniert wie MorphNet}{16}{section*.29}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Mache das Netz tiefer}{16}{section*.30}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Suche Kriterien, die entscheiden ob das Netz tiefer sein sollte}{16}{section*.31}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Entwickle M\IeC {\"o}glichkeit dies direkter da anzuwenden, wo nicht geprunt wurde}{16}{section*.32}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Weitere Versuche, die zeigen ob die Zeiten grossen statistischen Schwankungen unterliegen.}{17}{section*.34}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen ob es funktioniert}{18}{section*.36}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Implementieren (ist einfach) und testen}{18}{section*.38}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen, wenn die anderen funktionieren}{19}{section*.41}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen}{19}{section*.43}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Ist zwar interessant aber ohne Code dazu wohl zu aufw\IeC {\"a}ndig}{19}{section*.44}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Funktioniert erst, wenn die anderen Experimente durchgelaufen sind}{19}{section*.45}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Bottleneck -Eigenschaft}{14}{section*.21}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Quelle}{14}{section*.22}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Wie gut fittet die Geraden die gegebenen Punkte}{15}{section*.24}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ \IeC {\"U}berpr\IeC {\"u}fe, ob dies auch bei einem anderen Datensatz funktioniert. Es sollte funktionieren, wenn die Gr\IeC {\"o}sse eines anderen Datensatzes ins Verh\IeC {\"a}ltnis zu der Gr\IeC {\"o}sse in Cifar10 gesetzt wird}{15}{section*.25}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Untersuche, ob largeBatch auch auf ein PruneTrain Netzwerk anwendbar ist.}{16}{section*.27}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Untersuche, ob die Gr\IeC {\"o}sse des Batches beeinflusst, wie viel vom Netz geprunt wird}{16}{section*.28}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Nachvollziehen der PruneTrain Ergebnisse mit dieser Implementierung}{16}{section*.29}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Vergleiche Hardware}{17}{section*.30}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Zeige wie Net2Net aus einem Netzwerk ein tieferes oder breiteres Netz macht}{17}{section*.31}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Vollziehe mit PrunTrain + Net2Net nach, ob dies funktioniert wie MorphNet}{17}{section*.32}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Mache das Netz tiefer}{17}{section*.33}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Suche Kriterien, die entscheiden ob das Netz tiefer sein sollte}{17}{section*.34}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Entwickle M\IeC {\"o}glichkeit dies direkter da anzuwenden, wo nicht geprunt wurde}{17}{section*.35}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Weitere Versuche, die zeigen ob die Zeiten grossen statistischen Schwankungen unterliegen.}{19}{section*.37}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen ob es funktioniert}{20}{section*.39}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Implementieren (ist einfach) und testen}{20}{section*.41}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen, wenn die anderen funktionieren}{20}{section*.44}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen}{20}{section*.46}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Ist zwar interessant aber ohne Code dazu wohl zu aufw\IeC {\"a}ndig}{20}{section*.47}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Funktioniert erst, wenn die anderen Experimente durchgelaufen sind}{20}{section*.48}
