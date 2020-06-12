@@ -52,13 +52,14 @@ Um nach einem Forward Druchlauf des Netzes die Gewichte abzudaten wird ein Gradi
 
 Der zweite Grund wieso man Mastergewichte brauchen könnte ist die Tatsache, dass bei grossen Gewichten die Länge der Mantisse nicht ausreicht, um sowohl das Gewicht als auch das zu  addierende Update zu speichern.
 
-Aus den beiden Gründen wird das in Abbildung \todo{ref} gezeigte Schema zum Trainieren einer Schicht mit gemischt präzisen Gleitkommazahlen benutzt.
+Aus den beiden Gründen wird das in Abbildung \ref{abb:mixed} gezeigte Schema zum Trainieren einer Schicht mit gemischt präzisen Gleitkommazahlen benutzt.
 
-\missingfigure{Schema}
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8 \textwidth]{KapitelPartA/images/mixed.png}
+ % mixed.png: 393x179 px, 72dpi, 13.86x6.31 cm, bb=0 0 393 179
+ \label{abb:mixed}
+\end{figure}
 
 
 
-%\subsection{Berechnung mit 16 Bit Dynamischen Festkommazahlen}
-
-%\todo[inline]{Nur eventuell Teil der Arbeit}
-%Quelle: \cite{FPGpu}

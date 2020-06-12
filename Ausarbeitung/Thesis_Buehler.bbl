@@ -1,4 +1,5 @@
-\begin{thebibliography}{CCGS16}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{GEN{\etalchar{+}}18}
 
 \bibitem[CCGS16]{CNNImg}
 J.F. Couchot, R.~Couturier, C.~Guyeux, and M.~Salomon.
@@ -6,10 +7,30 @@ J.F. Couchot, R.~Couturier, C.~Guyeux, and M.~Salomon.
   convolution filters.
 \newblock {\em CoRR}, 2016.
 
+\bibitem[CGS15]{net2net}
+Tianqi Chen, Ian Goodfellow, and Jonathon Shlens.
+\newblock Net2net: Accelerating learning via knowledge transfer.
+\newblock 11 2015.
+
+\bibitem[FC19]{lottery}
+Jonathan Frankle and Michael Carbin.
+\newblock The lottery ticket hypothesis: Finding sparse, trainable neural
+  networks.
+\newblock In {\em ICLR}, 2019.
+
 \bibitem[GBC16]{CNNBook}
-I.~Goodfellow, Y.~Bengio, and A.~Courville.
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock {\em Deep Learning}.
 \newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem[GEN{\etalchar{+}}18]{morphnet}
+A.~{Gordon}, E.~{Eban}, O.~{Nachum}, B.~{Chen}, H.~{Wu}, T.~{Yang}, and
+  E.~{Choi}.
+\newblock Morphnet: Fast simple resource-constrained structure learning of deep
+  networks.
+\newblock In {\em 2018 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition}, 2018.
 
 \bibitem[Hay98]{neural}
 S.~Haykin.
@@ -23,5 +44,44 @@ Elad Hoffer, Itay Hubara, and Daniel Soudry.
 \newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
   S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
   Processing Systems 30}, pages 1731--1741. Curran Associates, Inc., 2017.
+
+\bibitem[HZRS15]{resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock {\em CoRR}, 2015.
+
+\bibitem[iee85]{ieee}
+Ieee standard for binary floating-point arithmetic.
+\newblock {\em ANSI/IEEE Std 754-1985}, 1985.
+
+\bibitem[LCZ{\etalchar{+}}19]{prunetrain}
+Sangkug Lym, Esha Choukse, Siavash Zangeneh, Wei Wen, Mattan Erez, and Sujay
+  Shanghavi.
+\newblock Prunetrain: Gradual structured pruning from scratch for faster neural
+  network training.
+\newblock {\em CoRR}, abs/1901.09290, 2019.
+
+\bibitem[oA]{pytorch}
+ohne Autor.
+\newblock Cuda semantice -- pytorch 1.5.0 documentation.
+\newblock online \url{https://pytorch.org/docs/stable/notes/cuda.html}
+  aufgerufen am 10.06.2020.
+
+\bibitem[oA19]{cornell}
+ohne Autor.
+\newblock arxiv machine learning classification guide, 12 2019.
+\newblock Onlinequelle; Aufgerufen am 01.06.2020;
+  \url{https://blogs.cornell.edu/arxiv/2019/12/05/arxiv-machine-learning-classification-guide/}.
+
+\bibitem[ptI]{ptImpl}
+Prune train implementierung.
+\newblock online
+  \url{https://bitbucket.org/lph_tools/prunetrain/src/master/}aufgerufen am
+  10.06.2020.
+
+\bibitem[SG17]{popular}
+Charles~A. Sutton and Linan Gong.
+\newblock Popularity of arxiv.org within computer science.
+\newblock {\em CoRR}, 2017.
 
 \end{thebibliography}

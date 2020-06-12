@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  5 APR 2020 22:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  10 JUN 2020 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,25 +438,41 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip63
-\subfigcapskip=\skip64
-\subfigcaptopadj=\dimen130
-\subfigbottomskip=\skip65
-\subfigcapmargin=\dimen131
-\subfiglabelskip=\skip66
-\c@subfigure=\count129
-\c@lofdepth=\count130
-\c@subtable=\count131
-\c@lotdepth=\count132
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip67
-\subfig@bottom=\skip68
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen130
+\captionmargin@=\dimen131
+\captionwidth=\dimen132
+\caption@tempdima=\dimen133
+\caption@indent=\dimen134
+\caption@parindent=\dimen135
+\caption@hangindent=\dimen136
+)
+Package caption Info: KOMA-Script document class.
+\c@ContinuedFloat=\count129
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+\c@KVtest=\count130
+\sf@farskip=\skip63
+\sf@captopadj=\dimen137
+\sf@capskip=\skip64
+\sf@nearskip=\skip65
+\c@subfigure=\count131
+\c@subfigure@save=\count132
+\c@lofdepth=\count133
+\c@subtable=\count134
+\c@subtable@save=\count135
+\c@lotdepth=\count136
+\sf@top=\skip66
+\sf@bottom=\skip67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
@@ -470,7 +486,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks33
 \XKV@tempa@toks=\toks34
 )
-\XKV@depth=\count133
+\XKV@depth=\count137
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -478,8 +494,8 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks35
-\pgfutil@tempdima=\dimen132
-\pgfutil@tempdimb=\dimen133
+\pgfutil@tempdima=\dimen138
+\pgfutil@tempdimb=\dimen139
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
 ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -505,20 +521,20 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 ex
 \pgfkeys@tmptoks=\toks38
 ))
-\pgf@x=\dimen134
-\pgf@y=\dimen135
-\pgf@xa=\dimen136
-\pgf@ya=\dimen137
-\pgf@xb=\dimen138
-\pgf@yb=\dimen139
-\pgf@xc=\dimen140
-\pgf@yc=\dimen141
+\pgf@x=\dimen140
+\pgf@y=\dimen141
+\pgf@xa=\dimen142
+\pgf@ya=\dimen143
+\pgf@xb=\dimen144
+\pgf@yb=\dimen145
+\pgf@xc=\dimen146
+\pgf@yc=\dimen147
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count134
-\c@pgf@countb=\count135
-\c@pgf@countc=\count136
-\c@pgf@countd=\count137
+\c@pgf@counta=\count138
+\c@pgf@countb=\count139
+\c@pgf@countc=\count140
+\c@pgf@countd=\count141
 \t@pgf@toka=\toks39
 \t@pgf@tokb=\toks40
 \t@pgf@tokc=\toks41
@@ -537,8 +553,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count138
-\pgfsyssoftpath@bigbuffer@items=\count139
+\pgfsyssoftpath@smallbuffer@items=\count142
+\pgfsyssoftpath@bigbuffer@items=\count143
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -551,8 +567,8 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen142
-\pgfmath@count=\count140
+\pgfmath@dimen=\dimen148
+\pgfmath@count=\count144
 \pgfmath@box=\box35
 \pgfmath@toks=\toks42
 \pgfmath@stack@operand=\toks43
@@ -576,37 +592,37 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count141
+\c@pgfmathroundto@lastzeros=\count145
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen143
-\pgf@picmaxx=\dimen144
-\pgf@picminy=\dimen145
-\pgf@picmaxy=\dimen146
-\pgf@pathminx=\dimen147
-\pgf@pathmaxx=\dimen148
-\pgf@pathminy=\dimen149
-\pgf@pathmaxy=\dimen150
-\pgf@xx=\dimen151
-\pgf@xy=\dimen152
-\pgf@yx=\dimen153
-\pgf@yy=\dimen154
-\pgf@zx=\dimen155
-\pgf@zy=\dimen156
+\pgf@picminx=\dimen149
+\pgf@picmaxx=\dimen150
+\pgf@picminy=\dimen151
+\pgf@picmaxy=\dimen152
+\pgf@pathminx=\dimen153
+\pgf@pathmaxx=\dimen154
+\pgf@pathminy=\dimen155
+\pgf@pathmaxy=\dimen156
+\pgf@xx=\dimen157
+\pgf@xy=\dimen158
+\pgf@yx=\dimen159
+\pgf@yy=\dimen160
+\pgf@zx=\dimen161
+\pgf@zy=\dimen162
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen157
-\pgf@path@lasty=\dimen158
+\pgf@path@lastx=\dimen163
+\pgf@path@lasty=\dimen164
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen159
-\pgf@shorten@start@additional=\dimen160
+\pgf@shorten@end@additional=\dimen165
+\pgf@shorten@start@additional=\dimen166
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
@@ -614,19 +630,19 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box36
 \pgf@hbox=\box37
 \pgf@layerbox@main=\box38
-\pgf@picture@serial@count=\count142
+\pgf@picture@serial@count=\count146
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen161
+\pgflinewidth=\dimen167
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen162
-\pgf@pt@y=\dimen163
-\pgf@pt@temp=\dimen164
+\pgf@pt@x=\dimen168
+\pgf@pt@y=\dimen169
+\pgf@pt@temp=\dimen170
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -642,12 +658,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen165
+\pgfarrowsep=\dimen171
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen166
-\pgf@sys@shading@range@num=\count143
+\pgf@max=\dimen172
+\pgf@sys@shading@range@num=\count147
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -678,8 +694,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen167
-\pgf@nodesepend=\dimen168
+\pgf@nodesepstart=\dimen173
+\pgf@nodesepend=\dimen174
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -693,8 +709,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen169
-\pgffor@skip=\dimen170
+\pgffor@iter=\dimen175
+\pgffor@skip=\dimen176
 \pgffor@stack=\toks45
 \pgffor@toks=\toks46
 ))
@@ -704,31 +720,31 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count144
-\pgfplotmarksize=\dimen171
+\pgf@plot@mark@count=\count148
+\pgfplotmarksize=\dimen177
 )
-\tikz@lastx=\dimen172
-\tikz@lasty=\dimen173
-\tikz@lastxsaved=\dimen174
-\tikz@lastysaved=\dimen175
-\tikzleveldistance=\dimen176
-\tikzsiblingdistance=\dimen177
+\tikz@lastx=\dimen178
+\tikz@lasty=\dimen179
+\tikz@lastxsaved=\dimen180
+\tikz@lastysaved=\dimen181
+\tikzleveldistance=\dimen182
+\tikzsiblingdistance=\dimen183
 \tikz@figbox=\box41
 \tikz@figbox@bg=\box42
 \tikz@tempbox=\box43
 \tikz@tempbox@bg=\box44
-\tikztreelevel=\count145
-\tikznumberofchildren=\count146
-\tikznumberofcurrentchild=\count147
-\tikz@fig@count=\count148
+\tikztreelevel=\count149
+\tikznumberofchildren=\count150
+\tikznumberofcurrentchild=\count151
+\tikz@fig@count=\count152
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count149
-\pgfmatrixcurrentcolumn=\count150
-\pgf@matrix@numberofcolumns=\count151
+\pgfmatrixcurrentrow=\count153
+\pgfmatrixcurrentcolumn=\count154
+\pgf@matrix@numberofcolumns=\count155
 )
-\tikz@expandcount=\count152
+\tikz@expandcount=\count156
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -738,7 +754,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 zlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-\c@@todonotes@numberoftodonotes=\count153
+\c@@todonotes@numberoftodonotes=\count157
 )
 (/usr/share/texlive/texmf-dist/tex/latex/textpos/textpos.sty
 Package: textpos 2016/06/07 v1.8
@@ -746,16 +762,16 @@ Package: textpos 2016/06/07 v1.8
 Package: textpos 2016/06/07 1.8, absolute positioning of text on the page
 \TP@textbox=\box45
 \TP@holdbox=\box46
-\TPHorizModule=\dimen178
-\TPVertModule=\dimen179
-\TP@margin=\dimen180
-\TP@absmargin=\dimen181
+\TPHorizModule=\dimen184
+\TPVertModule=\dimen185
+\TP@margin=\dimen186
+\TP@absmargin=\dimen187
 Grid set 16 x 16 = 37.34424pt x 52.81541pt
-\TPboxrulesize=\dimen182
-\TP@ox=\dimen183
-\TP@oy=\dimen184
+\TPboxrulesize=\dimen188
+\TP@ox=\dimen189
+\TP@oy=\dimen190
 \TP@tbargs=\toks47
-\TP@prevdepth=\dimen185
+\TP@prevdepth=\dimen191
 TextBlockOrigin set to 0pt x 0pt
 )
 TextBlockOrigin set to 0mm x 0mm
@@ -777,129 +793,129 @@ Package: expl3 2018/02/21 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2018/02/21 L3 programming layer (code)
-\c_max_int=\count154
-\l_tmpa_int=\count155
-\l_tmpb_int=\count156
-\g_tmpa_int=\count157
-\g_tmpb_int=\count158
-\g__intarray_font_int=\count159
-\g__prg_map_int=\count160
-\c_log_iow=\count161
-\l_iow_line_count_int=\count162
-\l__iow_line_target_int=\count163
-\l__iow_one_indent_int=\count164
-\l__iow_indent_int=\count165
-\c_zero_dim=\dimen186
-\c_max_dim=\dimen187
-\l_tmpa_dim=\dimen188
-\l_tmpb_dim=\dimen189
-\g_tmpa_dim=\dimen190
-\g_tmpb_dim=\dimen191
-\c_zero_skip=\skip69
-\c_max_skip=\skip70
-\l_tmpa_skip=\skip71
-\l_tmpb_skip=\skip72
-\g_tmpa_skip=\skip73
-\g_tmpb_skip=\skip74
+\c_max_int=\count158
+\l_tmpa_int=\count159
+\l_tmpb_int=\count160
+\g_tmpa_int=\count161
+\g_tmpb_int=\count162
+\g__intarray_font_int=\count163
+\g__prg_map_int=\count164
+\c_log_iow=\count165
+\l_iow_line_count_int=\count166
+\l__iow_line_target_int=\count167
+\l__iow_one_indent_int=\count168
+\l__iow_indent_int=\count169
+\c_zero_dim=\dimen192
+\c_max_dim=\dimen193
+\l_tmpa_dim=\dimen194
+\l_tmpb_dim=\dimen195
+\g_tmpa_dim=\dimen196
+\g_tmpb_dim=\dimen197
+\c_zero_skip=\skip68
+\c_max_skip=\skip69
+\l_tmpa_skip=\skip70
+\l_tmpb_skip=\skip71
+\g_tmpa_skip=\skip72
+\g_tmpb_skip=\skip73
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-\l_keys_choice_int=\count166
-\c__fp_leading_shift_int=\count167
-\c__fp_middle_shift_int=\count168
-\c__fp_trailing_shift_int=\count169
-\c__fp_big_leading_shift_int=\count170
-\c__fp_big_middle_shift_int=\count171
-\c__fp_big_trailing_shift_int=\count172
-\c__fp_Bigg_leading_shift_int=\count173
-\c__fp_Bigg_middle_shift_int=\count174
-\c__fp_Bigg_trailing_shift_int=\count175
-\c__fp_rand_size_int=\count176
-\c__fp_rand_four_int=\count177
-\c__fp_rand_eight_int=\count178
-\l__sort_length_int=\count179
-\l__sort_min_int=\count180
-\l__sort_top_int=\count181
-\l__sort_max_int=\count182
-\l__sort_true_max_int=\count183
-\l__sort_block_int=\count184
-\l__sort_begin_int=\count185
-\l__sort_end_int=\count186
-\l__sort_A_int=\count187
-\l__sort_B_int=\count188
-\l__sort_C_int=\count189
-\l__tl_build_start_index_int=\count190
-\l__tl_build_index_int=\count191
-\l__tl_analysis_normal_int=\count192
-\l__tl_analysis_index_int=\count193
-\l__tl_analysis_nesting_int=\count194
-\l__tl_analysis_type_int=\count195
-\l__regex_internal_a_int=\count196
-\l__regex_internal_b_int=\count197
-\l__regex_internal_c_int=\count198
-\l__regex_balance_int=\count199
-\l__regex_group_level_int=\count266
-\l__regex_mode_int=\count267
-\c__regex_cs_in_class_mode_int=\count268
-\c__regex_cs_mode_int=\count269
-\l__regex_catcodes_int=\count270
-\l__regex_default_catcodes_int=\count271
-\c__regex_catcode_D_int=\count272
-\c__regex_catcode_S_int=\count273
-\c__regex_catcode_L_int=\count274
-\c__regex_catcode_O_int=\count275
-\c__regex_catcode_A_int=\count276
-\c__regex_all_catcodes_int=\count277
-\l__regex_show_lines_int=\count278
-\l__regex_min_state_int=\count279
-\l__regex_max_state_int=\count280
-\l__regex_left_state_int=\count281
-\l__regex_right_state_int=\count282
-\l__regex_capturing_group_int=\count283
-\l__regex_min_pos_int=\count284
-\l__regex_max_pos_int=\count285
-\l__regex_curr_pos_int=\count286
-\l__regex_start_pos_int=\count287
-\l__regex_success_pos_int=\count288
-\l__regex_curr_char_int=\count289
-\l__regex_curr_catcode_int=\count290
-\l__regex_last_char_int=\count291
-\l__regex_case_changed_char_int=\count292
-\l__regex_curr_state_int=\count293
-\l__regex_step_int=\count294
-\l__regex_min_active_int=\count295
-\l__regex_max_active_int=\count296
-\l__regex_replacement_csnames_int=\count297
-\l__regex_match_count_int=\count298
-\l__regex_min_submatch_int=\count299
-\l__regex_submatch_int=\count300
-\l__regex_zeroth_submatch_int=\count301
-\g__regex_trace_regex_int=\count302
+\l_keys_choice_int=\count170
+\c__fp_leading_shift_int=\count171
+\c__fp_middle_shift_int=\count172
+\c__fp_trailing_shift_int=\count173
+\c__fp_big_leading_shift_int=\count174
+\c__fp_big_middle_shift_int=\count175
+\c__fp_big_trailing_shift_int=\count176
+\c__fp_Bigg_leading_shift_int=\count177
+\c__fp_Bigg_middle_shift_int=\count178
+\c__fp_Bigg_trailing_shift_int=\count179
+\c__fp_rand_size_int=\count180
+\c__fp_rand_four_int=\count181
+\c__fp_rand_eight_int=\count182
+\l__sort_length_int=\count183
+\l__sort_min_int=\count184
+\l__sort_top_int=\count185
+\l__sort_max_int=\count186
+\l__sort_true_max_int=\count187
+\l__sort_block_int=\count188
+\l__sort_begin_int=\count189
+\l__sort_end_int=\count190
+\l__sort_A_int=\count191
+\l__sort_B_int=\count192
+\l__sort_C_int=\count193
+\l__tl_build_start_index_int=\count194
+\l__tl_build_index_int=\count195
+\l__tl_analysis_normal_int=\count196
+\l__tl_analysis_index_int=\count197
+\l__tl_analysis_nesting_int=\count198
+\l__tl_analysis_type_int=\count199
+\l__regex_internal_a_int=\count266
+\l__regex_internal_b_int=\count267
+\l__regex_internal_c_int=\count268
+\l__regex_balance_int=\count269
+\l__regex_group_level_int=\count270
+\l__regex_mode_int=\count271
+\c__regex_cs_in_class_mode_int=\count272
+\c__regex_cs_mode_int=\count273
+\l__regex_catcodes_int=\count274
+\l__regex_default_catcodes_int=\count275
+\c__regex_catcode_D_int=\count276
+\c__regex_catcode_S_int=\count277
+\c__regex_catcode_L_int=\count278
+\c__regex_catcode_O_int=\count279
+\c__regex_catcode_A_int=\count280
+\c__regex_all_catcodes_int=\count281
+\l__regex_show_lines_int=\count282
+\l__regex_min_state_int=\count283
+\l__regex_max_state_int=\count284
+\l__regex_left_state_int=\count285
+\l__regex_right_state_int=\count286
+\l__regex_capturing_group_int=\count287
+\l__regex_min_pos_int=\count288
+\l__regex_max_pos_int=\count289
+\l__regex_curr_pos_int=\count290
+\l__regex_start_pos_int=\count291
+\l__regex_success_pos_int=\count292
+\l__regex_curr_char_int=\count293
+\l__regex_curr_catcode_int=\count294
+\l__regex_last_char_int=\count295
+\l__regex_case_changed_char_int=\count296
+\l__regex_curr_state_int=\count297
+\l__regex_step_int=\count298
+\l__regex_min_active_int=\count299
+\l__regex_max_active_int=\count300
+\l__regex_replacement_csnames_int=\count301
+\l__regex_match_count_int=\count302
+\l__regex_min_submatch_int=\count303
+\l__regex_submatch_int=\count304
+\l__regex_zeroth_submatch_int=\count305
+\g__regex_trace_regex_int=\count306
 \c_empty_box=\box47
 \l_tmpa_box=\box48
 \l_tmpb_box=\box49
 \g_tmpa_box=\box50
 \g_tmpb_box=\box51
-\l__box_top_dim=\dimen192
-\l__box_bottom_dim=\dimen193
-\l__box_left_dim=\dimen194
-\l__box_right_dim=\dimen195
-\l__box_top_new_dim=\dimen196
-\l__box_bottom_new_dim=\dimen197
-\l__box_left_new_dim=\dimen198
-\l__box_right_new_dim=\dimen199
+\l__box_top_dim=\dimen198
+\l__box_bottom_dim=\dimen199
+\l__box_left_dim=\dimen256
+\l__box_right_dim=\dimen257
+\l__box_top_new_dim=\dimen258
+\l__box_bottom_new_dim=\dimen259
+\l__box_left_new_dim=\dimen260
+\l__box_right_new_dim=\dimen261
 \l__box_internal_box=\box52
 \l__coffin_internal_box=\box53
-\l__coffin_internal_dim=\dimen256
-\l__coffin_offset_x_dim=\dimen257
-\l__coffin_offset_y_dim=\dimen258
-\l__coffin_x_dim=\dimen259
-\l__coffin_y_dim=\dimen260
-\l__coffin_x_prime_dim=\dimen261
-\l__coffin_y_prime_dim=\dimen262
+\l__coffin_internal_dim=\dimen262
+\l__coffin_offset_x_dim=\dimen263
+\l__coffin_offset_y_dim=\dimen264
+\l__coffin_x_dim=\dimen265
+\l__coffin_y_dim=\dimen266
+\l__coffin_x_prime_dim=\dimen267
+\l__coffin_y_prime_dim=\dimen268
 \c_empty_coffin=\box54
 \l__coffin_aligned_coffin=\box55
 \l__coffin_aligned_internal_coffin=\box56
@@ -908,35 +924,35 @@ Package: expl3 2018/02/21 L3 programming layer (code)
 \l__coffin_display_coffin=\box59
 \l__coffin_display_coord_coffin=\box60
 \l__coffin_display_pole_coffin=\box61
-\l__coffin_display_offset_dim=\dimen263
-\l__coffin_display_x_dim=\dimen264
-\l__coffin_display_y_dim=\dimen265
-\l__coffin_bounding_shift_dim=\dimen266
-\l__coffin_left_corner_dim=\dimen267
-\l__coffin_right_corner_dim=\dimen268
-\l__coffin_bottom_corner_dim=\dimen269
-\l__coffin_top_corner_dim=\dimen270
-\l__coffin_scaled_total_height_dim=\dimen271
-\l__coffin_scaled_width_dim=\dimen272
+\l__coffin_display_offset_dim=\dimen269
+\l__coffin_display_x_dim=\dimen270
+\l__coffin_display_y_dim=\dimen271
+\l__coffin_bounding_shift_dim=\dimen272
+\l__coffin_left_corner_dim=\dimen273
+\l__coffin_right_corner_dim=\dimen274
+\l__coffin_bottom_corner_dim=\dimen275
+\l__coffin_top_corner_dim=\dimen276
+\l__coffin_scaled_total_height_dim=\dimen277
+\l__coffin_scaled_width_dim=\dimen278
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count303
+\l__driver_color_stack_int=\count307
 \l__driver_tmp_box=\box62
 ))
 Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2018/02/21 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count304
-\g__xparse_grabber_int=\count305
-\l__xparse_m_args_int=\count306
-\l__xparse_mandatory_args_int=\count307
-\l__xparse_v_nesting_int=\count308
+\l__xparse_current_arg_int=\count308
+\g__xparse_grabber_int=\count309
+\l__xparse_m_args_int=\count310
+\l__xparse_mandatory_args_int=\count311
+\l__xparse_v_nesting_int=\count312
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count309
+\etb@tempcnta=\count313
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1142,7 +1158,7 @@ Package scrhack Info: loading lscape hack on input line 203.
 File: lscape.hak 2017/09/07 v3.24 KOMA-Script package (hacking package lscape)
 Package scrhack Info: \landscape patched to make \textheight change optional on
  input line 90.
-\scrh@LT@textheight=\skip75
+\scrh@LT@textheight=\skip74
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2018/02/14 3.18 The Babel package
@@ -1160,11 +1176,11 @@ aphy)
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count310
-\U@D=\dimen273
+\babel@savecnt=\count314
+\U@D=\dimen279
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count311
+\bbl@dirlevel=\count315
 )
 Package babel Info: Making " an active character on input line 139.
 )))
@@ -1592,19 +1608,19 @@ Package: aecompl 1998/07/23 0.9 T1 Complements for AE fonts (D. Roegel)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip76
-\bibsep=\skip77
+\bibhang=\skip75
+\bibsep=\skip76
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count312
+\c@NAT@ctr=\count316
 )
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2018/02/11 v5.2c context-sensitive quotations (JAW)
-\csq@reset=\count313
-\csq@gtype=\count314
-\csq@glevel=\count315
-\csq@qlevel=\count316
-\csq@maxlvl=\count317
-\csq@tshold=\count318
+\csq@reset=\count317
+\csq@gtype=\count318
+\csq@glevel=\count319
+\csq@qlevel=\count320
+\csq@maxlvl=\count321
+\csq@tshold=\count322
 \csq@ltx@everypar=\toks50
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -1621,45 +1637,25 @@ Package csquotes Info: Option 'babel' depreciated.
 Package csquotes Info: Enabling multilingual quotes.
 Package csquotes Info: Redefining alias 'german' -> 'german/quotes'.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen274
-\captionmargin@=\dimen275
-\captionwidth=\dimen276
-\caption@tempdima=\dimen277
-\caption@indent=\dimen278
-\caption@parindent=\dimen279
-\caption@hangindent=\dimen280
-)
-Package caption Info: KOMA-Script document class.
-\c@ContinuedFloat=\count319
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: subfigure package is loaded.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen281
-\lightrulewidth=\dimen282
-\cmidrulewidth=\dimen283
-\belowrulesep=\dimen284
-\belowbottomsep=\dimen285
-\aboverulesep=\dimen286
-\abovetopsep=\dimen287
-\cmidrulesep=\dimen288
-\cmidrulekern=\dimen289
-\defaultaddspace=\dimen290
-\@cmidla=\count320
-\@cmidlb=\count321
-\@aboverulesep=\dimen291
-\@belowrulesep=\dimen292
-\@thisruleclass=\count322
-\@lastruleclass=\count323
-\@thisrulewidth=\dimen293
+\heavyrulewidth=\dimen280
+\lightrulewidth=\dimen281
+\cmidrulewidth=\dimen282
+\belowrulesep=\dimen283
+\belowbottomsep=\dimen284
+\aboverulesep=\dimen285
+\abovetopsep=\dimen286
+\cmidrulesep=\dimen287
+\cmidrulekern=\dimen288
+\defaultaddspace=\dimen289
+\@cmidla=\count323
+\@cmidlb=\count324
+\@aboverulesep=\dimen290
+\@belowrulesep=\dimen291
+\@thisruleclass=\count325
+\@lastruleclass=\count326
+\@thisrulewidth=\dimen292
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
@@ -1668,38 +1664,38 @@ Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip78
-\f@nch@O@elh=\skip79
-\f@nch@O@erh=\skip80
-\f@nch@O@olh=\skip81
-\f@nch@O@orh=\skip82
-\f@nch@O@elf=\skip83
-\f@nch@O@erf=\skip84
-\f@nch@O@olf=\skip85
-\f@nch@O@orf=\skip86
+\f@nch@headwidth=\skip77
+\f@nch@O@elh=\skip78
+\f@nch@O@erh=\skip79
+\f@nch@O@olh=\skip80
+\f@nch@O@orh=\skip81
+\f@nch@O@elf=\skip82
+\f@nch@O@erf=\skip83
+\f@nch@O@olf=\skip84
+\f@nch@O@orf=\skip85
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/extramarks.sty
 Package: extramarks 2017/06/30 v3.9a Extra marks for LaTeX
 \@temptokenb=\toks51
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count324
+\lst@mode=\count327
 \lst@gtempboxa=\box64
 \lst@token=\toks52
-\lst@length=\count325
-\lst@currlwidth=\dimen294
-\lst@column=\count326
-\lst@pos=\count327
-\lst@lostspace=\dimen295
-\lst@width=\dimen296
-\lst@newlines=\count328
-\lst@lineno=\count329
-\lst@maxwidth=\dimen297
+\lst@length=\count328
+\lst@currlwidth=\dimen293
+\lst@column=\count329
+\lst@pos=\count330
+\lst@lostspace=\dimen294
+\lst@width=\dimen295
+\lst@newlines=\count331
+\lst@lineno=\count332
+\lst@maxwidth=\dimen296
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count330
-\lst@skipnumbers=\count331
+\c@lstnumber=\count333
+\lst@skipnumbers=\count334
 \lst@framebox=\box65
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -1720,16 +1716,16 @@ Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 Package tocbasic Info: setting babel extension for `loa' on input line 95.
 \@float@every@algorithm=\toks53
-\c@algorithm=\count332
+\c@algorithm=\count335
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count333
-\c@ALC@line=\count334
-\c@ALC@rem=\count335
-\c@ALC@depth=\count336
-\ALC@tlm=\skip87
-\algorithmicindent=\skip88
+\c@ALC@unique=\count336
+\c@ALC@line=\count337
+\c@ALC@rem=\count338
+\c@ALC@depth=\count339
+\ALC@tlm=\skip86
+\algorithmicindent=\skip87
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
@@ -1741,47 +1737,530 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks56
 \verbatim@in@stream=\read2
 )
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarymindmap.code.tex
+File: tikzlibrarymindmap.code.tex 2013/07/16 v3.0.1a (rcs-revision 1.10)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytrees.code.tex
+File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.1a (rcs-revision 1.2)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex
+\pgfdecoratedcompleteddistance=\dimen297
+\pgfdecoratedremainingdistance=\dimen298
+\pgfdecoratedinputsegmentcompleteddistance=\dimen299
+\pgfdecoratedinputsegmentremainingdistance=\dimen300
+\pgf@decorate@distancetomove=\dimen301
+\pgf@decorate@repeatstate=\count340
+\pgfdecorationsegmentamplitude=\dimen302
+\pgfdecorationsegmentlength=\dimen303
+)
+\tikz@lib@dec@box=\box66
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/textgreek/textgreek.sty
+Package: textgreek 2011/10/09 v0.7 Greek symbols in text
+Package textgreek Info: Loading the definitions for the Greek fontencoding. on 
+input line 39.
+
+(/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/lgrenc.def
+File: lgrenc.def 2015/12/07 v0.13.1 LGR Greek font encoding definitions
+Now handling font encoding LGR ...
+... processing UTF-8 mapping file for font encoding LGR
+
+(/usr/share/texlive/texmf-dist/tex/latex/greek-inputenc/lgrenc.dfu
+File: lgrenc.dfu 2015/08/05 1.6 UTF-8 support for Greek
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+0259 (decimal 601)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+0374 (decimal 884)
+   defining Unicode char U+0375 (decimal 885)
+   defining Unicode char U+037A (decimal 890)
+   defining Unicode char U+037E (decimal 894)
+   defining Unicode char U+0384 (decimal 900)
+   defining Unicode char U+0385 (decimal 901)
+   defining Unicode char U+0386 (decimal 902)
+   defining Unicode char U+0387 (decimal 903)
+   defining Unicode char U+0388 (decimal 904)
+   defining Unicode char U+0389 (decimal 905)
+   defining Unicode char U+038A (decimal 906)
+   defining Unicode char U+038C (decimal 908)
+   defining Unicode char U+038E (decimal 910)
+   defining Unicode char U+038F (decimal 911)
+   defining Unicode char U+0390 (decimal 912)
+   defining Unicode char U+0391 (decimal 913)
+   defining Unicode char U+0392 (decimal 914)
+   defining Unicode char U+0393 (decimal 915)
+   defining Unicode char U+0394 (decimal 916)
+   defining Unicode char U+0395 (decimal 917)
+   defining Unicode char U+0396 (decimal 918)
+   defining Unicode char U+0397 (decimal 919)
+   defining Unicode char U+0398 (decimal 920)
+   defining Unicode char U+0399 (decimal 921)
+   defining Unicode char U+039A (decimal 922)
+   defining Unicode char U+039B (decimal 923)
+   defining Unicode char U+039C (decimal 924)
+   defining Unicode char U+039D (decimal 925)
+   defining Unicode char U+039E (decimal 926)
+   defining Unicode char U+039F (decimal 927)
+   defining Unicode char U+03A0 (decimal 928)
+   defining Unicode char U+03A1 (decimal 929)
+   defining Unicode char U+03A3 (decimal 931)
+   defining Unicode char U+03A4 (decimal 932)
+   defining Unicode char U+03A5 (decimal 933)
+   defining Unicode char U+03A6 (decimal 934)
+   defining Unicode char U+03A7 (decimal 935)
+   defining Unicode char U+03A8 (decimal 936)
+   defining Unicode char U+03A9 (decimal 937)
+   defining Unicode char U+03AA (decimal 938)
+   defining Unicode char U+03AB (decimal 939)
+   defining Unicode char U+03AC (decimal 940)
+   defining Unicode char U+03AD (decimal 941)
+   defining Unicode char U+03AE (decimal 942)
+   defining Unicode char U+03AF (decimal 943)
+   defining Unicode char U+03B0 (decimal 944)
+   defining Unicode char U+03B1 (decimal 945)
+   defining Unicode char U+03B2 (decimal 946)
+   defining Unicode char U+03B3 (decimal 947)
+   defining Unicode char U+03B4 (decimal 948)
+   defining Unicode char U+03B5 (decimal 949)
+   defining Unicode char U+03B6 (decimal 950)
+   defining Unicode char U+03B7 (decimal 951)
+   defining Unicode char U+03B8 (decimal 952)
+   defining Unicode char U+03B9 (decimal 953)
+   defining Unicode char U+03BA (decimal 954)
+   defining Unicode char U+03BB (decimal 955)
+   defining Unicode char U+03BC (decimal 956)
+   defining Unicode char U+03BD (decimal 957)
+   defining Unicode char U+03BE (decimal 958)
+   defining Unicode char U+03BF (decimal 959)
+   defining Unicode char U+03C0 (decimal 960)
+   defining Unicode char U+03C1 (decimal 961)
+   defining Unicode char U+03C2 (decimal 962)
+   defining Unicode char U+03C3 (decimal 963)
+   defining Unicode char U+03C4 (decimal 964)
+   defining Unicode char U+03C5 (decimal 965)
+   defining Unicode char U+03C6 (decimal 966)
+   defining Unicode char U+03C7 (decimal 967)
+   defining Unicode char U+03C8 (decimal 968)
+   defining Unicode char U+03C9 (decimal 969)
+   defining Unicode char U+03CA (decimal 970)
+   defining Unicode char U+03CB (decimal 971)
+   defining Unicode char U+03CC (decimal 972)
+   defining Unicode char U+03CD (decimal 973)
+   defining Unicode char U+03CE (decimal 974)
+   defining Unicode char U+03D0 (decimal 976)
+   defining Unicode char U+03D1 (decimal 977)
+   defining Unicode char U+03D5 (decimal 981)
+   defining Unicode char U+03D6 (decimal 982)
+   defining Unicode char U+03D8 (decimal 984)
+   defining Unicode char U+03D9 (decimal 985)
+   defining Unicode char U+03DA (decimal 986)
+   defining Unicode char U+03DB (decimal 987)
+   defining Unicode char U+03DC (decimal 988)
+   defining Unicode char U+03DD (decimal 989)
+   defining Unicode char U+03DF (decimal 991)
+   defining Unicode char U+03E0 (decimal 992)
+   defining Unicode char U+03E1 (decimal 993)
+   defining Unicode char U+03F0 (decimal 1008)
+   defining Unicode char U+03F1 (decimal 1009)
+   defining Unicode char U+03F4 (decimal 1012)
+   defining Unicode char U+03F5 (decimal 1013)
+   defining Unicode char U+1F00 (decimal 7936)
+   defining Unicode char U+1F01 (decimal 7937)
+   defining Unicode char U+1F02 (decimal 7938)
+   defining Unicode char U+1F03 (decimal 7939)
+   defining Unicode char U+1F04 (decimal 7940)
+   defining Unicode char U+1F05 (decimal 7941)
+   defining Unicode char U+1F06 (decimal 7942)
+   defining Unicode char U+1F07 (decimal 7943)
+   defining Unicode char U+1F08 (decimal 7944)
+   defining Unicode char U+1F09 (decimal 7945)
+   defining Unicode char U+1F0A (decimal 7946)
+   defining Unicode char U+1F0B (decimal 7947)
+   defining Unicode char U+1F0C (decimal 7948)
+   defining Unicode char U+1F0D (decimal 7949)
+   defining Unicode char U+1F0E (decimal 7950)
+   defining Unicode char U+1F0F (decimal 7951)
+   defining Unicode char U+1F10 (decimal 7952)
+   defining Unicode char U+1F11 (decimal 7953)
+   defining Unicode char U+1F12 (decimal 7954)
+   defining Unicode char U+1F13 (decimal 7955)
+   defining Unicode char U+1F14 (decimal 7956)
+   defining Unicode char U+1F15 (decimal 7957)
+   defining Unicode char U+1F18 (decimal 7960)
+   defining Unicode char U+1F19 (decimal 7961)
+   defining Unicode char U+1F1A (decimal 7962)
+   defining Unicode char U+1F1B (decimal 7963)
+   defining Unicode char U+1F1C (decimal 7964)
+   defining Unicode char U+1F1D (decimal 7965)
+   defining Unicode char U+1F20 (decimal 7968)
+   defining Unicode char U+1F21 (decimal 7969)
+   defining Unicode char U+1F22 (decimal 7970)
+   defining Unicode char U+1F23 (decimal 7971)
+   defining Unicode char U+1F24 (decimal 7972)
+   defining Unicode char U+1F25 (decimal 7973)
+   defining Unicode char U+1F26 (decimal 7974)
+   defining Unicode char U+1F27 (decimal 7975)
+   defining Unicode char U+1F28 (decimal 7976)
+   defining Unicode char U+1F29 (decimal 7977)
+   defining Unicode char U+1F2A (decimal 7978)
+   defining Unicode char U+1F2B (decimal 7979)
+   defining Unicode char U+1F2C (decimal 7980)
+   defining Unicode char U+1F2D (decimal 7981)
+   defining Unicode char U+1F2E (decimal 7982)
+   defining Unicode char U+1F2F (decimal 7983)
+   defining Unicode char U+1F30 (decimal 7984)
+   defining Unicode char U+1F31 (decimal 7985)
+   defining Unicode char U+1F32 (decimal 7986)
+   defining Unicode char U+1F33 (decimal 7987)
+   defining Unicode char U+1F34 (decimal 7988)
+   defining Unicode char U+1F35 (decimal 7989)
+   defining Unicode char U+1F36 (decimal 7990)
+   defining Unicode char U+1F37 (decimal 7991)
+   defining Unicode char U+1F38 (decimal 7992)
+   defining Unicode char U+1F39 (decimal 7993)
+   defining Unicode char U+1F3A (decimal 7994)
+   defining Unicode char U+1F3B (decimal 7995)
+   defining Unicode char U+1F3C (decimal 7996)
+   defining Unicode char U+1F3D (decimal 7997)
+   defining Unicode char U+1F3E (decimal 7998)
+   defining Unicode char U+1F3F (decimal 7999)
+   defining Unicode char U+1F40 (decimal 8000)
+   defining Unicode char U+1F41 (decimal 8001)
+   defining Unicode char U+1F42 (decimal 8002)
+   defining Unicode char U+1F43 (decimal 8003)
+   defining Unicode char U+1F44 (decimal 8004)
+   defining Unicode char U+1F45 (decimal 8005)
+   defining Unicode char U+1F48 (decimal 8008)
+   defining Unicode char U+1F49 (decimal 8009)
+   defining Unicode char U+1F4A (decimal 8010)
+   defining Unicode char U+1F4B (decimal 8011)
+   defining Unicode char U+1F4C (decimal 8012)
+   defining Unicode char U+1F4D (decimal 8013)
+   defining Unicode char U+1F50 (decimal 8016)
+   defining Unicode char U+1F51 (decimal 8017)
+   defining Unicode char U+1F52 (decimal 8018)
+   defining Unicode char U+1F53 (decimal 8019)
+   defining Unicode char U+1F54 (decimal 8020)
+   defining Unicode char U+1F55 (decimal 8021)
+   defining Unicode char U+1F56 (decimal 8022)
+   defining Unicode char U+1F57 (decimal 8023)
+   defining Unicode char U+1F59 (decimal 8025)
+   defining Unicode char U+1F5B (decimal 8027)
+   defining Unicode char U+1F5D (decimal 8029)
+   defining Unicode char U+1F5F (decimal 8031)
+   defining Unicode char U+1F60 (decimal 8032)
+   defining Unicode char U+1F61 (decimal 8033)
+   defining Unicode char U+1F62 (decimal 8034)
+   defining Unicode char U+1F63 (decimal 8035)
+   defining Unicode char U+1F64 (decimal 8036)
+   defining Unicode char U+1F65 (decimal 8037)
+   defining Unicode char U+1F66 (decimal 8038)
+   defining Unicode char U+1F67 (decimal 8039)
+   defining Unicode char U+1F68 (decimal 8040)
+   defining Unicode char U+1F69 (decimal 8041)
+   defining Unicode char U+1F6A (decimal 8042)
+   defining Unicode char U+1F6B (decimal 8043)
+   defining Unicode char U+1F6C (decimal 8044)
+   defining Unicode char U+1F6D (decimal 8045)
+   defining Unicode char U+1F6E (decimal 8046)
+   defining Unicode char U+1F6F (decimal 8047)
+   defining Unicode char U+1F70 (decimal 8048)
+   defining Unicode char U+1F71 (decimal 8049)
+   defining Unicode char U+1F72 (decimal 8050)
+   defining Unicode char U+1F73 (decimal 8051)
+   defining Unicode char U+1F74 (decimal 8052)
+   defining Unicode char U+1F75 (decimal 8053)
+   defining Unicode char U+1F76 (decimal 8054)
+   defining Unicode char U+1F77 (decimal 8055)
+   defining Unicode char U+1F78 (decimal 8056)
+   defining Unicode char U+1F79 (decimal 8057)
+   defining Unicode char U+1F7A (decimal 8058)
+   defining Unicode char U+1F7B (decimal 8059)
+   defining Unicode char U+1F7C (decimal 8060)
+   defining Unicode char U+1F7D (decimal 8061)
+   defining Unicode char U+1F80 (decimal 8064)
+   defining Unicode char U+1F81 (decimal 8065)
+   defining Unicode char U+1F82 (decimal 8066)
+   defining Unicode char U+1F83 (decimal 8067)
+   defining Unicode char U+1F84 (decimal 8068)
+   defining Unicode char U+1F85 (decimal 8069)
+   defining Unicode char U+1F86 (decimal 8070)
+   defining Unicode char U+1F87 (decimal 8071)
+   defining Unicode char U+1F88 (decimal 8072)
+   defining Unicode char U+1F89 (decimal 8073)
+   defining Unicode char U+1F8A (decimal 8074)
+   defining Unicode char U+1F8B (decimal 8075)
+   defining Unicode char U+1F8C (decimal 8076)
+   defining Unicode char U+1F8D (decimal 8077)
+   defining Unicode char U+1F8E (decimal 8078)
+   defining Unicode char U+1F8F (decimal 8079)
+   defining Unicode char U+1F90 (decimal 8080)
+   defining Unicode char U+1F91 (decimal 8081)
+   defining Unicode char U+1F92 (decimal 8082)
+   defining Unicode char U+1F93 (decimal 8083)
+   defining Unicode char U+1F94 (decimal 8084)
+   defining Unicode char U+1F95 (decimal 8085)
+   defining Unicode char U+1F96 (decimal 8086)
+   defining Unicode char U+1F97 (decimal 8087)
+   defining Unicode char U+1F98 (decimal 8088)
+   defining Unicode char U+1F99 (decimal 8089)
+   defining Unicode char U+1F9A (decimal 8090)
+   defining Unicode char U+1F9B (decimal 8091)
+   defining Unicode char U+1F9C (decimal 8092)
+   defining Unicode char U+1F9D (decimal 8093)
+   defining Unicode char U+1F9E (decimal 8094)
+   defining Unicode char U+1F9F (decimal 8095)
+   defining Unicode char U+1FA0 (decimal 8096)
+   defining Unicode char U+1FA1 (decimal 8097)
+   defining Unicode char U+1FA2 (decimal 8098)
+   defining Unicode char U+1FA3 (decimal 8099)
+   defining Unicode char U+1FA4 (decimal 8100)
+   defining Unicode char U+1FA5 (decimal 8101)
+   defining Unicode char U+1FA6 (decimal 8102)
+   defining Unicode char U+1FA7 (decimal 8103)
+   defining Unicode char U+1FA8 (decimal 8104)
+   defining Unicode char U+1FA9 (decimal 8105)
+   defining Unicode char U+1FAA (decimal 8106)
+   defining Unicode char U+1FAB (decimal 8107)
+   defining Unicode char U+1FAC (decimal 8108)
+   defining Unicode char U+1FAD (decimal 8109)
+   defining Unicode char U+1FAE (decimal 8110)
+   defining Unicode char U+1FAF (decimal 8111)
+   defining Unicode char U+1FB0 (decimal 8112)
+   defining Unicode char U+1FB1 (decimal 8113)
+   defining Unicode char U+1FB2 (decimal 8114)
+   defining Unicode char U+1FB3 (decimal 8115)
+   defining Unicode char U+1FB4 (decimal 8116)
+   defining Unicode char U+1FB6 (decimal 8118)
+   defining Unicode char U+1FB7 (decimal 8119)
+   defining Unicode char U+1FB8 (decimal 8120)
+   defining Unicode char U+1FB9 (decimal 8121)
+   defining Unicode char U+1FBA (decimal 8122)
+   defining Unicode char U+1FBB (decimal 8123)
+   defining Unicode char U+1FBC (decimal 8124)
+   defining Unicode char U+1FBD (decimal 8125)
+   defining Unicode char U+1FBE (decimal 8126)
+   defining Unicode char U+1FBF (decimal 8127)
+   defining Unicode char U+1FC0 (decimal 8128)
+   defining Unicode char U+1FC1 (decimal 8129)
+   defining Unicode char U+1FC2 (decimal 8130)
+   defining Unicode char U+1FC3 (decimal 8131)
+   defining Unicode char U+1FC4 (decimal 8132)
+   defining Unicode char U+1FC6 (decimal 8134)
+   defining Unicode char U+1FC7 (decimal 8135)
+   defining Unicode char U+1FC8 (decimal 8136)
+   defining Unicode char U+1FC9 (decimal 8137)
+   defining Unicode char U+1FCA (decimal 8138)
+   defining Unicode char U+1FCB (decimal 8139)
+   defining Unicode char U+1FCC (decimal 8140)
+   defining Unicode char U+1FCD (decimal 8141)
+   defining Unicode char U+1FCE (decimal 8142)
+   defining Unicode char U+1FCF (decimal 8143)
+   defining Unicode char U+1FD0 (decimal 8144)
+   defining Unicode char U+1FD1 (decimal 8145)
+   defining Unicode char U+1FD2 (decimal 8146)
+   defining Unicode char U+1FD3 (decimal 8147)
+   defining Unicode char U+1FD6 (decimal 8150)
+   defining Unicode char U+1FD7 (decimal 8151)
+   defining Unicode char U+1FD8 (decimal 8152)
+   defining Unicode char U+1FD9 (decimal 8153)
+   defining Unicode char U+1FDA (decimal 8154)
+   defining Unicode char U+1FDB (decimal 8155)
+   defining Unicode char U+1FDD (decimal 8157)
+   defining Unicode char U+1FDE (decimal 8158)
+   defining Unicode char U+1FDF (decimal 8159)
+   defining Unicode char U+1FE0 (decimal 8160)
+   defining Unicode char U+1FE1 (decimal 8161)
+   defining Unicode char U+1FE2 (decimal 8162)
+   defining Unicode char U+1FE3 (decimal 8163)
+   defining Unicode char U+1FE4 (decimal 8164)
+   defining Unicode char U+1FE5 (decimal 8165)
+   defining Unicode char U+1FE6 (decimal 8166)
+   defining Unicode char U+1FE7 (decimal 8167)
+   defining Unicode char U+1FE8 (decimal 8168)
+   defining Unicode char U+1FE9 (decimal 8169)
+   defining Unicode char U+1FEA (decimal 8170)
+   defining Unicode char U+1FEB (decimal 8171)
+   defining Unicode char U+1FEC (decimal 8172)
+   defining Unicode char U+1FED (decimal 8173)
+   defining Unicode char U+1FEE (decimal 8174)
+   defining Unicode char U+1FEF (decimal 8175)
+   defining Unicode char U+1FF2 (decimal 8178)
+   defining Unicode char U+1FF3 (decimal 8179)
+   defining Unicode char U+1FF4 (decimal 8180)
+   defining Unicode char U+1FF6 (decimal 8182)
+   defining Unicode char U+1FF7 (decimal 8183)
+   defining Unicode char U+1FF8 (decimal 8184)
+   defining Unicode char U+1FF9 (decimal 8185)
+   defining Unicode char U+1FFA (decimal 8186)
+   defining Unicode char U+1FFB (decimal 8187)
+   defining Unicode char U+1FFC (decimal 8188)
+   defining Unicode char U+1FFD (decimal 8189)
+   defining Unicode char U+1FFE (decimal 8190)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+10144 (decimal 65860)
+   defining Unicode char U+10145 (decimal 65861)
+   defining Unicode char U+10146 (decimal 65862)
+   defining Unicode char U+10147 (decimal 65863)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/greek-fontenc.def
+File: greek-fontenc.def 2015/08/04 v0.13 Common Greek font encoding definitions
+
+))
+Package textgreek Info: Loaded fontmap: {eur/*/*}{U/eur/*/*} {phv/*/*}{U/psy/*/
+*}. on input line 69.
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-
-
-LaTeX Warning: Unused global option(s):
-    [xcolor=dvipsnames].
 
 (./Thesis_Buehler.aux)
 \openout1 = `Thesis_Buehler.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 217.
-LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 227.
+LaTeX Font Info:    ... okay on input line 227.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 227.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 227.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
+)
+LaTeX Font Info:    ... okay on input line 227.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count337
-\scratchdimen=\dimen298
-\scratchbox=\box66
-\nofMPsegments=\count338
-\nofMParguments=\count339
+\scratchcounter=\count341
+\scratchdimen=\dimen304
+\scratchbox=\box67
+\nofMPsegments=\count342
+\nofMParguments=\count343
 \everyMPshowfont=\toks57
-\MPscratchCnt=\count340
-\MPscratchDim=\dimen299
-\MPnumerator=\count341
-\makeMPintoPDFobject=\count342
+\MPscratchCnt=\count344
+\MPscratchDim=\dimen305
+\MPnumerator=\count345
+\makeMPintoPDFobject=\count346
 \everyMPtoPDFconversion=\toks58
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1799,8 +2278,8 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 217.
+\AtBeginShipoutBox=\box68
+Package hyperref Info: Link coloring OFF on input line 227.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1808,11 +2287,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count343
+\c@section@level=\count347
 )
-LaTeX Info: Redefining \ref on input line 217.
-LaTeX Info: Redefining \pageref on input line 217.
-LaTeX Info: Redefining \nameref on input line 217.
+LaTeX Info: Redefining \ref on input line 227.
+LaTeX Info: Redefining \pageref on input line 227.
+LaTeX Info: Redefining \nameref on input line 227.
 
 (./Thesis_Buehler.out) (./Thesis_Buehler.out)
 \@outlinefile=\write4
@@ -1826,15 +2305,15 @@ LaTeX Info: Redefining \nameref on input line 217.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(99.58464pt, 426.79135pt, 71.13188pt)
+* h-part:(L,W,R)=(113.81102pt, 412.56497pt, 71.13188pt)
 * v-part:(T,H,B)=(85.35826pt, 660.10394pt, 99.58464pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=426.79135pt
+* \textwidth=412.56497pt
 * \textheight=660.10394pt
-* \oddsidemargin=27.31465pt
+* \oddsidemargin=41.54103pt
 * \evensidemargin=-1.1381pt
-* \topmargin=-26.78673pt
+* \topmargin=-23.66173pt
 * \headheight=15.0pt
 * \headsep=21.75pt
 * \topskip=12.0pt
@@ -1849,17 +2328,18 @@ LaTeX Info: Redefining \nameref on input line 217.
 * \@twocolumnfalse
 * \@twosidetrue
 * \@mparswitchtrue
-* \@reversemarginfalse
+* \@reversemargintrue
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count344
-Package scrhack Info: undefining \float@addtolists on input line 217.
+ABD: EveryShipout initializing macros
+\c@lstlisting=\count348
+Package scrhack Info: undefining \float@addtolists on input line 227.
  (./frontpage.tex
-<images/tud_logo_cmyk.pdf, id=198, 338.90414pt x 54.59576pt>
+<images/tud_logo_cmyk.pdf, id=146, 338.90414pt x 54.59576pt>
 File: images/tud_logo_cmyk.pdf Graphic file (type pdf)
 <use images/tud_logo_cmyk.pdf>
 Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 6.
@@ -1869,7 +2349,7 @@ LaTeX Font Info:    Try loading font information for T1+aess on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-<images/fi_text.pdf, id=199, 255.95625pt x 18.0675pt>
+<images/fi_text.pdf, id=147, 255.95625pt x 18.0675pt>
 File: images/fi_text.pdf Graphic file (type pdf)
 <use images/fi_text.pdf>
 Package pdftex.def Info: images/fi_text.pdf  used on input line 16.
@@ -1908,55 +2388,50 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 > <./images/fi_text.pdf>])
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 228.
+(hyperref)                removing `\@alpha' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 228.
+(hyperref)                removing `\c@page' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 228.
+(hyperref)                removing `\@alpha' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 228.
+(hyperref)                removing `\c@page' on input line 238.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228 \pagestyle{empty} \cleardoublepage
+l.238 \pagestyle{empty} \cleardoublepage
                                          [2
 
 
 ] (./Thesis_Buehler.toc
-Overfull \hbox (0.65143pt too wide) in paragraph at lines 14--14
- [][] [][]\T1/aer/m/n/12 Beschleunigung der Be-rech-nung des Gra-di-en-ten-ab-s
-tiegs-ver-fah- 
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 40.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 37.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 37.
+(hyperref)                removing `\c@page' on input line 40.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 37.
+(hyperref)                removing `\@alpha' on input line 40.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 37.
+(hyperref)                removing `\c@page' on input line 40.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...ersuchung von PruneTrain}{13}{section.3.2}
+l.40 ...3.5}PruneTrain + Net2Net}{29}{section.3.5}
                                                    [3
 
 
@@ -1967,57 +2442,31 @@ l.37 ...ersuchung von PruneTrain}{13}{section.3.2}
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 235.
+(hyperref)                removing `\@alpha' on input line 245.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 235.
+(hyperref)                removing `\c@page' on input line 245.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 235.
+(hyperref)                removing `\@alpha' on input line 245.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 235.
+(hyperref)                removing `\c@page' on input line 245.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.235 \cleardoublepage
-                       \pagestyle{headings} [4] (./Thesis_Buehler.tdo
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 27.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 27.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 27.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 27.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.27 ...hl zu aufw\IeC {\"a}ndig}{20}{section*.47}
-                                                   [5
-
-
-
-
-])
+l.245 \cleardoublepage
+                       \pagestyle{headings} [4] (./Thesis_Buehler.tdo)
 \tf@tdo=\write6
 \openout6 = `Thesis_Buehler.tdo'.
 
- (./notation.tex
+
+(./notation.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@alpha' on input line 5.
@@ -2039,53 +2488,80 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.5 \chapter
-            *{Mathematical Notation} \label{Notation} [6])
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 245.
+            *{Mathematical Notation} \label{Notation} [5
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 245.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 245.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 245.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.245 \cleardoublepage
-                       [7
 
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 245.
+(hyperref)                removing `\@alpha' on input line 5.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 245.
+(hyperref)                removing `\c@page' on input line 5.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 245.
+(hyperref)                removing `\@alpha' on input line 5.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 245.
+(hyperref)                removing `\c@page' on input line 5.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.245 \cleardoublepage
+l.5 \chapter
+            *{Mathematical Notation} \label{Notation} [6
+
+
+])
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@alpha' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\c@page' on input line 255.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.255 \cleardoublepage
+                       [7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@alpha' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\c@page' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@alpha' on input line 255.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\c@page' on input line 255.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.255 \cleardoublepage
                        [8
 
 
@@ -2101,220 +2577,425 @@ ine 10.
 
 ] (./KapitelPartA/Einleitung.tex
 chapter 2.
-
-Overfull \hbox (10.74617pt too wide) in paragraph at lines 6--8
-[]\T1/aer/m/n/12 CNNs sind spe-zi-el-le neu-ro-na-le Net-ze. Der Un-ter-schied 
-zu ei-nem ^^R  Multilayer-Perzeptron
- []
-
-<images/convolution.png, id=368, 343.2825pt x 322.20375pt>
+<images/convolution.png, id=297, 343.2825pt x 322.20375pt>
 File: images/convolution.png Graphic file (type png)
 <use images/convolution.png>
 Package pdftex.def Info: images/convolution.png  used on input line 17.
-(pdftex.def)             Requested size: 192.0548pt x 180.26079pt.
+(pdftex.def)             Requested size: 185.65297pt x 174.25291pt.
 [3
 
 
 ]
-<images/cnn.pdf, id=387, 460.4814pt x 317.22054pt>
+<images/cnn.pdf, id=316, 460.4814pt x 317.22054pt>
 File: images/cnn.pdf Graphic file (type pdf)
 <use images/cnn.pdf>
 Package pdftex.def Info: images/cnn.pdf  used on input line 32.
-(pdftex.def)             Requested size: 320.0935pt x 220.5136pt.
+(pdftex.def)             Requested size: 309.42372pt x 213.16104pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./images/convolution.png>]) (./KapitelPartA/Morphnet.tex)
-(./KapitelPartA/Arithmetik.tex
-Underfull \vbox (badness 2662) has occurred while \output is active []
+ [4 <./images/convolution.png>]
+Overfull \hbox (3.19658pt too wide) in paragraph at lines 41--42
+[]\T1/aer/m/n/12 Die Fully-Connected-Layer er-rech-nen aus den Aus-gän-gen der 
+Convolutional-Layer,
+ []
 
- [5 <./images/cnn.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 10.
- (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
-File: omsaer.fd 1999/12/27
+[5 <./images/cnn.pdf>]
+<KapitelPartA/images/kurzschluss.png, id=346, 354.32375pt x 171.64125pt>
+File: KapitelPartA/images/kurzschluss.png Graphic file (type png)
+<use KapitelPartA/images/kurzschluss.png>
+Package pdftex.def Info: KapitelPartA/images/kurzschluss.png  used on input lin
+e 54.
+(pdftex.def)             Requested size: 206.28249pt x 99.92912pt.
+
+Overfull \hbox (10.0984pt too wide) in paragraph at lines 67--68
+[]\T1/aer/m/n/12 Eine wei-te-re Tech-nik, die in re-si-dua-len Net-zen ver-wen-
+det wird ist die der Bottleneck-
+ []
+
+<KapitelPartA/images/bottleneck.png, id=354, 213.79875pt x 186.6975pt>
+File: KapitelPartA/images/bottleneck.png Graphic file (type png)
+<use KapitelPartA/images/bottleneck.png>
+Package pdftex.def Info: KapitelPartA/images/bottleneck.png  used on input line
+ 76.
+(pdftex.def)             Requested size: 165.02347pt x 144.10506pt.
+<KapitelPartA/images/plain.png, id=355, 252.945pt x 186.6975pt>
+File: KapitelPartA/images/plain.png Graphic file (type png)
+<use KapitelPartA/images/plain.png>
+Package pdftex.def Info: KapitelPartA/images/plain.png  used on input line 78.
+(pdftex.def)             Requested size: 165.02347pt x 121.80489pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./KapitelPartA/images/kurzschluss.png>]
+<KapitelPartA/images/arxiv.png, id=367, 624.3325pt x 501.875pt>
+File: KapitelPartA/images/arxiv.png Graphic file (type png)
+<use KapitelPartA/images/arxiv.png>
+Package pdftex.def Info: KapitelPartA/images/arxiv.png  used on input line 89.
+(pdftex.def)             Requested size: 206.28249pt x 165.81836pt.
+ [7 <./KapitelPartA/images/bottleneck.png> <./KapitelPartA/images/plain.png> <.
+/KapitelPartA/images/arxiv.png>]
+<KapitelPartA/images/mindmap.jpg, id=380, 4909.34125pt x 2293.56876pt>
+File: KapitelPartA/images/mindmap.jpg Graphic file (type jpg)
+<use KapitelPartA/images/mindmap.jpg>
+Package pdftex.def Info: KapitelPartA/images/mindmap.jpg  used on input line 10
+2.
+(pdftex.def)             Requested size: 412.56497pt x 192.72845pt.
 )
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
+(./KapitelPartA/Morphnet.tex [8 <./KapitelPartA/images/mindmap.jpg>]
+LaTeX Font Info:    Try loading font information for TS1+aer on input line 14.
+
+(/usr/share/texmf/tex/latex/R/tex/latex/ts1aer.fd
+File: ts1aer.fd 
+)
+LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <12> not available
+(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 14.
+ [9] [10]
+<KapitelPartA/images/net2net.png, id=408, 434.62375pt x 179.67125pt>
+File: KapitelPartA/images/net2net.png Graphic file (type png)
+<use KapitelPartA/images/net2net.png>
+Package pdftex.def Info: KapitelPartA/images/net2net.png  used on input line 50
+.
+(pdftex.def)             Requested size: 288.79422pt x 119.39214pt.
 
 
-Package natbib Warning: Citation `ieee' on page 6 undefined on input line 23.
-
-[6]) (./KapitelPartA/Gradient.tex
-Underfull \vbox (badness 2600) has occurred while \output is active []
-
- [7])
-(./KapitelPartA/Trainingsdaten.tex) (./KapitelPartA/Struktur.tex [8] [9]
-[10]) (./KapitelPartA/Andere.tex) [11] [12
+Package caption Warning: \label without proper reference on input line 67.
+See the caption package documentation for explanation.
 
 
-] (./KapitelPartB/Einleitung.tex
+LaTeX Warning: Reference `abb:channels' on page 11 undefined on input line 61.
+
+<KapitelPartA/images/channels.png, id=411, 618.31pt x 405.515pt>
+File: KapitelPartA/images/channels.png Graphic file (type png)
+<use KapitelPartA/images/channels.png>
+Package pdftex.def Info: KapitelPartA/images/channels.png  used on input line 6
+5.
+(pdftex.def)             Requested size: 247.54149pt x 162.35162pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./KapitelPartA/images/net2net.png>]
+Overfull \hbox (30.00122pt too wide) in paragraph at lines 92--93
+\OT1/cmr/bx/n/12 h[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^^ []$ \T1/aer/m/n/12 
+durch die Ope-ra-ti-on von zwei Lay-ern $\OT1/cmr/bx/n/12 h[] \OT1/cmr/m/n/12 =
+ \OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 U[]\OML/cmm/m/it/12 ^^^\
+OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 W[]h[]\OT1/cmr/m/n/12 ))$\T1/aer/m/n/12 .
+ []
+
+[12 <./KapitelPartA/images/channels.png>]) (./KapitelPartA/Arithmetik.tex
+[13] [14]
+
+Package caption Warning: \label without proper reference on input line 61.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `abb:mixed' on page 15 undefined on input line 55.
+
+<KapitelPartA/images/mixed.png, id=446, 394.47375pt x 179.67125pt>
+File: KapitelPartA/images/mixed.png Graphic file (type png)
+<use KapitelPartA/images/mixed.png>
+Package pdftex.def Info: KapitelPartA/images/mixed.png  used on input line 59.
+(pdftex.def)             Requested size: 330.05322pt x 150.33063pt.
+) (./KapitelPartA/Gradient.tex [15 <./KapitelPartA/images/mixed.png>])
+(./KapitelPartA/Andere.tex) [16] (./KapitelPartB/Einleitung.tex
 chapter 3.
-) (./KapitelPartB/Experimente.tex [13
-
-
-] [14]
-
-LaTeX Warning: Reference `tab:batchSize' on page 15 undefined on input line 53.
+) (./KapitelPartB/Experimente.tex [17
 
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 55.
 
-<KapitelPartB/Images/batchSizevsTime.png, id=464, 291.33844pt x 276.28218pt>
-File: KapitelPartB/Images/batchSizevsTime.png Graphic file (type png)
-<use KapitelPartB/Images/batchSizevsTime.png>
-Package pdftex.def Info: KapitelPartB/Images/batchSizevsTime.png  used on input
- line 87.
-(pdftex.def)             Requested size: 341.43437pt x 323.81374pt.
+]
+<KapitelPartB/Images/synchron.png, id=471, 564.60938pt x 370.38374pt>
+File: KapitelPartB/Images/synchron.png Graphic file (type png)
+<use KapitelPartB/Images/synchron.png>
+Package pdftex.def Info: KapitelPartB/Images/synchron.png  used on input line 2
+1.
+(pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
+ [18 <./KapitelPartB/Images/synchron.png (PNG copy)>] [19]
+<KapitelPartB/Images/reconf1.png, id=483, 480.29437pt x 379.4175pt>
+File: KapitelPartB/Images/reconf1.png Graphic file (type png)
+<use KapitelPartB/Images/reconf1.png>
+Package pdftex.def Info: KapitelPartB/Images/reconf1.png  used on input line 10
+9.
+(pdftex.def)             Requested size: 193.90604pt x 153.18271pt.
+<KapitelPartB/Images/reconf2.png, id=484, 480.29437pt x 379.4175pt>
+File: KapitelPartB/Images/reconf2.png Graphic file (type png)
+<use KapitelPartB/Images/reconf2.png>
+Package pdftex.def Info: KapitelPartB/Images/reconf2.png  used on input line 11
+1.
+(pdftex.def)             Requested size: 193.90604pt x 153.18271pt.
+
+Underfull \hbox (badness 6758) in paragraph at lines 111--111
+[][]|\T1/aer/m/n/10 Sum-me ver-schie-de-ner Ex-pe-ri-men-ten-
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \vbox (badness 1478) has occurred while \output is active []
+Package caption Warning: \label without proper reference on input line 112.
+See the caption package documentation for explanation.
 
- [15]
-Overfull \hbox (1.13962pt too wide) in paragraph at lines 115--116
-[]\T1/aer/m/n/12 Zunächst wird über-prüft wei-viel Trai-ning-flop, Trai-nings-z
-eit und an-de-re grös-sen durch
+
+LaTeX Warning: Reference `abb:reconf' on page 20 undefined on input line 117.
+
+
+Package caption Warning: \label without proper reference on input line 123.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `abb:reconf3' on page 20 undefined on input line 117.
+
+[20]
+<KapitelPartB/Images/reconf3.png, id=498, 341.77687pt x 369.63094pt>
+File: KapitelPartB/Images/reconf3.png Graphic file (type png)
+<use KapitelPartB/Images/reconf3.png>
+Package pdftex.def Info: KapitelPartB/Images/reconf3.png  used on input line 12
+1.
+(pdftex.def)             Requested size: 206.28249pt x 223.10005pt.
+ [21 <./KapitelPartB/Images/reconf1.png (PNG copy)> <./KapitelPartB/Images/reco
+nf2.png (PNG copy)> <./KapitelPartB/Images/reconf3.png (PNG copy)>]
+
+LaTeX Warning: Reference `tab:batchSize' on page 22 undefined on input line 147
+.
+
+
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+[][][][]\T1/aer/m/n/12 beispielrechnung  
  []
 
-[16 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>] [17]
-<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=482, 291.33844pt x 276.28218pt
+
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+[][][][]\T1/aer/m/n/12 beispielrechnung  
+ []
+
+
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+[][][][]\T1/aer/m/n/12 beispielrechnung  
+ []
+
+
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+[][][][]\T1/aer/m/n/12 beispielrechnung  
+ []
+
+
+LaTeX Warning: Marginpar on page 22 moved.
+
+<KapitelPartB/Images/PTaccuracy.png, id=507, 564.60938pt x 370.38374pt>
+File: KapitelPartB/Images/PTaccuracy.png Graphic file (type png)
+<use KapitelPartB/Images/PTaccuracy.png>
+Package pdftex.def Info: KapitelPartB/Images/PTaccuracy.png  used on input line
+ 183.
+(pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<KapitelPartB/Images/PTaccuracyzoom.png, id=509, 564.60938pt x 370.38374pt>
+File: KapitelPartB/Images/PTaccuracyzoom.png Graphic file (type png)
+<use KapitelPartB/Images/PTaccuracyzoom.png>
+Package pdftex.def Info: KapitelPartB/Images/PTaccuracyzoom.png  used on input 
+line 193.
+(pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22] [23 <./KapitelPartB/Images/PTaccuracy.png (PNG copy)> <./KapitelPartB/Imag
+es/PTaccuracyzoom.png (PNG copy)>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 219.
+
+<KapitelPartB/Images/linearBlocks.png, id=523, 408.77719pt x 272.51813pt>
+File: KapitelPartB/Images/linearBlocks.png Graphic file (type png)
+<use KapitelPartB/Images/linearBlocks.png>
+Package pdftex.def Info: KapitelPartB/Images/linearBlocks.png  used on input li
+ne 243.
+(pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<KapitelPartB/Images/maxBatchSize.png, id=525, 408.77719pt x 272.51813pt>
+File: KapitelPartB/Images/maxBatchSize.png Graphic file (type png)
+<use KapitelPartB/Images/maxBatchSize.png>
+Package pdftex.def Info: KapitelPartB/Images/maxBatchSize.png  used on input li
+ne 256.
+(pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24]
+<KapitelPartB/Images/quotient.png, id=533, 408.77719pt x 272.51813pt>
+File: KapitelPartB/Images/quotient.png Graphic file (type png)
+<use KapitelPartB/Images/quotient.png>
+Package pdftex.def Info: KapitelPartB/Images/quotient.png  used on input line 2
+69.
+(pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<KapitelPartB/Images/gerade.png, id=535, 408.77719pt x 272.51813pt>
+File: KapitelPartB/Images/gerade.png Graphic file (type png)
+<use KapitelPartB/Images/gerade.png>
+Package pdftex.def Info: KapitelPartB/Images/gerade.png  used on input line 283
+.
+(pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[25 <./KapitelPartB/Images/linearBlocks.png> <./KapitelPartB/Images/maxBatchSiz
+e.png>]
+
+LaTeX Warning: Marginpar on page 26 moved.
+
+[26 <./KapitelPartB/Images/quotient.png> <./KapitelPartB/Images/gerade.png (PNG
+ copy)>]
+<KapitelPartB/Images/batchSizevsTime.png, id=550, 291.33844pt x 276.28218pt>
+File: KapitelPartB/Images/batchSizevsTime.png Graphic file (type png)
+<use KapitelPartB/Images/batchSizevsTime.png>
+Package pdftex.def Info: KapitelPartB/Images/batchSizevsTime.png  used on input
+ line 320.
+(pdftex.def)             Requested size: 330.05322pt x 313.0215pt.
+ [27 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>]
+Underfull \vbox (badness 6526) has occurred while \output is active []
+
+ [28]
+[29]
+<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=574, 291.33844pt x 276.28218pt
 >
 File: KapitelPartB/Images/timeVsBatchSize_Amp.png Graphic file (type png)
 <use KapitelPartB/Images/timeVsBatchSize_Amp.png>
 Package pdftex.def Info: KapitelPartB/Images/timeVsBatchSize_Amp.png  used on i
-nput line 191.
-(pdftex.def)             Requested size: 341.43437pt x 323.81374pt.
- [18]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 198.
+nput line 408.
+(pdftex.def)             Requested size: 330.05322pt x 313.0215pt.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 415.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (54.30902pt too wide) in paragraph at lines 198--199
+Overfull \hbox (68.5354pt too wide) in paragraph at lines 415--416
 [][]$\T1/aett/m/n/12 https : / / developer . download . nvidia . com / video / 
 gputechconf / gtc / 2019 / presentation /
  []
 
-
-Overfull \hbox (3.3513pt too wide) in paragraph at lines 198--199
-\T1/aett/m/n/12 s9998-[]automatic-[]mixed-[]precision-[]in-[]pytorch . pdf$[] \
-T1/aer/m/n/12 zeigt, dass be-züg-lich der Ac-
- []
-
-[19 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>]
-Overfull \hbox (22.62865pt too wide) in paragraph at lines 211--212
+[30 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>]
+Overfull \hbox (36.85503pt too wide) in paragraph at lines 428--429
 []\T1/aer/m/n/12 Könnte funk-tio-nie-ren. Co-de für Lasa-gne: htt-ps://github.c
 om/TimSalimans/weight_norm 
  []
 
-) (./KapitelPartB/Evaluation.tex [20]
+) (./KapitelPartB/Evaluation.tex [31] [32
+
+
+]
 chapter 4.
-) [21
-
-
-] [22
+) [33] [34
 
 
 ] (./appendix.tex
-part I.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 5.
-[23
+chapter A.
+) [35
 
 
-] [24]) (./Thesis_Buehler.lof)
+] [36
+
+
+] (./Thesis_Buehler.lof
+Overfull \hbox (3.55255pt too wide) in paragraph at lines 13--13
+ [][] [][]\T1/aer/m/n/12 Vergleich asyn-chro-ner mit syn-chro-ner Aus-füh-rung 
+von py-torch Ope- 
+ []
+
+
+Overfull \hbox (5.0164pt too wide) in paragraph at lines 23--23
+ [][] [][]\T1/aer/m/n/12 Vergleich Trai-nings-zeit ei-ner Epo-che für ver-schie
+-de-ne Op-ti-mie-rungs- 
+ []
+
+)
 \tf@lof=\write7
 \openout7 = `Thesis_Buehler.lof'.
 
- [25
+ [37] [38
 
 
-] [26
+] (./Thesis_Buehler.bbl [39
 
 
-] (./Thesis_Buehler.loa)
-\tf@loa=\write8
-\openout8 = `Thesis_Buehler.loa'.
-
- [27
 
 
 ]
-[28
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
+[]\T1/aer/m/n/12 ohne Au-tor.  ar-xiv ma-chi-ne lear-ning clas-si-fi-ca-ti-
+ []
 
 
-] (./Thesis_Buehler.lol)
-\tf@lol=\write9
-\openout9 = `Thesis_Buehler.lol'.
-
- [29
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
+\T1/aer/m/n/12 on gui-de, 12 2019.  On-li-ne-quel-le; Auf-ge-ru-fen am
+ []
 
 
-] [30
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
+\T1/aer/m/n/12 01.06.2020; []$\T1/aett/m/n/12 https : / / blogs . cornell . edu
+ / arxiv / 2019 / 12 / 05 /
+ []
 
-
-] (./Thesis_Buehler.bbl)
-
-Package natbib Warning: There were undefined citations.
-
-[31
-
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 309.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
+) [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
  (./Thesis_Buehler.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
 Package rerunfilecheck Info: File `Thesis_Buehler.out' has not changed.
-(rerunfilecheck)             Checksum: 9865A970910718EEF91B9D9E56555765;4006.
+(rerunfilecheck)             Checksum: 8C449EC592C19C66019531AF237B8D3F;2962.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
  ) 
 Here is how much of TeX's memory you used:
- 38169 strings out of 492982
- 691597 string characters out of 6134895
- 835126 words of memory out of 5000000
- 40936 multiletter control sequences out of 15000+600000
- 592066 words of font info for 143 fonts, out of 8000000 for 9000
+ 40128 strings out of 492982
+ 732283 string characters out of 6134895
+ 864755 words of memory out of 5000000
+ 42819 multiletter control sequences out of 15000+600000
+ 595239 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,12n,100p,10455b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
+ 73i,12n,87p,10455b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis_Buehler.pdf (39 pages, 500195 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
+ols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on Thesis_Buehler.pdf (48 pages, 1550511 bytes).
 PDF statistics:
- 652 PDF objects out of 1000 (max. 8388607)
- 575 compressed objects within 6 object streams
- 135 named destinations out of 1000 (max. 500000)
- 427 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 770 PDF objects out of 1000 (max. 8388607)
+ 656 compressed objects within 7 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 

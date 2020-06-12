@@ -74,50 +74,56 @@
 
 
 %=Inhalt=================================================================================
-\section{Einführung}
-
+\section{PruneTrain}
 \begin{frame}{}
 \begin{figure}
- \includegraphics[width=0.8\textwidth]{grafik/cnn.jpeg}
+ \includegraphics[width=0.7\textwidth]{grafik/prune.png}
  % cnn.jpeg: 1255x424 px, 72dpi, 44.27x14.96 cm, bb=0 0 1255 424
- \caption{CNN Architecture}
+ \caption{Übersicht über die Zeiten}
 \end{figure}
+prune1-prune4 sind Experimente ohne Anpassung der Batchgröße währenddem Training 
 
+prune5 Anpassung der Batchgrösse währenddem Training
 \end{frame}
+
+
 
 \begin{frame}{}
  \begin{figure}
- \includegraphics[width=0.9\textwidth]{grafik/module12.jpg}
+ \includegraphics[width=0.9\textwidth]{grafik/pruneVsbaselineAcc.png}
  % module.conv1.weight_12.png: 640x480 px, 100dpi, 16.26x12.19 cm, bb=0 0 461 346
- \caption{Filtermap}
+ \caption{Übersicht über die Accuracy}
 \end{figure}
-
+Accuracy Verlust durch Prune5 2,6\%
+ 
 \end{frame}
 
 \begin{frame}{}
+\begin{itemize}
+ \item  Im PruneTrain Paper zeigt sich bereits beim Anwenden von PruneTrain ohne Anpassung der Batch Size ein Verringerung der Trainingszeit
+ \item Dieses Ergebnis lässt sich leider nicht reproduzieren. Da dort mehrere GPU parallel benutzt werden, wird hier vorallem an der Kommunikation zwischen den GPU gespart wird. 
+ \item Beim Anpassen der Batchsize währenddem Pruning wird hier etwa 12\% Prozent gespart.
+ \item Wobei sich hier gezeigt hat, dass neben der Anpassung der Batchgrösse auch wichtig ist dass die richtige Lernrate genutzt wird.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
  \begin{figure}
- \includegraphics[width=0.9\textwidth]{grafik/module14.jpg}
+ \includegraphics[width=0.9\textwidth]{grafik/pruneVsBaseline.png}
  % module.conv1.weight_12.png: 640x480 px, 100dpi, 16.26x12.19 cm, bb=0 0 461 346
- \caption{Filtermap}
+ \caption{}
 \end{figure}
-
 \end{frame}
 
-\begin{frame}{}
- \begin{figure}
- \includegraphics[width=0.8\textwidth]{grafik/resnet.png}
- % resnet.png: 336x148 px, 72dpi, 11.85x5.22 cm, bb=0 0 336 148
- \caption{Resnet Accuracy}
-\end{figure}
+\section{Large Batch}
 
-\end{frame}
-
-\begin{frame}{}
- Forschungsfrage: Lässt sich anhand der Menge an geprunten Daten und eventuell weiterer Daten vorhersagen, wie tief ein Netz sein sollte um eine bestimmte Acuuracy zu erreichen. Schrittweise und möglichst schnell 
-\end{frame}
-
-\begin{frame}{}
-Ab welcher Tiefe brauchen wir zusätzliche Methoden um das Overfitting unter Kontrolle zu bringen
+\begin{frame}{Large Batch}
+\begin{itemize}
+ \item Large Batch sorgt bei einer grösseren Batchsize (4000 staat 256) dafür, dass weiterhin ein grosser Teil des Netzwerks geprunt werden kann.
+ \item Bei Large Batch wird nicht der komplette Speicher genutzt. Hier sind noch weitere Untersuchungen fällig.
+ \item bei Cifar10 konnte bei einer grossen Batch size keine Generalization Gap beobachtet werden -> Cifar100 oder ImageNet
+\end{itemize}
 \end{frame}
 
 

@@ -149,13 +149,6 @@
   volume  = {abs/1802.00930},
 }
 
-@Book{CNNBook,
-  title     = {Deep Learning},
-  publisher = {MIT Press},
-  year      = {2016},
-  author    = {I. Goodfellow and Y. Bengio and A. Courville},
-}
-
 @Article{CNNImg,
   author  = {J.F. Couchot and R. Couturier and C. Guyeux and M. Salomon},
   title   = {Steganalysis via a Convolutional Neural Network using Large Convolution Filters},
@@ -181,6 +174,69 @@
   editor    = {I. Guyon and U. V. Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
   pages     = {1731--1741},
   url       = {http://papers.nips.cc/paper/6770-train-longer-generalize-better-closing-the-generalization-gap-in-large-batch-training-of-neural-networks.pdf},
+}
+
+@Article{popular,
+  author  = {Charles A. Sutton and Linan Gong},
+  title   = {Popularity of arXiv.org within Computer Science},
+  journal = {CoRR},
+  year    = {2017},
+}
+
+@Article{resnet,
+  author  = {Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun},
+  title   = {Deep Residual Learning for Image Recognition},
+  journal = {CoRR},
+  year    = {2015},
+}
+
+@Misc{cornell,
+  author = {ohne Autor},
+  title  = {arXiv Machine Learning Classification Guide},
+  month  = {12},
+  year   = {2019},
+  note   = {Onlinequelle; Aufgerufen am 01.06.2020; \url{https://blogs.cornell.edu/arxiv/2019/12/05/arxiv-machine-learning-classification-guide/}},
+}
+
+@InProceedings{lottery,
+  author    = {Frankle, Jonathan and Carbin, Michael},
+  title     = {The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks.},
+  booktitle = {ICLR},
+  year      = {2019},
+}
+
+@Misc{pytorch,
+  author = {ohne Autor},
+  title  = {CUDA semantice -- PyTorch 1.5.0 documentation},
+  note   = {online \url{https://pytorch.org/docs/stable/notes/cuda.html} aufgerufen am 10.06.2020},
+}
+
+@InProceedings{morphnet,
+  author    = {A. {Gordon} and E. {Eban} and O. {Nachum} and B. {Chen} and H. {Wu} and T. {Yang} and E. {Choi}},
+  title     = {MorphNet: Fast Simple Resource-Constrained Structure Learning of Deep Networks},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2018},
+}
+
+@Misc{ptImpl,
+  title = {Prune Train Implementierung},
+  note  = {online \url{https://bitbucket.org/lph_tools/prunetrain/src/master/}aufgerufen am 10.06.2020},
+}
+
+@Book{CNNBook,
+  title     = {Deep Learning},
+  publisher = {MIT Press},
+  year      = {2016},
+  author    = {Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+  note      = {\url{http://www.deeplearningbook.org}},
+}
+
+@Article{mixed,
+  author  = {Paulius Micikevicius and Sharan Narang and Jonah Alben and Gregory F. Diamos and Erich Elsen and David Garc{\'{\i}}a and Boris Ginsburg and Michael Houston and Oleksii Kuchaiev and Ganesh Venkatesh and Hao Wu},
+  title   = {Mixed Precision Training},
+  journal = {CoRR},
+  year    = {2017},
+  volume  = {abs/1710.03740},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

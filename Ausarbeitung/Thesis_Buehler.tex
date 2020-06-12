@@ -37,7 +37,7 @@
   \pdftrue
   \message{pdfLaTeX}
   
-  \documentclass[pdftex,12pt,a4paper,twoside,numbers=noenddot,xcolor=dvipsnames]{scrbook}
+  \documentclass[pdftex,12pt,a4paper,twoside,numbers=noenddot]{scrbook}
   \usepackage{float}
   %\usepackage[pdftex]{thumbpdf}
   \usepackage[pdftex]{pdflscape}
@@ -78,7 +78,6 @@
     plainpages = false
 }%
 
-
 %
 \usepackage[a4paper,left=3.5cm,right=2.5cm,bottom=3.5cm,top=3cm]{geometry}
 \setlength{\headheight}{15pt}
@@ -86,7 +85,8 @@
 %
 \usepackage{amsmath,amssymb}
 %\usepackage{flafter}
-\usepackage{subfigure}
+\usepackage{subfig}
+
 
 % -------------------------------------------------------------------
 \usepackage{ifthen}
@@ -212,8 +212,18 @@ breaklines=true
 \usepackage{verbatim}
 
 % -------------------------------------------------------------------
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usepackage{ textcomp }
+
+\usepackage{textgreek}
+\geometry{inner=4cm}
+\reversemarginpar
 % -------------------------------------------------------------------
 % -------------------------------------------------------------------
+
+
 \begin{document}
 
 
@@ -261,10 +271,6 @@ breaklines=true
 
 \input{KapitelPartA/Gradient}
 
-\input{KapitelPartA/Trainingsdaten}
-
-\input{KapitelPartA/Struktur}
-
 \input{KapitelPartA/Andere}
 
 
@@ -288,15 +294,7 @@ breaklines=true
 \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 \cleardoublepage
 
-%
-\listofalgorithms
-\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
-\cleardoublepage
 
-%
-\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
-\lstlistoflistings
-\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
 \cleardoublepage
 
 %

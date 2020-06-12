@@ -1,9 +1,25 @@
 \babel@toc {german}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Abbildung zur Faltung \cite {CNNBook}\relax }}{4}{figure.caption.7}
-\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Convolutional Neural Net \cite {CNNImg}\relax }}{5}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Abbildung zur Faltung \cite {CNNBook}\relax }}{4}{figure.caption.6}
+\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Convolutional Neural Net \cite {CNNImg}\relax }}{5}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces Abbildung der Kurzschlussverbindung \cite {resnet}\relax }}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Vergleich zweier Residual Netz Bl\IeC {\"o}cke \cite {resnet}\relax }}{7}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces T\IeC {\"a}gliche Submissionen der Kategory Machine Learning auf arxiv \cite {cornell}\relax }}{7}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Mindmap zu den Suchbegriffen bez\IeC {\"u}glich des aktuellen wissenschaftlichen Stands\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{11}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le todo: Grafik sch\IeC {\"o}n machen\relax }}{12}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{16}{figure.caption.26}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{19}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Vergleich asynchroner mit synchroner Ausf\IeC {\"u}hrung von pytorch Operationen\relax }}{18}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Boxplot der Rekonfigurationsintervalle\relax }}{21}{figure.caption.35}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall\relax }}{21}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Ver\IeC {\"a}nderung der Accuracy w\IeC {\"a}hrend der Epochen\relax }}{23}{figure.caption.40}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Zoom der Ver\IeC {\"a}nderung\relax }}{23}{figure.caption.41}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{25}{figure.caption.45}
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{25}{figure.caption.46}
+\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{26}{figure.caption.47}
+\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{26}{figure.caption.48}
+\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{27}{figure.caption.51}
+\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{30}{figure.caption.57}
+\addvspace {10\p@ }
 \addvspace {10\p@ }

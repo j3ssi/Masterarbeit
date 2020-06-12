@@ -1,4 +1,4 @@
-\section{Experimentales Setup}
+ \section{Experimentales Setup}
 
 
 \subsection{Hardware}
@@ -12,25 +12,10 @@ Server mit 4 Graka:
 
 Es wird mit pytorch gearbeitet, da pytorch gegenüber anderen Frameworks eine grössere Flexibiltät erlaubt. Ausserdem ist eine fast vollständige Implementierung von PruneTrain in Pytorch geschrieben. Diese wird im nächsten Kapitel untersucht und soweit erweitert, dass es dem Stand im PruneTrain Paper entspricht.
 
-Pytorch bietet mit cudnn und cuda im Hintergrund gute Möglichkeiten die Trainingszeiten einzelner Epochen zu messen und sie so mit einander zu vergleichen. In Abbildung \ref{abb:synchron} sind mehrere Ausführungen eines Netzes mit Pytorch auf der GPU zu sehen. Auffallend ist dabei, dass in den ersten fünf Durchläufen die Trainingszeiten einer Epoche eine grosse Varianz haben. 
-
-Diese Varianz ist darauf zurückzuführen, dass Operationen in Pytorch standardmässig asynchron auf der GPU ausgeführt werden \cite{pytorch}. Das bedeutet, dass bei einem Funktionsaufruf, der die GPU nutzt die Operationen hintereinander in eine Warteschlange auf der GPU eingereiht werden \cite{pytorch} . Nicht notwendigerweise werden diese Operationen sofort ausgeführt. Dies erlaubt zwar mehr parallele Berechnungen erhöht aber durch die inkludierte Wartezeit die gemessene Trainingszeit einer Epoche. 
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/synchron.png}
- % synchron.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Vergleich asynchroner mit synchroner Ausführung von pytorch Operationen}
- \label{abb:synchron}
-\end{figure}
 
 
-Die sechste Messung in Abbildung \ref{abb:synchron} zeigt einen Durchlauf des gleichen Netzes mit erzwungener Synchronizität.
+\section{Untersuchung von PruneTrain}
 
-
-
-\todo[inline]{Die Ausreisser von baseline ohne erzwungene Synchro kann ich mir nicht erklären.}
-\todo[inline]{Braucht es hier einen statistischen Test, um zu zeigen dass diese Ergebnisse signifikant unterschiedlich sind?}
 
 \subsection{verwendete Netzarchitektur}\label{sec:archi}
 Die PruneTrain Implementierung hat initial mehrere verschiedene Netzarchitekturen zur Auswahl:
@@ -58,150 +43,52 @@ Erweitere dies jedoch durch beliebige grosse ResNets. Ein ResNet ist hier durch 
 \end{itemize}
 \todo[inline]{Bottleneck -Eigenschaft}
 
-
-
-\section{Untersuchung von PruneTrain}
-
-Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. 
-
 \subsection{Evaluation von PruneTrain}
+\color{blue1}
 
-Hier wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus dem Prune Train Paper verglichen. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern. Im zweiten Abschnitt wird betrachtet, wie sich die Accuracy im Verlauf der Epochen verhält.
+Hier wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus dem Prune Train Paper verglichen. Zunächst wird hierfür nur das Prune Train ohne Anpassung der Batchgrösse betrachtet. Als Netzwerk wird ein Res-Net 32 verwendet. In Tabelle \todo{ref} ist die Netzstruktur aufgeführt.
 
-Als Netzwerk wird ein Res-Net 32 verwendet. In Tabelle \todo{ref} ist die Netzstruktur aufgeführt.
+Da im Prune Train Paper Ergebnisse im Vergleich zu einem Baseline Netz entstehen wird dieses im ersten Schritt auf der Hardware ausgeführt. In jeder Epoche wird die Trainingszeit gemessen, welche hier in Abbildung \todo{ref} in einem Boxplot dargstellt wird. Es fällt auf, dass es zeitliche Außreisser gibt. Diese lassen sich nicht direkt erklären, da die Zeit für eine Epoche eine deterministische Größe sein sollte. 
+
+Ein möglicher Grund ist, dass GPU Operationen asynchron sind \cite{pytorch}. Funktionsaufrufe, die die GPU benutzen, werden in eine Warteschlagen der entsprechenden GPU eingereiht. Sie werden aber nicht umbedingt erst später ausgeführt. Dadurch lassen sich mehr Operationen parallel ausführen.
+
 
 verwendete Kenngrößen:
 
 \begin{itemize}
- \item 1 GPU
+ \item 1 GPUs
  \item Cifar10
  \item 180 Epochen
 \end{itemize}
-
-\subsubsection{Veränderung der Trainingszeit durch PruneTrain}
-Zunächst wird hierfür nur das Prune Train ohne Anpassung der Batchgrösse betrachtet. 
 
 Variable Größen, die in verschiedenen Experimenten geändert werden:
 
 \begin{itemize}
  \item Lernrate
- \begin{itemize}
-  \item unterschiedlich große Lernraten
-  \item Anpassung der Lernrate währenddem Training
- \end{itemize}
-
  \item Rekonfigurationsinterval
- \item Threshold
  \item Lasso-Ratio
- \item Batchgröße:
- \begin{itemize}
-  \item unterschiedliche Batchgrößen verschiedener Durchläufen
-  \item Anpassung der Batchgröße währenddem Training
- \end{itemize}
+ \item Batchgröße
 \end{itemize}
 
-Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über alle 180 Epochen und vergleiche diese mit mehreren Durchläufen des Baseline-Netzes. 
+Es ergibt sich, dass sich mit dieser Methode leider keine Zeit sparen lässt.
+Im Gegenteil, der PruneTrain Ansatz braucht mehr Zeit. Dies steht im Widerspruch zum PruneTrain Paper. Dieser Widerspruch lässt sich durch die Verwendung von mehreren GPUs zur Evaluation im PruneTrain Paper erklären. Mit einem schmalleren Netz müssen weniger Daten zwischen den GPUs ausgetauscht werden. Es wird vorallem Kommunikationszeit gespart.
 
-Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abbildung \todo{ref} zu sehen. Dabei ist zu sehen, dass unterschiedliche Lernraten einen großen Einfluss auf die Verkleinerungsrate des Netzes haben. Der Grund hierfür ist, dass bei unterschiedlich großen Lernrate die Wahrscheinlichkeit, dass eine gewisse Anzahl von Gewichten unter den Treshold fällt unterschiedlich gross ist. Ist die Lernrate zu klein braucht es zu viele Epochen um bei einer zufälligen Initialisierung unter den Treshold zu gelangen. Ist die Lernrate zu groß, wird das Gewicht zwar kleiner ist danach aber wohlmöglich im negativen größer als der Treshold.
- 
- \begin{figure}[h]
- \centering
- \subfloat[][verschiedene Experimente]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf1.png}\label{abb:reconf1}}
- \qquad
- \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
- \label{abb:reconf}
- \caption{Boxplot der Rekonfigurationsintervalle}
-\end{figure}
-
- 
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt. Dies bedeutet, dass der Overhead des Pruningverfahrens geringer ist als der Gewinn durch das Verkleinern des Netzes. In Abbildung \ref{abb:reconf3} ist zu sehen, dass dieser Gewinn an Trainingszeit in Abbildung \ref{abb:reconf2} mit einem Verlust an geringem Verlust an Accuracy einhergeht. 
- 
- \begin{figure}[h]
- \centering
- \includegraphics[width=0.5\textwidth]{KapitelPartB/Images/reconf3.png}
- % reconf3.png: 454x491 px, 96dpi, 12.01x12.99 cm, bb=0 0 341 368
- \label{abb:reconf3}
- \caption{Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall}
-\end{figure}
-
- 
-
- Wird der Treshold vergrössert, so wird das Netz schneller kompakter. Allerdings wird durch das kompaktere Netz auch die Accuracy geringer.
-Wird der Treshold verkleinert, so wird das Netz nicht so schnell kompakter es verliert aber auch weniger Accuracy.
+Zu beobachten ist, dass die Accuracy wenig leidet.
 
 
-Es ergibt sich, dass sich mit diesen bisherigen Experimenten keine Zeit sparen lässt. Im Gegenteil, der PruneTrain Ansatz braucht mehr Zeit. Dies steht im Widerspruch zum PruneTrain Paper. Dieser Widerspruch lässt sich durch die Verwendung von mehreren GPUs zur Evaluation im PruneTrain Paper erklären. Mit einem schmalleren Netz müssen weniger Daten zwischen den GPUs ausgetauscht werden. Es wird Kommunikationszeit gespart.
+
+Im Prune Train Paper wird als nächste zum Einsparen von Trainingszeit mit dem Verkleinern des Netzes die Batchgröße erhöht. Als Anfangsbatchgrösse wird 265  gewählt.
+
+
+
+Um zu berechnen, welchen Zusammenhang es
 
 
 
 
 
 
-Im Prune Train Paper wird als nächste zum Einsparen von Trainingszeit mit dem Verkleinern des Netzes die Batchgröße erhöht. Dabei soll währenddem dem Vorgang die Speicherauslastung die gleiche sein.
-
-
-
-
-Als Anfangsbatchgrösse wird 265 gewählt. Für kleiner und grössere Netze wird nun mit Hilfe einer binären Suche erfasst wie groß die Batchgrösse sein darf, um eine gleiche maximale Speicherauslastung zu haben.
-
-Gleichzeitig wird für die jeweilige Modellgrösse die Anzahl an Parametern, die das Modell hat gezählt. Diese Größen sind in Tabelle \ref{tab:batchSize} eingetragen. 
-
-
-Mit Hilfe dieser Grössen wird für jede einzelne Stagegröße eine Gerade gefittet.
-
-Diese gefittete Gerade wird mittels t-Test darauf überprüft wie wahrscheinlich beim Fitten der Gerade ein Fehler 1. Art auftritt.
-
-Hierfür werden folgende Hypothesen aufgestellt:
-
-
-Da der p-Wert für diese Gerade bei $p=2,911e^{-16}$ und damit weit unter de Signifikanzniveau von $\alpha=0,05$ kann die $H_0$ Hypothese abgelehnt werden und die Alternativhypothese angenommen werden.
-
-Dies bestätigt statistisch eine hohe Wahrscheinlichkeit, dass die gefittete Gerade richtig ist.
-
-
-
-In Abbildung \ref{fig:linearBlocks} ist zu sehen, dass die Parameteranzahl in Zusammenhang mit der Anzahl an Blöcken linear steigt.
-Wird das Netz kleiner, so kann anhand der Gerade abhängig von der Parameteranzahl die neue Batchgröße errechnet werden.
-
-
-
-
-
-
-\todo{beispielrechnung}
-
-In Abbildung \todo{ref} ist abgebildet. wie sich die Trainingszeiten verändern, wenn die Batchgrösse angepasst wird.
-
-
-
-\subsubsection{Veränderung der Accuracy durch PruneTrain}
-
-Durch das Pruning währenddem Training wird die Accuracy kleiner. In Abbildung \ref{abb:PTaccuracy} ist zu sehen wie sich im Accuracy im Verlauf der Epochen verändert.  
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/PTaccuracy.png}
- % PTaccuracy.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Veränderung der Accuracy während der Epochen}
- \label{abb:PTaccuracy}
-\end{figure}
-
-In Abbildung \ref{abb:PTaccuracyzoom} sind die Epochen 90 bis 180 näher herangezoomt.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/PTaccuracyzoom.png}
- % PTaccuracyzoom.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Zoom der Veränderung}
- \label{abb:PTaccuracyzoom}
-\end{figure}
-
-Man sieht eine geringere Accuracy von PruneTrain im Vergleich zum Baseline. Diese Verringerung der Accuracy lässt sich durch ein Aussetzen des Verkleinern des Netzes in den letzten Epochen  
-vermindern.
-
-Die Frage die sich hier stellt ist, ob diese Verminderung der Accuracy am Ende der dieser Arbeit noch ins Gewicht fällt. Wenn mit Hilfe einer Kombination von MorphNet und PruneTrain ein bessere Architektur gefunden wird kann diese Architektur auch direkt mit Hilfe des äquivalenten Baseline Netzes berechnet werden.
-
-\subsection{Einfluss der Batchgröße auf PruneTrain}\label{sec:batch}
+\color{black}
 
 Das heisst es ist nötig, zu wissen wie gross die Batches maximal sein dürfen um keinen Out of Memory Error zu provozieren. Zusätzlich kann dann berechnet werden, inwieweit die Batchgrösse weiter angehoben werden kann bei kleiner werdendem Netz
 
@@ -212,7 +99,8 @@ Um die Anpassung der Batchgröße an die Verkleinerung des Netzwerkes durch das 
 Theoretisch sollte hierfür nachdem Übertragen des Modells der freie Speicher ausglesen werden und anhand des Speicherverbrauchs eines Elements des Datensatzes berechnet werden, wie gross die Batchgröße maximal sein darf. Leider führt diese Methode nicht zum gewünschten Ergebnis, da der ausgelesene freie Speicher nicht dem tratsächlich allokierbaren Speicher entspricht.
 Der Grund hierfür ist ein Fragmentierungsproblem. Verschiedene freie Blöcke können nicht zu einem grossen allokierbaren Block zusammengefügt werden.\todo[inline]{Quelle}. 
 
-Diese Problem wird mit einer Methode, die für einen beliebigen Datensatz und für eine beliebige Modellgrösse die maximale Batchgröße berechnet, gelöst. 
+Diese Problem wird mit einer Methode, die für einen beliebigen Datensatz und für eine beliebige Modellgrösse die maximale Batchgröße berechnet, gelöst. Hierfür wird für einige verschiedene Modellgrößen durch eine binäre Suche die maximale Batch Size ermittelt. Gleichzeitig wird für die jeweilige Modellgrösse die Anzahl an Parametern, die das Modell hat gezählt. Diese Größen sind in Tabelle \ref{tab:batchSize} eingetragen.
+
 
 
 \todo[inline]{Tabelle mit neuen Zahlen updaten, da mit kaputter Grafikkarte berechnet}
@@ -236,6 +124,8 @@ Diese Problem wird mit einer Methode, die für einen beliebigen Datensatz und f�
 \end{table}
 
 
+Mit Hilfe dieser Grössen wird für jede einzelne Stagegröße eine Gerade gefittet.
+In Abbildung \ref{fig:linearBlocks} ist zu sehen, dass Die Parameteranzahl in Zusammenhang mit der Anzahl an Blöcken linear steigt.
 
 
 \begin{figure}[h]
@@ -292,10 +182,22 @@ Es entsteht die Abbildung \ref{fig:gerade}.
 Die gefittete Gerade hat die Gleichung: $$ f(x)=0.11 \cdot x +  0.15 $$
 
 \todo{Hier muss noch das Fitten des Modells und der t-Test erklärt werden}
+Diese gefittete Gerade wird mittels t-Test darauf überprüft wie wahrscheinlich beim Fitten der Gerade ein Fehler 1. Art auftritt.
+
+Hierfür werden folgende Hypothesen aufgestellt:
+
+
+Da der p-Wert für diese Gerade bei $p=2,911e^{-16}$ und damit weit unter de Signifikanzniveau von $\alpha=0,05$ kann die $H_0$ Hypothese abgelehnt werden und die Alternativhypothese angenommen werden.
+
+Dies bestätigt statistisch eine hohe Wahrscheinlichkeit, dass die gefittete Gerade richtig ist.
+
 
 In Tabelle \todo{Tabelle} werden die Werte für die anderen Stages zusammengefasst. Zu sehen ist, dass für jeden Stage die gefittete Gerade ähnlich im t-Test abschneidet.
 
 
+
+
+Bei Cifar100 ist zu sehen, dass die gleiche maximale Batchgrösse verwendet werden kann. Bei gleicher Grösse der Bilder (32x32 Pixel) ändert sich hier nur die Anzahl an Parametern in der letzten Schicht.
 
 
 
@@ -313,6 +215,7 @@ Abschliessend wird noch evaluiert, wie die Dichte der Gewichte mit der Dichte de
 
 
 
+\subsection{Einfluss der Batchgröße auf PruneTrain}\label{sec:batch}
 Bei grösserer Batchgrösse wird auch das Netz schneller. Dies ist in Abildung \ref{fig:batchVsTime} für das ResNet und die verwendete Hardware abgebildet.
 
 \begin{figure}[h]
@@ -361,22 +264,34 @@ Da dieser Effekt da sehr deutlich gezeigt wird hier im nächsten Unterkapitel nu
 
 
 
-\section{Untersuchung von Net2Net}
+\color{black}
+\section{PruneTrain als MorphNet}
 
+\subsection{Net 2 Net}
+\todo[inline]{Zeige wie Net2Net aus einem Netzwerk ein tieferes oder breiteres Netz macht}
 
-\section{Untersuchung von MorphNet}
-
+\subsection{Morphnet}
 MorphNet macht alle Layer breiter um sie dann mit einem speziellen Regularisierer breiter zu machen. Dieser Regularisierer hat verschiedene mögliche Zielgrössen (Modelgrösse, Flops oder Inferenz-Zeit).
 Die Frage stellt sich hier, ob das Netz besser wird wenn alle Schichten breiter gemacht werden um später wieder geprunt zuwerden.
+\todo[inline,color=blue]{Vollziehe mit PrunTrain + Net2Net nach, ob dies funktioniert wie MorphNet}
 
 Weiterhin besteht die Möglichkeit das Netz nicht nur breiter zu machen sondern auch tiefer.
+\todo[inline,color=brown]{Mache das Netz tiefer}
+\todo[inline, color =blue]{Suche Kriterien, die entscheiden ob das Netz tiefer sein sollte}
 
 
 MorphNet erwähnt, dass es Sinn macht nicht im ganzen Netz denn Wider Operator anzuwenden sonder nur da wo der Regularisierer das Netz nicht schmaller macht.
-\section{PruneTrain + Net2Net}
+\todo[inline, color=blue]{Entwickle Möglichkeit dies direkter da anzuwenden, wo nicht geprunt wurde}
 
-\section{Additive Verfahren}
 
+\section{Überblick über die möglichen Strategien}
+
+Welche Strategien aus Kapitel 2 sind überhaupt durchführbar?
+Hier werden nur die Strategien aufgeführt, welche überhaupt auf vernünftig grossen Datensätzen funktionieren und von der Technik und dem Aufwand her möglich sind.
+Die Strategien sind aufgeteilt in Unterkapitel. 
+
+Alle möglichen Kombinationen von Strategien sind zuviele. Daher sinnvolle Vorauswahl treffen.  
+Bei mehreren gleichartigen/ konkurierenden Ansätze drekter Vergleich und dann den besten auswählen.
 \subsection{Zahlenformate}
 
 \begin{itemize}
@@ -438,3 +353,27 @@ Interessant bisher kein Code verfügbar
 Interessant bisher kein Code verfügbar
 
 
+\subsubsection{Sind diese Verfahren theoretisch kombinierbar}
+\todo[inline,color=blue]{Testen, wenn die anderen funktionieren}
+\subsection{Verfahren um weniger Trainingsdaten zu verwenden}
+
+
+\subsubsection{Stochastisches Pooling}
+
+Klingt sehr interessant und könnte für deutlich kleinere Trainingsdatenmenge sorgen
+Oder alternativ bei gleicher Trainingsdatenmenge die Accuracy verbessern
+https://github.com/Shuangfei/s3pool
+\todo[inline,color=blue]{Testen}
+
+\subsection{Lernen von Struktur und Stärke von CNNs}
+
+bisher kein Code verfügbar.Klingt aber interessant
+\todo[inline]{Ist zwar interessant aber ohne Code dazu wohl zu aufwändig}
+
+
+
+
+\section{Schnelleres MorphPruneTrain}
+FP16 + plus ein Verfahren aus dem Bereich Gradienten
+
+\todo[inline, color=blue]{Funktioniert erst, wenn die anderen Experimente durchgelaufen sind}
