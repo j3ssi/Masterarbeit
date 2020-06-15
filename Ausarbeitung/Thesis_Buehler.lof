@@ -10,16 +10,16 @@
 \contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{11}{figure.caption.14}
 \contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le todo: Grafik sch\IeC {\"o}n machen\relax }}{12}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Vergleich asynchroner mit synchroner Ausf\IeC {\"u}hrung von pytorch Operationen\relax }}{18}{figure.caption.28}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Boxplot der Rekonfigurationsintervalle\relax }}{21}{figure.caption.35}
-\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall\relax }}{21}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Ver\IeC {\"a}nderung der Accuracy w\IeC {\"a}hrend der Epochen\relax }}{23}{figure.caption.40}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Zoom der Ver\IeC {\"a}nderung\relax }}{23}{figure.caption.41}
-\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{25}{figure.caption.45}
-\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{25}{figure.caption.46}
-\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{26}{figure.caption.47}
-\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{26}{figure.caption.48}
-\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{27}{figure.caption.51}
-\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{30}{figure.caption.57}
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Vergleich asynchroner mit synchroner Ausf\IeC {\"u}hrung von pytorch Operationen\relax }}{20}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Boxplot der Rekonfigurationsintervalle\relax }}{23}{figure.caption.35}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall\relax }}{23}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Ver\IeC {\"a}nderung der Accuracy w\IeC {\"a}hrend der Epochen\relax }}{25}{figure.caption.40}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Zoom der Ver\IeC {\"a}nderung\relax }}{25}{figure.caption.41}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{27}{figure.caption.45}
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{27}{figure.caption.46}
+\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{28}{figure.caption.47}
+\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{28}{figure.caption.48}
+\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{29}{figure.caption.51}
+\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{32}{figure.caption.57}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

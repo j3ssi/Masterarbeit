@@ -1,24 +1,24 @@
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Einleitung fertigschreiben -- zum Schluss}{1}{section*.4}
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Aufbau der Arbeit -- erst bei fortgeschrittener Arbeit schreiben}{1}{section*.5}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Grafik}{9}{section*.12}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Grafik zum Verfahren}{10}{section*.12}
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Beispiel f\IeC {\"u}r Channel Union?}{10}{section*.13}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ cite}{14}{section*.18}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ subnormale Zahlen}{14}{section*.21}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{15}{section*.22}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Die Ausreisser von baseline ohne erzwungene Synchro kann ich mir nicht erkl\IeC {\"a}ren.}{18}{section*.29}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Braucht es hier einen statistischen Test, um zu zeigen dass diese Ergebnisse signifikant unterschiedlich sind?}{18}{section*.30}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Bottleneck -Eigenschaft}{19}{section*.31}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{19}{section*.32}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{20}{section*.34}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ beispielrechnung}{22}{section*.37}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{22}{section*.38}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Quelle}{24}{section*.42}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Tabelle mit neuen Zahlen updaten, da mit kaputter Grafikkarte berechnet}{24}{section*.43}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Hier muss noch das Fitten des Modells und der t-Test erkl\IeC {\"a}rt werden}{26}{section*.49}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Tabelle}{26}{section*.50}
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ t-Test um statistisch zu zeigen, dass das signifikant ist}{28}{section*.52}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Untersuche, ob largeBatch auch auf ein PruneTrain Netzwerk anwendbar ist.}{28}{section*.55}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Untersuche, ob die Gr\IeC {\"o}sse des Batches beeinflusst, wie viel vom Netz geprunt wird}{28}{section*.56}
-\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Weitere Versuche, die zeigen ob die Zeiten grossen statistischen Schwankungen unterliegen.}{30}{section*.58}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen ob es funktioniert}{31}{section*.60}
-\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Implementieren (ist einfach) und testen}{31}{section*.62}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ cite}{15}{section*.18}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ subnormale Zahlen}{16}{section*.21}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{16}{section*.22}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Die Ausreisser von baseline ohne erzwungene Synchro kann ich mir nicht erkl\IeC {\"a}ren.}{20}{section*.29}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Braucht es hier einen statistischen Test, um zu zeigen dass diese Ergebnisse signifikant unterschiedlich sind?}{20}{section*.30}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Bottleneck -Eigenschaft}{21}{section*.31}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{21}{section*.32}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{22}{section*.34}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ beispielrechnung}{24}{section*.37}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ ref}{24}{section*.38}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Quelle}{26}{section*.42}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Tabelle mit neuen Zahlen updaten, da mit kaputter Grafikkarte berechnet}{26}{section*.43}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Hier muss noch das Fitten des Modells und der t-Test erkl\IeC {\"a}rt werden}{28}{section*.49}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Tabelle}{28}{section*.50}
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ t-Test um statistisch zu zeigen, dass das signifikant ist}{30}{section*.52}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Untersuche, ob largeBatch auch auf ein PruneTrain Netzwerk anwendbar ist.}{30}{section*.55}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Untersuche, ob die Gr\IeC {\"o}sse des Batches beeinflusst, wie viel vom Netz geprunt wird}{30}{section*.56}
+\contentsline {todo}{\color@fb@x {}{black}{}{brown}{\leavevmode {\color {brown}o}}\ Weitere Versuche, die zeigen ob die Zeiten grossen statistischen Schwankungen unterliegen.}{32}{section*.58}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Testen ob es funktioniert}{33}{section*.60}
+\contentsline {todo}{\color@fb@x {}{black}{}{blue}{\leavevmode {\color {blue}o}}\ Implementieren (ist einfach) und testen}{33}{section*.62}
