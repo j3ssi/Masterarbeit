@@ -3,49 +3,51 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Thesis_Buehler.aux
 The style file: alpha.bst
 Database file #1: Literature.bib
+Warning--I didn't find a database entry for "snyc"
+Warning--I didn't find a database entry for "lars"
 Warning--to sort, need author or key in ieee
 Warning--to sort, need author or key in ptImpl
 Warning--empty journal in net2net
 Warning--empty author in ieee
 You've used 14 entries,
             2543 wiz_defined-function locations,
-            627 strings with 6655 characters,
-and the built_in function-call counts, 5174 in all, are:
-= -- 478
-> -- 309
-< -- 4
-+ -- 109
-- -- 108
-* -- 356
-:= -- 879
+            630 strings with 6709 characters,
+and the built_in function-call counts, 5338 in all, are:
+= -- 493
+> -- 336
+< -- 3
++ -- 120
+- -- 119
+* -- 381
+:= -- 917
 add.period$ -- 42
 call.type$ -- 14
-change.case$ -- 92
+change.case$ -- 96
 chr.to.int$ -- 14
 cite$ -- 20
-duplicate$ -- 204
-empty$ -- 360
-format.name$ -- 119
-if$ -- 1037
+duplicate$ -- 206
+empty$ -- 355
+format.name$ -- 129
+if$ -- 1061
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 13
+missing$ -- 14
 newline$ -- 73
 num.names$ -- 38
-pop$ -- 121
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 107
+purify$ -- 111
 quote$ -- 0
-skip$ -- 170
+skip$ -- 174
 stack$ -- 0
 substring$ -- 141
 swap$ -- 26
-text.length$ -- 4
+text.length$ -- 3
 text.prefix$ -- 1
 top$ -- 0
 type$ -- 104
 warning$ -- 4
-while$ -- 37
-width$ -- 17
-write$ -- 171
-(There were 4 warnings)
+while$ -- 38
+width$ -- 16
+write$ -- 173
+(There were 6 warnings)

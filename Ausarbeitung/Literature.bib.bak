@@ -239,4 +239,10 @@
   volume  = {abs/1710.03740},
 }
 
+@Article{ieee,
+  title   = {IEEE Standard for Binary Floating-Point Arithmetic},
+  journal = {ANSI/IEEE Std 754-1985},
+  year    = {1985},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

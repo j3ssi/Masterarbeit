@@ -75,57 +75,28 @@
 
 %=Inhalt=================================================================================
 \section{PruneTrain}
-\begin{frame}{}
-\begin{figure}
- \includegraphics[width=0.7\textwidth]{grafik/prune.png}
- % cnn.jpeg: 1255x424 px, 72dpi, 44.27x14.96 cm, bb=0 0 1255 424
- \caption{Übersicht über die Zeiten}
-\end{figure}
-prune1-prune4 sind Experimente ohne Anpassung der Batchgröße währenddem Training 
-
-prune5 Anpassung der Batchgrösse währenddem Training
+\begin{frame}{Pruning in der Vergangenheit}
+Bisher:
+\begin{itemize}
+ \item Pruning, um vortrainierte Netze zu verkleinern
+ \item Mit Hilfe von iterativen und Pruning Zyklen dünne Subnetze (Winning Tickets) finden
+ \item Manche der Subnetze können über Datansets und Optimierer hin weg gerneralsieren
+\end{itemize}
+Aber: bisher keine effizienten Algorithmen um dies zu finden. Es benötigt in der Regel mehr Zeit als das Netz direkt zu trainieren.
 \end{frame}
 
 
+\begin{frame}{Fragestellung}
+ Daraus resultiert eine fundamentale Fragestellung:
+ Lassen sich stark verdünnte trainierbare Subnetze bereits zur Initialisierung finden? 
+ Ohne Training und vielleicht auch ohne die Datensätze zu betrachten?
+\end{frame}
 
-\begin{frame}{}
- \begin{figure}
- \includegraphics[width=0.9\textwidth]{grafik/pruneVsbaselineAcc.png}
- % module.conv1.weight_12.png: 640x480 px, 100dpi, 16.26x12.19 cm, bb=0 0 461 346
- \caption{Übersicht über die Accuracy}
-\end{figure}
-Accuracy Verlust durch Prune5 2,6\%
+
+\begin{frame}{Kollaps ganzer Schichten}
+
  
 \end{frame}
-
-\begin{frame}{}
-\begin{itemize}
- \item  Im PruneTrain Paper zeigt sich bereits beim Anwenden von PruneTrain ohne Anpassung der Batch Size ein Verringerung der Trainingszeit
- \item Dieses Ergebnis lässt sich leider nicht reproduzieren. Da dort mehrere GPU parallel benutzt werden, wird hier vorallem an der Kommunikation zwischen den GPU gespart wird. 
- \item Beim Anpassen der Batchsize währenddem Pruning wird hier etwa 12\% Prozent gespart.
- \item Wobei sich hier gezeigt hat, dass neben der Anpassung der Batchgrösse auch wichtig ist dass die richtige Lernrate genutzt wird.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
- \begin{figure}
- \includegraphics[width=0.9\textwidth]{grafik/pruneVsBaseline.png}
- % module.conv1.weight_12.png: 640x480 px, 100dpi, 16.26x12.19 cm, bb=0 0 461 346
- \caption{}
-\end{figure}
-\end{frame}
-
-\section{Large Batch}
-
-\begin{frame}{Large Batch}
-\begin{itemize}
- \item Large Batch sorgt bei einer grösseren Batchsize (4000 staat 256) dafür, dass weiterhin ein grosser Teil des Netzwerks geprunt werden kann.
- \item Bei Large Batch wird nicht der komplette Speicher genutzt. Hier sind noch weitere Untersuchungen fällig.
- \item bei Cifar10 konnte bei einer grossen Batch size keine Generalization Gap beobachtet werden -> Cifar100 oder ImageNet
-\end{itemize}
-\end{frame}
-
 
 
 \end{document}

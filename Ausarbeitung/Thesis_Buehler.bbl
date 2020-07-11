@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{GEN{\etalchar{+}}18}
+\begin{thebibliography}{MAL{\etalchar{+}}19}
 
 \bibitem[CCGS16]{CNNImg}
 J.F. Couchot, R.~Couturier, C.~Guyeux, and M.~Salomon.
@@ -61,11 +61,12 @@ Sangkug Lym, Esha Choukse, Siavash Zangeneh, Wei Wen, Mattan Erez, and Sujay
   network training.
 \newblock {\em CoRR}, abs/1901.09290, 2019.
 
-\bibitem[oA]{pytorch}
-ohne Autor.
-\newblock Cuda semantice -- pytorch 1.5.0 documentation.
-\newblock online \url{https://pytorch.org/docs/stable/notes/cuda.html}
-  aufgerufen am 10.06.2020.
+\bibitem[MAL{\etalchar{+}}19]{dvolver}
+Guillaume Michel, Mohammed~Amine Alaoui, Alice Lebois, Amal Feriani, and Mehdi
+  Felhi.
+\newblock {DVOLVER:} efficient pareto-optimal neural network architecture
+  search.
+\newblock {\em CoRR}, abs/1902.01654, 2019.
 
 \bibitem[oA19]{cornell}
 ohne Autor.

@@ -12,25 +12,8 @@ Server mit 4 Graka:
 
 Es wird mit pytorch gearbeitet, da pytorch gegenüber anderen Frameworks eine grössere Flexibiltät erlaubt. Ausserdem ist eine fast vollständige Implementierung von PruneTrain in Pytorch geschrieben. Diese wird im nächsten Kapitel untersucht und soweit erweitert, dass es dem Stand im PruneTrain Paper entspricht.
 
-Pytorch bietet mit cudnn und cuda im Hintergrund gute Möglichkeiten die Trainingszeiten einzelner Epochen zu messen und sie so mit einander zu vergleichen. In Abbildung \ref{abb:synchron} sind mehrere Ausführungen eines Netzes mit Pytorch auf der GPU zu sehen. Auffallend ist dabei, dass in den ersten fünf Durchläufen die Trainingszeiten einer Epoche eine grosse Varianz haben. 
+Pytorch bietet mit cudnn und cuda im Hintergrund gute Möglichkeiten die Trainingszeiten einzelner Epochen zu messen und sie so mit einander zu vergleichen.
 
-Diese Varianz ist darauf zurückzuführen, dass Operationen in Pytorch standardmässig asynchron auf der GPU ausgeführt werden \cite{pytorch}. Das bedeutet, dass bei einem Funktionsaufruf, der die GPU nutzt die Operationen hintereinander in eine Warteschlange auf der GPU eingereiht werden \cite{pytorch} . Nicht notwendigerweise werden diese Operationen sofort ausgeführt. Dies erlaubt zwar mehr parallele Berechnungen erhöht aber durch die inkludierte Wartezeit die gemessene Trainingszeit einer Epoche. 
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/synchron.png}
- % synchron.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Vergleich asynchroner mit synchroner Ausführung von pytorch Operationen}
- \label{abb:synchron}
-\end{figure}
-
-
-Die sechste Messung in Abbildung \ref{abb:synchron} zeigt einen Durchlauf des gleichen Netzes mit erzwungener Synchronizität.
-
-
-
-\todo[inline]{Die Ausreisser von baseline ohne erzwungene Synchro kann ich mir nicht erklären.}
-\todo[inline]{Braucht es hier einen statistischen Test, um zu zeigen dass diese Ergebnisse signifikant unterschiedlich sind?}
 
 \subsection{verwendete Netzarchitektur}\label{sec:archi}
 Die PruneTrain Implementierung hat initial mehrere verschiedene Netzarchitekturen zur Auswahl:
@@ -57,7 +40,7 @@ Erweitere dies jedoch durch beliebige grosse ResNets. Ein ResNet ist hier durch 
  \item $b$: Boolean Parameter, der angibt ob die Blöcke im Netz die Bootleneck-Eigenschaft haben
 \end{itemize}
 \todo[inline]{Bottleneck -Eigenschaft}
-
+\subsection{Überblick über das experimentelle Vorgehen}
 
 
 \section{Untersuchung von PruneTrain}
@@ -70,6 +53,8 @@ Hier wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den E
 
 Als Netzwerk wird ein Res-Net 32 verwendet. In Tabelle \todo{ref} ist die Netzstruktur aufgeführt.
 
+
+
 verwendete Kenngrößen:
 
 \begin{itemize}
@@ -78,7 +63,6 @@ verwendete Kenngrößen:
  \item 180 Epochen
 \end{itemize}
 
-\subsubsection{Veränderung der Trainingszeit durch PruneTrain}
 Zunächst wird hierfür nur das Prune Train ohne Anpassung der Batchgrösse betrachtet. 
 
 Variable Größen, die in verschiedenen Experimenten geändert werden:
@@ -101,20 +85,44 @@ Variable Größen, die in verschiedenen Experimenten geändert werden:
 \end{itemize}
 
 Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über alle 180 Epochen und vergleiche diese mit mehreren Durchläufen des Baseline-Netzes. 
+\subsubsection{Experimente zur Lernrate}
 
-Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abbildung \todo{ref} zu sehen. Dabei ist zu sehen, dass unterschiedliche Lernraten einen großen Einfluss auf die Verkleinerungsrate des Netzes haben. Der Grund hierfür ist, dass bei unterschiedlich großen Lernrate die Wahrscheinlichkeit, dass eine gewisse Anzahl von Gewichten unter den Treshold fällt unterschiedlich gross ist. Ist die Lernrate zu klein braucht es zu viele Epochen um bei einer zufälligen Initialisierung unter den Treshold zu gelangen. Ist die Lernrate zu groß, wird das Gewicht zwar kleiner ist danach aber wohlmöglich im negativen größer als der Treshold.
+Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Unterschiede zwischen den Experimente sind in Abbildung \ref{abb:lr1} zunächst nicht direkt sichtbar. Um diese besser sichtbar zu machen wird für jedes Experimente die Summeder Trainingszeiten über die Epochen gebildet. In Abbildung \ref{abb:lr2} ist zu beobachten, dass beim größten Threshold die geringste summierte Trainingszeit zusammenkommt. Da bei einem höheren Threshold im Laufe des Trainings mehr Gewichte unter den Grenzwert fallen und somit entfernt werden. Liegen diese Gewichte sinnvoll, so können ganze Kanäle entfernt werden.
+ \begin{figure}[h]
+ \centering
+ \subfloat[][verschiedene Experimente]{\includegraphics[width=0.37\textwidth]{KapitelPartB/Images/thres1.png}\label{abb:lr1}}
+ \qquad
+ \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.55\textwidth]{KapitelPartB/Images/thres2.png}\label{abb:lr2}}
+ \caption{Boxplot der verschiedenen Grenzwerte}
+ \label{abb:lr}
+\end{figure}
+ 
+ In Abbildung \ref{abb:lr3} ist zu sehen, dass der gleiche Effekt sich auch bei Accuracy zeigt. Die Accuracy für den größten Grenzwert ist am niedrigsten.
+ 
+ \begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/thres3.png}
+ % reconf3.png: 454x491 px, 96dpi, 12.01x12.99 cm, bb=0 0 341 368
+ \caption{Accuracy von verschiedenen Experimentengruppen des Grenzwerts}
+ \label{abb:lr3}
+ \end{figure}
+
+
+\subsubsection{Experimente zum Rekonfigurationsintervall}
+
+ Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt.
  
  \begin{figure}[h]
  \centering
  \subfloat[][verschiedene Experimente]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf1.png}\label{abb:reconf1}}
  \qquad
  \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
- \label{abb:reconf}
  \caption{Boxplot der Rekonfigurationsintervalle}
+ \label{abb:reconf}
 \end{figure}
 
- 
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt. Dies bedeutet, dass der Overhead des Pruningverfahrens geringer ist als der Gewinn durch das Verkleinern des Netzes. In Abbildung \ref{abb:reconf3} ist zu sehen, dass dieser Gewinn an Trainingszeit in Abbildung \ref{abb:reconf2} mit einem Verlust an geringem Verlust an Accuracy einhergeht. 
+ Dies bedeutet, dass der Overhead des Beschneidungsverfahrens geringer ist als der Gewinn durch das Verkleinern des Netzes. In Abbildung \ref{abb:reconf3} ist zu sehen, dass dieser Gewinn an Trainingszeit in Abbildung \ref{abb:reconf2} mit einem Verlust an geringem Verlust an Accuracy einhergeht.  
+
  
  \begin{figure}[h]
  \centering
@@ -124,25 +132,31 @@ Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abb
  \caption{Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall}
 \end{figure}
 
+ \subsubsection{Experimente zum Grenzwert}
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/lr1.png}
+ % lr1.png: 431x491 px, 96dpi, 11.41x12.99 cm, bb=0 0 323 368
+ \label{ref:lra}
+\end{figure}
+
+ In Abbildung \ref{abb:lra} ist nicht wirklich was zu sehen, 
  
-
- Wird der Treshold vergrössert, so wird das Netz schneller kompakter. Allerdings wird durch das kompaktere Netz auch die Accuracy geringer.
-Wird der Treshold verkleinert, so wird das Netz nicht so schnell kompakter es verliert aber auch weniger Accuracy.
-
-
+ 
+ 
 Es ergibt sich, dass sich mit diesen bisherigen Experimenten keine Zeit sparen lässt. Im Gegenteil, der PruneTrain Ansatz braucht mehr Zeit. Dies steht im Widerspruch zum PruneTrain Paper. Dieser Widerspruch lässt sich durch die Verwendung von mehreren GPUs zur Evaluation im PruneTrain Paper erklären. Mit einem schmalleren Netz müssen weniger Daten zwischen den GPUs ausgetauscht werden. Es wird Kommunikationszeit gespart.
 
 
 
 
+\todo[inline]{Bis hier muss noch mit mehr Experimenten sichergestellt werden, dass die Effekte nicht an der kleinen Zahl an Experimenten liegt.}
+\color{blue1}
+
+\subsubsection{Experimente zur Batchgröße}
 
 
-Im Prune Train Paper wird als nächste zum Einsparen von Trainingszeit mit dem Verkleinern des Netzes die Batchgröße erhöht. Dabei soll währenddem dem Vorgang die Speicherauslastung die gleiche sein.
-
-
-
-
-Als Anfangsbatchgrösse wird 265 gewählt. Für kleiner und grössere Netze wird nun mit Hilfe einer binären Suche erfasst wie groß die Batchgrösse sein darf, um eine gleiche maximale Speicherauslastung zu haben.
 
 Gleichzeitig wird für die jeweilige Modellgrösse die Anzahl an Parametern, die das Modell hat gezählt. Diese Größen sind in Tabelle \ref{tab:batchSize} eingetragen. 
 

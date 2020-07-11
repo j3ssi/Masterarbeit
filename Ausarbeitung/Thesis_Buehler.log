@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  15 JUN 2020 03:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  8 JUL 2020 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2339,7 +2339,7 @@ ABD: EveryShipout initializing macros
 \c@lstlisting=\count348
 Package scrhack Info: undefining \float@addtolists on input line 227.
  (./frontpage.tex
-<images/tud_logo_cmyk.pdf, id=150, 338.90414pt x 54.59576pt>
+<images/tud_logo_cmyk.pdf, id=162, 338.90414pt x 54.59576pt>
 File: images/tud_logo_cmyk.pdf Graphic file (type pdf)
 <use images/tud_logo_cmyk.pdf>
 Package pdftex.def Info: images/tud_logo_cmyk.pdf  used on input line 6.
@@ -2349,7 +2349,7 @@ LaTeX Font Info:    Try loading font information for T1+aess on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-<images/fi_text.pdf, id=151, 255.95625pt x 18.0675pt>
+<images/fi_text.pdf, id=163, 255.95625pt x 18.0675pt>
 File: images/fi_text.pdf Graphic file (type pdf)
 <use images/fi_text.pdf>
 Package pdftex.def Info: images/fi_text.pdf  used on input line 16.
@@ -2413,25 +2413,25 @@ l.238 \pagestyle{empty} \cleardoublepage
 ] (./Thesis_Buehler.toc
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@alpha' on input line 40.
+(hyperref)                removing `\@alpha' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\c@page' on input line 40.
+(hyperref)                removing `\c@page' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@alpha' on input line 40.
+(hyperref)                removing `\@alpha' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@page' on input line 40.
+(hyperref)                removing `\c@page' on input line 44.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...ntersuchung von MorphNet}{31}{section.3.4}
+l.44 ...einerung des Netzes}{35}{subsection.3.2.3}
                                                    [3
 
 
@@ -2577,7 +2577,7 @@ ine 10.
 
 ] (./KapitelPartA/Einleitung.tex
 chapter 2.
-<images/convolution.png, id=302, 343.2825pt x 322.20375pt>
+<images/convolution.png, id=314, 343.2825pt x 322.20375pt>
 File: images/convolution.png Graphic file (type png)
 <use images/convolution.png>
 Package pdftex.def Info: images/convolution.png  used on input line 17.
@@ -2586,7 +2586,7 @@ Package pdftex.def Info: images/convolution.png  used on input line 17.
 
 
 ]
-<images/cnn.pdf, id=321, 460.4814pt x 317.22054pt>
+<images/cnn.pdf, id=333, 460.4814pt x 317.22054pt>
 File: images/cnn.pdf Graphic file (type pdf)
 <use images/cnn.pdf>
 Package pdftex.def Info: images/cnn.pdf  used on input line 32.
@@ -2600,333 +2600,410 @@ Overfull \hbox (3.19658pt too wide) in paragraph at lines 41--42
 Convolutional-Layer,
  []
 
-[5 <./images/cnn.pdf>]
-<KapitelPartA/images/kurzschluss.png, id=351, 354.32375pt x 171.64125pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./images/cnn.pdf>]
+<KapitelPartA/images/kurzschluss.png, id=362, 354.32375pt x 171.64125pt>
 File: KapitelPartA/images/kurzschluss.png Graphic file (type png)
 <use KapitelPartA/images/kurzschluss.png>
 Package pdftex.def Info: KapitelPartA/images/kurzschluss.png  used on input lin
-e 54.
+e 63.
 (pdftex.def)             Requested size: 206.28249pt x 99.92912pt.
 
-Overfull \hbox (10.0984pt too wide) in paragraph at lines 67--68
+Overfull \hbox (10.0984pt too wide) in paragraph at lines 76--77
 []\T1/aer/m/n/12 Eine wei-te-re Tech-nik, die in re-si-dua-len Net-zen ver-wen-
 det wird ist die der Bottleneck-
  []
 
-<KapitelPartA/images/bottleneck.png, id=359, 213.79875pt x 186.6975pt>
+[6 <./KapitelPartA/images/kurzschluss.png>]
+<KapitelPartA/images/bottleneck.png, id=377, 213.79875pt x 186.6975pt>
 File: KapitelPartA/images/bottleneck.png Graphic file (type png)
 <use KapitelPartA/images/bottleneck.png>
 Package pdftex.def Info: KapitelPartA/images/bottleneck.png  used on input line
- 76.
+ 85.
 (pdftex.def)             Requested size: 165.02347pt x 144.10506pt.
-<KapitelPartA/images/plain.png, id=360, 252.945pt x 186.6975pt>
+<KapitelPartA/images/plain.png, id=378, 252.945pt x 186.6975pt>
 File: KapitelPartA/images/plain.png Graphic file (type png)
 <use KapitelPartA/images/plain.png>
-Package pdftex.def Info: KapitelPartA/images/plain.png  used on input line 78.
+Package pdftex.def Info: KapitelPartA/images/plain.png  used on input line 87.
 (pdftex.def)             Requested size: 165.02347pt x 121.80489pt.
+<KapitelPartA/images/arxiv.png, id=383, 624.3325pt x 501.875pt>
+File: KapitelPartA/images/arxiv.png Graphic file (type png)
+<use KapitelPartA/images/arxiv.png>
+Package pdftex.def Info: KapitelPartA/images/arxiv.png  used on input line 97.
+(pdftex.def)             Requested size: 206.28249pt x 165.81836pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6 <./KapitelPartA/images/kurzschluss.png>]
-<KapitelPartA/images/arxiv.png, id=372, 624.3325pt x 501.875pt>
-File: KapitelPartA/images/arxiv.png Graphic file (type png)
-<use KapitelPartA/images/arxiv.png>
-Package pdftex.def Info: KapitelPartA/images/arxiv.png  used on input line 88.
-(pdftex.def)             Requested size: 206.28249pt x 165.81836pt.
- [7 <./KapitelPartA/images/bottleneck.png> <./KapitelPartA/images/plain.png> <.
-/KapitelPartA/images/arxiv.png>]
-<KapitelPartA/images/mindmap.jpg, id=385, 4909.34125pt x 2293.56876pt>
+[7 <./KapitelPartA/images/bottleneck.png> <./KapitelPartA/images/plain.png>]
+<KapitelPartA/images/mindmap.jpg, id=395, 4909.34125pt x 2293.56876pt>
 File: KapitelPartA/images/mindmap.jpg Graphic file (type jpg)
 <use KapitelPartA/images/mindmap.jpg>
-Package pdftex.def Info: KapitelPartA/images/mindmap.jpg  used on input line 10
-1.
+Package pdftex.def Info: KapitelPartA/images/mindmap.jpg  used on input line 11
+0.
 (pdftex.def)             Requested size: 412.56497pt x 192.72845pt.
 )
-(./KapitelPartA/Morphnet.tex [8 <./KapitelPartA/images/mindmap.jpg>]
-LaTeX Font Info:    Try loading font information for TS1+aer on input line 14.
+(./KapitelPartA/Morphnet.tex
+
+LaTeX Warning: Reference `sec:prunetrain' on page 8 undefined on input line 2.
+
+[8 <./KapitelPartA/images/arxiv.png> <./KapitelPartA/images/mindmap.jpg>]
+LaTeX Font Info:    Try loading font information for TS1+aer on input line 15.
 
 (/usr/share/texmf/tex/latex/R/tex/latex/ts1aer.fd
 File: ts1aer.fd 
 )
 LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <12> not available
-(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 14.
-
-Underfull \vbox (badness 2134) has occurred while \output is active []
-
+(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 15.
  [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<KapitelPartA/images/net.pdf, id=415, 597.23125pt x 845.1575pt>
+File: KapitelPartA/images/net.pdf Graphic file (type pdf)
+<use KapitelPartA/images/net.pdf>
+Package pdftex.def Info: KapitelPartA/images/net.pdf  used on input line 80.
+(pdftex.def)             Requested size: 129.95934pt x 183.91054pt.
 
- [10]
-<KapitelPartA/images/net2net.png, id=413, 434.62375pt x 179.67125pt>
-File: KapitelPartA/images/net2net.png Graphic file (type png)
-<use KapitelPartA/images/net2net.png>
-Package pdftex.def Info: KapitelPartA/images/net2net.png  used on input line 44
-.
-(pdftex.def)             Requested size: 288.79422pt x 119.39214pt.
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
 
-
-Package caption Warning: \label without proper reference on input line 60.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `abb:channels' on page 11 undefined on input line 54.
-
-<KapitelPartA/images/channels.png, id=416, 618.31pt x 405.515pt>
-File: KapitelPartA/images/channels.png Graphic file (type png)
-<use KapitelPartA/images/channels.png>
-Package pdftex.def Info: KapitelPartA/images/channels.png  used on input line 5
-8.
-(pdftex.def)             Requested size: 247.54149pt x 162.35162pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11 <./KapitelPartA/images/net2net.png>]
-Overfull \hbox (30.00122pt too wide) in paragraph at lines 85--86
-\OT1/cmr/bx/n/12 h[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^^ []$ \T1/aer/m/n/12 
-durch die Ope-ra-ti-on von zwei Lay-ern $\OT1/cmr/bx/n/12 h[] \OT1/cmr/m/n/12 =
- \OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 U[]\OML/cmm/m/it/12 ^^^\
-OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 W[]h[]\OT1/cmr/m/n/12 ))$\T1/aer/m/n/12 .
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 80.
+
+Missing character: There is no ª in font cmr12!
+
+Underfull \hbox (badness 5622) in paragraph at lines 80--80
+\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 3 : \OML/cmm/m/it/12 A\OT1/
+cmr/m/n/12 (2) \OMS/cmsy/m/n/12 [ \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (3) =  [] \
+OMS/cmsy/m/n/12 [
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 80--80
+\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 4 : \OML/cmm/m/it/12 A\OT1/
+cmr/m/n/12 (3) \OMS/cmsy/m/n/12 [ \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (4) = [] \O
+MS/cmsy/m/n/12 [ \OT1/cmr/m/n/12 :
+ []
+
+
+Overfull \hbox (18.53593pt too wide) in paragraph at lines 80--81
+[][][][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 60.05794pt on input line 83.
+
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+[10] [11 <./KapitelPartA/images/net.pdf>]
+
+Package natbib Warning: Citation `snyc' on page 12 undefined on input line 96.
+
+
+LaTeX Warning: Reference `sec:net2net' on page 12 undefined on input line 100.
+
+<KapitelPartA/images/net2net.png, id=433, 434.62375pt x 179.67125pt>
+File: KapitelPartA/images/net2net.png Graphic file (type png)
+<use KapitelPartA/images/net2net.png>
+Package pdftex.def Info: KapitelPartA/images/net2net.png  used on input line 10
+5.
+(pdftex.def)             Requested size: 288.79422pt x 119.39214pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12 <./KapitelPartA/images/channels.png>] [13]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 128.
-) (./KapitelPartA/Arithmetik.tex
+ [12]
+<KapitelPartA/images/channels.png, id=443, 618.31pt x 405.515pt>
+File: KapitelPartA/images/channels.png Graphic file (type png)
+<use KapitelPartA/images/channels.png>
+Package pdftex.def Info: KapitelPartA/images/channels.png  used on input line 1
+19.
+(pdftex.def)             Requested size: 247.54149pt x 162.35162pt.
+
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+ [13 <./KapitelPartA/images/net2net.png> <./KapitelPartA/images/channels.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
+
+LaTeX Warning: Reference `sec:prunetrain' on page 15 undefined on input line 16
+2.
+
+
+LaTeX Warning: Reference `sec:net2net' on page 15 undefined on input line 162.
+
 [15]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 196.
+ [16] [17]) (./KapitelPartA/Arithmetik.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+[19]
 
 Package caption Warning: \label without proper reference on input line 61.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `abb:mixed' on page 16 undefined on input line 55.
+LaTeX Warning: Reference `abb:mixed' on page 20 undefined on input line 55.
 
-<KapitelPartA/images/mixed.png, id=468, 394.47375pt x 179.67125pt>
+<KapitelPartA/images/mixed.png, id=512, 394.47375pt x 179.67125pt>
 File: KapitelPartA/images/mixed.png Graphic file (type png)
 <use KapitelPartA/images/mixed.png>
 Package pdftex.def Info: KapitelPartA/images/mixed.png  used on input line 59.
 (pdftex.def)             Requested size: 330.05322pt x 150.33063pt.
+) (./KapitelPartA/Gradient.tex [20 <./KapitelPartA/images/mixed.png>])
+(./KapitelPartA/Andere.tex
+<KapitelPartA/images/batchSize1.png, id=519, 384.43625pt x 191.71625pt>
+File: KapitelPartA/images/batchSize1.png Graphic file (type png)
+<use KapitelPartA/images/batchSize1.png>
+Package pdftex.def Info: KapitelPartA/images/batchSize1.png  used on input line
+ 10.
+(pdftex.def)             Requested size: 330.05322pt x 164.60654pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./KapitelPartA/Gradient.tex [16]) (./KapitelPartA/Andere.tex) [17 <./Kapitel
-PartA/images/mixed.png>] [18] (./KapitelPartB/Einleitung.tex
+
+Package natbib Warning: Citation `lars' on page 21 undefined on input line 17.
+
+[21]) [22 <./KapitelPartA/images/batchSize1.png>]
+(./KapitelPartB/Einleitung.tex
 chapter 3.
-) (./KapitelPartB/Experimente.tex [19
+) (./KapitelPartB/Experimente.tex [23
 
 
 
 
-]
-<KapitelPartB/Images/synchron.png, id=496, 564.60938pt x 370.38374pt>
-File: KapitelPartB/Images/synchron.png Graphic file (type png)
-<use KapitelPartB/Images/synchron.png>
-Package pdftex.def Info: KapitelPartB/Images/synchron.png  used on input line 2
-1.
-(pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
- [20 <./KapitelPartB/Images/synchron.png (PNG copy)>] [21]
-<KapitelPartB/Images/reconf1.png, id=508, 480.29437pt x 379.4175pt>
+] [24]
+<KapitelPartB/Images/thres1.png, id=547, 362.10281pt x 369.63094pt>
+File: KapitelPartB/Images/thres1.png Graphic file (type png)
+<use KapitelPartB/Images/thres1.png>
+Package pdftex.def Info: KapitelPartB/Images/thres1.png  used on input line 93.
+
+(pdftex.def)             Requested size: 152.64702pt x 155.81921pt.
+<KapitelPartB/Images/thres2.png, id=548, 676.02562pt x 370.38374pt>
+File: KapitelPartB/Images/thres2.png Graphic file (type png)
+<use KapitelPartB/Images/thres2.png>
+Package pdftex.def Info: KapitelPartB/Images/thres2.png  used on input line 95.
+
+(pdftex.def)             Requested size: 226.91199pt x 124.3181pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<KapitelPartB/Images/thres3.png, id=550, 676.02562pt x 370.38374pt>
+File: KapitelPartB/Images/thres3.png Graphic file (type png)
+<use KapitelPartB/Images/thres3.png>
+Package pdftex.def Info: KapitelPartB/Images/thres3.png  used on input line 104
+.
+(pdftex.def)             Requested size: 330.05322pt x 180.83403pt.
+[25] [26 <./KapitelPartB/Images/thres1.png (PNG copy)> <./KapitelPartB/Images/t
+hres2.png> <./KapitelPartB/Images/thres3.png (PNG copy)>]
+<KapitelPartB/Images/reconf1.png, id=572, 480.29437pt x 379.4175pt>
 File: KapitelPartB/Images/reconf1.png Graphic file (type png)
 <use KapitelPartB/Images/reconf1.png>
-Package pdftex.def Info: KapitelPartB/Images/reconf1.png  used on input line 10
-9.
+Package pdftex.def Info: KapitelPartB/Images/reconf1.png  used on input line 11
+7.
 (pdftex.def)             Requested size: 193.90604pt x 153.18271pt.
-<KapitelPartB/Images/reconf2.png, id=509, 480.29437pt x 379.4175pt>
+<KapitelPartB/Images/reconf2.png, id=573, 480.29437pt x 379.4175pt>
 File: KapitelPartB/Images/reconf2.png Graphic file (type png)
 <use KapitelPartB/Images/reconf2.png>
 Package pdftex.def Info: KapitelPartB/Images/reconf2.png  used on input line 11
-1.
+9.
 (pdftex.def)             Requested size: 193.90604pt x 153.18271pt.
 
-Underfull \hbox (badness 6758) in paragraph at lines 111--111
+Underfull \hbox (badness 6758) in paragraph at lines 119--119
 [][]|\T1/aer/m/n/10 Sum-me ver-schie-de-ner Ex-pe-ri-men-ten-
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package caption Warning: \label without proper reference on input line 112.
+Package caption Warning: \label without proper reference on input line 131.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `abb:reconf' on page 22 undefined on input line 117.
+LaTeX Warning: Reference `abb:reconf3' on page 27 undefined on input line 124.
 
-
-Package caption Warning: \label without proper reference on input line 123.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `abb:reconf3' on page 22 undefined on input line 117.
-
-[22]
-<KapitelPartB/Images/reconf3.png, id=523, 341.77687pt x 369.63094pt>
+<KapitelPartB/Images/reconf3.png, id=576, 341.77687pt x 369.63094pt>
 File: KapitelPartB/Images/reconf3.png Graphic file (type png)
 <use KapitelPartB/Images/reconf3.png>
 Package pdftex.def Info: KapitelPartB/Images/reconf3.png  used on input line 12
-1.
+9.
 (pdftex.def)             Requested size: 206.28249pt x 223.10005pt.
- [23 <./KapitelPartB/Images/reconf1.png (PNG copy)> <./KapitelPartB/Images/reco
-nf2.png (PNG copy)> <./KapitelPartB/Images/reconf3.png (PNG copy)>]
+<KapitelPartB/Images/lr1.png, id=577, 324.46219pt x 369.63094pt>
+File: KapitelPartB/Images/lr1.png Graphic file (type png)
+<use KapitelPartB/Images/lr1.png>
+Package pdftex.def Info: KapitelPartB/Images/lr1.png  used on input line 140.
+(pdftex.def)             Requested size: 330.05322pt x 376.0259pt.
+[27 <./KapitelPartB/Images/reconf1.png (PNG copy)> <./KapitelPartB/Images/recon
+f2.png (PNG copy)> <./KapitelPartB/Images/reconf3.png (PNG copy)>]
 
-LaTeX Warning: Reference `tab:batchSize' on page 24 undefined on input line 147
+LaTeX Warning: Reference `abb:lra' on page 28 undefined on input line 145.
+
+
+LaTeX Warning: Reference `tab:batchSize' on page 28 undefined on input line 161
 .
 
 
-Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28 <./KapitelPartB/Images/lr1.png>]
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 185--185
 [][][][]\T1/aer/m/n/12 beispielrechnung  
  []
 
 
-Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 185--185
 [][][][]\T1/aer/m/n/12 beispielrechnung  
  []
 
 
-Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 185--185
 [][][][]\T1/aer/m/n/12 beispielrechnung  
  []
 
 
-Overfull \hbox (19.03491pt too wide) in paragraph at lines 171--171
+Overfull \hbox (19.03491pt too wide) in paragraph at lines 185--185
 [][][][]\T1/aer/m/n/12 beispielrechnung  
  []
 
 
-LaTeX Warning: Marginpar on page 24 moved.
+LaTeX Warning: Marginpar on page 29 moved.
 
-<KapitelPartB/Images/PTaccuracy.png, id=533, 564.60938pt x 370.38374pt>
+<KapitelPartB/Images/PTaccuracy.png, id=594, 564.60938pt x 370.38374pt>
 File: KapitelPartB/Images/PTaccuracy.png Graphic file (type png)
 <use KapitelPartB/Images/PTaccuracy.png>
 Package pdftex.def Info: KapitelPartB/Images/PTaccuracy.png  used on input line
- 183.
+ 197.
 (pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<KapitelPartB/Images/PTaccuracyzoom.png, id=535, 564.60938pt x 370.38374pt>
+<KapitelPartB/Images/PTaccuracyzoom.png, id=596, 564.60938pt x 370.38374pt>
 File: KapitelPartB/Images/PTaccuracyzoom.png Graphic file (type png)
 <use KapitelPartB/Images/PTaccuracyzoom.png>
 Package pdftex.def Info: KapitelPartB/Images/PTaccuracyzoom.png  used on input 
-line 193.
+line 207.
 (pdftex.def)             Requested size: 330.05322pt x 216.51819pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24] [25 <./KapitelPartB/Images/PTaccuracy.png (PNG copy)> <./KapitelPartB/Imag
+[29] [30 <./KapitelPartB/Images/PTaccuracy.png (PNG copy)> <./KapitelPartB/Imag
 es/PTaccuracyzoom.png (PNG copy)>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 219.
+               Default added (so using `tbp') on input line 233.
 
-<KapitelPartB/Images/linearBlocks.png, id=548, 408.77719pt x 272.51813pt>
+<KapitelPartB/Images/linearBlocks.png, id=611, 408.77719pt x 272.51813pt>
 File: KapitelPartB/Images/linearBlocks.png Graphic file (type png)
 <use KapitelPartB/Images/linearBlocks.png>
 Package pdftex.def Info: KapitelPartB/Images/linearBlocks.png  used on input li
-ne 243.
+ne 257.
 (pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 1221) has occurred while \output is active []
 
-<KapitelPartB/Images/maxBatchSize.png, id=550, 408.77719pt x 272.51813pt>
+ [31 <./KapitelPartB/Images/linearBlocks.png>]
+<KapitelPartB/Images/maxBatchSize.png, id=619, 408.77719pt x 272.51813pt>
 File: KapitelPartB/Images/maxBatchSize.png Graphic file (type png)
 <use KapitelPartB/Images/maxBatchSize.png>
 Package pdftex.def Info: KapitelPartB/Images/maxBatchSize.png  used on input li
-ne 256.
+ne 270.
 (pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[26]
-<KapitelPartB/Images/quotient.png, id=558, 408.77719pt x 272.51813pt>
+<KapitelPartB/Images/quotient.png, id=621, 408.77719pt x 272.51813pt>
 File: KapitelPartB/Images/quotient.png Graphic file (type png)
 <use KapitelPartB/Images/quotient.png>
 Package pdftex.def Info: KapitelPartB/Images/quotient.png  used on input line 2
-69.
+83.
 (pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<KapitelPartB/Images/gerade.png, id=560, 408.77719pt x 272.51813pt>
+<KapitelPartB/Images/gerade.png, id=623, 408.77719pt x 272.51813pt>
 File: KapitelPartB/Images/gerade.png Graphic file (type png)
 <use KapitelPartB/Images/gerade.png>
-Package pdftex.def Info: KapitelPartB/Images/gerade.png  used on input line 283
+Package pdftex.def Info: KapitelPartB/Images/gerade.png  used on input line 297
 .
 (pdftex.def)             Requested size: 330.05322pt x 220.04819pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[27 <./KapitelPartB/Images/linearBlocks.png> <./KapitelPartB/Images/maxBatchSiz
-e.png>]
 
-LaTeX Warning: Marginpar on page 28 moved.
+LaTeX Warning: Marginpar on page 32 moved.
 
-[28 <./KapitelPartB/Images/quotient.png> <./KapitelPartB/Images/gerade.png (PNG
- copy)>]
-<KapitelPartB/Images/batchSizevsTime.png, id=576, 291.33844pt x 276.28218pt>
+[32 <./KapitelPartB/Images/maxBatchSize.png>]
+<KapitelPartB/Images/batchSizevsTime.png, id=633, 291.33844pt x 276.28218pt>
 File: KapitelPartB/Images/batchSizevsTime.png Graphic file (type png)
 <use KapitelPartB/Images/batchSizevsTime.png>
 Package pdftex.def Info: KapitelPartB/Images/batchSizevsTime.png  used on input
- line 320.
+ line 334.
 (pdftex.def)             Requested size: 330.05322pt x 313.0215pt.
- [29 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>]
-Underfull \vbox (badness 6526) has occurred while \output is active []
 
- [30]
-[31]
-<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=599, 291.33844pt x 276.28218pt
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[33 <./KapitelPartB/Images/quotient.png> <./KapitelPartB/Images/gerade.png (PNG
+ copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34 <./KapitelPartB/Images/batchSizevsTime.png (PNG copy)>] [35]
+<KapitelPartB/Images/timeVsBatchSize_Amp.png, id=657, 291.33844pt x 276.28218pt
 >
 File: KapitelPartB/Images/timeVsBatchSize_Amp.png Graphic file (type png)
 <use KapitelPartB/Images/timeVsBatchSize_Amp.png>
 Package pdftex.def Info: KapitelPartB/Images/timeVsBatchSize_Amp.png  used on i
-nput line 408.
+nput line 422.
 (pdftex.def)             Requested size: 330.05322pt x 313.0215pt.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 415.
 
- (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for T1+aett on input line 429.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (68.5354pt too wide) in paragraph at lines 415--416
+Overfull \hbox (68.5354pt too wide) in paragraph at lines 429--430
 [][]$\T1/aett/m/n/12 https : / / developer . download . nvidia . com / video / 
 gputechconf / gtc / 2019 / presentation /
  []
 
-[32 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>]
-Overfull \hbox (36.85503pt too wide) in paragraph at lines 428--429
+[36]
+Overfull \hbox (36.85503pt too wide) in paragraph at lines 442--443
 []\T1/aer/m/n/12 Könnte funk-tio-nie-ren. Co-de für Lasa-gne: htt-ps://github.c
 om/TimSalimans/weight_norm 
  []
 
-) (./KapitelPartB/Evaluation.tex [33] [34
-
-
-]
+[37 <./KapitelPartB/Images/timeVsBatchSize_Amp.png (PNG copy)>])
+(./KapitelPartB/Evaluation.tex [38]
 chapter 4.
-) [35] [36
+) [39
+
+
+] [40
 
 
 ] (./appendix.tex
 chapter A.
-) [37
+) [41
 
 
-] [38
+] [42
 
 
 ] (./Thesis_Buehler.lof
-Overfull \hbox (3.55255pt too wide) in paragraph at lines 13--13
- [][] [][]\T1/aer/m/n/12 Vergleich asyn-chro-ner mit syn-chro-ner Aus-füh-rung 
-von py-torch Ope- 
- []
-
-
-Overfull \hbox (5.0164pt too wide) in paragraph at lines 23--23
+Overfull \hbox (5.0164pt too wide) in paragraph at lines 27--27
  [][] [][]\T1/aer/m/n/12 Vergleich Trai-nings-zeit ei-ner Epo-che für ver-schie
 -de-ne Op-ti-mie-rungs- 
  []
@@ -2935,38 +3012,42 @@ Overfull \hbox (5.0164pt too wide) in paragraph at lines 23--23
 \tf@lof=\write7
 \openout7 = `Thesis_Buehler.lof'.
 
- [39] [40
+ [43] [44
 
 
-] (./Thesis_Buehler.bbl [41
+] (./Thesis_Buehler.bbl [45
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
 []\T1/aer/m/n/12 ohne Au-tor.  ar-xiv ma-chi-ne lear-ning clas-si-fi-ca-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
 \T1/aer/m/n/12 on gui-de, 12 2019.  On-li-ne-quel-le; Auf-ge-ru-fen am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
 \T1/aer/m/n/12 01.06.2020; []$\T1/aett/m/n/12 https : / / blogs . cornell . edu
  / arxiv / 2019 / 12 / 05 /
  []
 
-) [42]
+)
+
+Package natbib Warning: There were undefined citations.
+
+[46]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
  (./Thesis_Buehler.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
 Package rerunfilecheck Info: File `Thesis_Buehler.out' has not changed.
-(rerunfilecheck)             Checksum: D37F2D01F27DDEB7583A9B11F4254515;3041.
+(rerunfilecheck)             Checksum: 0DFF0AC3BF571353DAE510D8CC31D6A9;3344.
 
 
 LaTeX Warning: There were undefined references.
@@ -2974,10 +3055,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
  ) 
 Here is how much of TeX's memory you used:
- 40184 strings out of 492982
- 732847 string characters out of 6134895
- 864998 words of memory out of 5000000
- 42862 multiletter control sequences out of 15000+600000
+ 40253 strings out of 492982
+ 734227 string characters out of 6134895
+ 865558 words of memory out of 5000000
+ 42904 multiletter control sequences out of 15000+600000
  595239 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,87p,10455b,715s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3010,10 +3091,10 @@ ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Thesis_Buehler.pdf (50 pages, 1562389 bytes).
+Output written on Thesis_Buehler.pdf (54 pages, 2163135 bytes).
 PDF statistics:
- 798 PDF objects out of 1000 (max. 8388607)
- 682 compressed objects within 7 object streams
- 178 named destinations out of 1000 (max. 500000)
- 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 863 PDF objects out of 1000 (max. 8388607)
+ 734 compressed objects within 8 object streams
+ 200 named destinations out of 1000 (max. 500000)
+ 470 words of extra memory for PDF output out of 10000 (max. 10000000)
 
