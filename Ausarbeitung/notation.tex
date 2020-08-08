@@ -2,18 +2,20 @@
 % TU Dortmund, Computer Science VII
 %========================================================================================
 
-\chapter*{Mathematical Notation} \label{Notation}
+\chapter*{Mathematische Notation} \label{Notation}
 
 \newcommand{\tabdummy}{\midrule[0pt]}
 
 \begin{tabular}{p{0.25\textwidth}p{0.65\textwidth}}
-  \textbf{Notation} & \textbf{Meaning} \\ \toprule[1pt]
-   $\mathbb{N}$ & Set of natural numbers ${1, 2, 3, \ldots}$ \\ \tabdummy
-   $\mathbb{R}$ & Set of real numbers \\ \tabdummy
-   $\mathbb{R}^d$ & $d$-dimensional space\\ \tabdummy
-   $\mathcal{M} = \{m_1,\ldots,m_N\}$ & Set $\mathcal{M}$ of $N$ elements $m_i$ \\ \tabdummy
-   $\mathbf{p}$ & Vector\\ \tabdummy
-   $\mathbf{p}_i$ & Element $i$ of the vector \\ \tabdummy
-   $\mathbf{v}^{(j)}_i$ & Element $i$ of the vector $j$ \\ \tabdummy
-   $\mathbf{A}$ & Matrix
+  \textbf{Notation} & \textbf{Bedeutung} \\ \toprule[1pt]
+   $\mathbf{x_{i}}$ & Eingabe in das Netz \\ \tabdummy
+   $\mathfrak{B}$ & Menge der Batches des Datensatzes $\mathfrak{B}=\left\{ \mathcal{B}_{1} , \ldots \mathcal{B}_{k}   \right\} $\\ \tabdummy
+   $\mathcal{B}$ & ein Batch mit $m$ Elemente $\mathcal{B}=\left\{ \mathbf{x}_1, \ldots, \mathbf{x}_m \right\} $\\ \tabdummy
+   $\mathbf{u}_{i,j}$ & Ausgabe der Faltungsschicht j wobei in das Netz $\mathbf{x}_i$ eingegeben wurde.\\ \tabdummy
+   $\mathbf{v}_{i,j}$ & Ausgabe der Batchnormalisierungsschicht j wobei in das Netz $\mathbf{x}_i$ eingegeben wurde.\\ \tabdummy
+   $\mathcal{W}$ & Gewichte der Schichten $\mathcal{W}= \left\{ W_1, \ldots, W_G \right\} $ geordnet nach Stelle der Schicht im Vorwärtsdurchgang. \\ \tabdummy
+   $\mathcal{W}^k$ & Gewichte des k-ten Trainingsdurchlaufs  \\ \tabdummy
+   $f\left( \mathbf{x_i}, \mathcal{W}\right) $ & Funktion, die das CNN berechnet. $f\left( \mathbf{x}_i, \mathcal{W}\right)$ berechnet eine Klassenzugehörigkeit für $\mathbf{x}_i$ \\ \tabdummy
+   $y_i$ & tatsächliche Klasse von $\mathbf{x}_i$ \\ \tabdummy     
+   $l\left(f( \mathbf{x_i}, \mathcal{W}\right), y_i) $ & Funktion, die das CNN berechnet  
 \end{tabular}

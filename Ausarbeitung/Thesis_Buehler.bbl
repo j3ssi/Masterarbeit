@@ -54,6 +54,14 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 Ieee standard for binary floating-point arithmetic.
 \newblock {\em ANSI/IEEE Std 754-1985}, 1985.
 
+\bibitem[IS15]{batchnorm}
+Sergey Ioffe and Christian Szegedy.
+\newblock Batch normalization: Accelerating deep network training by reducing
+  internal covariate shift.
+\newblock In {\em Proceedings of the 32nd International Conference on
+  International Conference on Machine Learning - Volume 37}, ICML’15, page
+  448–456. JMLR.org, 2015.
+
 \bibitem[LCZ{\etalchar{+}}19]{prunetrain}
 Sangkug Lym, Esha Choukse, Siavash Zangeneh, Wei Wen, Mattan Erez, and Sujay
   Shanghavi.

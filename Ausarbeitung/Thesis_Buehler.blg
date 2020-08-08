@@ -5,49 +5,49 @@ The style file: alpha.bst
 Database file #1: Literature.bib
 Warning--I didn't find a database entry for "snyc"
 Warning--I didn't find a database entry for "lars"
-Warning--to sort, need author or key in ieee
 Warning--to sort, need author or key in ptImpl
+Warning--to sort, need author or key in ieee
 Warning--empty journal in net2net
 Warning--empty author in ieee
-You've used 14 entries,
+You've used 15 entries,
             2543 wiz_defined-function locations,
-            630 strings with 6709 characters,
-and the built_in function-call counts, 5338 in all, are:
-= -- 493
-> -- 336
-< -- 3
-+ -- 120
-- -- 119
-* -- 381
-:= -- 917
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 96
-chr.to.int$ -- 14
-cite$ -- 20
-duplicate$ -- 206
-empty$ -- 355
-format.name$ -- 129
-if$ -- 1061
+            637 strings with 6980 characters,
+and the built_in function-call counts, 5909 in all, are:
+= -- 559
+> -- 355
+< -- 4
++ -- 126
+- -- 125
+* -- 406
+:= -- 991
+add.period$ -- 46
+call.type$ -- 15
+change.case$ -- 102
+chr.to.int$ -- 15
+cite$ -- 21
+duplicate$ -- 242
+empty$ -- 396
+format.name$ -- 136
+if$ -- 1201
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 14
-newline$ -- 73
-num.names$ -- 38
-pop$ -- 114
+missing$ -- 15
+newline$ -- 78
+num.names$ -- 41
+pop$ -- 120
 preamble$ -- 1
-purify$ -- 111
+purify$ -- 118
 quote$ -- 0
-skip$ -- 174
+skip$ -- 214
 stack$ -- 0
-substring$ -- 141
-swap$ -- 26
-text.length$ -- 3
+substring$ -- 166
+swap$ -- 47
+text.length$ -- 4
 text.prefix$ -- 1
 top$ -- 0
-type$ -- 104
+type$ -- 112
 warning$ -- 4
-while$ -- 38
-width$ -- 16
-write$ -- 173
+while$ -- 42
+width$ -- 17
+write$ -- 188
 (There were 6 warnings)

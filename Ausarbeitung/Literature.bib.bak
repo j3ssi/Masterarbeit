@@ -245,4 +245,12 @@
   year    = {1985},
 }
 
+@Article{syn,
+  author  = {Hidenori Tanaka and Daniel Kunin and Daniel L. K. Yamins and Surya Ganguli},
+  title   = {Pruning neural networks without any data by iteratively conserving synaptic flow},
+  journal = {CoRR},
+  year    = {2020},
+  volume  = {abs/2006.05467},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

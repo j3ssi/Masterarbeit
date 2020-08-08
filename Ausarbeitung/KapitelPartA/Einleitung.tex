@@ -1,6 +1,7 @@
-\chapter{Stand der Wissenschaft}
-Diese Kapitel soll dem Leser eine Übersicht über den aktuellen Stand der Wissenschaft geben. Zu diesem Zweck hat dieses Kapitel zwei Teile. Im ersten Teil wird zunächst grundlegend die Funktionsweise eines Convolutional Neural Networks (CNN) erläutert. Im zweiten Teil des Kapitels wird ein Überblick über die bisherigen wissenschaftlichen Erkenntnisse im Themenbereich dieser Arbeit vorgetellt.
+\chapter{Stand der Wissenschaft}\label{sec:wissenschaft}
+Diese Kapitel soll dem Leser eine Übersicht über den aktuellen Stand der Wissenschaft geben. Zu diesem Zweck hat dieses Kapitel zwei Teile. Im ersten Teil wird zunächst grundlegend die Funktionsweise eines Convolutional Neural Networks (CNNs) erläutert. Im zweiten Teil des Kapitels wird ein Überblick über die bisherigen wissenschaftlichen Erkenntnisse im Themenbereich dieser Arbeit vorgetellt.
 \section{Funktionsweise eines CNN}\label{sec:conv}
+
 Die Quelle für dieses Unterkapitel ist soweit nicht anders vermerkt ein Buch über \enquote{Deep Learning} \cite{CNNBook}.
 
 CNNs sind spezielle neuronale Netze. Der Unterschied zu einem \enquote{Multilayer-Perzeptron (MLP)\footnote{Die Hintergründe des MLPs und allgemein neuronaler Netzwerke werden hier nicht behandelt. Für eine Einführung in neuronale Netzwerke kann aber \cite{neural} herangezogen werden}} ist, dass bei einem MLP jede Verbindung zwischen Neuronen und die Neuronen selber ein eigenes trainierbares Gewicht haben. Aus diesen trainierbaren Werten wird mittels einer Matrixmultiplikation mit den Eingabedaten bzw. den Daten der vorherigen Schicht die Ausgabe jedes Neurons berechnet.
@@ -9,9 +10,9 @@ Im Gegensatz dazu sind CNNs neuronale Netze, die in mindestens einer ihrer Schic
 
 Dies bedeutet, dass die Eingabedaten für ein CNN für diese Faltung geeignet sein müssen. Geeignet für die Faltung sind Eingabedaten, die gridförmig angeordnet sind. Bilddaten sind ein grosser Anwendungsbereich für CNNs.
 
-Bei der Faltung wird auf die Eingabedaten bzw- die Daten dr vorherigen Schicht ein Kernel angewendet.
+Bei der Faltung wird auf die Eingabedaten beziehungsweise die Daten der vorherigen Schicht ein Kernel angewendet.
 
-In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Grösse des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Featuremap.
+In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Grösse des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Merkmalskarte.
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.45 \textwidth,keepaspectratio=true]{images/convolution.png}
@@ -19,11 +20,16 @@ In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durch
  \caption{Abbildung zur Faltung \cite{CNNBook}}
  \label{fig:faltung}
 \end{figure}
-Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen Erste Feature-Maps. Diese Feature-Maps werden im nächsten Schritt Komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird ReLU als Aktivierungsfunktion benutzt\footnote{Für Erklärung Relu siehe \cite{neural}}. Um Overfitting zu vermeiden kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Pooling verkleinert die Größe der Feature-Map verkleinert.
+Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskartren werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird ReLU als Aktivierungsfunktion benutzt\footnote{Für Erklärung Relu siehe \cite{neural}}. Pooling wird verwendet umon Euch
 
-Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt ob und wenn ja wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben die Pixel am Rand des Bildes(bzw. der Featuremap der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.  
+Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch diee Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten autaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird grösser als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
 
-Beim Anwenden des Kernels auf die Eingabe kann jedes Teilbild oder weniger Teilbilder verwendet werden. Dies wird über den Parameter Stride kommuniziert. Beim Stride von Eins wird jedes Teilbild verwendet. Wird der Stride auf 2 gesetzt, so wird nach jedem verwendetem Teilbild eines ausgesetzt.
+
+Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt ob und wenn ja wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben die Pixel am Rand des Bildes(bzw. der Featuremap der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.
+
+
+
+Beim Anwenden des Kernels auf der Eingabe kann jedes Teilbild benutzt werden oder es können Teilbilder ausgelassen werden. Dies wird über den Parameter Stride kommuniziert. Beim Stride von Eins wird jedes Teilbild verwendet. Wird der Stride auf Zwei gesetzt, so wird nach jedem verwendetem Teilbild eines ausgesetzt.
 
 
 In einem CNN werden mehrere dieser Convolutional Layer hintereinander geschaltet, um komplexe Features erkennen zu können. 
@@ -38,21 +44,59 @@ In einem CNN werden mehrere dieser Convolutional Layer hintereinander geschaltet
 
 Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fig:cnn} zu sehen.
 
-Die Fully-Connected-Layer errechnen aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.
+Die voll verbundene Schicht errechnet aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.
 
-Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen des Fully-Connected Layers trainierbar. Das heißt durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und des Fully-Connected Layer so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
-\color{blue1}
-
-Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der Eingabe der Bilder $X_i$ eines Batches von Trainingsdaten hintereinander in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weitergerechnet. In der letzten, voll-verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Aus dieser Klasse und dem vorher vorhandenen Label wird
+Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen der voll verbundenen Schicht trainierbar. Das heißt durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und der voll verbundenen Schicht so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
 
 
+
+Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der aufeinanderfolgenden Eingabe der Bilder $\mathbf{x}_i$ eines Batches von Trainingsdaten in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weitergerechnet. Die Ausgabe einer Faltungsschicht wird $\mathbf{u}_{i,j}$ angegeben, wobei $i$ für den Patz im jeweiligen Batch steht und $j$ für die Nummer der entsprechenden Schicht. In der letzten, voll verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Die Gewichte der Schichten werden mit $W_{g}$ bezeichnet, wobei $g$ die Schicht der $G$ Gewichte angibt. Alle Gewichte des Netzwerkes werden mit $\mathcal{W}$ bezeichnet, wobei 
+\begin{equation}
+\mathcal{W}=\left\{ W^{1}, \ldots W^{G} \right\}
+\end{equation}
+die Definition dieser Menge ist.
+
+Diese Klassifikation ist formal eine Funktion $f$ mit der Eingabe $\mathbf{x}_i$. Da das Bild $\mathbf{x}_i$ bereits vorher klassifiziert wurde hat es ein Label $y_i$, welches die Klasse von $\mathbf{x}_i$ angibt. Mit Hilfe das Labels und der Ausgabe von $f(\mathbf{x}_i, \mathcal{W})$ wird eine Verlust-Funktion $l(f(\mathbf{x}_i,\mathcal{W}),y_i)$ berechnet. Die Verlust-Funktion berechnet wie weit die tatsächliche Klasse $y_i$ von der Ausgabe des Netzes $f(\mathbf{x}_i, \mathcal{W})$ entfernet ist. Wie gut die Trainingsdaten bei dieser Verlust-Funktion abschneiden wird Trainingsfehler genannt.
+
+
+Die Ableitung dieser Verlust-Funktion wird rückwärts durch das Netz propagiert und damit ein Gradient berechnet. Mittels des Gradientenabstiegsverfahren wird die Verlust-Funktion minimiert, was dazu führt dass das Netz die Trainingsbilder besser klassifiziert. 
+
+
+Im Anschluss an diesen Trainingsprozess können Bilder, die ohne zugehörige Label in das Netz eingegeben werden, klassifiziert werden. Um die Klassifikationsleistung für unbekannte, nicht im Trainingsprozess benutzte Bilder zu testen wird eine Menge an diesen Bilder durch das Netz klassifiziert und die Fehlerrate gemessen. Dieser Fehler wird Test-Fehler genannt. 
+
+
+Mit Hilfe des Trainings- und Testfehlers lässt sich die Klassifikationsleistung des Netzes beurteilen. Sind beide Fehlerarten hoch, so muss das Netz entweder noch weiter trainieren oder an der Struktur beziehungsweise den Hyperparametern muss etwas geändert werden. Ist allerdings nur der Testfehler hoch, so ist die Generalisierungsfähigkeit des Netzes nicht gut. 
+
+Eine weitere Technik, die zur Verbesserung der Generalisierungsfähigkeit sorgen kann ist die Batchnormalisierung. Diese Technik wird bis zum Ende dieses Unterkapitels betrachtet \cite{batchnorm}. Beim Training eines CNNs ändert sich die Verteilung der Eingabewerte währenddes Trainings durch Veränderung der Gewichte der vorherigen Schicht . Dies führt zu einem langsameren Training, da es kleinere Lernraten und damit mehr Durchläufe braucht damit das Netz konvergiert. Dieses Phänomen wird interne Kovarianzeverschiebung genannt und wird durch eine Normalisierung gelöst. In Algorithmus \ref{alg:bn} ist zu sehen wie dies schrittweise passiert.
+
+
+Zunächst bekommt die Batchnormalisierungsschicht die Eingabewerte $u_{i,j}$, wobei $j$ die Nummerder entsprechenden Schicht angibt und $i$ angibt welches Element in der jeweiligen Batch $\mathcal{B}$ gemeint ist. Zunächst wird aus allen Elemente des aktuellen Batches $\mathcal{B}$ der Mittelwert $\mu_{i,\mathcal{B}}$ berechnet. Mit Hilfe dieses Wert wird im nächsten Schritt die Varianz des Batches $\mathcal{B}$ berechnet. Diese beiden Werte werden benutzt um Elemente des Batches $\mathcal{B}$ so zu normalisieren, dass der Batch einen Mittelwert von Null und eine Varianz von Eins haben. Der in dieser Formel aufgeführte Wert $\epsilon$ wird zur quadratischen Varianz addiert um zusätzliche numerische Stabilität zu gewähren. 
+
+
+Im Anschluss an diese Normalisierung lassen sich die Elemente des Batches durch eine weitere mit trainierbaren Gewichten versehenen Transformation verändern. Da diese Parameter $\gamma$ und $\beta$ durch diese Transformation Teil des Modells sind und stetig differenzierbar sind lassen sie sich in den Trainingsprozess integrieren.
+
+\renewcommand{\algorithmicrequire}{\textbf{Eingabe:}}
+\renewcommand{\algorithmicensure}{\textbf{Ausgabe:}}
+
+
+\begin{algorithm}[H]
+\caption{Batchnormalisierungs-Algorithmus}
+\begin{algorithmic}
+\REQUIRE Werte von $\mathbf{u}_{i,j}$, $j$-te  Schicht und $i$-tes Element der Menge der Trainingsdaten  eines Batches $\mathcal{B}$, zu trainierende Parameter $\gamma, \beta$
+\ENSURE $\left\{ \mathbf{v}_{(i,j)} =\text{BN}_{\gamma, \beta}(u_{i.j} \right\} $
+\STATE $$\mu_{i,\mathcal{B}} \leftarrow \frac{1}{m}\sum_{j=1}^{m} \mathbf{u}_{i,j}$$
+\STATE $$\sigma^2_{i,\mathcal{B}} \leftarrow \frac{1}{m} \sum_{j=1}^m \left( \mathbf{u}_{i,j} -\mu_{i,\mathcal{B}}\right)^2$$
+\STATE $$ \hat{\mathbf{u}}_{i,j} \leftarrow \frac{\mathbf{u}_{i,j}-\mu_{i,\mathcal{B}}}{\sqrt{\sigma_{i,\mathcal{B}}^2+\epsilon}}$$
+\STATE $$\mathbf{v}_{i,j} \leftarrow \gamma \hat{\mathbf{u}}_{i,j} + \beta  \equiv \text{BN}_{\gamma,\beta}(\mathbf{u}_{i,j})$$
+\end{algorithmic}
+\label{alg:bn}
+\end{algorithm}
 
 
 \color{black}
-Für diese Veränderung wird ein Gradientenabstiegsverfahren, welches rückwärts durch die Schichten propagiert wird, benutzt.
 
 
-\section{ResNet -- eine neuere CNN-Architektur}
+\section{ResNet -- eine neuere CNN-Architektur}\label{sec:res}
 Die wachsende Tiefe bei CNN-Architekturen geschieht mit dem Hintergrund, dass tiefere Netze grössere Modellkomplexität haben. Die klassische CNN-Architektur mit hintereinander geschalteten Conv-Layern schafft es bei wachsender Tiefe des Netzes nicht diese Komplexität in bessere Klassifikationsleistung umzusetzen. Die Quelle zu diesem Unterkapitel ist das Paper, welches wegweisend für die Verwendung von Residualen Netzen in der Wissenschaft ist \cite{resnet}.
 
 
@@ -89,7 +133,7 @@ Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{ab
 \end{figure}
 
 
-\section{Vorgehen zur Suche nachdem Stand der Wissenschaft}
+\section{Vorgehen zur Suche nachdem Stand der Wissenschaft}\label{sec:suche}
 Eine Google-Suche nach ``time efficient training convolutional neural networks'' ergibt ungefähr 12 Millionen Suchergebnisse. Mit dieser Flut an Ergebnissen und vielen populär-wissenschaftlichen Einträgen ist die Suche nicht erfolgreich. Aus diesem Grund wird die Suche auf die Seite arvix.org eingeschränkt. Diese Einschränkung macht Sinn mit dem Hintergrund, dass bereits 2017 über 60\% Prozent der publizierten Paper auf arxiv.org als Preprint veröffentlicht wurden \cite{popular}. Diese Zahl ist seitdem weiter gestiegen, was die Zahl der veröffentlichten Paper im Bereich Machine Learning pro Tag in Abbildung \ref{abb:arxiv} zeigt.
 
 \begin{figure}[h]
