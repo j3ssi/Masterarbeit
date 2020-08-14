@@ -1,51 +1,19 @@
-\section{Experimentales Setup}\label{sec:setup}
-\todo[inline]{zusammenhängenden Text schreiben; 3 Stunden}
+\chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
+\todo{Anpassung am Code ist noch nötig; ca. 1 Woche)}
+MorphNet macht alle Layer breiter um sie dann mit einem speziellen Regularisierer breiter zu machen. Dieser Regularisierer hat verschiedene mögliche Zielgrössen (Modelgrösse, Flops oder Inferenz-Zeit).
+Die Frage stellt sich hier, ob das Netz besser wird wenn alle Schichten breiter gemacht werden um später wieder geprunt zuwerden.
 
-\subsection{Hardware}
-Server mit 4 Graka:
-
-2 mal Geforce GTX 1080 Ti mit CUDA Version 10.1 
-
-2 mal Geforce RTX 2080 Ti mit CUDA Version 10.1
-
-\subsection{Wahl des Frameworks}
-
-Es wird mit pytorch gearbeitet, da pytorch gegenüber anderen Frameworks eine grössere Flexibiltät erlaubt. Ausserdem ist eine fast vollständige Implementierung von PruneTrain in Pytorch geschrieben. Diese wird im nächsten Kapitel untersucht und soweit erweitert, dass es dem Stand im PruneTrain Paper entspricht.
-
-Pytorch bietet mit cudnn und cuda im Hintergrund gute Möglichkeiten die Trainingszeiten einzelner Epochen zu messen und sie so mit einander zu vergleichen.
+Weiterhin besteht die Möglichkeit das Netz nicht nur breiter zu machen sondern auch tiefer.
 
 
-Die MorphNet Implementierung von Google wurde in Tensorflow geschrieben. DieseImplementierung wird verglichen mit der eigenen Kombi aus Net2Net und PruneTrain.
+MorphNet erwähnt, dass es Sinn macht nicht im ganzen Netz denn Wider Operator anzuwenden sonder nur da wo der Regularisierer das Netz nicht schmaller macht.
 
 
-\subsection{verwendete Netzarchitektur}\label{sec:archi}
-Die PruneTrain Implementierung hat initial mehrere verschiedene Netzarchitekturen zur Auswahl:
-\begin{itemize}
- \item AlexNet
- \item ResNet 32/50
- \item vgg 8/11/13/16
- \item mobilenet
-\end{itemize}
-
-Schränke diese Auswahl auf ResNet ein.
-Gründe hierfür:
-\begin{itemize}
- \item Da die Überlegung besteht diese Netze tiefer zu machen wähle ResNet, da die Identity-Übergänge dem Netz erlauben das degradation Problem zu umgehen während das Netz noch tiefer/ breiter wird.
- \item Festlegung auf eine Architektur um Umfang der Arbeit zu begrenzen
-\end{itemize}
-
-Erweitere dies jedoch durch beliebige grosse ResNets. Ein ResNet ist hier durch 4 Parameter charaterisiert:
-
-\begin{itemize}
- \item $s$: Anzahl an Stages, die das ResNet hat
- \item $[n]:$ Anzahl von Blöcken pro Stage 
- \item $l$: Anzahl von (Conv+Batch)-Layer pro Block
- \item $b$: Boolean Parameter, der angibt ob die Blöcke im Netz die Bootleneck-Eigenschaft haben
-\end{itemize}
-\todo[inline]{Bottleneck -Eigenschaft}
-\subsection{Überblick über das experimentelle Vorgehen}
 
 
+
+\chapter{PruneTrain}
+\color{black}
 \section{Untersuchung von PruneTrain}\label{sec:ptexperimente}
 \todo[inline]{Ergebnisse aus neuen Experimenten verarbeiten; wenn Experimente fertig; 5 Stunden}
 \color{blue1}
@@ -55,7 +23,6 @@ Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Impleme
 Als Netzwerk wird ein Res-Net 32 verwendet. In Tabelle \todo{ref} ist die Netzstruktur aufgeführt.
 
 
-\subsection{Evaluation der vorgefertigten Implementierung}
 In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus dem Prune Train Paper verglichen. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern. Im zweiten Abschnitt wird betrachtet, wie sich die Accuracy im Verlauf der Epochen verhält.
 
 
@@ -83,6 +50,9 @@ Variable Größen, die in verschiedenen Experimenten geändert werden:
 \end{itemize}
 
 Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über alle 180 Epochen und vergleiche diese mit mehreren Durchläufen des Baseline-Netzes. 
+
+
+
 \subsubsection{Experimente zur Lernrate}
 
 Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Unterschiede zwischen den Experimente sind in Abbildung \ref{abb:lr1} zunächst nicht direkt sichtbar. Um diese besser sichtbar zu machen wird für jedes Experimente die Summeder Trainingszeiten über die Epochen gebildet. In Abbildung \ref{abb:lr2} ist zu beobachten, dass beim größten Threshold die geringste summierte Trainingszeit zusammenkommt. Da bei einem höheren Threshold im Laufe des Trainings mehr Gewichte unter den Grenzwert fallen und somit entfernt werden. Liegen diese Gewichte sinnvoll, so können ganze Kanäle entfernt werden.
@@ -151,8 +121,8 @@ Es ergibt sich, dass sich mit diesen bisherigen Experimenten keine Zeit sparen l
 
 \todo[inline]{Bis hier muss noch mit mehr Experimenten sichergestellt werden, dass die Effekte nicht an der kleinen Zahl an Experimenten liegt.}
 
-
-\subsubsection{Experimente zur Batchgröße}
+\chapter{Untersuchung der eigenen Implementierungen}
+\subsection{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
 
 
 
@@ -346,21 +316,6 @@ Eine grössere Batchsize sorgt auf jeden Fall für signifikant weniger Verkleine
 Die Frage die sich hier stellt ist, ob mit Hilfe von largeBatch bei maximaler Batchsize die Verkleinerungsrate steigt  
 
 
-\subsubsection{LARS}
-\todo[inline]{Experimente fast fertig (3x mal auf einer Graka für 50 min); dann etwa 3 Stunden fürText + Evaluierung}
-
-
-
-
-Es stellt sich die Frage, ob das einen so grossen Einfluss auf die Ausführungszeit hat.
-
-
-
-Man sieht, dass mit steigender Batchgröße die Ausführungszeit sinkt. 
-
-Errechne zusätzlich noch ein Modell, wo abhängig von der Modellgrösse währenddem Pruning die Batchgrösse angepasst wird.
-
-
 
 
 
@@ -382,22 +337,19 @@ Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breit
 \subsection{Evaluierung des Operators für ein tieferes Netz}
 
 \color{black}
-\section{Untersuchung von MorphNet}\label{sec:morphexperimente}
-\todo{Anpassung am Code ist noch nötig; ca. 1 Woche)}
-MorphNet macht alle Layer breiter um sie dann mit einem speziellen Regularisierer breiter zu machen. Dieser Regularisierer hat verschiedene mögliche Zielgrössen (Modelgrösse, Flops oder Inferenz-Zeit).
-Die Frage stellt sich hier, ob das Netz besser wird wenn alle Schichten breiter gemacht werden um später wieder geprunt zuwerden.
-
-Weiterhin besteht die Möglichkeit das Netz nicht nur breiter zu machen sondern auch tiefer.
 
 
-MorphNet erwähnt, dass es Sinn macht nicht im ganzen Netz denn Wider Operator anzuwenden sonder nur da wo der Regularisierer das Netz nicht schmaller macht.
+
 \section{PruneTrain + Net2Net}\label{sec:ptpnet2net}
 
 \todo[inline]{Anpassungen am Coe nötig aber nicht sehr umfangreich: ca 1 Tage; dann auf der Graka laufen lassen; ca. 3 Tage um zu schreiben +evaluieren}
 
-\section{Additive Verfahren}
+\chapter{Vergleich}\label{sec:vergleich}
 
-\subsection{Zahlenformate}
+
+\chapter{Additive Verfahren}
+
+\subsection{Zahlenformate}\label{sec:zahlen}
 \todo[inline]{Text fertig schreiben; etwa 4 Stunden}
 \begin{itemize}
  \item FP16 bereits probiert
@@ -433,6 +385,27 @@ Hier nur O0, O1 und O2 dargestellt, da O3 absolut nicht mithalten kann was Perfo
 \url{https://developer.download.nvidia.com/video/gputechconf/gtc/2019/presentation/s9998-automatic-mixed-precision-in-pytorch.pdf} zeigt, dass bezüglich der Accuracy kein Verlust zu erwarten ist.
 
 Da O2 gegenüber O1 keinen signifikanten zusätzlichen Gewinn bringt nutze O1.
+
+
+
+\subsection{LARS}\label{sec:lars}
+\todo[inline]{Experimente fast fertig (3x mal auf einer Graka für 50 min); dann etwa 3 Stunden fürText + Evaluierung}
+
+
+
+
+Es stellt sich die Frage, ob das einen so grossen Einfluss auf die Ausführungszeit hat.
+
+
+
+Man sieht, dass mit steigender Batchgröße die Ausführungszeit sinkt. 
+
+Errechne zusätzlich noch ein Modell, wo abhängig von der Modellgrösse währenddem Pruning die Batchgrösse angepasst wird.
+
+
+
+
+
 \subsection{Beschleunigung der Berechnung des Gradientenabstiegverfahren}
 \todo[inline]{ab hier löschen}
 

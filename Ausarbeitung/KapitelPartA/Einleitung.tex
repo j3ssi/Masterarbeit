@@ -50,9 +50,9 @@ Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, s
 
 
 
-Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der aufeinanderfolgenden Eingabe der Bilder $\mathbf{x}_i$ eines Batches von Trainingsdaten in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weitergerechnet. Die Ausgabe einer Faltungsschicht wird $\mathbf{u}_{i,j}$ angegeben, wobei $i$ für den Patz im jeweiligen Batch steht und $j$ für die Nummer der entsprechenden Schicht. In der letzten, voll verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Die Gewichte der Schichten werden mit $W_{g}$ bezeichnet, wobei $g$ die Schicht der $G$ Gewichte angibt. Alle Gewichte des Netzwerkes werden mit $\mathcal{W}$ bezeichnet, wobei 
+Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der aufeinanderfolgenden Eingabe der Bilder $\mathbf{x}_i$ eines Batches von Trainingsdaten in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weitergerechnet. Die Ausgabe einer Faltungsschicht wird $\mathbf{u}_{i,j}$ angegeben, wobei $i$ für den Patz im jeweiligen Batch steht und $j$ für die Nummer der entsprechenden Schicht. In der letzten, voll verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Die Gewichte der Schichten werden mit $W_{j}$ bezeichnet, wobei $j$ die Schicht der Gewichte angibt. Alle Gewichte des Netzwerkes werden mit $\mathcal{W}$ bezeichnet, wobei 
 \begin{equation}
-\mathcal{W}=\left\{ W^{1}, \ldots W^{G} \right\}
+\mathcal{W}=\left\{ W^{1}, \ldots W^{J} \right\}
 \end{equation}
 die Definition dieser Menge ist.
 
@@ -70,7 +70,7 @@ Mit Hilfe des Trainings- und Testfehlers lässt sich die Klassifikationsleistung
 Eine weitere Technik, die zur Verbesserung der Generalisierungsfähigkeit sorgen kann ist die Batchnormalisierung. Diese Technik wird bis zum Ende dieses Unterkapitels betrachtet \cite{batchnorm}. Beim Training eines CNNs ändert sich die Verteilung der Eingabewerte währenddes Trainings durch Veränderung der Gewichte der vorherigen Schicht . Dies führt zu einem langsameren Training, da es kleinere Lernraten und damit mehr Durchläufe braucht damit das Netz konvergiert. Dieses Phänomen wird interne Kovarianzeverschiebung genannt und wird durch eine Normalisierung gelöst. In Algorithmus \ref{alg:bn} ist zu sehen wie dies schrittweise passiert.
 
 
-Zunächst bekommt die Batchnormalisierungsschicht die Eingabewerte $u_{i,j}$, wobei $j$ die Nummerder entsprechenden Schicht angibt und $i$ angibt welches Element in der jeweiligen Batch $\mathcal{B}$ gemeint ist. Zunächst wird aus allen Elemente des aktuellen Batches $\mathcal{B}$ der Mittelwert $\mu_{i,\mathcal{B}}$ berechnet. Mit Hilfe dieses Wert wird im nächsten Schritt die Varianz des Batches $\mathcal{B}$ berechnet. Diese beiden Werte werden benutzt um Elemente des Batches $\mathcal{B}$ so zu normalisieren, dass der Batch einen Mittelwert von Null und eine Varianz von Eins haben. Der in dieser Formel aufgeführte Wert $\epsilon$ wird zur quadratischen Varianz addiert um zusätzliche numerische Stabilität zu gewähren. 
+Zunächst bekommt die Batchnormalisierungsschicht die Eingabewerte $u_{i,j}$, wobei $j$ die Nummer der entsprechenden Schicht angibt und $i$ angibt welches Element in der jeweiligen Batch $\mathcal{B}$ gemeint ist. Zunächst wird aus allen Elemente des aktuellen Batches $\mathcal{B}$ der Mittelwert $\mu_{i,\mathcal{B}}$ berechnet. Mit Hilfe dieses Wert wird im nächsten Schritt die Varianz des Batches $\mathcal{B}$ berechnet. Diese beiden Werte werden benutzt um Elemente des Batches $\mathcal{B}$ so zu normalisieren, dass der Batch einen Mittelwert von Null und eine Varianz von Eins haben. Der in dieser Formel aufgeführte Wert $\epsilon$ wird zur quadratischen Varianz addiert um zusätzliche numerische Stabilität zu gewähren. 
 
 
 Im Anschluss an diese Normalisierung lassen sich die Elemente des Batches durch eine weitere mit trainierbaren Gewichten versehenen Transformation verändern. Da diese Parameter $\gamma$ und $\beta$ durch diese Transformation Teil des Modells sind und stetig differenzierbar sind lassen sie sich in den Trainingsprozess integrieren.
@@ -121,7 +121,7 @@ Eine weitere Technik, die in residualen Netzen verwendet wird ist die der Bottle
 
 Die erste Schicht im Bottleneck-Block reduziert dabei die Größe der Feature-Map. Dies hat zur Folge, dass die Durchlaufzeit des mittleren Convolutional Layers geringer ist als bei einem Äquivalenten nicht Bottleneck-Block. Das letzte Layer des Blockes stellt die Größe vor dem Block wieder her.
 
-Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{abb:bottleneck} ist in Abbildung \ref{abb:nonbottleneck} zusehen. Wird in einem 34-Layer residualen Netzwerk aus Blöcken wie in Abbildung \ref{abb:nonbottleneck} jeder Block durch einen Block wie in Abbildung \ref{abb:bottleneck} ausgetauscht, so entsteht ein 50- Layer residual Netzwerk mit einer durchschnittlich erhöhten Accuracy. 
+Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{abb:bottleneck} ist in Abbildung \ref{abb:nonbottleneck} zusehen. Wird in einem residualen Netz mit 34 Schichten  aus Blöcken wie in Abbildung \ref{abb:nonbottleneck} jeder Block durch einen Block wie in Abbildung \ref{abb:bottleneck} ausgetauscht, so entsteht ein 50- Layer residual Netzwerk mit einer durchschnittlich erhöhten Accuracy.
 
 
 \begin{figure}[h]

@@ -12,6 +12,12 @@ Tianqi Chen, Ian Goodfellow, and Jonathon Shlens.
 \newblock Net2net: Accelerating learning via knowledge transfer.
 \newblock 11 2015.
 
+\bibitem[DZZZ20]{polsar}
+Hongwei Dong, Bin Zou, Lamei Zhang, and Siyu Zhang.
+\newblock Automatic design of cnns via differentiable neural architecture
+  search for polsar image classification.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing}, 2020.
+
 \bibitem[FC19]{lottery}
 Jonathan Frankle and Michael Carbin.
 \newblock The lottery ticket hypothesis: Finding sparse, trainable neural
