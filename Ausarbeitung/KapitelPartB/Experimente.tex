@@ -1,26 +1,33 @@
 \chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
-\todo{Anpassung am Code ist noch nötig; ca. 1 Woche)}
-MorphNet macht alle Layer breiter um sie dann mit einem speziellen Regularisierer breiter zu machen. Dieser Regularisierer hat verschiedene mögliche Zielgrössen (Modelgrösse, Flops oder Inferenz-Zeit).
-Die Frage stellt sich hier, ob das Netz besser wird wenn alle Schichten breiter gemacht werden um später wieder geprunt zuwerden.
 
-Weiterhin besteht die Möglichkeit das Netz nicht nur breiter zu machen sondern auch tiefer.
+untersuche zunächst ob für die beiden Constraints Model Size und Flop regularisieren auch diese Zielgrösse kleiner wird.
+
+2 Experimente Zeit ??
 
 
-MorphNet erwähnt, dass es Sinn macht nicht im ganzen Netz denn Wider Operator anzuwenden sonder nur da wo der Regularisierer das Netz nicht schmaller macht.
+Erprobe wie unterschiedliche gammas auf Schritt 2 wirken
+
+
+5 x 5 Experimente 
+
+
+Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres Netz wird. Erlaubt sind maximal die Flops/bzw. Modelgrösse des 16 breiten Netzwerks mit 3 Iterationen
+
+
+
+
+
+
+
 
 
 
 
 
 \chapter{PruneTrain}
-\color{black}
 \section{Untersuchung von PruneTrain}\label{sec:ptexperimente}
 \todo[inline]{Ergebnisse aus neuen Experimenten verarbeiten; wenn Experimente fertig; 5 Stunden}
-\color{blue1}
 Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. 
-
-
-Als Netzwerk wird ein Res-Net 32 verwendet. In Tabelle \todo{ref} ist die Netzstruktur aufgeführt.
 
 
 In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus dem Prune Train Paper verglichen. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern. Im zweiten Abschnitt wird betrachtet, wie sich die Accuracy im Verlauf der Epochen verhält.
@@ -40,13 +47,9 @@ Variable Größen, die in verschiedenen Experimenten geändert werden:
 
 \begin{itemize}
  \item Lasso-Ratio
- \item Threshold
- \item Lernrate
- \begin{itemize}
-  \item unterschiedlich große Lernraten
-  \item Anpassung der Lernrate währenddem Training
- \end{itemize}
- \item Rekonfigurationsinterval
+ \item Threshold experimente
+ \item Lernrate experimente
+ \item Rekonfigurationsinterval fertig
 \end{itemize}
 
 Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über alle 180 Epochen und vergleiche diese mit mehreren Durchläufen des Baseline-Netzes. 
@@ -117,12 +120,50 @@ Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abb
 Es ergibt sich, dass sich mit diesen bisherigen Experimenten keine Zeit sparen lässt. Im Gegenteil, der PruneTrain Ansatz braucht mehr Zeit. Dies steht im Widerspruch zum PruneTrain Paper. Dieser Widerspruch lässt sich durch die Verwendung von mehreren GPUs zur Evaluation im PruneTrain Paper erklären. Mit einem schmalleren Netz müssen weniger Daten zwischen den GPUs ausgetauscht werden. Es wird Kommunikationszeit gespart.
 
 
+\color{blue1}
+Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffentlichung mehrere GPUs verwendet. Dies führt dazu, dass bereits in diesem Teil der Implementierung Trainingszeit durch verminderte Kommunikation zwischen den Grafikkarten gespart wird. Da hier nur mit einer GPU evaluiert wird ergibt sich hier noch keine direkte Einsparung an Trainingszeit. Die Einsparung ergibt sich erst durch Erhöhen der Batchgröße bei kleiner werdendem Netz. Zu beachten ist hier, dass die Speicherauslastung gleich bleiben muss. Diese Evaluierung wird in Kapitel \ref{sec:ptnew} durchgeführt.
 
-
-\todo[inline]{Bis hier muss noch mit mehr Experimenten sichergestellt werden, dass die Effekte nicht an der kleinen Zahl an Experimenten liegt.}
 
 \chapter{Untersuchung der eigenen Implementierungen}
-\subsection{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
+\section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
+Um die Batchgrösse mit der Netzverkleinerung anzupassen muss zunächst die maximale SPeicheraulastung und damit die initiale Batchgröße festgelegt werden. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung in Abhängigkeit zur Batchgröße verhält.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/memory1.png}
+ % memory1.png: 718x624 px, 96dpi, 19.00x16.51 cm, bb=0 0 539 468
+ \caption{Zusammenhang Batchgröße und Speicherverbrauch}
+ \label{abb:memory1}
+\end{figure}
+
+
+
+
+Dafür wird zunächst untersucht wie sich die Speichernutzung verändert bei unterschiedlich großen Batchgrößen aber fester Netzgröße. Genutzt wird das Basisnetz aus Kapitel \ref{sec:baseline}. 
+
+In Abbildung \ref{abb:}
+
+
+
+
+\begin{table}[]
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+     & \multicolumn{2}{c|}{s=1}  & \multicolumn{2}{c|}{s=2}  & \multicolumn{2}{c|}{s=3}    \\ \cline{1-1}
+\multicolumn{1}{|l|}{}   & \#Para      & Batch     & \#Para       & Batch     & \#Para & Batch  \\ \hline
+\multicolumn{1}{|l|}{1}  & 5306        & 506       & 24090        & 506       \\ \hline
+\multicolumn{1}{|l|}{2}  & 9978        & 435       & 47322        & 435       & 434        \\ \hline
+\multicolumn{1}{|l|}{3}  & 14650       & 382       & 70554       & 3382        \\ \hline
+\multicolumn{1}{|l|}{4}  & 19322       & 339       & 93786        & 339       & 390170      & 301        \\ \hline
+\multicolumn{1}{|l|}{5}  & 23994       & 304       & 117018       & 339       & 487386      & 256        \\ \hline
+\multicolumn{1}{|l|}{6}  & 28666       & 277       & 140250       & 256       & 584602      & 223        \\ \hline
+\multicolumn{1}{|l|}{7}  & 33338       & 256       & 163482       & 229       & 681818      & 198        \\ \hline
+\multicolumn{1}{|l|}{8}  & 38010       & 236       & 186714       & 204       & 779034      & 175        \\ \hline
+\multicolumn{1}{|l|}{9}  & 42682       & 218       & 209946       & 184       & 876250      & 161        \\ \hline
+ \multicolumn{1}{|l|}{10} & 47354      & 205       & 233178       & 171       & 973466      & 147        \\ \hline
+\end{tabular}
+\end{table}
+
 
 
 
@@ -196,26 +237,6 @@ Der Grund hierfür ist ein Fragmentierungsproblem. Verschiedene freie Blöcke k�
 
 Diese Problem wird mit einer Methode, die für einen beliebigen Datensatz und für eine beliebige Modellgrösse die maximale Batchgröße berechnet, gelöst. 
 
-
-\todo[inline]{Tabelle mit neuen Zahlen updaten, da mit kaputter Grafikkarte berechnet}
-\begin{table}[]
-\begin{tabular}{c|c|c|c|c|c|c|c|c|}
-\cline{2-9}
-                         & \multicolumn{2}{c|}{s=1}  & \multicolumn{2}{c|}{s=2}  & \multicolumn{2}{c|}{s=3}  & \multicolumn{2}{c|}{s=4}  \\ \cline{1-1}
-\multicolumn{1}{|l|}{}   & \#Para & Batch & \#Para & Batch & \#Para & Batch & \#Para & Batch \\ \hline
-\multicolumn{1}{|l|}{1}  & 7642         & 14272      & 31034        & 5856       & 123898       & 2704       & 493946       & 1344       \\ \hline
-\multicolumn{1}{|l|}{2}  & 14650        & 8816       & 65882        & 3328       & 269722       & 1472       & 1082906      & 688        \\ \hline
-\multicolumn{1}{|l|}{3}  & 21658        & 6512       & 100730       & 2368       & 415546       & 1024       & 1671866      & 480        \\ \hline
-\multicolumn{1}{|l|}{4}  & 28666        & 5072       & 135578       & 1808       & 561370       & 784        & 2260826      & 368        \\ \hline
-\multicolumn{1}{|l|}{5}  & 35674        & 4208       & 170426       & 1488       & 707194       & 624        & 2840786      & 288        \\ \hline
-\multicolumn{1}{|l|}{6}  & 42682        & 3568       & 205274       & 1232       & 853018       & 528        & 3438746      & 240        \\ \hline
-\multicolumn{1}{|l|}{7}  & 49690        & 3120       & 240122       & 1072       & 998842       & 464        & 4027706      & 208        \\ \hline
-\multicolumn{1}{|l|}{8}  & 56698        & 2736       & 274970       & 944        & 1144666      & 400        & 4616666      & 176        \\ \hline
-\multicolumn{1}{|l|}{9}  & 63706        & 2464       & 309818       & 848        & 1290490      & 352        & 5205626      & 160        \\ \hline
-\multicolumn{1}{|l|}{10} & 70714        & 2224       & 344666       & 752        & 1436314      & 320        & 5794586      & 145        \\ \hline
-\multicolumn{1}{|l|}{11} & 77722        & 2049       & 379514       & 688        & 1582138      & 288        &              &            \\ \hline
-\end{tabular}
-\end{table}
 
 
 
