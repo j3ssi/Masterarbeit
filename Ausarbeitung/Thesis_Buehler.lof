@@ -7,32 +7,31 @@
 \contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Vergleich zweier Residual Netz Bl\IeC {\"o}cke \cite {resnet}\relax }}{9}{figure.caption.7}
 \contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces T\IeC {\"a}gliche Submissionen der Kategory Machine Learning auf arxiv \cite {cornell}\relax }}{10}{figure.caption.8}
 \contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Mindmap zu den Suchbegriffen bez\IeC {\"u}glich des aktuellen wissenschaftlichen Stands\relax }}{10}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Beispielnetz\relax }}{13}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces Beispiel f\IeC {\"u}r das Kanal-Union Verfahren\relax }}{13}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 2.9}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{15}{figure.caption.13}
-\contentsline {figure}{\numberline {\relax 2.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le todo: Grafik sch\IeC {\"o}n machen\relax }}{15}{figure.caption.14}
-\contentsline {figure}{\numberline {\relax 2.11}{\ignorespaces Validation Accuracy von CNNs anhand eines Beispieldatensatzes\relax }}{24}{figure.caption.30}
+\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Beispielhafte Darstellung des Kanal-Union Verfahrens\relax }}{12}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 2.9}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le todo: Grafik sch\IeC {\"o}n machen\relax }}{16}{figure.caption.13}
+\contentsline {figure}{\numberline {\relax 2.10}{\ignorespaces Validation Accuracy von CNNs anhand eines Beispieldatensatzes\relax }}{25}{figure.caption.29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Basisblock\relax }}{30}{figure.caption.32}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces \IeC {\"U}bergangsblock\relax }}{30}{figure.caption.32}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Boxplot der verschiedenen Grenzwerte\relax }}{34}{figure.caption.35}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Grenzwerts\relax }}{35}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Boxplot der Rekonfigurationsintervalle\relax }}{35}{figure.caption.38}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall\relax }}{36}{figure.caption.39}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Zusammenhang Batchgr\IeC {\"o}\IeC {\ss }e und Speicherverbrauch\relax }}{39}{figure.caption.42}
-\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Ver\IeC {\"a}nderung der Accuracy w\IeC {\"a}hrend der Epochen\relax }}{41}{figure.caption.47}
-\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Zoom der Ver\IeC {\"a}nderung\relax }}{41}{figure.caption.48}
-\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{42}{figure.caption.50}
-\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{43}{figure.caption.51}
-\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{44}{figure.caption.52}
-\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{44}{figure.caption.53}
-\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{45}{figure.caption.56}
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Basisblock\relax }}{30}{figure.caption.31}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces \IeC {\"U}bergangsblock\relax }}{30}{figure.caption.31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 8.1}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{50}{figure.caption.60}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Boxplot der verschiedenen Grenzwerte\relax }}{34}{figure.caption.34}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Grenzwerts\relax }}{35}{figure.caption.35}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Boxplot der Rekonfigurationsintervalle\relax }}{35}{figure.caption.37}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall\relax }}{36}{figure.caption.38}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Zusammenhang Batchgr\IeC {\"o}\IeC {\ss }e und Speicherverbrauch\relax }}{39}{figure.caption.41}
+\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Ver\IeC {\"a}nderung der Accuracy w\IeC {\"a}hrend der Epochen\relax }}{41}{figure.caption.46}
+\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Zoom der Ver\IeC {\"a}nderung\relax }}{41}{figure.caption.47}
+\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{42}{figure.caption.49}
+\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{43}{figure.caption.50}
+\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{44}{figure.caption.51}
+\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{44}{figure.caption.52}
+\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Batch Size vs Trainings Time \IeC {\"u}ber eine Epoche\relax }}{45}{figure.caption.55}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 8.1}{\ignorespaces Vergleich Trainingszeit einer Epoche f\IeC {\"u}r verschiedene Optimierungsstufen von Amp Apex. DunkelBlau=O0; Schwarz = O1; Hellblau=O2\relax }}{50}{figure.caption.59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

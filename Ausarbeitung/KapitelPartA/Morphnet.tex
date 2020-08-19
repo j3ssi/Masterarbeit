@@ -12,7 +12,7 @@ GL(\mathcal{W})=\sum_{j=1}^{J} \left( \sum_{c_j=1}^{C_j} || W_{j} (c_j,:,:,:) ||
  \label{equ:PTloss}
 \end{equation}
 
-Dieser Term nennt sich Gruppen-Lasso. Der Parameter $W_{j}$ stellt die Gewichte im CNN als Tensor dar. Mit $j$ wird dargestellt um welche Schicht es sich handelt. Die Dimensionen des Tensors sind: Ausgangskanäle \texttimes Eingangskanäle \texttimes Kerneldimension 1 \texttimes Kerneldimension 2. $J$ gibt an über wie viele Layer der Gruppen-Lasso Term berechnet wird. $k_j$ ist die Laufvariable über die einzelnen Eingangskänale und $c_j$ über die einzelnen Ausgangskanäle. Alternativ zum Gruppen-Lasso Regularisierer könnten hier auch andere Regularisierer, wie L1 bzw. L2 Regularisierer verwendet werden. Der Vorteil des Gruppen-Lasso Regularisierers ist, das durch das gemeinsame Quadrieren der Gewichte einer Schicht diese gemeinsam minimiert werden.
+Dieser Term nennt sich Gruppen-Lasso. Der Parameter $W_{j}$ stellt die Gewichte im CNN als Tensor dar. Mit $j$ wird dargestellt um welche Schicht es sich handelt. Die Dimensionen des Tensors sind: Ausgangskanäle \texttimes Eingangskanäle \texttimes Kerneldimension 1 \texttimes Kerneldimension 2. $J$ gibt an über wie viele Layer der Gruppen-Lasso Term berechnet wird. $k_j$ ist die Laufvariable über die einzelnen Eingangskanäle und $c_j$ über die einzelnen Ausgangskanäle. Alternativ zum Gruppen-Lasso Regularisierer könnten hier auch andere Regularisierer, wie L1 bzw. L2 Regularisierer verwendet werden. Der Vorteil des Gruppen-Lasso Regularisierers ist, das durch das gemeinsame Quadrieren der Gewichte einer Schicht diese gemeinsam minimiert werden.
 
 
 Um das Verhältnis von Gruppen-Lasso Term zur Verlust-Funktion dynamischer wählen zu können, werden diese nicht einfach aufeinander addiert. Es wird abhängig von der Initialbelegung der Gewichte ein Parameter $\lambda$  berechnet, der Gruppen-Lasso und Verlust-Funktion balanciert:
@@ -23,64 +23,53 @@ Um das Verhältnis von Gruppen-Lasso Term zur Verlust-Funktion dynamischer wähl
 
 Die Größe LPR ist hier echt zwischen Null und Eins wählbar. Je größer sie gewählt wird, desto größer ist der Anteil, der beschnitten wird. Regelmäßig werden während dem Trainieren des Netzes Gewichte, die unter dem Schwellwert liegen auf Null gesetzt. Es entsteht ein nur dünn besetztes Netz. Dann wird durch ein Rekonfigurationsverfahren aus dem dünn besetzten Netz ein dicht besetztes Netz ohne die vorher nicht besetzten Kanäle. Um dieses Verfahren durchzuführen muss überprüft werden, ob mit dem Entfernen der Kanäle die Dimensionen der verschiedenen aufeinanderfolgenden Kanäle übereinstimmen. Bei einem residualen Netz muss zusätzlich darauf geachtet werden, dass die Dimensionen der Kurzschluss-Verbindungen zusammen passen.
 
-\todo[inline,color = blue]{Grafik zum Verfahren}
-
-Zu diesem Zweck wird das Kanal-Union Verfahren eingeführt. Beim Kanal-Union Verfahren wird ein Liste mit den Layern geführt, die aufeinander abgestimmt werden müssen. Im Falle eines residualen Netzes muss zusätzlich eine Liste über die zusammengehörigen Layer der Kurzschlussverbindungen geführt werden. Im nächsten Schritt werden alle Eingangs- und Ausgangskanäle, die noch Gewichte größer Null haben in einer Liste gesammelt. Auf allen Elementen dieser Liste wird nun geprüft, ob mit Hilfe von Vereinigungen Kanäle gefunden werden können die zwar keine von Null verschiedenen Gewichte mehr haben, wegen der Dimensionalität aber trotzdem beibehalten werden müssen. Alle Kanäle die nicht unter diese Bedingung fallen können mit Hilfe einer Rekonfiguration aus dem Netzwerk entfernt werden. 
-
-\todo[inline, color = blue]{Noch genauer formulieren}
-\begin{figure}[htbp]
-\fcolorbox{red}{white}{
-\begin{minipage}[t]{0.35\textwidth}
-\vspace{0pt}
-\centering
- \includegraphics[width=0.9
- \textwidth]{KapitelPartA/images/net.png}
- % net.pdf: 0x0 px, 300dpi, 0.00x0.00 cm, bb=
- \caption{Beispielnetz}
- \label{abb:cu}
-\label{fig:Bild1}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.65\textwidth}
-\vspace{0pt}
-
-Liste der Layer, die direkt hintereinander sind und aufeinander abgestimmt werden müssen (ohne das zwischen den Layern eine Kurzschlussverbindung enstammt oder endet): $H=\left\{(2,3),(3,4) \right\}$
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.9 \textwidth]{KapitelPartA/images/union.png}
+ % union.png: 570x208 px, 96dpi, 15.08x5.50 cm, bb=0 0 427 156
+ \caption{Beispielhafte Darstellung des Kanal-Union Verfahrens}
+ \label{abb:union}
+\end{figure}
 
 
-Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Eingangskanaldimension haben müssen: $E=\left\{(2,fc \right\}$
 
-Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Ausgangskanaldimension haben müssen: $A=\left\{(1,4 )\right\}$
-
-Liste der dicht-besetzten Schichten vor dem ersten Beschneiden:\\
-$1:\left\{0,1,2\right\},\left\{0,1,2,3,4,5,6,7\right\}$\\ 
-$2:\left\{0,1,2,3,4,5,6,7\right\},\left\{0,1,2,3,4,5,6,7\right\}$\\
-$3:\left\{0,1,2,3,4,5,6,7\right\},\left\{0,1,2,3,4,5,6,7\right\}$\\
-$4:\left\{0,1,2,3,4,5,6,7\right\},\left\{0,1,2,3,4,5,6,7\right\}$\\
-$fc:\left\{0,1,2,3,4,5,6\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$\\
-
-Liste der dicht-besetzten (db) Schichten nach dem auf Null setzen der Parameter aber vor der Rekonfiguration:\\
-$1:\left\{0,1,2\right\},\left\{0,1,4,5,6,7\right\}$\\ 
-$2:\left\{0,1,3,5,6,7\right\},\left\{0,1,2,4,5,6,7\right\}$\\
-$3:\left\{0,1,2,4,5,6,7\right\},\left\{0,1,2,3,4,5,6,7\right\}$\\
-$4:\left\{0,1,2,3,4,6,7\right\},\left\{0,1,3,4,5,6,7\right\}$\\
-$fc:\left\{0,1,3,4,5,6\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$\\
-
+Zu diesem Zweck wird das Kanal-Union Verfahren eingeführt. Beim Kanal-Union Verfahren wird ein Liste mit den Layern geführt, die aufeinander abgestimmt werden müssen. Im Falle eines residualen Netzes muss zusätzlich eine Liste über die zusammengehörigen Layer der Kurzschlussverbindungen geführt werden. Im nächsten Schritt werden alle Eingangs- und Ausgangskanäle, die noch Gewichte größer Null haben in einer Liste gesammelt. Auf allen Elementen dieser Liste wird nun geprüft, ob mit Hilfe von Vereinigungen Kanäle gefunden werden können die zwar keine von Null verschiedenen Gewichte mehr haben, wegen der Dimensionalität aber trotzdem beibehalten werden müssen. Alle Kanäle die nicht unter diese Bedingung fallen können mit Hilfe einer Rekonfiguration aus dem Netzwerk entfernt werden. In Abbildung \ref{abb:union} sind beispielhaft drei Eingangs- und sechs Ausgangskanäle dargstellt. In jedem Element des kartesischen Produkts der Menge der Eingangs- und Ausgangskanle ist jeweils ein drei mal drei Felder großer Kernel dargestellt. Die Werte der Gewichte sind blau markiert, sobald sie absolut kleiner als der gewählte Grenzwert sind. Je dunkler die nicht blauen Gewichte sind, desto kleiner sind sie. Da zwischen den jeweiligen Epochen für jeden Batch eine Anpassung der Gewichte durchgeführt wird entstehen teilweise große Veränderungen zwischen den Epochen. Dies ist zum Beispiel von Epoche 30 zu Epoche 31 im vierten Ausgangskanal sichtbar. Hier fällt innerhalb einer Epoche der Grossteil des Ausgangskanal unter den Grenzwert.
+\begin{figure}
+\begin{minipage}[c]{1\linewidth}
+\begin{tabularx}{1\linewidth}{m{0.22\linewidth}m{0.88\linewidth}} \includegraphics[width=0.21\textwidth]{KapitelPartA/images/net.png} &Liste der Layer, die direkt hintereinander sind und aufeinander abgestimmt werden müssen (ohne das zwischen den Layern eine Kurzschlussverbindung enstammt oder endet): $H=\left\{(\colorbox{sky}{2},\colorbox{bluegreen}{3}),(\colorbox{yellow}{3},\colorbox{blue2}{4}) \right\}$\newline
+Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Eingangskanaldimension haben müssen: \newline$E=\left\{(\colorbox{orange}{2},\colorbox{purple}{fc} \right\}$ \newline
+Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Ausgangskanaldimension haben müssen: $A=\left\{ ( \colorbox{black}{\textcolor{white}{1} },\colorbox{vermi}{4} ) \right\} $ \newline
+Liste der dicht-besetzten Schichten vor dem ersten Beschneiden:\newline
+$1:\left\{0,1,2\right\},\left\{\colorbox{black}{ \textcolor{white}{0,1,2,3,4,5,6,7}} \right\}$ \newline
+$2:\left\{\colorbox{orange}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{sky}{0,1,2,3,4,5,6,7}\right\}$\newline
+$3:\left\{\colorbox{bluegreen}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{yellow}{0,1,2,3,4,5,6,7}\right\}$\newline
+$4:\left\{\colorbox{blue2}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{vermi}{0,1,2,3,4,5,6,7}\right\}$ \newline
+$fc:\left\{\colorbox{purple}{0,1,2,3,4,5,6,7}\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$\\
+\multicolumn{2}{m{1\linewidth}}{Liste der dicht-besetzten Schichten vor dem ersten Beschneiden:\newline
+$1:\left\{0,1,2\right\},\left\{\colorbox{black}{ \textcolor{white}{0,1,2,3,4,5,6,7}} \right\}\; \;$
+$2:\left\{\colorbox{orange}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{sky}{0,1,2,3,4,5,6,7}\right\}$\newline
+$3:\left\{\colorbox{bluegreen}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{yellow}{0,1,2,3,4,5,6,7}\right\}$\newline
+$4:\left\{\colorbox{blue2}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{vermi}{0,1,2,3,4,5,6,7}\right\}$\newline
+$fc:\left\{\colorbox{purple}{0,1,2,3,4,5,6,7}\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$ \newline
+Liste der dicht-besetzten (db) Schichten nach dem auf Null setzen der Parameter aber vor der Rekonfiguration:\newline
+$1:\left\{0,1,2\right\},\left\{\colorbox{black}{\textcolor{white}{0,1,4,5,6,7}}\right\} \; \;$
+$2:\left\{\colorbox{orange}{0,1,3,5,6,7}\right\},\left\{\colorbox{sky}{0,1,2,4,5,6,7}\right\}$\newline
+$3:\left\{\colorbox{bluegreen}{0,1,2,4,5,6,7}\right\},\left\{\colorbox{yellow}{0,1,2,3,5,6,7}\right\}$\newline
+$4:\left\{\colorbox{blue2}{0,1,3,4,6,7}\right\},\left\{\colorbox{vermi}{0,1,3,4,5,6,7}\right\}$\newline
+$fc:\left\{\colorbox{purple}{0,1,3,4,5,6}\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$\newline
 Vorgehen des Kanal Union Verfahren:
-Als ersten Schritt wird für alle Elemente aus $H$ die Vereinigung von Ausgangs-und Eingangskanälen berechnet und diese dann zugewiesen:\\
-$2,3:A(2) \cup E(3)= \l\left\{0,1,2,4,5,6,7\right\} \cup \left\{0,1,2,4,5,6,7\right\} =\left\{0,1,2,4,5,6,7\right\} $\\ Hier wird der dünn-besetzte Kanal 3 entfernt\\
-$3,4: A(3) \cup E(4) =
-\left\{0,1,2,3,4,5,6,7\right\} \cup :\left\{0,1,2,3,4,6,7\right\} = \left\{0,1,2,3,4,5,6,7\right\}$\\
+Als ersten Schritt wird für alle Elemente aus $H$ die Vereinigung von Ausgangs- und Eingangskanälen berechnet und diese dann zugewiesen:\newline
+$\colorbox{sky}{2},\colorbox{bluegreen}{3}:A(\colorbox{sky}{2}) \cup E(\colorbox{bluegreen}{3})= \l\left\{\colorbox{sky}{0,1,2,4,5,6,7}\right\} \cup \left\{\colorbox{bluegreen}{0,1,2,4,5,6,7}\right\} =\left\{0,1,2,4,5,6,7\right\} $\newline
+Hier wird der dünn-besetzte Kanal 3 entfernt \newline
+$\colorbox{yellow}{3},\colorbox{blue2}{4}: A(\colorbox{yellow}{3}) \cup E(\colorbox{blue2}{4}) =
+\left\{\colorbox{yellow}{0,1,2,3,5,6,7}\right\} \cup :\left\{\colorbox{blue2}{0,1,3,4,6,7}\right\} =\left\{0,1,2,3,4,5,6,7\right\}$\newline
 Der nullwertige Eingangskanal 5 von Schicht 4 wird nicht entfernt, da der dazugehörige Ausgangskanal von Schicht 3 nicht nullwertig ist.
-
-Im nächsten Schritt werden für die Elemente an jeweils gleicher Stelle aus den Mengen A und E Vereinigungen gebildet:\\
-$A(1)\cup A(4) \cup E(2) \cup E(fc)=\\
-\left\{0,1,4,5,6,7\right\} \cup \left\{0,1,3,4,5,6,7\right\} \cup \left\{0,1,3,5,6,7\right\} \cup \left\{0,1,3,4,5,6\right\} = \left\{ 0,1,3,4,5,6,7\right\}$
-Hier wir in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanälen von Schicht 2 und fc jeweils der 2. Kanal entfernt.
-
+Im nächsten Schritt werden für die Elemente an jeweils gleicher Stelle aus den Mengen A und E Vereinigungen gebildet:
+$A(\colorbox{black}{\textcolor{white}{1}})\cup A(\colorbox{vermi}{4}) \cup E(\colorbox{orange}{2}) \cup E(\colorbox{purple}{fc})=$\newline
+$\left\{\colorbox{black}{\textcolor{white}{0,1,4,5,6,7}}\right\} \cup \left\{\colorbox{vermi}{0,1,3,4,5,6,7}\right\} \cup \left\{\colorbox{orange}{0,1,3,5,6,7}\right\} \cup \left\{\colorbox{purple}{0,1,3,4,5,6}\right\} = \left\{ 0,1,3,4,5,6,7\right\}$\newline
+Hier wir in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanälen von Schicht 2 und fc jeweils der 2. Kanal entfernt.}
+\end{tabularx}
 \end{minipage}
-}
-\caption{Beispiel für das Kanal-Union Verfahren}
-
 \end{figure}
 
 
@@ -93,12 +82,12 @@ Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speiche
 Damit lassen sich Netzverkleinerungsraten von etwa 50 \% erreichen bei weniger als 2 \% Accuracy-Verlust auf dem Datensatz Cifar10. Andere Techniken schaffen zwar zwischen 70 - 80 \% Netzverkleinerungsraten brauchen aber wesentlich mehr Trainingszeit \cite{lottery}. Diese großen Verkleinerungsraten sind dort sehr stark abhängig von der Initialisierung \cite{lottery}. Das heißt nur einzelne Initialisierungen führen zu so starken Verkleinerungsraten, was insgesamt zu einer längeren Trainingszeit führt \cite{lottery}. 
 
 
-Eine weitere Beschneidungstechnik arbeitet vor dem Training des Netzwerkes\cite{snyc}. Damit wird das Netz abhängig von der Initialbelegung beschnitten. Es lassen sich zwar sehr große Teile der Parameter auf Null setzen, hierbei wird im Vergleich zur Beschneidungsmethode währenddem Training allerdings weder für gemeinsames Beschneiden von Kanälen gesorgt, noch wird ein Rekonfigurationsverfahren vorgestellt. Somit hat das Netz am Ende des Verfahrens zwar relativ viele auf Null gesetzte Parameter ist aber weder schneller noch kleiner.
+Eine weitere Beschneidungstechnik arbeitet vor dem Training des Netzwerkes\cite{snyc}. Damit wird das Netz abhängig von der Initialbelegung beschnitten. Es lassen sich zwar sehr große Teile der Parameter auf Null setzen, hierbei wird im Vergleich zur Beschneidungsmethode während dem Training allerdings weder für gemeinsames Beschneiden von Kanälen gesorgt, noch wird ein Rekonfigurationsverfahren vorgestellt. Somit hat das Netz am Ende des Verfahrens zwar relativ viele auf Null gesetzte Parameter ist aber weder schneller noch kleiner.
 
 
 \section{Beschleunigung des Lernens durch Wissenstransfer}
 \label{sec:net2net}
-Beim Trainieren eines CNNs kommt es häufig vor, dass nach initialem Wählen der Tiefe bzw. Breite des Netzes diese Parameter in einem weiteren Trainingslauf erhöht werden und in Folge dessen das Netzwerk komplett neu trainiert werden muss. Mit Hilfe der Quelle zu diesem Unterkapitel wurde ein Verfahren geschaffen, welches das Netz tiefer oder breiter machen kann und dabei die im ersten Trainingsdurchlauf trainierten Gewichte weiter verwendet \cite{net2net}. Durch diesen Wissenstransfer von einem Netz zu einem tieferen oder breiteren Netz wird eine schnellere Konvergenz des neuen Netzes erwartet. Durch die Initialisierung mit schon vorhandenen Parametern entsteht eine Transformation, die die erlernte Funktion erhält.
+Beim Trainieren eines CNNs kommt es häufig vor, dass nach initialem Wählen der Tiefe beziehungsweise Breite des Netzes diese Parameter in einem weiteren Trainingslauf erhöht werden und in Folge dessen das Netzwerk komplett neu trainiert werden muss. Mit Hilfe der Quelle zu diesem Unterkapitel wurde ein Verfahren geschaffen, welches das Netz tiefer oder breiter machen kann und dabei die im ersten Trainingsdurchlauf trainierten Gewichte weiter verwendet \cite{net2net}. Durch diesen Wissenstransfer von einem Netz zu einem tieferen oder breiteren Netz wird eine schnellere Konvergenz des neuen Netzes erwartet. Durch die Initialisierung mit schon vorhandenen Parametern entsteht eine Transformation, die die erlernte Funktion erhält.
 
 \begin{figure}[h]
  \centering
@@ -109,10 +98,10 @@ Beim Trainieren eines CNNs kommt es häufig vor, dass nach initialem Wählen der
 \end{figure}
 
 
-Wie in Abbildung \ref{abb:net2net} abgebildet ist lässt sich so der Workflow zum Finden der passenden Netzstruktur anders gestalten. Der Net2Net Operator macht dabei das Netz entweder breiter (mehr Kanäle in bestimmten Schichten) oder tiefer (zusätzliche Schichten). Diese beiden Operatoren werden nun vorgestellt.
+Wie in Abbildung \ref{abb:net2net} abgebildet ist lässt sich so der Arbeitsablauf zum Finden der passenden Netzstruktur anders gestalten. Der Net2Net Operator macht dabei das Netz entweder breiter (mehr Kanäle in bestimmten Schichten) oder tiefer (zusätzliche Schichten). Diese beiden Operatoren werden nun vorgestellt.
 
 \subsection{Operator für breiteres Netz}
-Bei dem Net2Net-Operator, der das Netz breiter macht werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der Ausgangskanäle hinzugefügt werden wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Filterkerneln. 
+Bei dem Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der Ausgangskanäle hinzugefügt werden wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Filterkerneln. 
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.6\textwidth]{KapitelPartA/images/channels.png}
@@ -159,11 +148,10 @@ Die beiden Net2Net-Operatoren schaffen die Möglichkeit Familien von Netzarchite
 
 
 \section{Automatische Architektursuche}\label{sec:auto}
-Neben dem im letzen Kapitel ausführlich erläuterten Ansatz des Strukturlernens gibt es noch einige andere aktuelle Ansätze, die automatisch nach einer besseren Architektur für einen Datensatz suchen. Einige dieser Ansätze werden hier beleuchtet und es wird gezeigt, wieso das im letzten Kapitel erläuterte Verfahren im praktischen Teil weiter verwendet wird.
+Neben dem im letzten Kapitel ausführlich erläuterten Ansatz des Strukturlernens gibt es noch einige andere aktuelle Ansätze, die automatisch nach einer besseren Architektur für einen Datensatz suchen. Einige dieser Ansätze werden hier beleuchtet und es wird gezeigt, wieso das im letzten Kapitel erläuterte Verfahren im praktischen Teil weiter verwendet wird.
 
-Bei dem Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergbnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
-\color{blue1}
-Eine weitere Methode den Suchraum zu durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial ein Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 17 GPUs für einen Tag \cite{gen}. Dabei ist die Architktursuche hier nur partiell automatisiert \cite{gen}.  
+Bei dem Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergebnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
+Eine weitere Methode den Suchraum zu Durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial ein Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 17 GPUs für einen Tag \cite{gen}. Dabei ist die Architektursuche hier nur partiell automatisiert \cite{gen}.  
 
 Das Ziel von einigen Veröffentlichungen im Themenbereich der automatischen Architektursuche ist es diese lange Trainingszeit zu reduzieren.
 
