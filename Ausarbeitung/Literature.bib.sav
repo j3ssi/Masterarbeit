@@ -1,0 +1,276 @@
+% Encoding: UTF-8
+
+@Article{S3Pool,
+  author        = {Shuangfei Zhai and Hui Wu and Abhishek Kumar and Yu Cheng and Yongxi Lu and Zhongfei Zhang and Rog{\'{e}}rio Schmidt Feris},
+  title         = {S3Pool: Pooling with Stochastic Spatial Sampling},
+  journal       = {CoRR},
+  year          = {2016},
+  volume        = {abs/1611.05138},
+  archiveprefix = {arXiv},
+}
+
+@Article{dvolver,
+  author  = {Guillaume Michel and Mohammed Amine Alaoui and Alice Lebois and Amal Feriani and Mehdi Felhi},
+  title   = {{DVOLVER:} Efficient Pareto-Optimal Neural Network Architecture Search},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1902.01654},
+}
+
+@Article{net2net,
+  author = {Chen, Tianqi and Goodfellow, Ian and Shlens, Jonathon},
+  title  = {Net2Net: Accelerating Learning via Knowledge Transfer},
+  year   = {2015},
+  month  = {11},
+}
+
+@Article{prunetrain,
+  author  = {Sangkug Lym and Esha Choukse and Siavash Zangeneh and Wei Wen and Mattan Erez and Sujay Shanghavi},
+  title   = {PruneTrain: Gradual Structured Pruning from Scratch for Faster Neural Network Training},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1901.09290},
+}
+
+@Article{approxTensor,
+  author  = {Menachem Adelman and Mark Silberstein},
+  title   = {Faster Neural Network Training with Approximate Tensor Operations},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1805.08079},
+}
+
+@Article{accelerate,
+  author  = {Marc Baboulin and Alfredo Buttari and Jack J. Dongarra and Jakub Kurzak and Julie Langou and Julien Langou and Piotr Luszczek and Stanimire Tomov},
+  title   = {Accelerating Scientific Computations with Mixed Precision Algorithms},
+  journal = {CoRR},
+  year    = {2008},
+  volume  = {abs/0808.2794},
+}
+
+@InProceedings{pmlr-v37-gupta15,
+  author    = {Suyog Gupta and Ankur Agrawal and Kailash Gopalakrishnan and Pritish Narayanan},
+  title     = {Deep Learning with Limited Numerical Precision},
+  booktitle = {Proceedings of the 32nd International Conference on Machine Learning},
+  year      = {2015},
+  editor    = {Francis Bach and David Blei},
+  volume    = {37},
+  series    = {Proceedings of Machine Learning Research},
+  pages     = {1737--1746},
+  month     = {07--09 Jul},
+  publisher = {PMLR},
+}
+
+@Article{stochasticGradient,
+  author  = {Linnan Wang and Yi Yang and Martin Renqiang Min and Srimat T. Chakradhar},
+  title   = {Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent},
+  journal = {CoRR},
+  year    = {2016},
+  volume  = {abs/1603.05544},
+}
+
+@Article{survey,
+  author  = {Yu Cheng and Duo Wang and Pan Zhou and Tao Zhang},
+  title   = {A Survey of Model Compression and Acceleration for Deep Neural Networks},
+  journal = {CoRR},
+  year    = {2017},
+  volume  = {abs/1710.09282},
+}
+
+@Article{standardLoss,
+  author  = {Jasmine Collins and Johannes Ball{\'{e}} and Jonathon Shlens},
+  title   = {Accelerating Training of Deep Neural Networks with a Standardization Loss},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1903.00925},
+}
+
+@Article{resourceAware,
+  author  = {Jay H. Park and Sunghwan Kim and Jinwon Lee and Myeongjae Jeon and Sam H. Noh},
+  title   = {Accelerated Training for {CNN} Distributed Deep Learning through Automatic Resource-Aware Layer Placement},
+  journal = {CoRR},
+  year    = {2019},
+  volume  = {abs/1901.05803},
+}
+
+@Article{AcceleratingCT,
+  author  = {Xucheng Ye and Jianlei Yang and Pengcheng Dai and Yiran Chen and Weisheng Zhao},
+  title   = {Accelerating CNN Training by Sparsifying Activation Gradients},
+  journal = {ArXiv},
+  year    = {2019},
+  volume  = {abs/1908.00173},
+}
+
+@Article{treeCNN,
+  author  = {Deboleena Roy and Priyadarshini Panda and Kaushik Roy},
+  title   = {Tree-CNN: {A} Deep Convolutional Neural Network for Lifelong Learning},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1802.05800},
+}
+
+@Article{learningStructure,
+  author  = {Rohit Keshari and Mayank Vatsa and Richa Singh and Afzel Noore},
+  title   = {Learning Structure and Strength of {CNN} Filters for Small Sample Size Training},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1803.11405},
+}
+
+@Article{KernelRescaling,
+  author  = {Pedro Porto Buarque de Gusm{\~{a}}o and Gianluca Francini and Skjalg Leps{\o}y and Enrico Magli},
+  title   = {Fast Training of Convolutional Neural Networks via Kernel Rescaling},
+  journal = {CoRR},
+  year    = {2016},
+  volume  = {abs/1610.03623},
+}
+
+@Article{AcceleratedCNN,
+  author  = {Ziheng Wang and Sree Harsha Nelaturu},
+  title   = {Accelerated CNN Training Through Gradient Approximation},
+  journal = {ArXiv},
+  year    = {2019},
+  volume  = {abs/1908.05460},
+}
+
+@Article{wavelet,
+  author  = {Tianshui Chen and Liang Lin and Wangmeng Zuo and Xiaonan Luo and Lei Zhang},
+  title   = {Learning a Wavelet-like Auto-Encoder to Accelerate Deep Neural Networks},
+  journal = {CoRR},
+  year    = {2017},
+  volume  = {abs/1712.07493},
+}
+
+@Article{FPGpu,
+  author  = {Dipankar Das and Naveen Mellempudi and Dheevatsa Mudigere and Dhiraj D. Kalamkar and Sasikanth Avancha and Kunal Banerjee and Srinivas Sridharan and Karthik Vaidyanathan and Bharat Kaul and Evangelos Georganas and Alexander Heinecke and Pradeep Dubey and Jes{\'{u}}s Corbal and Nikita Shustrov and Roman Dubtsov and Evarist Fomenko and Vadim O. Pirogov},
+  title   = {Mixed Precision Training of Convolutional Neural Networks using Integer Operations},
+  journal = {CoRR},
+  year    = {2018},
+  volume  = {abs/1802.00930},
+}
+
+@Article{CNNImg,
+  author  = {J.F. Couchot and R. Couturier and C. Guyeux and M. Salomon},
+  title   = {Steganalysis via a Convolutional Neural Network using Large Convolution Filters},
+  journal = {CoRR},
+  year    = {2016},
+}
+
+@Book{neural,
+  title     = {Neural Networks: A Comprehensive Foundation},
+  publisher = {Prentice Hall PTR},
+  year      = {1998},
+  author    = {Haykin, S.},
+  address   = {Upper Saddle River, NJ, USA},
+  edition   = {2nd},
+}
+
+@InCollection{largeBatch,
+  author    = {Hoffer, Elad and Hubara, Itay and Soudry, Daniel},
+  title     = {Train longer, generalize better: closing the generalization gap in large batch training of neural networks},
+  booktitle = {Advances in Neural Information Processing Systems 30},
+  publisher = {Curran Associates, Inc.},
+  year      = {2017},
+  editor    = {I. Guyon and U. V. Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+  pages     = {1731--1741},
+  url       = {http://papers.nips.cc/paper/6770-train-longer-generalize-better-closing-the-generalization-gap-in-large-batch-training-of-neural-networks.pdf},
+}
+
+@Article{popular,
+  author  = {Charles A. Sutton and Linan Gong},
+  title   = {Popularity of arXiv.org within Computer Science},
+  journal = {CoRR},
+  year    = {2017},
+}
+
+@Article{resnet,
+  author  = {Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun},
+  title   = {Deep Residual Learning for Image Recognition},
+  journal = {CoRR},
+  year    = {2015},
+}
+
+@Misc{cornell,
+  author = {ohne Autor},
+  title  = {arXiv Machine Learning Classification Guide},
+  month  = {12},
+  year   = {2019},
+  note   = {Onlinequelle; Aufgerufen am 01.06.2020; \url{https://blogs.cornell.edu/arxiv/2019/12/05/arxiv-machine-learning-classification-guide/}},
+}
+
+@InProceedings{lottery,
+  author    = {Frankle, Jonathan and Carbin, Michael},
+  title     = {The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks.},
+  booktitle = {ICLR},
+  year      = {2019},
+}
+
+@Misc{pytorch,
+  author = {ohne Autor},
+  title  = {CUDA semantice -- PyTorch 1.5.0 documentation},
+  note   = {online \url{https://pytorch.org/docs/stable/notes/cuda.html} aufgerufen am 10.06.2020},
+}
+
+@InProceedings{morphnet,
+  author    = {A. {Gordon} and E. {Eban} and O. {Nachum} and B. {Chen} and H. {Wu} and T. {Yang} and E. {Choi}},
+  title     = {MorphNet: Fast Simple Resource-Constrained Structure Learning of Deep Networks},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2018},
+}
+
+@Misc{ptImpl,
+  title = {Prune Train Implementierung},
+  note  = {online \url{https://bitbucket.org/lph_tools/prunetrain/src/master/}aufgerufen am 10.06.2020},
+}
+
+@Book{CNNBook,
+  title     = {Deep Learning},
+  publisher = {MIT Press},
+  year      = {2016},
+  author    = {Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+  note      = {\url{http://www.deeplearningbook.org}},
+}
+
+@Article{mixed,
+  author  = {Paulius Micikevicius and Sharan Narang and Jonah Alben and Gregory F. Diamos and Erich Elsen and David Garc{\'{\i}}a and Boris Ginsburg and Michael Houston and Oleksii Kuchaiev and Ganesh Venkatesh and Hao Wu},
+  title   = {Mixed Precision Training},
+  journal = {CoRR},
+  year    = {2017},
+  volume  = {abs/1710.03740},
+}
+
+@Article{ieee,
+  title   = {IEEE Standard for Binary Floating-Point Arithmetic},
+  journal = {ANSI/IEEE Std 754-1985},
+  year    = {1985},
+}
+
+@Article{syn,
+  author  = {Hidenori Tanaka and Daniel Kunin and Daniel L. K. Yamins and Surya Ganguli},
+  title   = {Pruning neural networks without any data by iteratively conserving synaptic flow},
+  journal = {CoRR},
+  year    = {2020},
+  volume  = {abs/2006.05467},
+}
+
+@InProceedings{batchnorm,
+  author    = {Ioffe, Sergey and Szegedy, Christian},
+  title     = {Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift},
+  booktitle = {Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37},
+  year      = {2015},
+  series    = {ICML’15},
+  pages     = {448–456},
+  publisher = {JMLR.org},
+  location  = {Lille, France},
+  numpages  = {9},
+}
+
+@Article{polsar,
+  author    = {Dong, Hongwei and Zou, Bin and Zhang, Lamei and Zhang, Siyu},
+  title     = {Automatic Design of CNNs via Differentiable Neural Architecture Search for PolSAR Image Classification},
+  journal   = {IEEE Transactions on Geoscience and Remote Sensing},
+  year      = {2020},
+  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

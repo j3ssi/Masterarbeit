@@ -1,63 +1,57 @@
 \babel@toc {german}{}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation und Hintergrund dieser Arbeit}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Ziel der Arbeit}{1}{section.1.2}
-\contentsline {section}{\numberline {1.3}Ergebnisse der Arbeit}{1}{section.1.3}
-\contentsline {section}{\numberline {1.4}Aufbau der Arbeit}{1}{section.1.4}
-\contentsline {chapter}{\numberline {2}Stand der Wissenschaft}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Funktionsweise eines CNN}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}ResNet -- eine neuere CNN-Architektur}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Vorgehen zur Suche nachdem Stand der Wissenschaft}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Beschneidung des Netzes zur Beschleunigung des Training}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Beschleunigung des Lernens durch Wissenstransfer}{15}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Operator f\IeC {\"u}r breiteres Netz}{15}{subsection.2.5.1}
-\contentsline {subsubsection}{\nonumberline Tieferes Netz}{17}{section*.14}
-\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{17}{section*.15}
-\contentsline {section}{\numberline {2.6}Automatische Architektursuche}{17}{section.2.6}
-\contentsline {section}{\numberline {2.7}Schnelles Ressourcen beschr\IeC {\"a}nktes Strukturlernen tiefer Netzwerke}{18}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Definition der Nebenbedingung}{20}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}Regularsierer}{21}{subsection.2.7.2}
-\contentsline {section}{\numberline {2.8}Zeitsparende Nethoden}{22}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Verringerung der f\IeC {\"u}r Berechnungen n\IeC {\"o}tige Zeit}{22}{subsection.2.8.1}
-\contentsline {paragraph}{\nonumberline Berechnung mit 16 Bit Gleitkomma}{22}{section*.18}
-\contentsline {subsection}{\numberline {2.8.2}Beschleunigung der Berechnung des Gradientenabstiegsverfahren}{23}{subsection.2.8.2}
-\contentsline {subsubsection}{\nonumberline Accelerating CNN Training by Sparsifying Activation Gradients}{24}{section*.24}
-\contentsline {subsubsection}{\nonumberline Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks}{24}{section*.25}
-\contentsline {subsubsection}{\nonumberline Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}{24}{section*.26}
-\contentsline {subsubsection}{\nonumberline Accelerated CNN Training Through Gradient Approximation}{24}{section*.27}
-\contentsline {section}{\numberline {2.9}Additive Methoden}{24}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Verfahren zum Verwenden maximaler Batchgr\IeC {\"o}\IeC {\ss }en}{24}{subsection.2.9.1}
-\contentsline {chapter}{\numberline {3}Konzeptionelle \IeC {\"U}bersicht -- Arbeitstitel}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Experimentales Setup}{27}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Hardware}{28}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Wahl des Frameworks}{28}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}verwendete Netzarchitektur}{28}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Baseline Netz}{29}{subsection.3.1.4}
-\contentsline {section}{\numberline {3.2}Konzept}{29}{section.3.2}
-\contentsline {chapter}{\numberline {4}Untersuchung von MorphNet}{31}{chapter.4}
-\contentsline {chapter}{\numberline {5}PruneTrain}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Untersuchung von PruneTrain}{33}{section.5.1}
-\contentsline {subsubsection}{\nonumberline Experimente zur Lernrate}{34}{section*.33}
-\contentsline {subsubsection}{\nonumberline Experimente zum Rekonfigurationsintervall}{34}{section*.36}
-\contentsline {subsubsection}{\nonumberline Experimente zum Grenzwert}{36}{section*.39}
-\contentsline {chapter}{\numberline {6}Untersuchung der eigenen Implementierungen}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}Experimente zur Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e beim Beschneiden des Netzes}{39}{section.6.1}
-\contentsline {subsubsection}{\nonumberline Ver\IeC {\"a}nderung der Accuracy durch PruneTrain}{40}{section*.45}
-\contentsline {subsection}{\numberline {6.1.1}Einfluss der Batchgr\IeC {\"o}\IeC {\ss }e auf PruneTrain}{42}{subsection.6.1.1}
-\contentsline {section}{\numberline {6.2}Untersuchung von Net2Net}{46}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Evaluierung des Operators f\IeC {\"u}r ein breiteres Netz}{46}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Evaluierung des Operators f\IeC {\"u}r ein tieferes Netz}{46}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}PruneTrain + Net2Net}{46}{section.6.3}
-\contentsline {chapter}{\numberline {7}Vergleich}{47}{chapter.7}
-\contentsline {chapter}{\numberline {8}Additive Verfahren}{49}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.1}Zahlenformate}{49}{subsection.8.0.1}
-\contentsline {subsection}{\numberline {8.0.2}LARS}{50}{subsection.8.0.2}
-\contentsline {subsection}{\numberline {8.0.3}Beschleunigung der Berechnung des Gradientenabstiegverfahren}{51}{subsection.8.0.3}
-\contentsline {subsubsection}{\nonumberline Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks}{51}{section*.62}
-\contentsline {subsubsection}{\nonumberline Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}{51}{section*.63}
-\contentsline {subsubsection}{\nonumberline Accelerated CNN Training Through Gradient Approximation}{51}{section*.64}
-\contentsline {chapter}{\numberline {9}Evaluation}{53}{chapter.9}
-\contentsline {chapter}{\numberline {10}Ausblick und Fazit}{55}{chapter.10}
+\contentsline {section}{\numberline {1.2}Ziel der Arbeit}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Ergebnisse der Arbeit}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Aufbau der Arbeit}{2}{section.1.4}
+\contentsline {chapter}{\numberline {2}Stand der Wissenschaft}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Funktionsweise eines CNN}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}ResNet -- eine neuere CNN-Architektur}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Vorgehen zur Suche nachdem Stand der Wissenschaft}{11}{section.2.3}
+\contentsline {section}{\numberline {2.4}Beschneidung des Netzes zur Beschleunigung des Training}{13}{section.2.4}
+\contentsline {section}{\numberline {2.5}Beschleunigung des Lernens durch Wissenstransfer}{17}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Operator f\IeC {\"u}r breiteres Netz}{17}{subsection.2.5.1}
+\contentsline {subsubsection}{\nonumberline Tieferes Netz}{19}{section*.14}
+\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{19}{section*.15}
+\contentsline {section}{\numberline {2.6}Automatische Architektursuche}{19}{section.2.6}
+\contentsline {section}{\numberline {2.7}Schnelles Ressourcen beschr\IeC {\"a}nktes Strukturlernen tiefer Netzwerke}{20}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Definition der Nebenbedingung}{22}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Regularsierer}{23}{subsection.2.7.2}
+\contentsline {section}{\numberline {2.8}Zeitsparende Nethoden}{24}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Verringerung der f\IeC {\"u}r Berechnungen n\IeC {\"o}tige Zeit}{24}{subsection.2.8.1}
+\contentsline {paragraph}{\nonumberline Berechnung mit 16 Bit Gleitkomma}{24}{section*.18}
+\contentsline {subsection}{\numberline {2.8.2}Beschleunigung der Berechnung des Gradientenabstiegsverfahren}{25}{subsection.2.8.2}
+\contentsline {subsubsection}{\nonumberline Accelerating CNN Training by Sparsifying Activation Gradients}{26}{section*.24}
+\contentsline {subsubsection}{\nonumberline Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks}{26}{section*.25}
+\contentsline {subsubsection}{\nonumberline Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}{26}{section*.26}
+\contentsline {subsubsection}{\nonumberline Accelerated CNN Training Through Gradient Approximation}{26}{section*.27}
+\contentsline {section}{\numberline {2.9}Additive Methoden}{26}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Verfahren zum Verwenden maximaler Batchgr\IeC {\"o}\IeC {\ss }en}{26}{subsection.2.9.1}
+\contentsline {chapter}{\numberline {3}\IeC {\"U}berblick \IeC {\"u}ber den praktischen Teil}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Experimentelles Setup}{29}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Hardware}{29}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Wahl des Frameworks}{29}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}verwendete Netzarchitektur}{30}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Baseline Netz}{31}{subsection.3.1.4}
+\contentsline {subsubsection}{\nonumberline Evaluierung des breiteren Baseline-Netzes}{32}{section*.32}
+\contentsline {section}{\numberline {3.2}Konzept}{33}{section.3.2}
+\contentsline {chapter}{\numberline {4}Untersuchung von MorphNet}{35}{chapter.4}
+\contentsline {chapter}{\numberline {5}Untersuchung des Beschneidens des Netzes}{37}{chapter.5}
+\contentsline {subsubsection}{\nonumberline Experimente zum Lasso-Ratio}{37}{section*.37}
+\contentsline {subsubsection}{\nonumberline Experimente zum Rekonfigurationsintervall}{38}{section*.39}
+\contentsline {subsubsection}{\nonumberline Experimente zur Lernrate}{39}{section*.41}
+\contentsline {subsubsection}{\nonumberline Experimente zum Grenzwert}{40}{section*.45}
+\contentsline {chapter}{\numberline {6}Untersuchung der eigenen Implementierungen}{43}{chapter.6}
+\contentsline {section}{\numberline {6.1}Experimente zur Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e beim Beschneiden des Netzes}{43}{section.6.1}
+\contentsline {subsubsection}{\nonumberline Ver\IeC {\"a}nderung der Accuracy durch PruneTrain}{44}{section*.51}
+\contentsline {subsection}{\numberline {6.1.1}Einfluss der Batchgr\IeC {\"o}\IeC {\ss }e auf PruneTrain}{46}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Untersuchung von Net2Net}{50}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Evaluierung des Operators f\IeC {\"u}r ein breiteres Netz}{50}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Evaluierung des Operators f\IeC {\"u}r ein tieferes Netz}{50}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}PruneTrain + Net2Net}{50}{section.6.3}
+\contentsline {chapter}{\numberline {7}Vergleich}{51}{chapter.7}
+\contentsline {chapter}{\numberline {8}Evaluation}{53}{chapter.8}
+\contentsline {chapter}{\numberline {9}Ausblick und Fazit}{55}{chapter.9}
 \contentsline {chapter}{\numberline {A}d}{57}{appendix.A}
-\contentsline {chapter}{Abbildungsverzeichnis}{60}{chapter*.66}
-\contentsline {chapter}{Literaturverzeichnis}{61}{chapter*.66}
+\contentsline {chapter}{Abbildungsverzeichnis}{60}{chapter*.65}
+\contentsline {chapter}{Literaturverzeichnis}{61}{chapter*.65}

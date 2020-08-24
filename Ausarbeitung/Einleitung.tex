@@ -2,35 +2,38 @@
 \label{sec:EinleitungGesamt}
 
 \section{Motivation und Hintergrund dieser Arbeit}
+\color{blue1}
+Wird die Zeit-Effizienz eines Convolutional Neural Networks betrachtet, so ist die Betrachtung mehrerer Größen möglich. Im Rahmen dieser Arbeit soll dafür die Zeit betrachtet werden, die bei einem neuen Datensatz aufgebracht werden muss, bis eine gute Netzarchitektur und die passenden Hyperparameter gefunden sind. Um diese Zeit zu verkürzen sind zwei Herangehensweisen möglich. Die erste Herangehensweise beschleunigt und automatisiert den Prozess des Findens der besten Hyperparameter, in dem das Netz nach Änderungen von bestimmten Hyperparametern weiterverwendet wird. Für dieses Weitertrainieren werden zwei Operatoren verwendet, die das Netz breiter und/oder tiefer machen können. Da ein größeres bzw. breiteres Netz anfälliger für Overfitting ist wird dem Vergrössern des Netzes ein Beschneidungsalgorithmus entgegengesetzt, der unwichtige Gewichte entfernt. Das Entfernen unwichtiger Gewichte funktioniert hier mit Hilfe eines Regularisieres, der auch ganze Kanäle entfernen kann, falls diese unwichtig für den Ausgang des Netzes sind. 
 
 
+Diese Technik des Vergrössern und wieder Kleiner machen wird einer ähnlichen Technik gegenübergestellt, welche das komplette Netz mit Hilfe eines Breitenmultiplikators breiter macht und mit Hilfe eines Regularisieres wieder schmaller aber nicht kleiner macht.
 
+Dabei ist das in dieser Arbeit vorgestellte Verfahren flexibler und kann das Netz zielgerichteter vergrössern beziehungsweise tiefer machen.
 
-
-
-Trainingszeiten für Convolutional Neural Networks (CNNs) wachsen schnell mit der Komplexität des Datensatzes und der Größe des Netzes. Neben der Trainingszeit eines bestimmten Netzes kostet vorallem die eventuell nötige Anpassung der Hyperparameter des Netzes und weitere Trainingsdurchläufe Zeit. Ziel dieser Masterarbeit ist zu untersuchen in wie fern dieser Prozess beschleunigt und automatisiert werden kann. Um den Prozess des Findens der besten Hyperparameter/ Netzarchitektur zu automatisieren gibt es bereits einige Arbeiten. Viele dieser Herangehensweisen lassen sich allerdings nicht direkt auf einen unbekannten Datensatz anwenden oder der Zeitaufwand für diese Verfahren ist enorm. Ein Verfahren, dass diese Nachteile nicht hat ist das Ressourcen beschränktes Strukturlernen tiefer Netzwerke. Diese Verfahren wird in dieser Arbeit mit einer Kombination aus zwei anderen Verfahren verglichen. Diese Kombination besteht aus einem Verfahren, welches das Netz währenddem Training beschneidet und einem Verfahren, welches das Netz breiter oder tiefer machen kann.
+Eine weitere zusätzliche Herangehensweise ist das Beschleunigen einzelner Trainingsdurchläufe, in dem das Training einer einzelnen Epoche beschleunigt wird. Zu dieser Herangehensweise werden Techniken vorgestellt, welche aber nicht praktisch evaluiert werden. 
 
 \section{Ziel der Arbeit}
+Ziel der Arbeit ist es, dieses Verfahren mit einem weiteren zu vergleichen.
 
+Diese Technik des Vergrössern und wieder Kleiner machen wird einer ähnlichen Technik gegenübergestellt, welche das komplette Netz mit Hilfe eines Breitenmultiplikators breiter macht und mit Hilfe eines Regularisieres wieder schmaller aber nicht kleiner macht.
 
+Dabei ist das in dieser Arbeit vorgestellte Verfahren flexibler und kann das Netz zielgerichteter vergrössern beziehungsweise tiefer machen.
+
+Die Evaluation soll ergeben, welches der beiden vorgestellten Verfahren bei einem Datensatz besser ein geeignetes Netz findet.
 
 
 \section{Ergebnisse der Arbeit}
 
 
 \section{Aufbau der Arbeit}
-In Kapitel \ref{sec:wissenschaft} wird zunächst der aktuelle Stand der Wissenschaft erläutert. Zu diesem Zweck werden zunächst in Unterkapitel \ref{sec:conv} die Grundlagen und Funktionsweisen eines CNNs erklärt. Die in dieser Arbeit verwendete CNN-Architektur ResNet wird darauf aufbauend in Unterkapitel \ref{sec:res} beschrieben.
+In Kapitel \ref{sec:wissenschaft} wird zunächst der aktuelle Stand der Wissenschaft erläutert. Zu diesem Zweck werden zunächst in Unterkapitel \ref{sec:conv} die Grundlagen und Funktionsweisen eines CNNs erklärt. Die in dieser Arbeit verwendete CNN-Architektur ResNet wird darauf aufbauend in Unterkapitel \ref{sec:res} beschrieben. In Kapitel \ref{sec:suche} wird eine Bibliometrie zum Thema der Arbeit vorgestellt. Dies ermöglicht dem Leser nachzuvollziehen wie das Fundament auf dem diese Arbeit beruht gefunden wurde. 
 
 
-Unterkapitel Suche Literatur \ref{sec:suche}
+In Kapitel \ref{sec:prunetrain} wird das Beschneiden des Netzes vorgestellt, welches das Netz von unwichtigen Gewichten befreien soll und so das Wachstum des Netzes in Grenzen halten soll. In Kapitel \ref{sec:net2net} werden die Operatoren vorgestellt, welche das Netz breiter beziehungsweise tiefer machen sollen.
 
-PruneTrain \ref{sec:prunetrain}
 
-Net2Net \ref{sec:net2net}
+In Kapitel \ref{sec:auto} wird ein Überblick über das Thema der automatischen Architektursuche gegeben, um das Strukturlernen des Netzes im Kontext seiner Forschungsrichtung zu betrachten. In Kapitel \ref{sec:morphnet} wird die Vergleichsmethode vorgestellt, welche mit Hilfe von Strukturlernen versucht eine bessere Netzstruktur zu finden.
 
-MorphNet \ref{sec:morphnet}
-
-Automatische Architektursuche \ref{sec:auto}
 
 Zeitsparen: \ref{sec:time}
 

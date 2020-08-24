@@ -24,37 +24,63 @@ Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres N
 
 
 
-\chapter{PruneTrain}
-\section{Untersuchung von PruneTrain}\label{sec:ptexperimente}
+\chapter{Untersuchung des Beschneidens des Netzes}\label{sec:ptexperimente}
 \todo[inline]{Ergebnisse aus neuen Experimenten verarbeiten; wenn Experimente fertig; 5 Stunden}
+
 Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. 
 
 
-In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus dem Prune Train Paper verglichen. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern. Im zweiten Abschnitt wird betrachtet, wie sich die Accuracy im Verlauf der Epochen verhält.
+In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen\cite{prunetrain}. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern.
 
-
-
-
-verwendete Kenngrößen:
-
-\begin{itemize}
- \item 1 GPU
- \item Cifar10
- \item 180 Epochen
-\end{itemize}
-
-Variable Größen, die in verschiedenen Experimenten geändert werden:
+Veränderbare Hyperparameter, die in verschiedenen Experimenten geändert werden:
 
 \begin{itemize}
  \item Lasso-Ratio
- \item Threshold experimente
- \item Lernrate experimente
- \item Rekonfigurationsinterval fertig
+ \item Rekonfigurationsinterval
+ \item Grenzwert
+ \item Lernrate
 \end{itemize}
 
-Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über alle 180 Epochen und vergleiche diese mit mehreren Durchläufen des Baseline-Netzes. 
+Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. 
 
 
+\subsubsection{Experimente zum Lasso-Ratio}
+Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit einer Epoche werden hier für ein Experiment die Trainingszeiten aller Epochen addiert und durch die Anzahl an Epochen geteilt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes um durchschnittlich etwa 30 Sekunden pro Epoche schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
+
+
+In Abbildung \ref{abb:lasso2} sind Boxplots mehrerer verschiedener Experimente abgebildet. Zu sehen ist, dass die Accuracy des Baseline-Netzes die größte ist, gefolgt von den Lasso-Ratios. Dabei ist der Verlust an Accuracy größer, je mehr vom Netz beschnitten wird. Bei der Wahl des Lasso-Ratios muss also abgewogen werden, ob die Netzverkleinerungsrate groß oder der Accuracy-Verlust klein sein soll.
+
+\begin{figure}[h]
+   \begin{minipage}[b]{.6\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=0.95\linewidth]{KapitelPartB/Images/lasso1.png}
+      \caption{Durchschnittliche Trainingszeit}
+      \label{abb:lasso1}
+   \end{minipage}
+%   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.6\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=0.95\linewidth]{KapitelPartB/Images/lasso2.png}
+      \caption{Boxplot der Accuracy}
+      \label{abb:lasso2}
+   \end{minipage}
+ \end{figure}
+
+ 
+ 
+
+
+\subsubsection{Experimente zum Rekonfigurationsintervall}
+
+ Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt.
+ 
+ \begin{figure}[h]
+ \centering
+ \subfloat[][verschiedene Experimente]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf1.png}
+ \label{abb:reconf1}}
+ \qquad
+ \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
+ \caption{Boxplot der Rekonfigurationsintervalle}
+ \label{abb:reconf}
+\end{figure}
 
 \subsubsection{Experimente zur Lernrate}
 
@@ -78,19 +104,6 @@ Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abb
  \label{abb:lr3}
  \end{figure}
 
-
-\subsubsection{Experimente zum Rekonfigurationsintervall}
-
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt.
- 
- \begin{figure}[h]
- \centering
- \subfloat[][verschiedene Experimente]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf1.png}\label{abb:reconf1}}
- \qquad
- \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
- \caption{Boxplot der Rekonfigurationsintervalle}
- \label{abb:reconf}
-\end{figure}
 
  Dies bedeutet, dass der Overhead des Beschneidungsverfahrens geringer ist als der Gewinn durch das Verkleinern des Netzes. In Abbildung \ref{abb:reconf3} ist zu sehen, dass dieser Gewinn an Trainingszeit in Abbildung \ref{abb:reconf2} mit einem Verlust an geringem Verlust an Accuracy einhergeht.  
 
@@ -367,7 +380,7 @@ Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breit
 
 \chapter{Vergleich}\label{sec:vergleich}
 
-
+\begin{comment}
 \chapter{Additive Verfahren}
 
 \subsection{Zahlenformate}\label{sec:zahlen}
@@ -449,3 +462,4 @@ Interessant bisher kein Code verfügbar
 Interessant bisher kein Code verfügbar
 
 
+\end{comment}
