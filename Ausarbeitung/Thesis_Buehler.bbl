@@ -99,4 +99,10 @@ Charles~A. Sutton and Linan Gong.
 \newblock Popularity of arxiv.org within computer science.
 \newblock {\em CoRR}, 2017.
 
+\bibitem[SXZ{\etalchar{+}}20]{gen}
+Yanan Sun, Bing Xue, Mengjie Zhang, Gary~G Yen, and Jiancheng Lv.
+\newblock Automatically designing cnn architectures using the genetic algorithm
+  for image classification.
+\newblock {\em IEEE Transactions on Cybernetics}, 2020.
+
 \end{thebibliography}

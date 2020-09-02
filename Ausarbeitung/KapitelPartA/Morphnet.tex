@@ -147,11 +147,12 @@ Die beiden Net2Net-Operatoren schaffen die Möglichkeit Familien von Netzarchite
 Neben dem im letzten Kapitel ausführlich erläuterten Ansatz des Strukturlernens gibt es noch einige andere aktuelle Ansätze, die automatisch nach einer besseren Architektur für einen Datensatz suchen. Einige dieser Ansätze werden hier beleuchtet und es wird gezeigt, wieso das im letzten Kapitel erläuterte Verfahren im praktischen Teil weiter verwendet wird.
 
 Bei dem Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergebnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
-Eine weitere Methode den Suchraum zu Durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial ein Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 17 GPUs für einen Tag \cite{gen}. Dabei ist die Architektursuche hier nur partiell automatisiert \cite{gen}.  
+Eine weitere Methode den Suchraum zu Durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial ein Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 35 GPUs für einen Tag \cite{gen}. Dann ist die Architektursuche allerdings komplett automatisiert und erreicht eine Accuracy von 96.78 \% für Cifar 10 und 79.77 \% für Cifar 100 \cite{gen}. \todo[inline]{Um diese Zahl einordnen zu können die besten zehn Accuracy liegen für Cifar 10 bei 96.62 \% bis 99.37 \% und für Cifar 100 bei 82,35 \% bis 93,51 \%. https://benchmarks.ai/ }  
 
 Das Ziel von einigen Veröffentlichungen im Themenbereich der automatischen Architektursuche ist es diese lange Trainingszeit zu reduzieren.
 
-Eine Möglichkeit der Reduzierung bietet sich durch Ausnutzung von domainspezifischen Eigenschaften der zu klassifizierenden Bilder. Eine Möglichkeit einer domainspezifischen Eigenschaft, die genutzt werden kann, ist wenn die Bilder nicht klassisch mit einer Kamera, sondern mit anderen Geräten aufgenommen wurden. Als Beispiel kann hier eine Radaranlage zur Aufnahme von Bilder dienen \cite{polsar}.
+Eine Möglichkeit der Reduzierung bietet sich durch Ausnutzung von domainspezifischen Eigenschaften der zu klassifizierenden Bilder. Eine Möglichkeit einer domainspezifischen Eigenschaft, die genutzt werden kann, ist wenn die Bilder nicht klassisch mit einer Kamera, sondern mit anderen Geräten aufgenommen wurden. Diese veränderte Aufnahmeart kann dafür sorgen, dass sich der Suchraum massiv einschränken lässt und damit die Architektursuche beschleunigen.
+Als Beispiel kann hier eine Radaranlage zur Aufnahme von Bilder dienen \cite{polsar}.
 
 
 Eine weitere Möglichkeit die Trainingszeit zu minimieren ist es den Suchraum deutlich zu verkleinern und die Anzahl an Durchläufen zu minimieren. Der Nachteil ist dann allerdings, dass die Wahrscheinlichkeit ein Netz in einem globalen Optimum zu finden bezüglich des Suchraumes klein ist. Eine Methode die dies nutzt wird im nächsten Unterkapitel vorgestellt.
@@ -248,7 +249,7 @@ Um die Wichtigekeit vom besseren Training des Netzes und der Regularisierung von
 
 Dieser Regularisierer funktioniert nicht für Netze, die Kurzschlussverbindungen besitzen. Hier wird wie bei Beschneiden des Netzes während dem Training die ein Gruppen-Lasso verwendet. Dies stellt sicher, dass an Kurzschlussverbindungen nur so beschnitten werden kann wie für die Dimensionalität des Netzes zuträglich.
 
-
+\todo[inline]{bis hier bitte gegen lesen}
 
 
 

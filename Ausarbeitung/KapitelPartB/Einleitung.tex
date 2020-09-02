@@ -46,7 +46,7 @@ das jeweilige ResNet hat. Diese Vorgehensweise hat den Vortei, dass für ein im 
 \subsection{Baseline Netz}\label{sec:baseline}
 Um die Ergebnisse der Experimente in den folgenden Kapiteln einschätzen zu können wird ein ResNet, ohne Anpassungen um Trainingszeit zu sparen, trainiert. In Tabelle \ref{tab:baseline} ist die Struktur dieses Netze zu sehen. Das breite Baseline-Netz wird dabei für die Evaluierung des Beschneiden des Netzes verwendet. Das schmallere Baseline-Netz wird für die Evaluierung der Methoden, die das Netz breiter machen verwendet.
 
-Das Netz hat drei Phasen $(s=3)$, wobei jeder der Phasen 5 Blöcke hat $(N=[5,5,5])$. Pro Basisblock sind zwei (Conv+Batch)-Schichten vorhanden $(l=3)$. Bei einem Übergangsblock, der als erster Block in einer neuen Phase bei einer Vergrösserung der Bereit beim Phasenübergang genutzt wird ist eine (Conv+Schicht)-Schicht mehr vorhanden. Eine grafische Darstellung der Blöcke ist in Abbildung \ref{abb:blocks} zu sehen.
+Das Netz hat drei Phasen $(s=3)$, wobei jeder der Phasen 5 Blöcke hat $(N=[5,5,5])$. Pro Basisblock sind zwei (Conv+Batch)-Schichten vorhanden $(l=2)$. Bei einem Übergangsblock, der als erster Block in einer neuen Phase bei einer Vergrösserung der Bereit beim Phasenübergang genutzt wird ist eine (Conv+Batch)-Schicht mehr vorhanden. Eine grafische Darstellung der Blöcke ist in Abbildung \ref{abb:blocks} zu sehen.
 
 
 
@@ -95,40 +95,40 @@ Phase & Schicht/Block  & \#Eingangs- & \#Ausgangs-       & \#Eingangs- & \#Ausga
 
 
 \subsubsection{Evaluierung des breiteren Baseline-Netzes}
-Das Training wird über 180 Epochen durchgeführt. Dabei ergibt sich der in Abbildung \ref{abb:baseAcc1} gezeigte Verlauf der Validierungs-Accuracy. Bei diesem Training wurde über die gesamten 180 Epochen mit einer Lernrate von 0.1 trainiert. In Abbildung \ref{abb:baseAcc2} wird dargestellt, wie sich der Verlauf ändert nur durch eine Anpassung der Lernrate bei Epoche 93 und 150. In diesen beiden Epochen wird die Lernrate jeweils auf ein Zehntel verkleinert. In Abbildung \todo{ref} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimente mit oder ohne Anpassung der Lernrate zu sehen ist. Es ergibt sich eine deutliche Verbesserung des Baseline-Netzes durch diese Anpassung.
+Das Training wird über 180 Epochen durchgeführt. Es werden 5 Experimente durchgeführt. Dabei ergibt sich der in Abbildung \ref{abb:baseAcc1} gezeigte Verlauf der Validierungs-Accuracy für Experiment vier. Bei diesem Training wurde über die gesamten 180 Epochen mit einer Lernrate von 0.1 trainiert. Um die Ergenisse reproduzieren zu können wird eine Zufallszahl gezogen, die als Saat für das Netz verwendet wird \cite{repro}. Dabei werden für jedes Experiment die gleichen einmal gezogenen Zufallszahlen verwendet, um die Ergebnisse der Experimente untereinander vergleichen zu können.
+\todo[inline,color=red]{t-Test hier um zu kucken wie signifikant dieser Unterschied bei der Accuracy und der Trainingszeit ist?}
+In Abbildung \ref{abb:baseAcc1} wird das Netz über 180 Epochen trainiert. Mit einem Ergebnis von durchschnittlich 81.24 \% ist diese Ergebnis leider nicht zufriedenstellend. Eine Verkleinerung der Lernrate kann dieses Ergebnis verbessern \todo{citecnnbook}. In Abbildung \ref{abb:baseAcc2} wird dargestellt, wie sich der Verlauf ändert durch eine Anpassung der Lernrate bei Epoche 93 und 150. In diesen beiden Epochen wird die Lernrate jeweils auf ein Zehntel verkleinert. In Abbildung \ref{abb:baseAcc3} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimenten mit oder ohne Anpassung der Lernrate vergleicht. Es ergibt sich eine deutliche Verbesserung der Accuracy des Baseline-Netzes von 81.24 \% auf 91.89 \% durch diese Anpassung. Aufgrund dieser Verbesserung werden die Experimente mit Anpassung der Lernrate als Grundlage zum Vergleich mit den Experimenten in den weiteren Kapiteln herangezogen. Sie werden in diesen Kapitel nur mit Baseline-Netz bezeichnet.
 
-
-\begin{figure}[h]
-   \begin{minipage}[c]{.45\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=1\linewidth]{KapitelPartB/Images/BaseAcc1.png}
-      \caption{Accuracy Baseline Netz ohne Anpassung der Lernrate}
-      \label{abb:baseAcc1}
-      \end{minipage}
-   \begin{minipage}[c]{.45\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=1\linewidth]{KapitelPartB/Images/BaseAcc2.png}
-      \caption{Übergangsblock}
-      \label{abb:baseAcc2}
-   \end{minipage}
-   \label{abb:blocks}
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .32\textwidth]{KapitelPartB/Images/BaseAcc1.png}\label{abb:baseAcc1}}
+     \subfloat[][]{\includegraphics[width=.32\textwidth]{KapitelPartB/Images/BaseAcc2.png}\label{abb:baseAcc2}}
+     \subfloat[][]{\includegraphics[width=.32\textwidth]{KapitelPartB/Images/baseAcc3.png}\label{abb:baseAcc3}}
+     \caption{Vergleich zwischen (a) Baseline-Netz ohne Anpassung der Lernrate und (b) Baseline-Netz mit Anpassung der Lernrate in Epoche 93 und 150. (c) Boxplot der Accuracys}
+     \label{abb:BaseAcc}
 \end{figure}
 
-Die Durchschnittswerte und Standardabweichungen für die zehn Baseline Experimente sind in Tabelle \ref{tab:baseline} aufgelsitet. Die Durchschnittswerte liegen sehr nah beeinander, der Unterschied zwischen dem grössten und dem kleinsten liegt bei xx,xx, womit sich eine Abweichung von xx,xx \% ergibt. Durch die maximale Standardabweichung von xx,xx haben auch alle übrigen Werte eine maximale durchschnittliche Abweichung von xx,xx. Damit ergeben sich zwischen den zehn Experimenten keine signifikante Unterschiede. Es wird daher mit Experiment 6 eines der Experimente mit Anpassung der Lernrate ausgesucht um für die folgenden Experimente/ Kapitel als Vergleich zu dienen.
+Ein weiteres Vergleichskriterium neben der Accuracy sind die durchschnittlichen Trainingszeiten pro Epoche. Für jedes Experiment wird die durchschnittliche Dauer einer Trainingsepoche mittel des arithmetiscen Mittels berechnet.
+Die Durchschnittswerte und Standardabweichungen für die zehn Baseline Experimente sind in Tabelle \ref{tab:baseline} aufgelistet. Die Durchschnittswerte liegen sehr nah beeinander, der Unterschied zwischen dem grössten und dem kleinsten Durchschnittswert liegt bei 0,67, womit sich eine Abweichung von 3,42 \% von Experiment vier (Maximum) ergibt. Durch die maximale Standardabweichung von 1,09 haben auch alle übrigen Werte eine maximale durchschnittliche Abweichung von 5,56 \%. Damit ergeben sich zwischen den zehn Experimenten keine signifikante Unterschiede. Es wird daher mit Experiment vier eines der Experimente mit Anpassung der Lernrate ausgesucht um für die folgenden Experimente/ Kapitel als Vergleich zu dienen.
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|} \hline
            & \multicolumn{5}{c|}{Experimente ohne Anpassung}&\multicolumn{5}{c|}{Experimente mit Anpassung} \\
            &\multicolumn{5}{c|}{der Lernrate} &\multicolumn{5}{c|}{der Lernrate}\\
-           & 1       & 2      & 3      & 4       & 5       & 6   & 7 & 8      & 9      & 10 \\ \hline 
-$\mu$      & 137,57  & 137,98 & 138,43 & 139,14  & 138,73  &     &   & 145,83 & 145,81 & 145.19  \\ \hline
-$\sigma$   & 15,10   & 9,72   & 8,51   & 10,67   & 10,77   &     &   & 12.12  & 11.55  & 12.40  \\ \hline
+           & 1       & 2      & 3      & 4       & 5       & 1      & 2     & 3      & 4     & 5  \\ \hline 
+$\mu$      & 19,57   & 19,51  & 19.56  & 20.18   & 19.80   & 19,71  & 19,60 & 19,64  & 19.60 & 19.56 \\ \hline
+$\sigma$   & 0,27    & 0,14   & 0,14   & 1,09    & 0,28    & 0,27   & 0,18  & 0,25   & 0,20  & 0,17   \\ \hline
 \end{tabular}
-\caption{Tabelle für Durchschnittswerte und Standardabweichungen der Experimente}
+\caption{Tabelle für Durchschnittswerte und Standardabweichungen der Trainingszeiten der Experimente}
 \label{tab:baseline}
 \end{table}
+
+\subsubsection{Evaluierung des schmalleren Baseline-Netzes}
+
 
 \section{Konzept}\label{sec:konzept}
 
 
-
+\color{black}
 
 In diesem Kapitel werden verschiedenen Methoden, die in Kapitel 2 Vorgestellt wurden, auf einer Grafikkarte ausgeführt, evaluiert und die Ergebnisse verglichen. In Kapitel \ref{sec:setup} werden zunächst das experimentelle Setup vorgestellt. In Kapitel \ref{sec:ptexperimente} wird das Beschneiden des Netzes zunächst so getestet, wie es in der vorgefertigten Implementierung hinterlegt ist \cite{ptImpl}. In Kapitel \ref{pt:new} wird dann untersucht wie sich das Beschneiden des Netzes mit zusätzlicher Anpassung der Batchgrösse verhält.
 

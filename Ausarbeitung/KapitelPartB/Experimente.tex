@@ -25,97 +25,74 @@ Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres N
 
 
 \chapter{Untersuchung des Beschneidens des Netzes}\label{sec:ptexperimente}
-\todo[inline]{Ergebnisse aus neuen Experimenten verarbeiten; wenn Experimente fertig; 5 Stunden}
-
-Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. 
-
-
-In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen\cite{prunetrain}. Im ersten Abschnitt wird zunächst betrachtet, wie sich die Trainingszeiten bei den veränderbaren Hyperparametern von PruneTrain verändern.
-
-Veränderbare Hyperparameter, die in verschiedenen Experimenten geändert werden:
-
+\color{blue1}
+Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst.
+Die veränderbaren Hyperparameter sind:
 \begin{itemize}
- \item Lasso-Ratio
- \item Rekonfigurationsinterval
- \item Grenzwert
- \item Lernrate
+ \item Lasso-Ratio $0,2$
+ \item Rekonfigurationsinterval $5$
+ \item Grenzwert $0,0001$
+ \item Lernrate $0,1$
 \end{itemize}
-
-Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit betrachtet. Betrachte zunächst eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. 
+Hinter den veränderbaren Hyperparameter steht jeweils der Wert, den der Hyperparameter, wenn er im aktuellen Experiment nicht verändert wird, hat.
+Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit und auf die Accuracy betrachtet. Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. 
 
 
 \subsubsection{Experimente zum Lasso-Ratio}
-Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit einer Epoche werden hier für ein Experiment die Trainingszeiten aller Epochen addiert und durch die Anzahl an Epochen geteilt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes um durchschnittlich etwa 30 Sekunden pro Epoche schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
+\todo[inline]{lasso 0,25 fehlt; wenn noch Zeit ist}
+Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio durchschnittlich weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit einer Epoche wird das arithmetische Mittel über alle Epochen angewandt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot in Abbildung \ref{abb:lasso1} dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes signifikant schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
 
 
-In Abbildung \ref{abb:lasso2} sind Boxplots mehrerer verschiedener Experimente abgebildet. Zu sehen ist, dass die Accuracy des Baseline-Netzes die größte ist, gefolgt von den Lasso-Ratios. Dabei ist der Verlust an Accuracy größer, je mehr vom Netz beschnitten wird. Bei der Wahl des Lasso-Ratios muss also abgewogen werden, ob die Netzverkleinerungsrate groß oder der Accuracy-Verlust klein sein soll.
+In Abbildung \ref{abb:lasso2} ist die Accuracy der verschiedenen Experimente abgebildet. Es fällt auf, dass das Baseline-Netz im Mittel etwa schlechter ausfällt als die Experimente mit den Lasso-Ratio von 0,05 bis 0,15. Der Grund hierfür ist ein Overfitting. Das Overfitting wurde hier erkannt durch eine Trainingsaccuracy von 100,00 \% für mehrere Epochen ohne ein weiter steigende Validierungsaccuracy. 
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .5\linewidth]{KapitelPartB/Images/lasso1.png}\label{abb:lasso1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width=.5\linewidth]{KapitelPartB/Images/lasso2.png}\label{abb:lasso2}}
+     \caption{Lasso-Ratio Experiment: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracys}
+     \label{abb:lasso}
+\end{figure}
 
-\begin{figure}[h]
-   \begin{minipage}[b]{.6\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=0.95\linewidth]{KapitelPartB/Images/lasso1.png}
-      \caption{Durchschnittliche Trainingszeit}
-      \label{abb:lasso1}
-   \end{minipage}
-%   \hspace{.1\linewidth}% Abstand zwischen Bilder
-   \begin{minipage}[b]{.6\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=0.95\linewidth]{KapitelPartB/Images/lasso2.png}
-      \caption{Boxplot der Accuracy}
-      \label{abb:lasso2}
-   \end{minipage}
- \end{figure}
 
- 
- 
 
 
 \subsubsection{Experimente zum Rekonfigurationsintervall}
-
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} abgebildet. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Experimente keine großen Unterschiede sehen. Werden die Zeiten der jeweiligen Experimente addiert und in einem Boxplot dargestellt entsteht Abbildung \ref{abb:reconf2}. In dieser Abbildung ist deutlich zu sehen, dass mit steigendem Rekonfigurationsintervall auch die Summe der Trainingszeiten pro Epoche steigt.
+ Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} zu sehen. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen Trainingszeiten der Experimente zum Rekonfigurationsintervall kaum Unterschiede erkennen. Daher ist in Abbildung \ref{abb:reconf3} ein Boxplot ohne die Baseline Werte abgebildet. 
  
- \begin{figure}[h]
- \centering
- \subfloat[][verschiedene Experimente]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf1.png}
- \label{abb:reconf1}}
- \qquad
- \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
- \caption{Boxplot der Rekonfigurationsintervalle}
- \label{abb:reconf}
+ 
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/reconf1.png}\label{abb:reconf1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/reconf3.png}\label{abb:reconf3}}
+     \\
+     \subfloat[][]{\includegraphics[width=.45\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
+     \caption{Experimente zum Rekonfigurationsintervall: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
+     \label{abb:reconf}
 \end{figure}
 
+ Mit Hilfe dieses Boxplots lässt sich erkennen, dass die durchschnittliche Trainingszeit aller Experimente mit dem Rekonfigurationsintervall steigt.
+ 
+ In Abbildung \ref{abb:reconf2} ist zu sehen, wie sich die Accuracy bei diesen Experimenten verhält.
+ \todo[inline]{Die Effekte in der Accuracy vom Baseline Netz zum Rekonfigurationsintervall sind wieder mit einem Overfitting zu erklären. Die Effekte vom Rekonfigurationsinterval 2 zu 5 und zu 10 sind auch mit Zunehmenden Overfitting je weniger geprunt wird zu erklären. Abhilfe mehr Experimente und zwar mit dem schmallen Baseline Netz}
+ 
 \subsubsection{Experimente zur Lernrate}
-
-Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Unterschiede zwischen den Experimente sind in Abbildung \ref{abb:lr1} zunächst nicht direkt sichtbar. Um diese besser sichtbar zu machen wird für jedes Experimente die Summeder Trainingszeiten über die Epochen gebildet. In Abbildung \ref{abb:lr2} ist zu beobachten, dass beim größten Threshold die geringste summierte Trainingszeit zusammenkommt. Da bei einem höheren Threshold im Laufe des Trainings mehr Gewichte unter den Grenzwert fallen und somit entfernt werden. Liegen diese Gewichte sinnvoll, so können ganze Kanäle entfernt werden.
- \begin{figure}[h]
- \centering
- \subfloat[][verschiedene Experimente]{\includegraphics[width=0.37\textwidth]{KapitelPartB/Images/thres1.png}\label{abb:lr1}}
- \qquad
- \subfloat[][Summe verschiedener Experimentengruppen]{\includegraphics[width=0.55\textwidth]{KapitelPartB/Images/thres2.png}\label{abb:lr2}}
- \caption{Boxplot der verschiedenen Grenzwerte}
- \label{abb:lr}
-\end{figure}
+Der Einfluss der Lernrate auf das Beschneiden des Netzes wird mit fünf verschiedenen Lernraten untersucht. Beginnend mit der Lernrate $0,2$ und für jede weitere der fünf Lernraten die Hälfte der vorherigen.
+Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Es ist deutlich zu sehen, dass mit sinkender Lernrate die Trainingszeit steigt. Das bedeutet, dass mit sinkender Lernrate weniger von Netz beschnitten wird.
  
- In Abbildung \ref{abb:lr3} ist zu sehen, dass der gleiche Effekt sich auch bei Accuracy zeigt. Die Accuracy für den größten Grenzwert ist am niedrigsten.
- 
- \begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/thres3.png}
- % reconf3.png: 454x491 px, 96dpi, 12.01x12.99 cm, bb=0 0 341 368
- \caption{Accuracy von verschiedenen Experimentengruppen des Grenzwerts}
- \label{abb:lr3}
- \end{figure}
-
-
- Dies bedeutet, dass der Overhead des Beschneidungsverfahrens geringer ist als der Gewinn durch das Verkleinern des Netzes. In Abbildung \ref{abb:reconf3} ist zu sehen, dass dieser Gewinn an Trainingszeit in Abbildung \ref{abb:reconf2} mit einem Verlust an geringem Verlust an Accuracy einhergeht.  
-
- 
- \begin{figure}[h]
- \centering
- \includegraphics[width=0.5\textwidth]{KapitelPartB/Images/reconf3.png}
- % reconf3.png: 454x491 px, 96dpi, 12.01x12.99 cm, bb=0 0 341 368
- \label{abb:reconf3}
- \caption{Accuracy von verschiedenen Experimentengruppen des Rekonfigurationsintervall}
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr1.png}\label{abb:lr1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr2.png}\label{abb:lr2}}
+     \caption{Experimente zuLernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
+     \label{abb:reconf}
 \end{figure}
 
+ In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernrate abgildet. Die Lernrate $0.1$ schneidet hier am Besten ab. Dies kann darauff zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht.
+ 
+ 
+ 
  \subsubsection{Experimente zum Grenzwert}
 
 
@@ -126,20 +103,41 @@ Die Trainingszeiten in Sekunden pro Epoche für verschiedene Lernrate ist in Abb
  \label{ref:lra}
 \end{figure}
 
- In Abbildung \ref{abb:lra} ist nicht wirklich was zu sehen, 
- 
- 
- 
-Es ergibt sich, dass sich mit diesen bisherigen Experimenten keine Zeit sparen lässt. Im Gegenteil, der PruneTrain Ansatz braucht mehr Zeit. Dies steht im Widerspruch zum PruneTrain Paper. Dieser Widerspruch lässt sich durch die Verwendung von mehreren GPUs zur Evaluation im PruneTrain Paper erklären. Mit einem schmalleren Netz müssen weniger Daten zwischen den GPUs ausgetauscht werden. Es wird Kommunikationszeit gespart.
 
 
+ 
+
+\subsubsection{Diskussion der Methode}
 \color{blue1}
-Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffentlichung mehrere GPUs verwendet. Dies führt dazu, dass bereits in diesem Teil der Implementierung Trainingszeit durch verminderte Kommunikation zwischen den Grafikkarten gespart wird. Da hier nur mit einer GPU evaluiert wird ergibt sich hier noch keine direkte Einsparung an Trainingszeit. Die Einsparung ergibt sich erst durch Erhöhen der Batchgröße bei kleiner werdendem Netz. Zu beachten ist hier, dass die Speicherauslastung gleich bleiben muss. Diese Evaluierung wird in Kapitel \ref{sec:ptnew} durchgeführt.
+Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffentlichung mehrere GPUs verwendet \cite{prunetrain}. Dies führt dazu, dass bereits in diesem Teil der Implementierung Trainingszeit durch verminderte Kommunikation zwischen den GPUs gespart wird. Da hier nur mit einer GPU evaluiert wird ergibt sich hier noch keine direkte Einsparung an Trainingszeit. Eine weitere Möglichkeit Trainingszeit zu sparen ergibt sich durch Erhöhen der Batchgröße bei kleiner werdendem Netz. Zu beachten ist hier, dass die Speicherauslastung gleich bleiben sollte und eine Vergleichbarkeit mit der Veröffentlichung zu gewährleisten. Diese Evaluierung wird in Kapitel \ref{sec:ptnew} durchgeführt.
 
 
-\chapter{Untersuchung der eigenen Implementierungen}
+\chapter{Untersuchung der eigenen Implementierungen}\label{sec:me}
 \section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
-Um die Batchgrösse mit der Netzverkleinerung anzupassen muss zunächst die maximale SPeicheraulastung und damit die initiale Batchgröße festgelegt werden. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung in Abhängigkeit zur Batchgröße verhält.
+Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet mit einer Grenze bis zu dieser der Speicher ausgelstet werden darf. Da dieser Teil der Implementierung in der vorliegenden Implementierung fehlte gehört dieser Teil der Evaluierung des Beschneiden des Netzes zum Kapitel \ref{sec:me}.
+Die Berechnung der maximalen Batchgröße für eine gegegebene Speichergrösse und Netzarchitektur wird in Kapitel \ref{sec:batch} beschrieben.
+
+
+\subsection{Berchnung der Batchgröße abhängig vom Speicherverbrauch}\label{sec:batch}
+Da sich in Pytorch der freie Speicher nicht direkt auslesen lässt wird mit Hilfe von Experimenten, die auf der GPU durchgeführt werden gemessen wie sich die Speicherauslastung verhält. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung proportional zur Batchgröße verhält. Es ist gut zu erkennen, dass der Zusammenhang linear ist. Die Passgenauigkeit dieses Zusammenhangs kann mittels einer linearen Regression bestimmt werden.  Daher wird  die rote Gerade wurde einer linearen Regression berechnet. Der maximale Abstand der gemessenen Punkte zur Gerade ist $0,19$ für Punkte, die unter der Gerade liegen sowie $0,67$ für Punkte die über der Gerade liegen. Zusammen mit der graphischen Übereinstimmung ergibt sich klar ein linearer Zusammenhang mit kleinen Abweichungen.
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .6\textwidth]{KapitelPartB/Images/memory1.png}\label{abb:memory1}}
+     \caption{Experimente zur Batchgröße}
+     \label{abb:memory}
+\end{figure}
+Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für einen Wert des Speicherverbrauchs abhängig von der Netzarchitektur berechnet, wie groß die Batchgröße maximal sein darf. Zu diesem Zweck wird für ein Netz mit drei Phasen betrachtet und ein Modell entwickelt mit dem sich die maximale Batchgröße berechnen lässt. Die maximale Batchgröße hängt ab von:
+\begin{itemize}
+ \item der Blockanzahl
+ \item der Phasenanzahl und
+ \item der Anzahl an Schichten pro Block
+\end{itemize}
+In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl auf die Speicherauslastung und auf die maximale Batchgröße auswirken.
+
+
+
+\begin{comment}
+Um die Batchgrösse mit der Netzverkleinerung anzupassen muss zunächst die maximale Speicheraulastung und damit die initiale Batchgröße festgelegt werden. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung in Abhängigkeit zur Batchgröße verhält.
 
 \begin{figure}[h]
  \centering
@@ -181,7 +179,7 @@ In Abbildung \ref{abb:}
 
 
 Gleichzeitig wird für die jeweilige Modellgrösse die Anzahl an Parametern, die das Modell hat gezählt. Diese Größen sind in Tabelle \ref{tab:batchSize} eingetragen. 
-
+\color{black}
 
 Mit Hilfe dieser Grössen wird für jede einzelne Stagegröße eine Gerade gefittet.
 
@@ -348,14 +346,13 @@ Ist dieser Effekt auf PruneTrain übertragbar?
 Eine grössere Batchsize sorgt auf jeden Fall für signifikant weniger Verkleinerung des Netzes.
 
 Die Frage die sich hier stellt ist, ob mit Hilfe von largeBatch bei maximaler Batchsize die Verkleinerungsrate steigt  
-
+\end{comment}
 
 
 
 
 \section{Untersuchung von Net2Net}\label{sec:net2netexperimente}
 \todo[inline]{Funktioniert; Experimente müssen noch durchgeführt werden; dann ca. 1 Tag für Evaluierung und Fertigstellung)}
-\color{blue1}
 Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet selbst erstellten Implementierung.
 
 Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, welches auf Cifar10 trainiert wird. In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert.

@@ -1,0 +1,62 @@
+	fertig	        nicht fertig	code noch nicht fertig
+baseline ohne lr breit:
+	baselineO
+
+baseline mit lr breit: 
+	baseline
+
+baseline schmall:
+	baselineS 1-5
+
+
+PruneTrain:
+Lasso:
+	lasso 0,05
+	lasso 0,1
+	lasso 0,15
+	lasso 0,2
+7,5			lasso 0,25
+Reconf: 
+7,5			reconf 2
+7,5			reconf 5
+7,5			reconf 10
+
+Thres:
+	thres 1
+	thres 2
+	thres 3
+	thres 4
+	thres 5
+
+LR:
+	lr 2
+	lr 1
+	lr05
+	lr025
+	lr0125
+
+PruneTrain2:
+7,5			bSize 1-5
+
+NtoN:
+				n2n wider 1-5
+				random wider 1-5				
+				n2n deeper 1-5
+				random deeper 1-5
+ 				
+PTNtoN:
+
+
+
+
+Morphnet:
+flops 16	flops 8		div
+68862592	17326400	3.97
+
+Experimente 1:
+Flop Size und Modellgrösse verringern sich passend zur Zielgrösse:
+				morph1 1-5
+Experimente 2:
+				morph2 1-5
+
+
