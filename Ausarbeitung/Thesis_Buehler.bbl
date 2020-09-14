@@ -26,30 +26,14 @@ Jonathan Frankle and Michael Carbin.
 
 \bibitem[GBC16]{CNNBook}
 Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
-\newblock {\em Deep Learning}.
+\newblock {\em Deep Learningo}.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
-
-\bibitem[GEN{\etalchar{+}}18]{morphnet}
-A.~{Gordon}, E.~{Eban}, O.~{Nachum}, B.~{Chen}, H.~{Wu}, T.~{Yang}, and
-  E.~{Choi}.
-\newblock Morphnet: Fast simple resource-constrained structure learning of deep
-  networks.
-\newblock In {\em 2018 IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition}, 2018.
 
 \bibitem[Hay98]{neural}
 S.~Haykin.
 \newblock {\em Neural Networks: A Comprehensive Foundation}.
 \newblock Prentice Hall PTR, Upper Saddle River, NJ, USA, 2nd edition, 1998.
-
-\bibitem[HHS17]{largeBatch}
-Elad Hoffer, Itay Hubara, and Daniel Soudry.
-\newblock Train longer, generalize better: closing the generalization gap in
-  large batch training of neural networks.
-\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
-  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
-  Processing Systems 30}, pages 1731--1741. Curran Associates, Inc., 2017.
 
 \bibitem[HZRS15]{resnet}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
@@ -104,5 +88,10 @@ Yanan Sun, Bing Xue, Mengjie Zhang, Gary~G Yen, and Jiancheng Lv.
 \newblock Automatically designing cnn architectures using the genetic algorithm
   for image classification.
 \newblock {\em IEEE Transactions on Cybernetics}, 2020.
+
+\bibitem[TKYG20]{snyc}
+Hidenori Tanaka, Daniel Kunin, Daniel L.~K. Yamins, and Surya Ganguli.
+\newblock Pruning neural networks without any data by iteratively conserving
+  synaptic flow, 2020.
 
 \end{thebibliography}

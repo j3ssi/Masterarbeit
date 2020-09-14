@@ -224,7 +224,7 @@
 }
 
 @Book{CNNBook,
-  title     = {Deep Learning},
+  title     = {Deep Learningo},
   publisher = {MIT Press},
   year      = {2016},
   author    = {Ian Goodfellow and Yoshua Bengio and Aaron Courville},
@@ -271,6 +271,20 @@
   journal   = {IEEE Transactions on Geoscience and Remote Sensing},
   year      = {2020},
   publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+}
+
+@Article{gen,
+  author    = {Sun, Yanan and Xue, Bing and Zhang, Mengjie and Yen, Gary G and Lv, Jiancheng},
+  title     = {Automatically Designing CNN Architectures Using the Genetic Algorithm for Image Classification},
+  journal   = {IEEE Transactions on Cybernetics},
+  year      = {2020},
+  publisher = {IEEE},
+}
+
+@Misc{snyc,
+  author = {Hidenori Tanaka and Daniel Kunin and Daniel L. K. Yamins and Surya Ganguli},
+  title  = {Pruning neural networks without any data by iteratively conserving synaptic flow},
+  year   = {2020},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

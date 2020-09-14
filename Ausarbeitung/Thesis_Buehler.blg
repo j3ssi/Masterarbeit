@@ -3,52 +3,50 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Thesis_Buehler.aux
 The style file: alpha.bst
 Database file #1: Literature.bib
-Warning--I didn't find a database entry for "snyc"
 Warning--I didn't find a database entry for "lars"
-Warning--I didn't find a database entry for "repro"
 Warning--to sort, need author or key in ptImpl
 Warning--to sort, need author or key in ieee
 Warning--empty journal in net2net
 Warning--empty author in ieee
-You've used 17 entries,
+You've used 16 entries,
             2543 wiz_defined-function locations,
-            649 strings with 7472 characters,
-and the built_in function-call counts, 6731 in all, are:
-= -- 635
-> -- 421
-< -- 4
-+ -- 151
-- -- 150
-* -- 470
-:= -- 1144
-add.period$ -- 52
-call.type$ -- 17
-change.case$ -- 119
-chr.to.int$ -- 17
-cite$ -- 23
-duplicate$ -- 268
-empty$ -- 436
-format.name$ -- 162
-if$ -- 1354
+            637 strings with 7007 characters,
+and the built_in function-call counts, 5878 in all, are:
+= -- 558
+> -- 359
+< -- 3
++ -- 130
+- -- 129
+* -- 399
+:= -- 1006
+add.period$ -- 47
+call.type$ -- 16
+change.case$ -- 109
+chr.to.int$ -- 16
+cite$ -- 22
+duplicate$ -- 232
+empty$ -- 382
+format.name$ -- 141
+if$ -- 1173
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 17
-newline$ -- 88
-num.names$ -- 47
-pop$ -- 135
+missing$ -- 15
+newline$ -- 82
+num.names$ -- 42
+pop$ -- 124
 preamble$ -- 1
-purify$ -- 137
+purify$ -- 126
 quote$ -- 0
-skip$ -- 237
+skip$ -- 213
 stack$ -- 0
-substring$ -- 180
-swap$ -- 49
-text.length$ -- 4
+substring$ -- 133
+swap$ -- 36
+text.length$ -- 3
 text.prefix$ -- 1
 top$ -- 0
-type$ -- 128
+type$ -- 120
 warning$ -- 4
-while$ -- 48
-width$ -- 19
-write$ -- 212
-(There were 7 warnings)
+while$ -- 41
+width$ -- 18
+write$ -- 196
+(There were 5 warnings)

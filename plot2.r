@@ -1,11 +1,11 @@
-batchsize <- c(10, 20, 50, 100, 150, 200, 250, 260, 270,
-               280, 285, 290, 300, 310, 320, 330,
-               335, 340, 345, 350, 355, 360, 365)
+setwd("/home/j3ssi/MA/Ausarbeitung/KapitelPartB/")
 
-memory <- c(103.86, 103.86, 103.86, 103.84, 103.72,
-            103.97, 103.85, 103.69, 103.73, 103.76,
-            103.72, 103.77, 103.93, 102.60, 102.58,
-            104.89, 106.37, 108.56, 109.73, 111.08,
-            113.48, 114.77, 116.23)
+a <- read.delim("Speicherverbrauch.csv", header = TRUE, sep = "\t", dec = ",")
+as.numeric(as.character(a))
 
-plot(batchsize,memory)
+plot(a$Batchgroesse, a$Speicherverbrauch2,
+     ylab ="Speicherverbrauch",
+  xlab="Batchgröße")
+gerade1<-lm(a$Speicherverbrauch2 ~ a$Batchgroesse)
+par(new=TRUE)
+abline( 0.6501  ,0.2573 , col="red" )

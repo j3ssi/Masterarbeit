@@ -1,9 +1,12 @@
-	fertig	        nicht fertig	code noch nicht fertig
+	fertig	        läuft		nicht fertig	code noch nicht fertig
 baseline ohne lr breit:
 	baselineO
 
 baseline mit lr breit: 
 	baseline
+
+baseline mit anderem optim:
+					baselineLr
 
 baseline schmall:
 	baselineS 1-5
@@ -15,18 +18,19 @@ Lasso:
 	lasso 0,1
 	lasso 0,15
 	lasso 0,2
-7,5			lasso 0,25
+	lasso 0,25
+
 Reconf: 
-7,5			reconf 2
-7,5			reconf 5
-7,5			reconf 10
+	reconf 2			1
+	reconf 5			1
+	reconf 10
 
 Thres:
 	thres 1
 	thres 2
 	thres 3
 	thres 4
-	thres 5
+					thres 5
 
 LR:
 	lr 2
@@ -36,13 +40,19 @@ LR:
 	lr0125
 
 PruneTrain2:
-7,5			bSize 1-5
+					bSize 1-5
 
 NtoN:
-				n2n wider 1-5
-				random wider 1-5				
-				n2n deeper 1-5
-				random deeper 1-5
+	n2n wider 1-5
+			random wider 				
+					n2n wider1 1-5
+							random wider1 				
+
+	n2n deeper 1-5
+					BLdeeper 1-5
+					n2n deeperB 1-5
+					BLdeeperB 1-5
+Samstag morgen
  				
 PTNtoN:
 
@@ -55,8 +65,9 @@ flops 16	flops 8		div
 
 Experimente 1:
 Flop Size und Modellgrösse verringern sich passend zur Zielgrösse:
-				morph1 1-5
+auf Gpu1,3						morph1 1,2
 Experimente 2:
-				morph2 1-5
-
+							morph2 1-5
+Experimente 3:
+							morph3 1-5
 

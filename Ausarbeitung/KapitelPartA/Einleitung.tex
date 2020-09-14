@@ -20,7 +20,9 @@ In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durch
  \caption{Abbildung zur Faltung \cite{CNNBook}}
  \label{fig:faltung}
 \end{figure}
-Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird ReLU\todo[color=blue1]{ReLU oder Relu?} als Aktivierungsfunktion benutzt\footnote{Für Erklärung Relu siehe \cite{neural}}. Pooling wird verwendet:
+Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird eine Rectified Linear Unit (ReLU) als Aktivierungsfunktion benutzt\footnote{Für Erklärung ReLU siehe \cite{neural}}.
+
+
 
 Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch die Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten autaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird grösser als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
 
@@ -56,7 +58,7 @@ Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind.
 \end{equation}
 die Definition dieser Menge ist.
 
-Diese Klassifikation ist formal eine Funktion $f$ mit der Eingabe $\mathbf{x}_i$. Da das Bild $\mathbf{x}_i$ bereits vorher klassifiziert wurde hat es ein Label $y_i$, welches die Klasse von $\mathbf{x}_i$ angibt. Mit Hilfe das Labels und der Ausgabe von $f(\mathbf{x}_i, \mathcal{W})$ wird eine Verlust-Funktion $l(f(\mathbf{x}_i,\mathcal{W}),y_i)$ berechnet. Die Verlust-Funktion berechnet wie weit die tatsächliche Klasse $y_i$ von der Ausgabe des Netzes $f(\mathbf{x}_i, \mathcal{W})$ entfernt ist. Wie gut die Trainingsdaten bei dieser Verlust-Funktion abschneiden wird Trainingsfehler genannt.\todo[color=blue1]{Wie wäre es mit: Die Fehlerrate der Qualität der Trainingsdaten bei dieser Verlustfunktion wird Trainingsfehler genannt.}
+Diese Klassifikation ist formal eine Funktion $f$ mit der Eingabe $\mathbf{x}_i$. Da das Bild $\mathbf{x}_i$ bereits vorher klassifiziert wurde hat es ein Label $y_i$, welches die Klasse von $\mathbf{x}_i$ angibt. Mit Hilfe das Labels und der Ausgabe von $f(\mathbf{x}_i, \mathcal{W})$ wird eine Verlust-Funktion $l(f(\mathbf{x}_i,\mathcal{W}),y_i)$ berechnet. Die Verlust-Funktion berechnet wie weit die tatsächliche Klasse $y_i$ von der Ausgabe des Netzes $f(\mathbf{x}_i, \mathcal{W})$ entfernt ist. Wie wäre es mit: Die Fehlerrate Trainingsdaten bei dieser Verlustfunktion wird Trainingsfehler genannt.
 
 
 Die Ableitung dieser Verlust-Funktion wird rückwärts durch das Netz propagiert und damit ein Gradient berechnet. Mittels des Gradientenabstiegsverfahrens wird die Verlust-Funktion minimiert, was dazu führt, dass das Netz die Trainingsbilder besser klassifiziert. 
@@ -87,7 +89,7 @@ Im Anschluss an diese Normalisierung lassen sich die Elemente des Batches durch 
 \STATE $$\mu_{i,\mathcal{B}} \leftarrow \frac{1}{m}\sum_{j=1}^{m} \mathbf{u}_{i,j}$$
 \STATE $$\sigma^2_{i,\mathcal{B}} \leftarrow \frac{1}{m} \sum_{j=1}^m \left( \mathbf{u}_{i,j} -\mu_{i,\mathcal{B}}\right)^2$$
 \STATE $$ \hat{\mathbf{u}}_{i,j} \leftarrow \frac{\mathbf{u}_{i,j}-\mu_{i,\mathcal{B}}}{\sqrt{\sigma_{i,\mathcal{B}}^2+\epsilon}}$$
-\STATE $$\mathbf{v}_{i,j} \leftarrow \gamma \hat{\mathbf{u}}_{i,j} + \beta  \equiv \text{BN}_{\gamma,\beta}(\mathbf{u}_{i,j})$$
+\STATE $$\mathbf{v}_{i,j} \leftarrow \gamma \hat{\mathbf{u}}_{i,j} + \beta  = \text{BN}_{\gamma,\beta}(\mathbf{u}_{i,j})$$
 \end{algorithmic}
 \label{alg:bn}
 \end{algorithm}

@@ -2,7 +2,6 @@
 \label{sec:EinleitungGesamt}
 
 \section{Motivation und Hintergrund dieser Arbeit}
-\color{blue1}
 Wird die Zeit-Effizienz eines Convolutional Neural Networks betrachtet, so ist die Betrachtung mehrerer Größen möglich. Im Rahmen dieser Arbeit soll dafür die Zeit betrachtet werden, die bei einem neuen Datensatz aufgebracht werden muss, bis eine gute Netzarchitektur und die passenden Hyperparameter gefunden sind. Um diese Zeit zu verkürzen sind zwei Herangehensweisen möglich. Die erste Herangehensweise beschleunigt und automatisiert den Prozess des Findens der besten Hyperparameter, in dem das Netz nach Änderungen von bestimmten Hyperparametern weiterverwendet wird. Für dieses Weitertrainieren werden zwei Operatoren verwendet, die das Netz breiter und/oder tiefer machen können. Da ein größeres bzw. breiteres Netz anfälliger für Overfitting ist wird dem Vergrössern des Netzes ein Beschneidungsalgorithmus entgegengesetzt, der unwichtige Gewichte entfernt. Das Entfernen unwichtiger Gewichte funktioniert hier mit Hilfe eines Regularisieres, der auch ganze Kanäle entfernen kann, falls diese unwichtig für den Ausgang des Netzes sind. 
 
 

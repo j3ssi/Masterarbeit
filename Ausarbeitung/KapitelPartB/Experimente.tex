@@ -1,32 +1,50 @@
 \chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
-
-untersuche zunächst ob für die beiden Constraints Model Size und Flop regularisieren auch diese Zielgrösse kleiner wird.
-
-2 Experimente Zeit ??
-
-
-Erprobe wie unterschiedliche gammas auf Schritt 2 wirken
-
-
-5 x 5 Experimente 
-
-
-Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres Netz wird. Erlaubt sind maximal die Flops/bzw. Modelgrösse des 16 breiten Netzwerks mit 3 Iterationen
-
-
-
-
-
-
-
-
-
-
-
-
-\chapter{Untersuchung des Beschneidens des Netzes}\label{sec:ptexperimente}
 \color{blue1}
-Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst.
+
+Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für ide Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
+
+
+\section{Evaluierung der einzelnen Schritte von MorphNet}
+Im ersten Schritt von MorphNet wird das Netz trainiert um $\mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; l(f(\mathbf{x_i}, \mathcal{W},y_i) + \lambda \mathcal{G}(\mathcal{W}))$. Der Regularisierer $\mathcal{G}$ ist in dieser Formel dafür zuständig, dass die gewählte Zielgröße minimiert wird. Die zwei möglichen Zielgrößen sind die Modellgröße und Anzahl an FLOPs. Für beide Zielgrößen gilt, dass die im Regularsierer verwendete Formel nur eine vereinfachte Form der Zielgrösse berechnet. In Abbildung \ref{abb:morphSize} ist in Blau abgebilder, wie sich der Wert des Regularisieres währendem Training verändert, Die grüne Kurve in Abbildung \ref{abb:morphSize} ist der tatsächliche Verlauf der Modellgröße über die Trainingszeit. Da beide Kurven einen ähnlichen Verlauf und eine ähnliche Krümmung zeigen berechnet $\mathcal{G}$ zwar eine vereinfachte Form der Zielgröße minimiert aber auch die Zielgröße. 
+Für die Zielgröße FLOPs ist der Verlauf der beiden Kurven in Abbildung \ref{sec:morphFLOPs} abgebildet. Auch hier kann die gleiche Aussage wie zur Modelgröße getroffen werden.
+
+\begin{figure}
+     \centering
+     \subfloat[][]{\missingfigure{Size}\label{abb:morphSize}}
+     \hfill
+     \subfloat[][]{
+     \missingfigure{Size}\label{abb:morphFLOPs}
+     %\includegraphics[width=.5\linewidth]{KapitelPartB/Images/lasso2.png}\label{abb:lasso2}
+     }
+     \caption{Vergleich Zielgröße mit Wert des Regularisierers für (a) Modellgröße (b) FLOPs}
+     \label{abb:morph1}
+\end{figure}
+
+
+
+Als weiteren Schritt in der Evaluation des MorphNets wird der Effekt von unterschiedlichen Werten für $\lambda$ untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert.   
+
+
+
+\section{Evaluierung der Ergebnisse von MorphNet}
+
+
+Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres Netz wird. Erlaubt sind maximal die Flops/bzw. Modelgrösse des 16 breiten Netzwerks
+
+
+
+
+
+
+\color{black}
+
+
+
+
+
+\chapter{Evaluation des Beschneidens des Netzes}\label{sec:ptexperimente}
+\section{Evaluation bei gleichbleibender Batchgröße}
+Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. Bei der Evaluierung der Einflüsse werden die veränderbaren Hyperparameter von PruneTrain einzeln verändert, um den Einfluss der einzelnen Veränderungen zu untersuchen.  
 Die veränderbaren Hyperparameter sind:
 \begin{itemize}
  \item Lasso-Ratio $0,2$
@@ -34,12 +52,12 @@ Die veränderbaren Hyperparameter sind:
  \item Grenzwert $0,0001$
  \item Lernrate $0,1$
 \end{itemize}
-Hinter den veränderbaren Hyperparameter steht jeweils der Wert, den der Hyperparameter, wenn er im aktuellen Experiment nicht verändert wird, hat.
-Um die Experimente mit den unterschiedlich großen Kenngrößen vergleichen zu können wird jeweils eine Größe geändert und der Einfluss dieser Größe auf die Trainingszeit und auf die Accuracy betrachtet. Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. 
+Hinter den veränderbaren Hyperparameter steht jeweils der Wert, den der Hyperparameter hat, wenn er im aktuellen Experiment nicht verändert wird, hat.
+Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. 
 
 
-\subsubsection{Experimente zum Lasso-Ratio}
-\todo[inline]{lasso 0,25 fehlt; wenn noch Zeit ist}
+\subsubsection{Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}
+\color{vermi}
 Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio durchschnittlich weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit einer Epoche wird das arithmetische Mittel über alle Epochen angewandt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot in Abbildung \ref{abb:lasso1} dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes signifikant schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
 
 
@@ -86,7 +104,7 @@ Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist i
      \hfill
      \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr2.png}\label{abb:lr2}}
      \caption{Experimente zuLernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
-     \label{abb:reconf}
+     \label{abb:lr}
 \end{figure}
 
  In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernrate abgildet. Die Lernrate $0.1$ schneidet hier am Besten ab. Dies kann darauff zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht.
@@ -108,13 +126,13 @@ Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist i
  
 
 \subsubsection{Diskussion der Methode}
-\color{blue1}
+
 Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffentlichung mehrere GPUs verwendet \cite{prunetrain}. Dies führt dazu, dass bereits in diesem Teil der Implementierung Trainingszeit durch verminderte Kommunikation zwischen den GPUs gespart wird. Da hier nur mit einer GPU evaluiert wird ergibt sich hier noch keine direkte Einsparung an Trainingszeit. Eine weitere Möglichkeit Trainingszeit zu sparen ergibt sich durch Erhöhen der Batchgröße bei kleiner werdendem Netz. Zu beachten ist hier, dass die Speicherauslastung gleich bleiben sollte und eine Vergleichbarkeit mit der Veröffentlichung zu gewährleisten. Diese Evaluierung wird in Kapitel \ref{sec:ptnew} durchgeführt.
 
 
-\chapter{Untersuchung der eigenen Implementierungen}\label{sec:me}
 \section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
-Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet mit einer Grenze bis zu dieser der Speicher ausgelstet werden darf. Da dieser Teil der Implementierung in der vorliegenden Implementierung fehlte gehört dieser Teil der Evaluierung des Beschneiden des Netzes zum Kapitel \ref{sec:me}.
+Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet mit einer Grenze bis zu dieser der Speicher ausgelastet werden darf. 
+
 Die Berechnung der maximalen Batchgröße für eine gegegebene Speichergrösse und Netzarchitektur wird in Kapitel \ref{sec:batch} beschrieben.
 
 
@@ -133,6 +151,13 @@ Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für 
  \item der Anzahl an Schichten pro Block
 \end{itemize}
 In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl auf die Speicherauslastung und auf die maximale Batchgröße auswirken.
+
+
+
+\subsection{Evaluierung der Anpassung der Batchgröße an die Netzgröße}
+
+
+
 
 
 
@@ -350,13 +375,14 @@ Die Frage die sich hier stellt ist, ob mit Hilfe von largeBatch bei maximaler Ba
 
 
 
-
-\section{Untersuchung von Net2Net}\label{sec:net2netexperimente}
-\todo[inline]{Funktioniert; Experimente müssen noch durchgeführt werden; dann ca. 1 Tag für Evaluierung und Fertigstellung)}
+\chapter{Evaluierung von Net2Net}\label{sec:net2netexperimente}
 Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet selbst erstellten Implementierung.
 
-Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, welches auf Cifar10 trainiert wird. In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert.
+Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, welches auf Cifar10 trainiert wird. In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert. Mit der Kombination wird der Raum erkundet, der durch die verschieden tiefen und breiten Modelle aufgespannt wird.
 Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben.
+
+
+
 
 \subsection{Evaluierung des Operators für ein breiteres Netz}
 Evaluiert wird der operator durch verschiedene Optionen, welche Bereich des Netzes breiter gemacht wird:
@@ -364,16 +390,111 @@ Evaluiert wird der operator durch verschiedene Optionen, welche Bereich des Netz
  \item Eine ganze Phase
  \item Alle Phasen
 \end{itemize}
-Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten berechnet. Um zu evaluieren wie gut diese Methode funktioniert wird sie verglichen mit einer Baseline-Methode, bei der die neu hinzugekommenen Gewichte zufällig initialisiert werden.
+Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten berechnet. Um zu evaluieren wie gut diese Methode funktioniert wird sie verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen zusätzlichen Gewichte zufällig initialisiert werden.
 \subsection{Evaluierung des Operators für ein tieferes Netz}
-
-\color{black}
-
+Zur Evaluierung des breiteren Netzes wird zunächst wie in der Veröffentlichung jeder Block um eine Schicht erweitert. Dabei werden die zusätzlichen Schichten wie in Kapitel \ref{sec:deep} beschrieben initialisiert. Als Vergleich dient das Baseline-Netz aus Kapitel \ref{sec:baseline}.
 
 
-\section{PruneTrain + Net2Net}\label{sec:ptpnet2net}
 
-\todo[inline]{Anpassungen am Coe nötig aber nicht sehr umfangreich: ca 1 Tage; dann auf der Graka laufen lassen; ca. 3 Tage um zu schreiben +evaluieren}
+Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen. Der Grund hierfür ist Abbildung \ref{abb:deeper} dargstellt. Dabei soll an einer Verbidung, die bisher die Daten von einer Schicht zur nächsten transportiert ein neuer Block inklusive Kurzschlussverbindung entstehen. Der hinzuzfügende Block blau \todo{blau markieren} markiert. Der neue Block soll wie die Kurzschlussverbindung die Identität berechnen. Betrachtet $x$ als Größe der Identität. Dann wird hier mit dem neuen Block staat $x$ das doppelte, also $``X$ berechnet. Um dieses Problem zu umgehen wird an jeder Additionsstelle für eine Kurzschlussverbindung eine Multiplikation mit 0,5 berechnet (rechte Seite der Grafik). So wird nicht mehr $x$ sondern $0,5x +0,5=x$ berechnet.  
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\textwidth, angle=90]{KapitelPartB/Images/deeper.pdf}
+ % deeper.pdf: 0x0 px, 300dpi, 0.00x0.00 cm, bb=
+ \label{abb:deeper}
+\end{figure}
+
+
+
+
+\subsection{Erkunden des Modellraums}
+
+
+
+\chapter{Evaluierung }\label{sec:ptpnet2net}
+Adaptive Kombination of prune and net2net
+
+AKoPaN
+
+Für die Kombination betrachten wir zunächst den Ausgang eines PruneTrain-Durchlaufs über 180 Epochen mit verschieden breiten Netzen:
+
+4,8,16
+
+
+8,16,32
+
+
+16,32,64
+
+
+und verschieden tiefen Netzen:
+
+[3,3,3]
+
+
+[4,4,4]
+
+
+
+
+Gestartet wird wie bei Morphnet einmal mit 
+
+
+4,8,16 und mit 
+
+
+8,16,32
+jeweils mit 3 Blöcken pro Phase
+anlaog zu Kapitel 4.
+
+
+um das Grösserwerden des Netzes nicht ausarten zu lassen sollte es nicht größer werden als 
+das [5,5,5] er Netz mit 16,32,64 als maximalen Größe vorgegeben.
+
+
+
+
+Drei Probleme können beim Training des Ntzes auftauchen:
+\begin{itemize}
+ \item Underfitting
+ \item Overfitting
+ \item Saturation
+ \item Rumspringen ohne eine Tendenz zur Verbesserung
+\end{itemize}
+
+Underfitting erkennen wir durch einen immer noch recht hohen Trainingsfehler und relativ wenig Pruning.
+
+
+Sowohl bei Hinzufügen von neuen Blöcken als auch beim Breiter machen des Netzes kann Overfitting passieren. Kommt es zu Overfitting ist es möglich, den Lasso-Ratio koeffizient weiter zu erhöhen, oder den Grenzwert zum Beschneiden des Netzes zu Erhöhen. Das heisst es ist nötig, Overfitting zu erkennen. Dies wird hier durch Abstand von Trainings und Validierungsfehler. Wird der Abstand hier grösser bei einer Zunnahme des Validierungsfehlers oder  ist die Testaccuracy bei 100 \% angekommen, wird Overfitting diagnostiziert.
+
+
+Saturation
+Bilde aus den letzten 10 Validierungsaccuracy jeweils ein exponentiel geglättetes Mittel gewichtetes Mittel. Zeigt dieses Mittel keine Verbesserung innerhalb der nächsten 10 Epochen -> early stop und je nach vorliegen von Under oder Overfitting weiterverfahren.
+
+\subsection{Exponentiell gleitender Durchschnitt}
+Der exponentiell gleitende Durchschnitt ist eine Möglichkeit eines leitenden Durchschnitts mit mehr Gewicht je neuer eine Messung ist. In Abbildung \ref{abb:egd} ist zu sehen, wie sich dieser für die Validierungsaccuracy des Baseline Netzes verhält.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{KapitelPartB/expmean.png}
+ % expmean.png: 1112x623 px, 96dpi, 29.43x16.49 cm, bb=0 0 834 467
+ \caption{Exponentiell geglätteter Durchschnitt}
+ \label{abb:egd}
+\end{figure}
+
+Dabei sind 2 Effekte zu sehen:
+1. ab Epoche 150 passiert so gut wie nichts mehr: die Term der exp glättung ist waagerecht
+2. ab Epoche 80 ist es nur ein Rumspringen.
+
+In beiden Fällen kann Abhilfe geschaffen werden: Versuche zunächst für 30 Epochen die Lernrate weiter zu senken. Wenn sich nach diesen 30 Epochen immer noch die beiden gleitenden Mittelwerte gleich sind:
+
+
+
+
+
+
 
 \chapter{Vergleich}\label{sec:vergleich}
 

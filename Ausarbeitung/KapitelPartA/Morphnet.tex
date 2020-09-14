@@ -1,42 +1,42 @@
-\section{Beschneidung des Netzes zur Beschleunigung des Training}
+\section{Beschneidung des Netzes zur Beschleunigung des Trainings}
 \label{sec:prunetrain}
-Das Beschneiden\footnote{Beschneiden wird hier äquivalent zum Englischen  "`to prune"' verwendet} des Netzes ist eine Technik, die entwickelt wurde, um die Inferenzzeit eines neuronalen Netzwerks zu reduzieren. Das Beschneidungsverfahren wird auf das bereits trainierte Netz angewendet. Dabei wird entschieden, welche Gewichte nur einen minimalen oder keinen Effekt auf das Klassifikationsergebnis haben, um diese zu entfernen.
+Das Beschneiden\footnote{Beschneiden wird hier äquivalent zum Englischen  "`to prune"' verwendet} des Netzes ist eine Technik, die entwickelt wurde um die Inferenzzeit eines neuronalen Netzwerks zu reduzieren. Das Beschneidungsverfahren wird auf das bereits trainierte Netz angewendet. Dabei wird entschieden, welche Gewichte nur einen minimalen oder keinen Effekt auf das Klassifikationsergebnis haben, um diese zu entfernen.
 
-Das Beschneiden des Netzes kann auch verwendet werden, um die Trainingszeit zu minimieren. Diese Methode soll in diesem Unterkapitel erläutert werden. Als Quelle für dieses Unterkapitel dient ein Paper, welches evaluiert inwiefern Trainingszeit mittels Beschneiden gespart werden kann \cite{prunetrain}.
+Das Beschneiden des Netzes kann auch verwendet werden um die Trainingszeit zu minimieren. Diese Methode soll hier in einem Unterkapitel erläutert werden. Als Quelle für das Unterkapitel dient ein Paper, welches evaluiert, inwiefern Trainingszeit mittels Beschneiden gespart werden kann \cite{prunetrain}.
 
 
-Das Ziel des Beschneidens während dem Training ist es, die Gewichte einzelner Kanäle auf Null zu setzen und zu entfernen, um mit einem kleinerem Netz in den nachfolgenden Epochen Trainingszeit zu sparen. Dazu wird der Verlust-Funktion des Netzwerks ein Normalisierungsterm addiert. Damit die Gewichte ganzer Kanäle möglichst unter den Schwellwert fallen werden die Gewichte der Kanäle gemeinsam quadriert, wie in der folgenden Gleichung zu sehen ist:
+Das Ziel des Beschneidens während des Trainings ist es, die Gewichte einzelner Kanäle auf Null zu setzen und zu entfernen, um mit einem kleinerem Netz in den nachfolgenden Epochen Trainingszeit zu sparen. Dazu wird zu der Verlust-Funktion des Netzwerks ein Normalisierungsterm addiert. Damit die Gewichte ganzer Kanäle möglichst unter den Schwellwert fallen, werden die Gewichte der Kanäle gemeinsam quadriert, wie in der folgenden Gleichung zu sehen ist:
 
 \begin{equation}
 GL(\mathcal{W})=\sum_{j=1}^{J} \left( \sum_{c_j=1}^{C_j} || W_{j} (c_j,:,:,:) ||_2 + \sum_{k_j=1}^{K_j} || W_{j}(:,k_j,:,:)||_2 \right)
  \label{equ:PTloss}
 \end{equation}
 
-Dieser Term nennt sich Gruppen-Lasso. Der Parameter $W_{j}$ stellt die Gewichte im CNN als Tensor dar. Mit $j$ wird dargestellt um welche Schicht es sich handelt. Die Dimensionen des Tensors sind: Ausgangskanäle \texttimes Eingangskanäle \texttimes Kerneldimension 1 \texttimes Kerneldimension 2. $J$ gibt an über wie viele Layer der Gruppen-Lasso Term berechnet wird. $k_j$ ist die Laufvariable über die einzelnen Eingangskanäle und $c_j$ über die einzelnen Ausgangskanäle. Alternativ zum Gruppen-Lasso Regularisierer könnten hier auch andere Regularisierer, wie L1 bzw. L2 Regularisierer verwendet werden. Der Vorteil des Gruppen-Lasso Regularisierers ist, das durch das gemeinsame Quadrieren der Gewichte einer Schicht diese gemeinsam minimiert werden.
+Dieser Term nennt sich Gruppen-Lasso. Der Parameter $W_{j}$ stellt die Gewichte im CNN als Tensor dar. Mit $j$ wird dargestellt, um welche Schicht es sich handelt. Die Dimensionen des Tensors sind: Ausgangskanäle \texttimes Eingangskanäle \texttimes Kerneldimension 1 \texttimes Kerneldimension 2. $J$ gibt an, über wie viele Layer der Gruppen-Lasso-Term berechnet wird. $k_j$ ist die Laufvariable über die einzelnen Eingangskanäle und $c_j$ über die einzelnen Ausgangskanäle. Alternativ zum Gruppen-Lasso-Regularisierer könnten hier auch andere Regularisierer, wie L1- bzw. L2-Regularisierer verwendet werden. Der Vorteil des Gruppen-Lasso-Regularisierers ist, das durch das gemeinsame Quadrieren der Gewichte einer Schicht diese gemeinsam minimiert werden.
 
 
-Um das Verhältnis von Gruppen-Lasso Term zur Verlust-Funktion dynamischer wählen zu können, werden diese nicht einfach aufeinander addiert. Es wird abhängig von der Initialbelegung der Gewichte ein Parameter $\lambda$  berechnet, der Gruppen-Lasso und Verlust-Funktion balanciert:
+Um das Verhältnis von Gruppen-Lasso-Term zur Verlust-Funktion dynamischer wählen zu können, werden diese nicht einfach miteinander addiert. Es wird abhängig von der Initialbelegung der Gewichte ein Parameter $\lambda$  berechnet, der Gruppen-Lasso und Verlust-Funktion balanciert:
 
 \begin{equation}
  LPR\left(GL(\mathcal{W}),l(f(\mathbf{x}_i,\mathcal{W}),y_i)\right) = \frac{\lambda \cdot GL(\mathcal{W})}{l(f(\mathbf{x}_i,\mathcal{W}), y_i) + \lambda \cdot GL(\mathcal{W})}           
 \end{equation}
 
-Die Größe LPR ist hier echt zwischen Null und Eins wählbar. Je größer sie gewählt wird, desto größer ist der Anteil, der beschnitten wird. Regelmäßig werden während dem Trainieren des Netzes Gewichte, die unter dem Schwellwert liegen auf Null gesetzt. Es entsteht ein nur dünn besetztes Netz. Dann wird durch ein Rekonfigurationsverfahren aus dem dünn besetzten Netz ein dicht besetztes Netz ohne die vorher nicht besetzten Kanäle. Um dieses Verfahren durchzuführen muss überprüft werden, ob mit dem Entfernen der Kanäle die Dimensionen der verschiedenen aufeinanderfolgenden Kanäle übereinstimmen. Bei einem residualen Netz muss zusätzlich darauf geachtet werden, dass die Dimensionen der Kurzschluss-Verbindungen zusammen passen.
+Die Größe LPR ist hier zwischen Null und Eins wählbar. Je größer sie gewählt wird, desto größer ist der Anteil, der beschnitten wird. Regelmäßig werden während des Trainierens des Netzes Gewichte, die unter dem Schwellwert liegen auf Null gesetzt. Es entsteht ein nur dünn besetztes Netz. Dann wird durch ein Rekonfigurationsverfahren aus dem dünn besetzten Netz ein dicht besetztes Netz ohne die vorher nicht besetzten Kanäle. Um dieses Verfahren durchzuführen muss überprüft werden, ob mit dem Entfernen der Kanäle die Dimensionen der verschiedenen aufeinanderfolgenden Kanäle übereinstimmen. Bei einem residualen Netz muss zusätzlich darauf geachtet werden, dass die Dimensionen der Kurzschluss-Verbindungen zusammen passen.
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.9 \textwidth]{KapitelPartA/images/union.png}
  % union.png: 570x208 px, 96dpi, 15.08x5.50 cm, bb=0 0 427 156
- \caption{Beispielhafte Darstellung des Kanal-Union Verfahrens}
+ \caption{Beispielhafte Darstellung des Kanal-Union-Verfahrens}
  \label{abb:union}
 \end{figure}
 
 
 
-Zu diesem Zweck wird das Kanal-Union Verfahren eingeführt. Beim Kanal-Union Verfahren wird ein Liste mit den Layern geführt, die aufeinander abgestimmt werden müssen. Im Falle eines residualen Netzes muss zusätzlich eine Liste über die zusammengehörigen Layer der Kurzschlussverbindungen geführt werden. Im nächsten Schritt werden alle Eingangs- und Ausgangskanäle, die noch Gewichte größer Null haben in einer Liste gesammelt. Auf allen Elementen dieser Liste wird nun geprüft, ob mit Hilfe von Vereinigungen Kanäle gefunden werden können die zwar keine von Null verschiedenen Gewichte mehr haben, wegen der Dimensionalität aber trotzdem beibehalten werden müssen. Alle Kanäle die nicht unter diese Bedingung fallen können mit Hilfe einer Rekonfiguration aus dem Netzwerk entfernt werden. In Abbildung \ref{abb:union} sind beispielhaft drei Eingangs- und sechs Ausgangskanäle dargstellt. In jedem Element des kartesischen Produkts der Menge der Eingangs- und Ausgangskanle ist jeweils ein drei mal drei Felder großer Kernel dargestellt. Die Werte der Gewichte sind blau markiert, sobald sie absolut kleiner als der gewählte Grenzwert sind. Je dunkler die nicht blauen Gewichte sind, desto kleiner sind sie. Da zwischen den jeweiligen Epochen für jeden Batch eine Anpassung der Gewichte durchgeführt wird entstehen teilweise große Veränderungen zwischen den Epochen. Dies ist zum Beispiel von Epoche 30 zu Epoche 31 im vierten Ausgangskanal sichtbar. Hier fällt innerhalb einer Epoche der Grossteil des Ausgangskanal unter den Grenzwert.
+Zu diesem Zweck wird das Kanal-Union-Verfahren eingeführt. Beim Kanal-Union-Verfahren wird eine Liste der Layer geführt, die aufeinander abgestimmt werden müssen. Im Falle eines residualen Netzes muss zusätzlich eine Liste der zusammengehörigen Layer der Kurzschlussverbindungen geführt werden. Im nächsten Schritt werden alle Eingangs- und Ausgangskanäle, die noch Gewichte größer Null haben in einer Liste gesammelt. Mit allen Elementen dieser Liste wird nun geprüft, ob mit Hilfe von Vereinigungen Kanäle gefunden werden können, die zwar keine von Null verschiedenen Gewichte mehr haben, wegen der Dimensionalität aber trotzdem beibehalten werden müssen. Alle Kanäle die nicht unter diese Bedingung fallen, können mit Hilfe einer Rekonfiguration aus dem Netzwerk entfernt werden. In Abbildung \ref{abb:union} sind beispielhaft drei Eingangs- und sechs Ausgangskanäle dargestellt. In jedem Element des kartesischen Produkts der Menge der Eingangs- und Ausgangskanäle ist jeweils ein drei mal drei Felder großer Kernel dargestellt. Die Werte der Gewichte sind blau markiert, sobald sie absolut kleiner als der gewählte Grenzwert sind. Je dunkler die nicht-blauen Gewichte sind, desto kleiner sind sie. Da zwischen den jeweiligen Epochen für jede Batch eine Anpassung der Gewichte durchgeführt wird, entstehen teilweise große Veränderungen zwischen den Epochen. Dies ist zum Beispiel von Epoche 30 zu Epoche 31 im vierten Ausgangskanal sichtbar. Hier fällt innerhalb einer Epoche der Großteil des Ausgangskanal unter den Grenzwert.
 \begin{figure}
 \begin{minipage}[c]{1\linewidth}
-\begin{tabularx}{1\linewidth}{m{0.22\linewidth}m{0.88\linewidth}} \includegraphics[width=0.21\textwidth]{KapitelPartA/images/net.png} &Liste der Layer, die direkt hintereinander sind und aufeinander abgestimmt werden müssen (ohne das zwischen den Layern eine Kurzschlussverbindung enstammt oder endet): $H=\left\{(\colorbox{sky}{2},\colorbox{bluegreen}{3}),(\colorbox{yellow}{3},\colorbox{blue2}{4}) \right\}$\newline
+\begin{tabularx}{1\textwidth}{m{0.2\textwidth}m{0.8\textwidth}} \includegraphics[width=0.21\textwidth]{KapitelPartA/images/net.png} &Liste der Layer, die direkt hintereinander sind und aufeinander abgestimmt werden müssen (ohne das zwischen den Layern eine Kurzschlussverbindung beginnt oder endet): $H=\left\{(\colorbox{sky}{2},\colorbox{bluegreen}{3}),(\colorbox{yellow}{3},\colorbox{blue2}{4}) \right\}$\newline
 Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Eingangskanaldimension haben müssen: \newline$E=\left\{(\colorbox{orange}{2},\colorbox{purple}{fc} \right\}$ \newline
 Liste der Layer, die im Zusammenhang mit den Kurzschlussverbindungen die gleiche Ausgangskanaldimension haben müssen: $A=\left\{ ( \colorbox{black}{\textcolor{white}{1} },\colorbox{vermi}{4} ) \right\} $ \newline
 Liste der dicht-besetzten Schichten vor dem ersten Beschneiden:\newline
@@ -47,14 +47,14 @@ $4:\left\{\colorbox{blue2}{0,1,2,3,4,5,6,7}\right\},\left\{\colorbox{vermi}{0,1,
 $fc:\left\{\colorbox{purple}{0,1,2,3,4,5,6,7}\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$ \newline
 
 \\
-\multicolumn{2}{m{1\linewidth}}{Liste der dicht-besetzten (db) Schichten nach dem auf Null setzen der Parameter aber vor der Rekonfiguration:\newline
+\multicolumn{2}{m{1\linewidth}}{Liste der dicht-besetzten (db) Schichten nach dem 'auf-Null-setzen' der Parameter aber vor der Rekonfiguration:\newline
 $1:\left\{0,1,2\right\},\left\{\colorbox{black}{\textcolor{white}{0,1,4,5,6,7}}\right\}$\newline
 $2:\left\{\colorbox{orange}{0,1,3,5,6,7}\right\},\left\{\colorbox{sky}{0,1,2,4,5,6,7}\right\}$\newline
 $3:\left\{\colorbox{bluegreen}{0,1,2,4,5,6,7}\right\},\left\{\colorbox{yellow}{0,1,2,3,5,6,7}\right\}$\newline
 $4:\left\{\colorbox{blue2}{0,1,3,4,6,7}\right\},\left\{\colorbox{vermi}{0,1,3,4,5,6,7}\right\}$\newline
 $fc:\left\{\colorbox{purple}{0,1,3,4,5,6}\right\},\left\{0,1,2,3,4,5,6,7,8,9,10\right\}$\newline
-Vorgehen des Kanal Union Verfahren:
-Als ersten Schritt wird für alle Elemente aus $H$ die Vereinigung von Ausgangs- und Eingangskanälen berechnet und diese dann zugewiesen:\newline
+Vorgehen des Kanal-Union-Verfahrens:
+Als erster Schritt wird für alle Elemente aus $H$ die Vereinigung von Ausgangs- und Eingangskanälen berechnet und diese dann zugewiesen:\newline
 $\colorbox{sky}{2},\colorbox{bluegreen}{3}:A(\colorbox{sky}{2}) \cup E(\colorbox{bluegreen}{3})= \l\left\{\colorbox{sky}{0,1,2,4,5,6,7}\right\} \cup \left\{\colorbox{bluegreen}{0,1,2,4,5,6,7}\right\} =\left\{0,1,2,4,5,6,7\right\} $\newline
 Hier wird der dünn-besetzte Kanal 3 entfernt \newline
 $\colorbox{yellow}{3},\colorbox{blue2}{4}: A(\colorbox{yellow}{3}) \cup E(\colorbox{blue2}{4}) =
@@ -63,22 +63,22 @@ Der nullwertige Eingangskanal 5 von Schicht 4 wird nicht entfernt, da der dazuge
 Im nächsten Schritt werden für die Elemente an jeweils gleicher Stelle aus den Mengen A und E Vereinigungen gebildet:
 $A(\colorbox{black}{\textcolor{white}{1}})\cup A(\colorbox{vermi}{4}) \cup E(\colorbox{orange}{2}) \cup E(\colorbox{purple}{fc})=$\newline
 $\left\{\colorbox{black}{\textcolor{white}{0,1,4,5,6,7}}\right\} \cup \left\{\colorbox{vermi}{0,1,3,4,5,6,7}\right\} \cup \left\{\colorbox{orange}{0,1,3,5,6,7}\right\} \cup \left\{\colorbox{purple}{0,1,3,4,5,6}\right\} = \left\{ 0,1,3,4,5,6,7\right\}$\newline
-Hier wir in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanälen von Schicht 2 und fc jeweils der 2. Kanal entfernt.}
+Hier wird in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanälen von Schicht 2 und fc jeweils der 2. Kanal entfernt.}
 \end{tabularx}
 \end{minipage}
 \end{figure}
 
 
 
-Bei einem residualen Netzwerk ist es weiterhin möglich, dass ein ganzer Block wegfällt. In diesem Fall müssen die Kanal-Union Listen angepasst werden und es wird mit einem ohne diesen Block um mehrere Layer verkürztes Netzwerk weitergemacht.
+Bei einem residualen Netzwerk kann weiterhin ein ganzer Block wegfallen. In diesem Fall müssen die Kanal-Union-Listen angepasst werden (und es wird mit einem ohne diesen Block um mehrere Layer verkürztes Netzwerk weitergemacht)\todo[color=blue1]{wie wäre es mit: ..., die weitere Aktion wird ohne diesen Block im um mehrere Layer verkürzten Netzwerk weiter geführt?}.
 
 
-Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speicherplatz gespart wird, kann bei gleicher Speicherauslastung die Batchgröße erhöht werden. Da die verwendete Technik für die Erhöhung der Batchgröße in der Quelle nicht angegeben ist und in der verwendeten Implementierung fehlt wurde diese nachimplementiert und wird in Kapitel \ref{sec:ptEva} erläutert \cite{ptImpl}. Hierbei wird die Lernrate an die erhöhte Batchgröße angepasst um negative Effekte für die Accuracy abzumildern oder auszuschließen. 
+Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speicherplatz gespart wird, kann bei gleicher Speicherauslastung die Batchgröße erhöht werden. Da die verwendete Technik für die Erhöhung der Batchgröße in der Quelle nicht angegeben ist und in der verwendeten Implementierung fehlt, wurde diese nachimplementiert. Dies wird in Kapitel \ref{sec:ptEva} erläutert \cite{ptImpl}. Hierbei wird die Lernrate an die erhöhte Batchgröße angepasst um negative Effekte für die Accuracy abzumildern oder auszuschließen. 
 
-Damit lassen sich Netzverkleinerungsraten von etwa 50 \% erreichen bei weniger als 2 \% Accuracy-Verlust auf dem Datensatz Cifar10. Andere Techniken schaffen zwar zwischen 70 - 80 \% Netzverkleinerungsraten brauchen aber wesentlich mehr Trainingszeit \cite{lottery}. Diese großen Verkleinerungsraten sind dort sehr stark abhängig von der Initialisierung \cite{lottery}. Das heißt nur einzelne Initialisierungen führen zu so starken Verkleinerungsraten, was insgesamt zu einer längeren Trainingszeit führt \cite{lottery}. 
+Damit lassen sich Netzverkleinerungsraten von etwa 50 \% erreichen bei weniger als 2 \% Accuracy-Verlust auf dem Datensatz Cifar10. Andere Techniken schaffen zwar zwischen 70 - 80 \% Netzverkleinerungsraten brauchen jedoch wesentlich mehr Trainingszeit \cite{lottery}. Diese großen Verkleinerungsraten sind dort sehr stark abhängig von der Initialisierung \cite{lottery}. Das heißt, nur einzelne Initialisierungen führen zu so starken Verkleinerungsraten, was insgesamt zu einer längeren Trainingszeit führt \cite{lottery}. 
 
 
-Eine weitere Beschneidungstechnik arbeitet vor dem Training des Netzwerkes\cite{snyc}. Damit wird das Netz abhängig von der Initialbelegung beschnitten. Es lassen sich zwar sehr große Teile der Parameter auf Null setzen, hierbei wird im Vergleich zur Beschneidungsmethode während dem Training allerdings weder für gemeinsames Beschneiden von Kanälen gesorgt, noch wird ein Rekonfigurationsverfahren vorgestellt. Somit hat das Netz am Ende des Verfahrens zwar relativ viele auf Null gesetzte Parameter ist aber weder schneller noch kleiner.
+Eine weitere Beschneidungstechnik arbeitet vor dem Training des Netzwerkes \cite{snyc}. Damit wird das Netz abhängig von der Initialbelegung beschnitten. Es lassen sich zwar sehr große Teile der Parameter auf Null setzen, hierbei wird im Vergleich zur Beschneidungsmethode während des Trainings allerdings weder für gemeinsames Beschneiden von Kanälen gesorgt, noch wird ein Rekonfigurationsverfahren vorgestellt. Somit hat das Netz am Ende des Verfahrens zwar relativ viele auf Null gesetzte Parameter ist aber weder schneller noch kleiner.
 
 
 \section{Beschleunigung des Lernens durch Wissenstransfer}
@@ -94,10 +94,10 @@ Beim Trainieren eines CNNs kommt es häufig vor, dass nach initialem Wählen der
 \end{figure}
 
 
-Wie in Abbildung \ref{abb:net2net} abgebildet ist lässt sich so der Arbeitsablauf zum Finden der passenden Netzstruktur anders gestalten. Der Net2Net Operator macht dabei das Netz entweder breiter (mehr Kanäle in bestimmten Schichten) oder tiefer (zusätzliche Schichten). Diese beiden Operatoren werden nun vorgestellt.
+Wie in Abbildung \ref{abb:net2net} abgebildet ist, lässt sich so der Arbeitsablauf zum Finden der passenden Netzstruktur anders gestalten. Der Net2Net-Operator macht hier das Netz entweder breiter (mehr Kanäle in bestimmten Schichten) oder tiefer (zusätzliche Schichten). Diese beiden Operatoren werden nun vorgestellt.
 
-\subsection{Operator für breiteres Netz}
-Bei dem Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der Ausgangskanäle hinzugefügt werden wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Filterkerneln. 
+\subsubsection{Operator für breiteres Netz}
+Beim Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der die Ausgangskanäle hinzugefügt werden, wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der die Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Filterkerneln. 
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.6\textwidth]{KapitelPartA/images/channels.png}
@@ -108,7 +108,7 @@ Bei dem Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausg
 
 
 
-Für das Layer $j+1$ sind es entsprechend $q \cdot m $ zusätzliche Kernel. Die Gewichtstensoren nachdem Anwenden des Net2Net Operators werden mit $\mathbf{U}^j$ und $\mathbf{U}^{j+1}$ bezeichnet und sollen die Dimensionalität von $\mathbf{U}^j: (n+q) \times l \times d(h_{(j,1)}) \times d(h_{(j,2)})$ und $\mathbf{U}^{j+1}: m \times (n+q) \times d(h_{(j+1,1)}) \times d(h_{(j+1,2)})$ haben. Der Net2Net Operator wird angewendet, indem zunächst eine Mapping Funktion $g$ definiert wird die für ein zufällige Belegung der zusätzlichen Kernels sorgt:
+Für den Layer $j+1$ sind es entsprechend $q \cdot m $ zusätzliche Kernel. Die Gewichtstensoren nach dem Anwenden des Net2Net-Operators werden mit $\mathbf{U}^j$ und $\mathbf{U}^{j+1}$ bezeichnet und sollen die Dimensionalität von $\mathbf{U}^j: (n+q) \times l \times d(h_{(j,1)}) \times d(h_{(j,2)})$ und $\mathbf{U}^{j+1}: m \times (n+q) \times d(h_{(j+1,1)}) \times d(h_{(j+1,2)})$ haben. Der Net2Net-Operator wird angewendet, indem zunächst eine Mapping-Funktion $g$ definiert wird, die für eine zufällige Belegung der zusätzlichen Kernels sorgt:
 
 \begin{equation}
  g(j) =  
@@ -117,14 +117,14 @@ Für das Layer $j+1$ sind es entsprechend $q \cdot m $ zusätzliche Kernel. Die 
  k & , \text{ falls} \, j>n : \;  k \text{ zufälliges Sample von} \left\{ 1,2,\ldots, n \right\} \\ 
  \end{cases} 
  \end{equation}
- Mit Hilfe dieser Mapping-Funktion werden nun die neuen Gewichtstensoren initialisiert:
+ Mit Hilfe dieser Mapping-Funktion werden nun die neuen Gewichtstensoren initialisiert:\todo[inline,color=red]{Was ist an dieser Formel nicht in Ordnung?}
  \begin{align*}
  \mathbf{U}_j(e,f,h_{j,1},h_{j,2}) = \mathbf{W}_j(g(e),f,h_{j,1},h_{j,2}) \\
  \mathbf{U}_{j+1}(e,f,h_{j+1,1},h_{j+1,2})= \frac{1}{|\left\{ x | g(x)=g(a)\right\}|}\mathbf{W}_{j+1}(e,g(f),h_{j+1,1},h_{j+1,2})
  \end{align*}
-Die Funktion $g(j)$ wird dabei für jede neu hinzugekommene Schicht nur einmal ausgewertet, sodass gesamte Reihen statt einzelne Kernel kopiert werden. Sollte sich zwischen dem $j$-ten und $(j+1)$-Layer eine Batchnormalisierungsschicht befinden, so werden die Parameter dieser Schicht ebenfalls kopiert.
+Die Funktion $g(j)$ wird dabei für jede neu hinzugekommene Schicht nur einmal ausgewertet, sodass gesamte Reihen statt einzelner Kernel kopiert werden. Sollte sich zwischen dem $j$-ten und $(j+1)$-Layer eine Batchnormalisierungsschicht befinden, so werden die Parameter dieser Schicht ebenfalls kopiert.
 
-Um nicht mehrere exakt gleiche Kernelreihen zu haben kann außerdem noch ein Noiseanteil auf alle Gewichte addiert werden. Dies ist vor allem für den Fall wichtig, wenn der Trainingsalgorithmus keine Form der Randomisierung hat, das heißt die gleichen Gewichtstensoren werden ermutigt unterschiedliche Funktionen zu erlernen. Somit sind die vom ursprünglichen und neuen Netz gelernten Funktionen ähnlich aber nicht gleich.
+Um nicht mehrere exakt gleiche Kernelreihen zu haben kann außerdem noch ein Noiseanteil auf alle Gewichte addiert werden. Dies ist vor allem für den Fall wichtig, wenn der Trainingsalgorithmus keine Form der Randomisierung hat, das heißt die gleichen Gewichtstensoren werden ermutigt, unterschiedliche Funktionen zu erlernen. Somit sind die vom ursprünglichen und neuen Netz gelernten Funktionen ähnlich aber nicht gleich.
 
 \subsubsection{Tieferes Netz}
 
@@ -138,7 +138,7 @@ Da zwischen den beiden Layern eine Batchnormalisierung genutzt wird, müssen die
 
 \subsubsection{Diskussion der Methode}
 
-Die beiden Net2Net-Operatoren schaffen die Möglichkeit Familien von Netzarchitekturen zu erforschen ohne jedes Mal von neuem zu lernen. Mit Hilfe der beiden Operatoren lässt sich die Komplexität des Netzes erhöhen ohne die gelernte bisherige Funktion zu vernachlässigen.
+Die beiden Net2Net-Operatoren schaffen die Möglichkeit, Familien von Netzarchitekturen zu erforschen ohne jedes Mal von neuem zu lernen. Mit Hilfe der beiden Operatoren lässt sich die Komplexität des Netzes erhöhen ohne die gelernte bisherige Funktion zu vernachlässigen.
 
 
 
@@ -146,23 +146,23 @@ Die beiden Net2Net-Operatoren schaffen die Möglichkeit Familien von Netzarchite
 \section{Automatische Architektursuche}\label{sec:auto}
 Neben dem im letzten Kapitel ausführlich erläuterten Ansatz des Strukturlernens gibt es noch einige andere aktuelle Ansätze, die automatisch nach einer besseren Architektur für einen Datensatz suchen. Einige dieser Ansätze werden hier beleuchtet und es wird gezeigt, wieso das im letzten Kapitel erläuterte Verfahren im praktischen Teil weiter verwendet wird.
 
-Bei dem Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergebnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
-Eine weitere Methode den Suchraum zu Durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial ein Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 35 GPUs für einen Tag \cite{gen}. Dann ist die Architektursuche allerdings komplett automatisiert und erreicht eine Accuracy von 96.78 \% für Cifar 10 und 79.77 \% für Cifar 100 \cite{gen}. \todo[inline]{Um diese Zahl einordnen zu können die besten zehn Accuracy liegen für Cifar 10 bei 96.62 \% bis 99.37 \% und für Cifar 100 bei 82,35 \% bis 93,51 \%. https://benchmarks.ai/ }  
+Beim Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen, entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergebnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
+Eine weitere Methode den Suchraum zu durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial eine Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 35 GPUs für einen Tag \cite{gen}. Dann ist die Architektursuche allerdings komplett automatisiert und erreicht eine Accuracy von 96.78 \% für Cifar 10 und 79.77 \% für Cifar 100 \cite{gen}. \todo[inline,color=red]{Um diese Zahl einordnen zu können: die besten zehn Accuracy-Werte liegen für Cifar 10 bei 96.62 \% bis 99.37 \% und für Cifar 100 bei 82,35 \% bis 93,51 \%. https://benchmarks.ai/ }  
 
-Das Ziel von einigen Veröffentlichungen im Themenbereich der automatischen Architektursuche ist es diese lange Trainingszeit zu reduzieren.
+Das Ziel von einigen Veröffentlichungen im Themenbereich der automatischen Architektursuche ist es, diese lange Trainingszeit zu reduzieren.
 
-Eine Möglichkeit der Reduzierung bietet sich durch Ausnutzung von domainspezifischen Eigenschaften der zu klassifizierenden Bilder. Eine Möglichkeit einer domainspezifischen Eigenschaft, die genutzt werden kann, ist wenn die Bilder nicht klassisch mit einer Kamera, sondern mit anderen Geräten aufgenommen wurden. Diese veränderte Aufnahmeart kann dafür sorgen, dass sich der Suchraum massiv einschränken lässt und damit die Architektursuche beschleunigen.
+Eine Möglichkeit der Reduzierung bietet sich durch Ausnutzung von domainspezifischen Eigenschaften der zu klassifizierenden Bilder. Eine Möglichkeit einer domainspezifischen Eigenschaft, die genutzt werden kann, ist, wenn die Bilder nicht klassisch mit einer Kamera, sondern mit anderen Geräten aufgenommen wurden. Diese veränderte Aufnahmeart kann dafür sorgen, dass sich der Suchraum massiv einschränken lässt und sich damit die Architektursuche beschleunigt.
 Als Beispiel kann hier eine Radaranlage zur Aufnahme von Bilder dienen \cite{polsar}.
 
 
-Eine weitere Möglichkeit die Trainingszeit zu minimieren ist es den Suchraum deutlich zu verkleinern und die Anzahl an Durchläufen zu minimieren. Der Nachteil ist dann allerdings, dass die Wahrscheinlichkeit ein Netz in einem globalen Optimum zu finden bezüglich des Suchraumes klein ist. Eine Methode die dies nutzt wird im nächsten Unterkapitel vorgestellt.
+Eine weitere Möglichkeit die Trainingszeit zu minimieren ist es, den Suchraum deutlich zu verkleinern und die Anzahl an Durchläufen zu minimieren. Der Nachteil ist dann allerdings, dass die Wahrscheinlichkeit, ein Netz in einem globalen Optimum zu finden bezüglich des Suchraumes klein ist. Eine Methode die dies nutzt, wird im nächsten Unterkapitel vorgestellt.
 \color{black}
 
 
-\section{Schnelles Ressourcen beschränktes Strukturlernen tiefer Netzwerke}\label{sec:morphnet}
-Im Gegensatz zu den Kapiteln \ref{sec:prunetrain} und \ref{sec:net2net}, in denen jeweils eine Möglichkeit ein CNN kleiner sowie größer zu machen vorgestellt wurden geht es jetzt darum dies zu kombinieren. Die Quelle für diese Kapitel ist soweit nicht anders gekennzeichnet das Paper, welches die Methode vorgestellt hat \cite{morphnet}.
+\section{Schnelles Ressourcen-beschränktes Strukturlernen tiefer Netzwerke}\label{sec:morphnet}
+Im Gegensatz zu den Kapiteln \ref{sec:prunetrain} und \ref{sec:net2net}, in denen jeweils eine Möglichkeit, ein CNN kleiner sowie größer zu machen vorgestellt wurden, geht es jetzt darum, dies zu kombinieren. Die Quelle für diese Kapitel ist, soweit nicht anders gekennzeichnet, das Paper, welches die Methode vorgestellt hat.
 
-Die manuelle Wahl von Hyperparametern, die bestimmen wie groß und komplex ein neuronales Netz ist, braucht eine gewisse Kunstfertigkeit. Sind die Hyperparameter falsch gewählt, so müssen diese angepasst und das Netz erneut trainiert werden. Mit Hilfe der hier vorgestellten Methode wird diese Suche nach der besten Architektur automatisiert. Dies geschieht mit Hilfe von iterativen Verkleinern und Vergrössern des Netzes. Diese Methode hat drei Vorteile:
+Die manuelle Wahl von Hyperparametern, die bestimmen wie groß und komplex ein neuronales Netz ist, braucht eine gewisse Kunstfertigkeit. Sind die Hyperparameter falsch gewählt, so müssen diese angepasst und das Netz erneut trainiert werden\todo[color=blue1]{das ist eine Binsenweisheit... welche Information wolltest Du rüberbringen? 'Bei der Wahl des Gemüses für das Rezept ist eine gewisse Kunstfertigkeit gefragt - falls man das falsche erwischt hat, muss man dies korrigieren:-)'}. Mit Hilfe der hier vorgestellten Methode wird die Suche nach der besten Architektur automatisiert. Dies geschieht mit Hilfe von iterativen Verkleinern und Vergrößern des Netzes. Diese Methode hat drei Vorteile:
 \begin{enumerate}
  \item Es ist auf große Netze und große Datensätze skalierbar
  \item Es kann die Struktur in Bezug auf eine bestimmte Nebenbedingung (zum Beispiel Modellgröße, Anzahl an Parametern) optimieren
@@ -172,18 +172,18 @@ Die manuelle Wahl von Hyperparametern, die bestimmen wie groß und komplex ein n
 Das Ziel der Methode ist es, automatisch die beste Architektur für ein Netz zu finden. Dies umfasst die Breiten der Eingangs- und Ausgangskanäle, Größe der Kernel, die Anzahl der Schichten und die Konnektivität dieser Schichten. Im Rahmen dieser Methode wird dies auf die Breite der Ausgangskanäle eingeschränkt. Die Methode kann auf die anderen Größen erweitert werden. Allerdings ist die Einschränkung auf die Breite der Ausgangskanäle sowohl effektiv als auch simpel.
 Die Breite der Ausgangskanäle für alle $J$ Schichten wird mit $\mathcal{C}_{1:J}$ bezeichnet. 
 
-Der Anfangspunkt dieser Methode ist ein Netz $\mathcal{W}^1$ mit einer initialen Breite der Ausgangskanäle sowie fixen Größen für die Filtergrößen. Die Nebenbedingung wird mit der Funktion $\mathcal{F}$ bezeichnet. Sie optimiert entweder die Modellgröße oder die Anzahl an Flops per Inferenz. Die Methode optimiert formal gesehen also folgendes:
+Der Anfangspunkt dieser Methode ist ein Netz $\mathcal{W}^1$ mit einer initialen Breite der Ausgangskanäle sowie fixen Filtergrößen. Die Nebenbedingung wird mit der Funktion $\mathcal{F}$ bezeichnet. Sie optimiert entweder die Modellgröße oder die Anzahl an Flops per Inferenz. Die Methode optimiert formal gesehen also folgendes:
 \begin{equation}
  \mathcal{W}^{\ast}= \underset{\mathcal{F}(\mathcal{C}_{1:J})\leq \zeta}{\text{arg min}} \underset{\mathcal{W}}{\text{ min}}\; l(f(\mathbf{x_i}, \mathcal{W}),y_i)\label{equ:morph1}
 \end{equation}
 
 Das Vergrößern des Netzes basiert auf einer Lösung für die Gleichung \ref{equ:morph1}: dem Breitenmultiplikator $\omega$. 
-Sei $\omega \cdot O_{1:M} = \left\{ \lfloor \omega O_1 \rfloor, \lfloor \omega O_2 \rfloor, \ldots , \lfloor \omega O_M \rfloor \right\}, \omega>0$. Gilt $\omega>1$, so wird das Netz vergrößert. Bei $\omega <1$ wird das Netz verkleinert. Um die Gleichung \ref{equ:morph1} zu lösen finde nun das größte $\omega$, so dass $\mathcal{F}(\omega \cdot O_{1:M})\leq \zeta$ gilt.
+Sei $\omega \cdot O_{1:M} = \left\{ \lfloor \omega O_1 \rfloor, \lfloor \omega O_2 \rfloor, \ldots , \lfloor \omega O_M \rfloor \right\}, \omega>0$. Gilt $\omega>1$, so wird das Netz vergrößert. Bei $\omega <1$ wird das Netz verkleinert. Um die Gleichung \ref{equ:morph1} zu lösen, finde nun das größte $\omega$, so dass $\mathcal{F}(\omega \cdot O_{1:M})\leq \zeta$ gilt.
 
 
-Dieser Ansatz sorgt für eine mögliche Verkleinerung und Vergrößerung des Netzes und er funktioniert gut bei einem guten initialen Netz. Ist das initialen Netz aber nicht von so guter Qualität, so hat dieser Ansatz Probleme. Grund hierfür ist wahrscheinlich ein lokales Minimum, aus welchem die Optimierungsfunktion nicht mehr herausfindet um ein besseres lokales oder globales Minimum zu finden.
+Dieser Ansatz sorgt für eine mögliche Verkleinerung und Vergrößerung des Netzes und er funktioniert gut bei einem guten initialen Netz. Ist das initialen Netz aber nicht von so guter Qualität, so hat dieser Ansatz Probleme. Grund hierfür ist wahrscheinlich ein lokales Minimum, aus welchem die Optimierungsfunktion nicht mehr herausfindet, um ein besseres lokales oder globales Minimum zu finden.
 
-Dieser Nachteil wird durch eine Veränderung der Verlust-Funktion aufgehoben. Es wird ein Regularisierer $\mathcal{G}$ dazu addiert, welcher misst wie größ der Anteil eines Netzbestandteiles an $\mathcal{F}( \mathcal{C}_{1:J})$ misst und es damit direkt optimieren kann. Dann ist
+Dieser Nachteil wird durch eine Veränderung der Verlust-Funktion aufgehoben. Es wird ein Regularisierer $\mathcal{G}$ dazu addiert, welcher misst, wie groß der Anteil eines Netzbestandteiles an $\mathcal{F}( \mathcal{C}_{1:J})$ ist, und der es damit direkt optimieren kann. Dann ist
 \begin{equation}
  W^{\ast}= \underset{\mathcal{F}(\mathcal{C}_{1:J})\leq \zeta}{\text{arg min}} \underset{\mathcal{W}}{\text{min}}\; l(f(\mathbf{x_i}, \mathcal{W}),y_i) + \lambda \mathcal{G}( \mathcal{W})  
  \label{equ:morph2}
@@ -191,13 +191,11 @@ Dieser Nachteil wird durch eine Veränderung der Verlust-Funktion aufgehoben. Es
 Dieser Ansatz kann die relative Größe einer Schicht ändern, hat aber den Nachteil das häufiger die zu optimierende Nebenbedingung nicht optimal maximiert wird.
 
 
-
-
-Die beiden Ansätze lassen sich kombinieren. Es entsteht folgender Algorithmus:
+Die beiden Ansätze lassen sich kombinieren. Algorithmus \ref{alg:morphnet} beschreibt den Algorithmus der bei der Kombination entsteht mit Pseudocode.
 \begin{algorithm}[H]
 \caption{MorphNet Algorithmus}
 \begin{algorithmic}[1]
-\STATE Trainiere das Netz um $\mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min} l(f(\mathbf{x_i}, \mathcal{W}),y_i) + \lambda \mathcal{G}(\mathcal{W})$ zu finden
+\STATE Trainiere das Netz um $\mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; l(f(\mathbf{x_i}, \mathcal{W},y_i) + \lambda \mathcal{G}(\mathcal{W}))$ zu finden
 \STATE Finde die neue Breite $\mathcal{C}_{1:J}^{\prime}$, die durch 1. errechnet wurde
 \STATE Finde das größte $\omega$, so dass $\mathcal{F}(\omega \cdot \mathcal{C}_{1:J})\leq \zeta$ gilt
 \STATE Wiederhole ab 1. so häufig wie gewünscht mit $\mathcal{C}_{1:J} = \mathcal{C}_{1:J}^{\prime}$
@@ -209,7 +207,7 @@ Dieser Algorithmus kann so oft durchlaufen werden bis entweder die Performance d
 
 
 \subsection{Definition der Nebenbedingung}
-Die Nebenbedingung $\mathcal{F}$ lässt sich für verschiedene zu optimierende Zielgrößen definieren. Eine einfache Nebenbedingungen, die Modellgröße wird hier beispielhaft erläutert. Die Größe dieser Nebenbedingung wird vorallem durch Schichten mit Matrixmultiplikation dominiert. Die Modellgröße ergibt sich durch die Größe der Tensoren der einzelnen Schichten. Da die Größe der Tensoren der einzelnen Schichten abhängig von der Anzahl der Eingangs- und Ausgangskänäle sowie der Filtergrösse ist und nicht von der Position im Netzwerk ist, lässt sich $\mathcal{F}(\mathcal{C}_{1:J})$ auf die einzelnen Schichten zurückführen. Es gilt:
+Die Nebenbedingung $\mathcal{F}$ lässt sich für verschiedene zu optimierende Zielgrößen definieren. Eine einfache Nebenbedingungen, die Modellgröße wird hier beispielhaft erläutert. Die Größe dieser Nebenbedingung wird vor allem durch Schichten mit Matrixmultiplikation dominiert. Die Modellgröße ergibt sich durch die Größe der Tensoren der einzelnen Schichten. Da die Größe der Tensoren der einzelnen Schichten abhängig von der Anzahl der Eingangs- und Ausgangskänäle sowie der Filtergröße und nicht von der Position im Netzwerk ist, lässt sich $\mathcal{F}(\mathcal{C}_{1:J})$ auf die einzelnen Schichten zurückführen. Es gilt:
 \begin{equation}
  \mathcal{F}(\mathcal{C}_{1:J})=\sum_{j=1}^{J} \mathcal{F}(j)
 \end{equation}
@@ -219,7 +217,7 @@ Die Abhängigkeit von der Größe des jeweiligen Tensors ergibt für
 \begin{equation}\label{equ:F}
 \mathcal{F}(j)=c_j \cdot k_j \cdot d(h_{j,1}) \cdot d(h_{j,2})  
 \end{equation}
-Da auf durch die Anwendung des Regularisierers einzelne Kanäle auf Null gesetzt werden und ein Netz ohne diesen Kanal möglich wären sollen diese Kanäle in dieser Berechnung ausgelassen werden. Daher wird die Formel um Aktivierungsfunktionen $A_{k_l,j}$ und $B_{c_l,j}$ ergänzt die mit einer Eins angeben, dass der zugehörige Kanal nicht null ist. Eine Null als Ergebnis der Aktivierungsfunktion ergibt sich, wenn der entsprechende Kanal komplett auf Null gesetzt wurde. Dadurch lassen sich $c_j$ und $k_j $ aus Formel \ref{equ:F} ersetzen:
+Da durch die Anwendung des Regularisierers einzelne Kanäle auf Null gesetzt werden und ein Netz ohne diesen Kanal möglich wäre, sollen diese Kanäle in dieser Berechnung ausgelassen werden. Daher wird die Formel um Aktivierungsfunktionen $A_{k_l,j}$ und $B_{c_l,j}$ ergänzt die mit einer Eins angeben, dass der zugehörige Kanal nicht null ist. Eine Null als Ergebnis der Aktivierungsfunktion ergibt sich, wenn der entsprechende Kanal komplett auf Null gesetzt wurde. Dadurch lassen sich $c_j$ und $k_j $ aus Formel \ref{equ:F} ersetzen:
 \begin{equation}
 \mathcal{F}(j)=\left(\sum_{k=1}^{k_l} A_{k,j} \right) \cdot \left(\sum_{c=1}^{c_l} B_{c,j}\right) \cdot d(h_{j,1}) \cdot d(h_{j,2})  
 \end{equation}
@@ -231,7 +229,7 @@ Beim Verkleinern des Netzes soll die Verlustfunktion $l$ des CNN mit der Nebenbe
 \mathcal{G}(j)=\left(\sum_{k=1}^{k_l-1} A_{k_l,j} \sum_{c=1}^{c_l-1} |\gamma_{c, j} | \right) \cdot \left(\sum_{k=1}^{k_l-1} |\gamma_{k,j} |   \sum_{c=1}^{c_l-1} B_{c,j}\right) \cdot d(h_{j,1}) \cdot d(h_{j,2})  
 \end{equation}
 
-Mit dieser Funktion lässt mittels Gradientenabstieg lernen, obwohl Teile des Regularisieres nicht komplett kontinuierlich sind. $\gamma$ muss dabei kontiuierlich sein. Werden die $\gamma$ für einen Kanal auf Null gesetzt durch das Lernen, so ist der dazugehörige Kanal aus der Berechnung wie gewünscht ausgeschlossen. Für jedes Ein- und Ausgangskanal einer Schicht wird ein $\gamma$ in den Vorwärtsdurchgang eingebaut. Diese Parameter funktionieren dann analog zu den $\gamma$ aus der Batchnormalisierung, da sie kontrollieren wieviel Prozent eines Kanals weitergeleitet wird.
+Mit dieser Funktion lässt sich mittels Gradientenabstieg lernen, obwohl Teile des Regularisieres nicht komplett kontinuierlich sind. $\gamma$ muss dabei kontinuierlich sein. Werden die $\gamma$ für einen Kanal auf Null gesetzt durch das Lernen, so ist der dazugehörige Kanal aus der Berechnung wie gewünscht ausgeschlossen. Für jeden Ein- und Ausgangskanal einer Schicht wird ein $\gamma$ in den Vorwärts-Durchgang eingebaut. Diese Parameter funktionieren dann analog zu den $\gamma$ aus der Batchnormalisierung, da sie kontrollieren, welcher Prozentsatz eines Kanals weitergeleitet wird.
 
 
 Aus dem Regularisierer einer Schicht lässt sich mittels Addition die Regularisierung des kompletten Netzes berechnen.
@@ -240,14 +238,14 @@ Aus dem Regularisierer einer Schicht lässt sich mittels Addition die Regularisi
 \end{equation}
 
 
-Um die Wichtigekeit vom besseren Training des Netzes und der Regularisierung von Parametern treffen zu können wird ein Parameter $\lambda$ eingeführt. So entsteht die Verlust-Funktion
+Um die Wichtigkeit vom besseren Training des Netzes und der Regularisierung von Parametern treffen zu können wird ein Parameter $\lambda$ eingeführt. So entsteht die Verlust-Funktion
 \begin{equation}
  \mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; \; l(f(\mathbf{x}_i, \mathcal{W}),y_i) + \lambda \mathcal{G}(\mathcal{W})
 \end{equation}
 
 
 
-Dieser Regularisierer funktioniert nicht für Netze, die Kurzschlussverbindungen besitzen. Hier wird wie bei Beschneiden des Netzes während dem Training die ein Gruppen-Lasso verwendet. Dies stellt sicher, dass an Kurzschlussverbindungen nur so beschnitten werden kann wie für die Dimensionalität des Netzes zuträglich.
+Dieser Regularisierer funktioniert nicht für Netze, die Kurzschlussverbindungen besitzen. Hier wird, wie beim Beschneiden des Netzes während des Trainings, ein Gruppen-Lasso verwendet. Dies stellt sicher, dass an Kurzschlussverbindungen nur so beschnitten werden kann, wie es für die Dimensionalität des Netzes zuträglich ist.
 
 \todo[inline]{bis hier bitte gegen lesen}
 
