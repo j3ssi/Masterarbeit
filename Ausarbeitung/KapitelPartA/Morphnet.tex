@@ -70,7 +70,7 @@ Hier wird in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanä
 
 
 
-Bei einem residualen Netzwerk kann weiterhin ein ganzer Block wegfallen. In diesem Fall müssen die Kanal-Union-Listen angepasst werden (und es wird mit einem ohne diesen Block um mehrere Layer verkürztes Netzwerk weitergemacht)\todo[color=blue1]{wie wäre es mit: ..., die weitere Aktion wird ohne diesen Block im um mehrere Layer verkürzten Netzwerk weiter geführt?}.
+Bei einem residualen Netzwerk kann weiterhin ein ganzer Block wegfallen. In diesem Fall müssen die Kanal-Union-Listen angepasst werden, die weitere Aktion wird ohne diesen Block im um mehrere Schichten verkürzten Netzwerk weiter geführt
 
 
 Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speicherplatz gespart wird, kann bei gleicher Speicherauslastung die Batchgröße erhöht werden. Da die verwendete Technik für die Erhöhung der Batchgröße in der Quelle nicht angegeben ist und in der verwendeten Implementierung fehlt, wurde diese nachimplementiert. Dies wird in Kapitel \ref{sec:ptEva} erläutert \cite{ptImpl}. Hierbei wird die Lernrate an die erhöhte Batchgröße angepasst um negative Effekte für die Accuracy abzumildern oder auszuschließen. 
@@ -102,7 +102,7 @@ Beim Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgang
  \centering
  \includegraphics[width=0.6\textwidth]{KapitelPartA/images/channels.png}
  % channels.pdf: 0x0 px, 300dpi, 0.00x0.00 cm, bb=
- \caption{Übersicht über die zusätzlichen Kanäle todo: Grafik schön machen}
+ \caption{Übersicht über die zusätzlichen Kanäle}
 \label{abb:channels}
  \end{figure}
 
@@ -162,7 +162,8 @@ Eine weitere Möglichkeit die Trainingszeit zu minimieren ist es, den Suchraum d
 \section{Schnelles Ressourcen-beschränktes Strukturlernen tiefer Netzwerke}\label{sec:morphnet}
 Im Gegensatz zu den Kapiteln \ref{sec:prunetrain} und \ref{sec:net2net}, in denen jeweils eine Möglichkeit, ein CNN kleiner sowie größer zu machen vorgestellt wurden, geht es jetzt darum, dies zu kombinieren. Die Quelle für diese Kapitel ist, soweit nicht anders gekennzeichnet, das Paper, welches die Methode vorgestellt hat.
 
-Die manuelle Wahl von Hyperparametern, die bestimmen wie groß und komplex ein neuronales Netz ist, braucht eine gewisse Kunstfertigkeit. Sind die Hyperparameter falsch gewählt, so müssen diese angepasst und das Netz erneut trainiert werden\todo[color=blue1]{das ist eine Binsenweisheit... welche Information wolltest Du rüberbringen? 'Bei der Wahl des Gemüses für das Rezept ist eine gewisse Kunstfertigkeit gefragt - falls man das falsche erwischt hat, muss man dies korrigieren:-)'}. Mit Hilfe der hier vorgestellten Methode wird die Suche nach der besten Architektur automatisiert. Dies geschieht mit Hilfe von iterativen Verkleinern und Vergrößern des Netzes. Diese Methode hat drei Vorteile:
+Die manuelle Wahl von Hyperparametern, die bestimmen wie groß und komplex ein neuronales Netz ist, 
+braucht Erfahrung und Kunstfertigkeit. Sind die Hyperparameter falsch gewählt, so müssen diese angepasst und das Netz erneut trainiert werden. Mit Hilfe der hier vorgestellten Methode wird die Suche nach der besten Architektur automatisiert. Dies geschieht mit Hilfe von iterativen Verkleinern und Vergrößern des Netzes. Diese Methode hat drei Vorteile:
 \begin{enumerate}
  \item Es ist auf große Netze und große Datensätze skalierbar
  \item Es kann die Struktur in Bezug auf eine bestimmte Nebenbedingung (zum Beispiel Modellgröße, Anzahl an Parametern) optimieren
@@ -246,8 +247,6 @@ Um die Wichtigkeit vom besseren Training des Netzes und der Regularisierung von 
 
 
 Dieser Regularisierer funktioniert nicht für Netze, die Kurzschlussverbindungen besitzen. Hier wird, wie beim Beschneiden des Netzes während des Trainings, ein Gruppen-Lasso verwendet. Dies stellt sicher, dass an Kurzschlussverbindungen nur so beschnitten werden kann, wie es für die Dimensionalität des Netzes zuträglich ist.
-
-\todo[inline]{bis hier bitte gegen lesen}
 
 
 

@@ -2,35 +2,47 @@
 \color{blue1}
 
 Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für ide Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
-
+\todo[inline, color = red]{Hier Algorithmus nochmal hinschreiben?}
 
 \section{Evaluierung der einzelnen Schritte von MorphNet}
-Im ersten Schritt von MorphNet wird das Netz trainiert um $\mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; l(f(\mathbf{x_i}, \mathcal{W},y_i) + \lambda \mathcal{G}(\mathcal{W}))$. Der Regularisierer $\mathcal{G}$ ist in dieser Formel dafür zuständig, dass die gewählte Zielgröße minimiert wird. Die zwei möglichen Zielgrößen sind die Modellgröße und Anzahl an FLOPs. Für beide Zielgrößen gilt, dass die im Regularsierer verwendete Formel nur eine vereinfachte Form der Zielgrösse berechnet. In Abbildung \ref{abb:morphSize} ist in Blau abgebilder, wie sich der Wert des Regularisieres währendem Training verändert, Die grüne Kurve in Abbildung \ref{abb:morphSize} ist der tatsächliche Verlauf der Modellgröße über die Trainingszeit. Da beide Kurven einen ähnlichen Verlauf und eine ähnliche Krümmung zeigen berechnet $\mathcal{G}$ zwar eine vereinfachte Form der Zielgröße minimiert aber auch die Zielgröße. 
-Für die Zielgröße FLOPs ist der Verlauf der beiden Kurven in Abbildung \ref{sec:morphFLOPs} abgebildet. Auch hier kann die gleiche Aussage wie zur Modelgröße getroffen werden.
+Im ersten Schritt von MorphNet wird das Netz trainiert um 
+\begin{equation}
+\mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; l(f(\mathbf{x_i}, \mathcal{W},y_i) + \lambda \mathcal{G}(\mathcal{W}))
+\end{equation}
+zu finden. Der Regularisierer $\mathcal{G}$ ist in dieser Formel dafür zuständig, dass die gewählte Zielgröße minimiert wird. Die zwei möglichen Zielgrößen sind die Modellgröße und Anzahl an FLOPs. Für beide Zielgrößen gilt, dass die im Regularsierer verwendete Formel nur eine vereinfachte Form der Zielgrösse berechnet. 
+Zunächst wird evaluiert, welchen Effekt der Regularisierer auf die Zielgröße hat. Dabei werden nur die ersten beiden Schritte des MorphNet-Algorithmus durchgeführt.
+In Abbildung \ref{abb:morphFLOPs} ist in Grün abgebildet, wie sich der Wert des Regularisieres für die Zielgrösse FLOPs während dem Training verändert. Die blaue Kurve in Abbildung \ref{abb:morphFLOPs} ist der tatsächliche Verlauf der Flops über die Trainingszeit. Die blaue Kurve wird in Schritten weniger, da das Netz nur alle fünf Epochen mittels der zweiten MorphNet-Schrittes kleiner wird. Die verzögerte Reduzierung der Zielgröße liegt daran, dass erst mit einer gewissen Anzahl entfernbarer Gewichte ttsächlich eine Änderung an den FLOPs passiert. Für die Zielgröße Modellgröße ist der Verlauf der beiden Kurven in Abbildung \ref{sec:morphSize} abgebildet. Für die Zielgröße Modellgröße muss $\lambda$ größer sein um einen Effekt auf die Zielgröße zu haben.
 
 \begin{figure}
      \centering
-     \subfloat[][]{\missingfigure{Size}\label{abb:morphSize}}
+     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph1.png}\label{abb:morphSize}}
      \hfill
      \subfloat[][]{
-     \missingfigure{Size}\label{abb:morphFLOPs}
-     %\includegraphics[width=.5\linewidth]{KapitelPartB/Images/lasso2.png}\label{abb:lasso2}
+     \includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph2.png}\label{abb:morphFLOPs}
      }
-     \caption{Vergleich Zielgröße mit Wert des Regularisierers für (a) Modellgröße (b) FLOPs}
+     \caption{Vergleich Zielgröße mit Wert des Regularisierers für (a) FLOPs (b) Modellgröße }
      \label{abb:morph1}
 \end{figure}
 
+Der Effekt von verschieden großen $\lambda$ wird im nächsten Schritt untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert. Auch hier werden nur die ersten beiden Schritte des MorphNet-Algorithmus mehrfach hintereinander durchgeführt. In Abbildung \ref{abb:morphFlops1} ist zu sehen, wie sich der Morph-Net Algorithmus bei verschiedenen $\lambda$ für die Zielgröße FLOPs verhält. Dabei wird das Netz jeweils für fünf Epochen trainiert und anschliessend wird das Netz beschnitten. Abhängig von der Größe von $\lambda$ wird dem Regularisierer mehr oder weniger Gewicht gegeben. Dies sorgt für eine unterschiedlich große Verkleinerungsrate. In Abbildung \ref{abb:morphSize1} ist abgebildet wie sich die Netzverkleinerungsraten verändern, bei der Zielgröße Modellgröße.  
 
-
-Als weiteren Schritt in der Evaluation des MorphNets wird der Effekt von unterschiedlichen Werten für $\lambda$ untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert.   
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph3.png}\label{abb:morphFlops1}}
+     \hfill
+%     \subfloat[][]{
+%     \includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph2.png}\label{abb:morphSize1}
+%     }
+     \caption{Effekt verschieden großer $\lambda$ auf  (a) FLOPs (b) Modellgröße }
+     \label{abb:morph2}
+\end{figure}
+Im letzten Schritt wird evaluiert, welchen Effekt die verschiedenen $\lambda$ auf den gesamten MorphNet-Algorithmus haben. Auf Grund dieser Ergebnisse werden die Parameter von MorphNet ermittelt, welches im nächsten Unterkapitel mit den Rahmenbedingungen von Kapitel \ref{sec:konzept} evaluiert wird.
 
 
 
 \section{Evaluierung der Ergebnisse von MorphNet}
 
-
-Danach wird evaluiert wie aus einem ResNet 32 mit Anfangsbreite ein grösseres Netz wird. Erlaubt sind maximal die Flops/bzw. Modelgrösse des 16 breiten Netzwerks
-
+Die in Kapitel \ref{sec:konzept}  vorgestellte Vorgehensweise wir hier verwendet, um MorphNet zu evaluieren. Dies bildet die Grundlage zum Vergleich in Kapitel \ref{sec:vergleich}.
 
 
 
@@ -57,7 +69,6 @@ Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese
 
 
 \subsubsection{Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}
-\color{vermi}
 Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio durchschnittlich weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit einer Epoche wird das arithmetische Mittel über alle Epochen angewandt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot in Abbildung \ref{abb:lasso1} dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes signifikant schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
 
 
@@ -131,272 +142,129 @@ Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffent
 
 
 \section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
+\color{black}
+
 Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet mit einer Grenze bis zu dieser der Speicher ausgelastet werden darf. 
 
 Die Berechnung der maximalen Batchgröße für eine gegegebene Speichergrösse und Netzarchitektur wird in Kapitel \ref{sec:batch} beschrieben.
-
 
 \subsection{Berchnung der Batchgröße abhängig vom Speicherverbrauch}\label{sec:batch}
 Da sich in Pytorch der freie Speicher nicht direkt auslesen lässt wird mit Hilfe von Experimenten, die auf der GPU durchgeführt werden gemessen wie sich die Speicherauslastung verhält. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung proportional zur Batchgröße verhält. Es ist gut zu erkennen, dass der Zusammenhang linear ist. Die Passgenauigkeit dieses Zusammenhangs kann mittels einer linearen Regression bestimmt werden.  Daher wird  die rote Gerade wurde einer linearen Regression berechnet. Der maximale Abstand der gemessenen Punkte zur Gerade ist $0,19$ für Punkte, die unter der Gerade liegen sowie $0,67$ für Punkte die über der Gerade liegen. Zusammen mit der graphischen Übereinstimmung ergibt sich klar ein linearer Zusammenhang mit kleinen Abweichungen.
  \begin{figure}
      \centering
-     \subfloat[][]{\includegraphics[width= .6\textwidth]{KapitelPartB/Images/memory1.png}\label{abb:memory1}}
-     \caption{Experimente zur Batchgröße}
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory1.png}\label{abb:memory1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory2.png}\label{abb:memory2}}\\
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory3.png}\label{abb:memory3}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory4.png}\label{abb:memory4}}\\
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory5.png}\label{abb:memory5}}\\
+          
+     \caption{Darstellung des Berechnen der Geraden}
      \label{abb:memory}
 \end{figure}
-Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für einen Wert des Speicherverbrauchs abhängig von der Netzarchitektur berechnet, wie groß die Batchgröße maximal sein darf. Zu diesem Zweck wird für ein Netz mit drei Phasen betrachtet und ein Modell entwickelt mit dem sich die maximale Batchgröße berechnen lässt. Die maximale Batchgröße hängt ab von:
+Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für einen Wert des Speicherverbrauchs abhängig von der Netzarchitektur berechnet, wie groß die Batchgröße maximal sein darf. Zu diesem Zweck wird ein Netz mit drei Phasen betrachtet und ein Modell entwickelt mit dem sich die maximale Batchgröße berechnen lässt. Die maximale Batchgröße hängt ab von:\color{blue1}
+
 \begin{itemize}
  \item der Blockanzahl
  \item der Phasenanzahl und
  \item der Anzahl an Schichten pro Block
+ \item Breite der Schichten je Phase
 \end{itemize}
-In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl auf die Speicherauslastung und auf die maximale Batchgröße auswirken.
+In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl bei gleichbleibender Speicherauslastung auf die maximale Batchgröße auswirkt. Die Blockanzahl wirkt sich wie zu sehen ist nicht linear auf die maximale Batchgröße aus. Betrachtet man hingegen den Zusammenhang zwischen Blockanzahl und Parameteranzahl, wie in Abbildung \ref{abb:memory3} abgebildet, so ergibt sich hier ein linearer Zusammenhang. In Abbildung \ref{abb:memory4} ist der Zusammenhang zwischen Blockanzahl und dem Quotienten aus Parameteranzahl und Blockanzahl zu sehen. Der Verlauf dieser Kurve ähnelt dem Verlauf von Abbildung \ref{abb:memory2}. In Abbildung \ref{abb:memory5} wird daher der Quotient aus diesen beiden Größen gegen die Blockanzahl geplottet und eine Gerade mit linearer Regression berechnet.
+Um die Wahrscheinlichkeit zu prüfen, mit fälschlicherweise angenommen wird, dass in Abbildung \ref{abb:memory} ein linearer Zusammenhang besteht wird ein t-Test ausgeführt.
+Es ergibt sich die Alternativ- und Nullhypothese:
+\begin{align*}
+ H_0: \text{Es besteht kein linearer Zusammenhang zwischen dem Quotienten } G \\
+ \text{und der Anzahl von Blöcken} \\
+ H_1: \text{Es besteht ein linearer Zusammenhang zwischen dem Quotienten } G \\ 
+ \text{ und der Anzahl von Blöcken}
+\end{align*}
+Mit einem Signifikanzniveau von $\alpha =0,05$ und einem $p$-Wert von $p=3,824 \cdot 10^{-12}$ ist die Nullhypothese abzulehnen, und die Alternativhypothese anzunehmen. 
 
+Mit Hilfe dieses linearen Zusammenhangs lässt sich bei gegebener Parameteranzahl $(PA)$ und Blockanzahl $(BA)$ die maximale Batchgröße $(BG)$ berechnen:
+
+\begin{equation}
+ BG=\frac{PA}{BA\left( 68,25 \cdot BA + 47,85\right)}
+\end{equation}
+
+
+Da einzelne Punkte einen maximalen Abstand von $d_{-}=2,07$ zur Geraden wurde das Ergebnis durch Multiplikation mit $0,98$ ein Sicherheitsabstand eingeführt.
 
 
 \subsection{Evaluierung der Anpassung der Batchgröße an die Netzgröße}
 
+Da sich für ein gegebenes Netz die Speicherauslastung abhängig von der Batchgröße ein linearer Zusammenhang ergibt, kann die Batchgröße direkt angepasst werden, sobald das beschnittene Netz für eine Epoche trainiert hat. Es wird per Dreisatz berechnet wie groß die Batchgröße sein darf, bei gegebener maximaler Speicherauslastung. In Abbildung \ref{abb:bSize1} ist zu sehen wie sich die durchschnittliche Trainingszeit pro Epoche entwickelt, bei Anpassung der Batchgröße. Für Abbildung \ref{abb:bSize1} werden zwei verschieden große Lasso-Ratio Werte $(LaR)$ $(0,2 \text{und} 0,25)$ getestet. Bei der Lasso-Ratio von $LaR=0,25$ ergibt sich ein Gewinn an durchschnittlicher Trainingszeit pro Epoche. 
 
 
-
-
-
-\begin{comment}
-Um die Batchgrösse mit der Netzverkleinerung anzupassen muss zunächst die maximale Speicheraulastung und damit die initiale Batchgröße festgelegt werden. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung in Abhängigkeit zur Batchgröße verhält.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/memory1.png}
- % memory1.png: 718x624 px, 96dpi, 19.00x16.51 cm, bb=0 0 539 468
- \caption{Zusammenhang Batchgröße und Speicherverbrauch}
- \label{abb:memory1}
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .75\textwidth]{KapitelPartB/Images/bSize1.png}\label{abb:bSize1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .75\textwidth]{KapitelPartB/Images/bSize2.png}\label{abb:bSize2}}\\
+     \caption{Vergleich von (a) Durchschnittlicher Trainingszeit (b) Accuracys von PruneTrain mit Anpassung der Batchgrößeund Baseline-Netz}
+     \label{abb:bSize}
 \end{figure}
 
-
-
-
-Dafür wird zunächst untersucht wie sich die Speichernutzung verändert bei unterschiedlich großen Batchgrößen aber fester Netzgröße. Genutzt wird das Basisnetz aus Kapitel \ref{sec:baseline}. 
-
-In Abbildung \ref{abb:}
+In Abbildung \ref{abb:bSize2} ist zu sehen, wie gross der Accuracy-Verlust für das PruneTrain-Netz mit Anpassung der Batchgröße. Für PruneTrain mit einer Lasso-Ratio von 0,2 ergibt sich ein Accuracy Verlust von durchschnittlic xx,xx \%. Für eine höhere Lasso-Ratio ergibt sich ein Accuracy-Verlust von xx,xx \%.
 
 
 
 
-\begin{table}[]
-\begin{tabular}{c|c|c|c|c|c|c|}
-\cline{2-7}
-     & \multicolumn{2}{c|}{s=1}  & \multicolumn{2}{c|}{s=2}  & \multicolumn{2}{c|}{s=3}    \\ \cline{1-1}
-\multicolumn{1}{|l|}{}   & \#Para      & Batch     & \#Para       & Batch     & \#Para & Batch  \\ \hline
-\multicolumn{1}{|l|}{1}  & 5306        & 506       & 24090        & 506       \\ \hline
-\multicolumn{1}{|l|}{2}  & 9978        & 435       & 47322        & 435       & 434        \\ \hline
-\multicolumn{1}{|l|}{3}  & 14650       & 382       & 70554       & 3382        \\ \hline
-\multicolumn{1}{|l|}{4}  & 19322       & 339       & 93786        & 339       & 390170      & 301        \\ \hline
-\multicolumn{1}{|l|}{5}  & 23994       & 304       & 117018       & 339       & 487386      & 256        \\ \hline
-\multicolumn{1}{|l|}{6}  & 28666       & 277       & 140250       & 256       & 584602      & 223        \\ \hline
-\multicolumn{1}{|l|}{7}  & 33338       & 256       & 163482       & 229       & 681818      & 198        \\ \hline
-\multicolumn{1}{|l|}{8}  & 38010       & 236       & 186714       & 204       & 779034      & 175        \\ \hline
-\multicolumn{1}{|l|}{9}  & 42682       & 218       & 209946       & 184       & 876250      & 161        \\ \hline
- \multicolumn{1}{|l|}{10} & 47354      & 205       & 233178       & 171       & 973466      & 147        \\ \hline
-\end{tabular}
-\end{table}
 
 
-
-
-Gleichzeitig wird für die jeweilige Modellgrösse die Anzahl an Parametern, die das Modell hat gezählt. Diese Größen sind in Tabelle \ref{tab:batchSize} eingetragen. 
 \color{black}
-
-Mit Hilfe dieser Grössen wird für jede einzelne Stagegröße eine Gerade gefittet.
-
-Diese gefittete Gerade wird mittels t-Test darauf überprüft wie wahrscheinlich beim Fitten der Gerade ein Fehler 1. Art auftritt.
-
-Hierfür werden folgende Hypothesen aufgestellt:
-
-
-Da der p-Wert für diese Gerade bei $p=2,911e^{-16}$ und damit weit unter de Signifikanzniveau von $\alpha=0,05$ kann die $H_0$ Hypothese abgelehnt werden und die Alternativhypothese angenommen werden.
-
-Dies bestätigt statistisch eine hohe Wahrscheinlichkeit, dass die gefittete Gerade richtig ist.
-
-
-
-In Abbildung \ref{fig:linearBlocks} ist zu sehen, dass die Parameteranzahl in Zusammenhang mit der Anzahl an Blöcken linear steigt.
-Wird das Netz kleiner, so kann anhand der Gerade abhängig von der Parameteranzahl die neue Batchgröße errechnet werden.
-
-
-
-
-
-
-\todo{beispielrechnung}
-
-In Abbildung \todo{ref} ist abgebildet. wie sich die Trainingszeiten verändern, wenn die Batchgrösse angepasst wird.
-
-
-
-\subsubsection{Veränderung der Accuracy durch PruneTrain}
-
-Durch das Pruning währenddem Training wird die Accuracy kleiner. In Abbildung \ref{abb:PTaccuracy} ist zu sehen wie sich im Accuracy im Verlauf der Epochen verändert.  
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/PTaccuracy.png}
- % PTaccuracy.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Veränderung der Accuracy während der Epochen}
- \label{abb:PTaccuracy}
-\end{figure}
-
-In Abbildung \ref{abb:PTaccuracyzoom} sind die Epochen 90 bis 180 näher herangezoomt.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/PTaccuracyzoom.png}
- % PTaccuracyzoom.png: 750x492 px, 96dpi, 19.85x13.02 cm, bb=0 0 563 369
- \caption{Zoom der Veränderung}
- \label{abb:PTaccuracyzoom}
-\end{figure}
-
-Man sieht eine geringere Accuracy von PruneTrain im Vergleich zum Baseline. Diese Verringerung der Accuracy lässt sich durch ein Aussetzen des Verkleinern des Netzes in den letzten Epochen  
-vermindern.
-
-Die Frage die sich hier stellt ist, ob diese Verminderung der Accuracy am Ende der dieser Arbeit noch ins Gewicht fällt. Wenn mit Hilfe einer Kombination von MorphNet und PruneTrain ein bessere Architektur gefunden wird kann diese Architektur auch direkt mit Hilfe des äquivalenten Baseline Netzes berechnet werden.
-
-\subsection{Einfluss der Batchgröße auf PruneTrain}\label{sec:batch}
-
-Das heisst es ist nötig, zu wissen wie gross die Batches maximal sein dürfen um keinen Out of Memory Error zu provozieren. Zusätzlich kann dann berechnet werden, inwieweit die Batchgrösse weiter angehoben werden kann bei kleiner werdendem Netz
-
-Um die Anpassung der Batchgröße an die Verkleinerung des Netzwerkes durch das Prunen zu implmentieren muss zunächst die Batchgröße des Ausgangsnetzes so gewählt werden, dass der GPU-Speicher maximal ausgelastet ist.
-
-
-
-Theoretisch sollte hierfür nachdem Übertragen des Modells der freie Speicher ausglesen werden und anhand des Speicherverbrauchs eines Elements des Datensatzes berechnet werden, wie gross die Batchgröße maximal sein darf. Leider führt diese Methode nicht zum gewünschten Ergebnis, da der ausgelesene freie Speicher nicht dem tratsächlich allokierbaren Speicher entspricht.
-Der Grund hierfür ist ein Fragmentierungsproblem. Verschiedene freie Blöcke können nicht zu einem grossen allokierbaren Block zusammengefügt werden.\todo[inline]{Quelle}. 
-
-Diese Problem wird mit einer Methode, die für einen beliebigen Datensatz und für eine beliebige Modellgrösse die maximale Batchgröße berechnet, gelöst. 
-
-
-
-
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/linearBlocks.png}
- % batchSizevsTime.png: 387x367 px, 96dpi, 10.24x9.71 cm, bb=0 0 290 275
- \caption{Batch Size vs Trainings Time über eine Epoche}
- \label{fig:linearBlocks}
-\end{figure}
-
-
-
-
-Die maximal mögliche Batchgrösse in Abbildung \ref{fig:maxBatchSize} sinkt im Gegensatz dazu stärker als linear bei mehr Blöcken im Netz. Dies liegt darin begründet, dass für ein grösseres Netz mehr Werte zwischengespeichert werden müssen, was den Speicherbedarf erhöht.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/maxBatchSize.png}
- % batchSizevsTime.png: 387x367 px, 96dpi, 10.24x9.71 cm, bb=0 0 290 275
- \caption{Batch Size vs Trainings Time über eine Epoche}
- \label{fig:maxBatchSize}
-\end{figure}
-
-
-
-
-Gesucht ist ein idealerweise linearer Zusammenhang zwischen der Parameteranzahl und der Batchgrösse. Um diesen herzustellen wird die Parameteranzahl durch die Batchanzahl geteilt. Das Ergebnis hiervon ist in Abbildung \ref{fig:quotient} zu sehen.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/quotient.png}
- % batchSizevsTime.png: 387x367 px, 96dpi, 10.24x9.71 cm, bb=0 0 290 275
- \caption{Batch Size vs Trainings Time über eine Epoche}
- \label{fig:quotient}
-\end{figure}
-
-
-Da diese Kurve ähnlich der Batchsize-Kurve aussieht wird die Hypothese untersucht, ob hier ein linearer Zusammenhang besteht. Zu diesem Zweck wird die Batchgrösse durch das Ergebnis geteilt.
-
-Augenscheinlich liegt hier ein linearer Zusammenhang vor. Daher wird hier eine Gerade gefittet.
-Es entsteht die Abbildung \ref{fig:gerade}.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/gerade.png}
- % batchSizevsTime.png: 387x367 px, 96dpi, 10.24x9.71 cm, bb=0 0 290 275
- \caption{Batch Size vs Trainings Time über eine Epoche}
- \label{fig:gerade}
-\end{figure}
-
-
-
-
-Die gefittete Gerade hat die Gleichung: $$ f(x)=0.11 \cdot x +  0.15 $$
-
-\todo{Hier muss noch das Fitten des Modells und der t-Test erklärt werden}
-
-In Tabelle \todo{Tabelle} werden die Werte für die anderen Stages zusammengefasst. Zu sehen ist, dass für jeden Stage die gefittete Gerade ähnlich im t-Test abschneidet.
-
-
-
-
-
-
-
-Als nächsten Schritt wird untersucht wie das Intervall wie häufig rekonfiguriert wird den Zusammenhang zwischen Inferenz Flop und der Validation Accuracy verändert.
-
-
-Die nächste Untersuchung über das Sparen von Kommunikationskosten beim Verteilten Training macht hier keinen Sinn da nur eine einzelne Graka genutzt wird.
-
-
-Abschliessend wird noch evaluiert, wie die Dichte der Gewichte mit der Dichte der Kanäle nachdem Training zusammenhängen um eventuell durch spezifische Inferenzhardware weiter zusparen.
-
-
-
-
-
-Bei grösserer Batchgrösse wird auch das Netz schneller. Dies ist in Abildung \ref{fig:batchVsTime} für das ResNet und die verwendete Hardware abgebildet.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/Images/batchSizevsTime.png}
- % batchSizevsTime.png: 387x367 px, 96dpi, 10.24x9.71 cm, bb=0 0 290 275
- \caption{Batch Size vs Trainings Time über eine Epoche}
- \label{fig:batchVsTime}
-\end{figure}
-
-
-Wie zu sehen ist, wird die Trainingszeit pro Epoche mit grösserer Batchgrösse kleiner. Die höhere Batchgrösse sorgt neben der geringeren Trainingszeit auch für weniger Gewichtsupdates. Dies führt zu einer geringeren Generalisationsfähigkeit und damit zu einer geringeren Klassifikationsleistung \cite{largeBatch}. Um diesen Verlust an Klassifikationsleistung auszugleichen gibt es die Möglichkeit die Lernrate anzupassen und eine andere Batch Normalisation zu verwenden \cite{largeBatch}. Diese Technik funktioniert laut dem Paper "`Train longer, generalize better: closing the generalization gap in large batch training of neural networks"' bereits auf residualen Netzen wie sie in dieser Arbeit verwendet werden \cite{largeBatch}. Vorallem bleibt die Einsparung bei der Trainingszeit durch diese Technik intakt \cite{largeBatch}.
-
-Ist dieser Effekt auf PruneTrain übertragbar?
-
-
-Eine grössere Batchsize sorgt auf jeden Fall für signifikant weniger Verkleinerung des Netzes.
-
-Die Frage die sich hier stellt ist, ob mit Hilfe von largeBatch bei maximaler Batchsize die Verkleinerungsrate steigt  
-\end{comment}
-
-
-
 \chapter{Evaluierung von Net2Net}\label{sec:net2netexperimente}
-Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet selbst erstellten Implementierung.
+Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet mit einer selbst erstellten Implementierung auf Grundlage der Veröffentlichung zum Thema Net2Net \cite{net2net}.
 
-Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, welches auf Cifar10 trainiert wird. In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert. Mit der Kombination wird der Raum erkundet, der durch die verschieden tiefen und breiten Modelle aufgespannt wird.
+Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, wie in Kapitel \ref{sec:baseline}.
+
+In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert. Mit der Kombination wird der Raum erkundet, der durch die verschieden tiefen und breiten Modelle aufgespannt wird.
 Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben.
 
 
 
 
-\subsection{Evaluierung des Operators für ein breiteres Netz}
-Evaluiert wird der operator durch verschiedene Optionen, welche Bereich des Netzes breiter gemacht wird:
+
+\section{Evaluierung des Operators für ein breiteres Netz}
+Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Netzes breiter gemacht wird:
 \begin{itemize}
- \item Eine ganze Phase
  \item Alle Phasen
+ \item Eine ganze Phase
 \end{itemize}
-Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten berechnet. Um zu evaluieren wie gut diese Methode funktioniert wird sie verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen zusätzlichen Gewichte zufällig initialisiert werden.
-\subsection{Evaluierung des Operators für ein tieferes Netz}
+Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten ausgewählt und transformiert. Um zu evaluieren wie gut diese Methode funktioniert wird sie verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen zusätzlichen Gewichte zufällig initialisiert werden.
+\color{blue1}
+\subsection{Verbreitern aller Phasen}
+Mit Hilfe verschiedener Trainingsprotokolle wird untersucht, wie der Operator für ein breiteres Netz die Klassifikationsleistung des Netzes verändert.
+Zunächst wird überprüft, welches Ergebnis bei Anwendung des Operators für ein breiteres Netz auf das schmalle Baseline-Netz nach 180 Epochen Training herauskommt. Nachdem Anwenden des Operators wird mit dem gleichen Trainingsprotokoll für weitere 180 Epochen trainiert. In Abbildung \ref{abb:allN2N1} ist abgebildet, wie der Verlauf der Accuracy für Net2Net mit zwei verschiedenen Möglichkeiten, die neuen Gewichte zu initialisieren, ist. In Blau dargstellt wird der Verlauf der Accuracy für die zufällige Initialisierung der neuen Gewichte durch das Verbreitern des Netzes.
+Es ergibt sich, wie in der größeren Abbildung \ref{abb:allN2N2} zu sehen ist eine minimale Verschlechterung durch das Anwenden des Operator für ein breiteres Netz im Vergleich zum Baseline-Netz.
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/n2nWiderAll1.png}\label{abb:allN2N1}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/n2nWiderAll2.png}\label{abb:allN2N2}}\\
+     \caption{Vergleich der Accuracy bei verschiedenen Initialisierungsmöglichkeiten des Operators für ein breiteres mit dem Baseline Netz: (a) alle Epochen (b) Zoom auf die Epochen 90 bis 180. Blau zeigt die Accuracy der Initialisierung der zusätzlichen Gewichte mit zufälligen Werten. Grün zeigt die Initialisierung mit den Werten aus dem restlichen Tensor. Schwarz zeigt das Baseline-Netz als Vergleich.}
+     \label{abb:memory}
+\end{figure}
+Um den Operator für ein breiteres Netz besser verwenden zu können wird im nächsten Schritt übrprüft, ob mit einer häufigeren schrittweisen Anpassung der Lernrate und mit weniger trainierten Epochen nach Anwenden des Operator ein besseres Ergebnis möglich ist.
+
+\color{black}
+\section{Evaluierung des Operators für ein tieferes Netz}
 Zur Evaluierung des breiteren Netzes wird zunächst wie in der Veröffentlichung jeder Block um eine Schicht erweitert. Dabei werden die zusätzlichen Schichten wie in Kapitel \ref{sec:deep} beschrieben initialisiert. Als Vergleich dient das Baseline-Netz aus Kapitel \ref{sec:baseline}.
 
+\todo{Ergebnisse}
 
+Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen. Der Grund hierfür ist Abbildung \ref{abb:deeper} dargstellt. Dabei soll an einer Verbidung, die bisher die Daten von einer Schicht zur nächsten transportiert ein neuer Block inklusive Kurzschlussverbindung entstehen. Der hinzuzfügende Block blau \todo{blau markieren} markiert. Der neue Block soll wie die Kurzschlussverbindung die Identität berechnen. Betrachtet $x$ als Größe der Identität. Dann wird hier mit dem neuen Block staat $x$ das doppelte, also $``X$ berechnet. Um dieses Problem zu umgehen wird an jeder Additionsstelle für eine Kurzschlussverbindung eine Multiplikation mit 0,5 berechnet (rechte Seite der Grafik). So wird nicht mehr $x$ sondern $0,5x +0,5x=x$ berechnet.
+\color{blue1}
+Zunächst wird dieses Netz trainiert ohne einen Operator anzuwenden. In Abbildung \ref{abb:BaselineMul1} ist ein Boxplot abgebildet, der die Accuracy des Netzes mit zusätzlichen multiplikativen Faktoren mit dem Baseline-Netz vergleicht.
 
-Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen. Der Grund hierfür ist Abbildung \ref{abb:deeper} dargstellt. Dabei soll an einer Verbidung, die bisher die Daten von einer Schicht zur nächsten transportiert ein neuer Block inklusive Kurzschlussverbindung entstehen. Der hinzuzfügende Block blau \todo{blau markieren} markiert. Der neue Block soll wie die Kurzschlussverbindung die Identität berechnen. Betrachtet $x$ als Größe der Identität. Dann wird hier mit dem neuen Block staat $x$ das doppelte, also $``X$ berechnet. Um dieses Problem zu umgehen wird an jeder Additionsstelle für eine Kurzschlussverbindung eine Multiplikation mit 0,5 berechnet (rechte Seite der Grafik). So wird nicht mehr $x$ sondern $0,5x +0,5=x$ berechnet.  
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .75\textwidth]{KapitelPartB/Images/baselineMul1.png}\label{abb:BaselineMul1}}
+     \hfill
+     \caption{Vergleich von }
+     \label{abb:BaselineMul}
+\end{figure}
 
 
 \begin{figure}[h]
@@ -409,11 +277,18 @@ Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkei
 
 
 
-\subsection{Erkunden des Modellraums}
+\section{Erkunden des Modellraums}
 
+ \begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .75\textwidth, angle=90]{KapitelPartB/Images/deeperRoom.pdf}
+     \label{abb:deeperRoom1}}
+     \caption{Anzahl an Blöcken pro Phase; Breite der ersten Schicht; Schichten pro Block}
+     \hfill
+\end{figure}
 
-
-\chapter{Evaluierung }\label{sec:ptpnet2net}
+\color{black}
+\chapter{Evaluierung der Kombination von PruneTrain und Net2Net }\label{sec:ptpnet2net}
 Adaptive Kombination of prune and net2net
 
 AKoPaN
@@ -472,27 +347,6 @@ Sowohl bei Hinzufügen von neuen Blöcken als auch beim Breiter machen des Netze
 
 Saturation
 Bilde aus den letzten 10 Validierungsaccuracy jeweils ein exponentiel geglättetes Mittel gewichtetes Mittel. Zeigt dieses Mittel keine Verbesserung innerhalb der nächsten 10 Epochen -> early stop und je nach vorliegen von Under oder Overfitting weiterverfahren.
-
-\subsection{Exponentiell gleitender Durchschnitt}
-Der exponentiell gleitende Durchschnitt ist eine Möglichkeit eines leitenden Durchschnitts mit mehr Gewicht je neuer eine Messung ist. In Abbildung \ref{abb:egd} ist zu sehen, wie sich dieser für die Validierungsaccuracy des Baseline Netzes verhält.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.8\textwidth]{KapitelPartB/expmean.png}
- % expmean.png: 1112x623 px, 96dpi, 29.43x16.49 cm, bb=0 0 834 467
- \caption{Exponentiell geglätteter Durchschnitt}
- \label{abb:egd}
-\end{figure}
-
-Dabei sind 2 Effekte zu sehen:
-1. ab Epoche 150 passiert so gut wie nichts mehr: die Term der exp glättung ist waagerecht
-2. ab Epoche 80 ist es nur ein Rumspringen.
-
-In beiden Fällen kann Abhilfe geschaffen werden: Versuche zunächst für 30 Epochen die Lernrate weiter zu senken. Wenn sich nach diesen 30 Epochen immer noch die beiden gleitenden Mittelwerte gleich sind:
-
-
-
-
 
 
 
