@@ -3,6 +3,7 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Thesis_Buehler.aux
 The style file: alpha.bst
 Database file #1: Literature.bib
+Warning--I didn't find a database entry for "complex"
 Warning--I didn't find a database entry for "lars"
 Warning--to sort, need author or key in ptImpl
 Warning--to sort, need author or key in ieee
@@ -10,7 +11,7 @@ Warning--empty journal in net2net
 Warning--empty author in ieee
 You've used 16 entries,
             2543 wiz_defined-function locations,
-            637 strings with 7007 characters,
+            638 strings with 7014 characters,
 and the built_in function-call counts, 5878 in all, are:
 = -- 558
 > -- 359
@@ -49,4 +50,4 @@ warning$ -- 4
 while$ -- 41
 width$ -- 18
 write$ -- 196
-(There were 5 warnings)
+(There were 6 warnings)

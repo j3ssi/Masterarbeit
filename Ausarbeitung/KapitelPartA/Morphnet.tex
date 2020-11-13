@@ -117,10 +117,10 @@ Für den Layer $j+1$ sind es entsprechend $q \cdot m $ zusätzliche Kernel. Die 
  k & , \text{ falls} \, j>n : \;  k \text{ zufälliges Sample von} \left\{ 1,2,\ldots, n \right\} \\ 
  \end{cases} 
  \end{equation}
- Mit Hilfe dieser Mapping-Funktion werden nun die neuen Gewichtstensoren initialisiert:\todo[inline,color=red]{Was ist an dieser Formel nicht in Ordnung?}
+ Mit Hilfe dieser Mapping-Funktion werden nun die neuen Gewichtstensoren initialisiert:
  \begin{align*}
- \mathbf{U}_j(e,f,h_{j,1},h_{j,2}) = \mathbf{W}_j(g(e),f,h_{j,1},h_{j,2}) \\
- \mathbf{U}_{j+1}(e,f,h_{j+1,1},h_{j+1,2})= \frac{1}{|\left\{ x | g(x)=g(a)\right\}|}\mathbf{W}_{j+1}(e,g(f),h_{j+1,1},h_{j+1,2})
+ \mathbf{U}_j(e,f,h_{j,1},h_{j,2}) &= \mathbf{W}_j(g(e),f,h_{j,1},h_{j,2}) \\
+ \mathbf{U}_{j+1}(e,f,h_{j+1,1},h_{j+1,2})&= \frac{1}{|\left\{ x | g(x)=g(a)\right\}|}\mathbf{W}_{j+1}(e,g(f),h_{j+1,1},h_{j+1,2})
  \end{align*}
 Die Funktion $g(j)$ wird dabei für jede neu hinzugekommene Schicht nur einmal ausgewertet, sodass gesamte Reihen statt einzelner Kernel kopiert werden. Sollte sich zwischen dem $j$-ten und $(j+1)$-Layer eine Batchnormalisierungsschicht befinden, so werden die Parameter dieser Schicht ebenfalls kopiert.
 
@@ -147,7 +147,7 @@ Die beiden Net2Net-Operatoren schaffen die Möglichkeit, Familien von Netzarchit
 Neben dem im letzten Kapitel ausführlich erläuterten Ansatz des Strukturlernens gibt es noch einige andere aktuelle Ansätze, die automatisch nach einer besseren Architektur für einen Datensatz suchen. Einige dieser Ansätze werden hier beleuchtet und es wird gezeigt, wieso das im letzten Kapitel erläuterte Verfahren im praktischen Teil weiter verwendet wird.
 
 Beim Versuch die Hyperparameter eines Netzes sinnvoll automatisch zu wählen, entsteht ein sehr großer Suchraum. Dieser Suchraum lässt sich mit viel Aufwand absuchen \cite{dvolver}. Es entsteht ein Optimierungsproblem mit mehreren zu optimierenden Variablen bei welchem eine Pareto-Front gesucht wird \cite{dvolver}. Das Ergebnis schafft eine Verbesserung der Accuracy gegenüber bekannten Architekturen, dabei summiert sich allerdings die Trainingszeit mit 20 NVIDIA V100 Grafikkarten für Imagenet auf 2,5 Tage\cite{dvolver}.
-Eine weitere Methode den Suchraum zu durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial eine Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 35 GPUs für einen Tag \cite{gen}. Dann ist die Architektursuche allerdings komplett automatisiert und erreicht eine Accuracy von 96.78 \% für Cifar 10 und 79.77 \% für Cifar 100 \cite{gen}. \todo[inline,color=red]{Um diese Zahl einordnen zu können: die besten zehn Accuracy-Werte liegen für Cifar 10 bei 96.62 \% bis 99.37 \% und für Cifar 100 bei 82,35 \% bis 93,51 \%. https://benchmarks.ai/ }  
+Eine weitere Methode den Suchraum zu durchsuchen sind genetisch inspirierte Suchalgorithmen \cite{gen}. Dabei wird initial eine Population von Netzen gebildet \cite{gen}. Nach einem Trainingsdurchgang werden diese nach ihrer Fitness (Klassifikationsleistung) selektiert \cite{gen}. Im weiteren Verlauf werden jeweils zwei dieser Netze gepaart und es entsteht eine neue Generation an Netzen \cite{gen}. Allerdings ist hier die Trainingszeit in einem Rahmen von 35 GPUs für einen Tag \cite{gen}. Dann ist die Architektursuche allerdings komplett automatisiert und erreicht eine Accuracy von 96.78 \% für Cifar 10 und 79.77 \% für Cifar 100 \cite{gen}. \footnote{Um diese Zahl einordnen zu können: die besten zehn Accuracy-Werte liegen für Cifar 10 bei 96.62 \% bis 99.37 \% und für Cifar 100 bei 82,35 \% bis 93,51 \%. Entsprechende Veröffentlichungen sind unter \url{https://benchmarks.ai/} zu finden}  
 
 Das Ziel von einigen Veröffentlichungen im Themenbereich der automatischen Architektursuche ist es, diese lange Trainingszeit zu reduzieren.
 

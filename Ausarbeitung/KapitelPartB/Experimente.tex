@@ -1,8 +1,6 @@
 \chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
-\color{blue1}
 
 Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für ide Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
-\todo[inline, color = red]{Hier Algorithmus nochmal hinschreiben?}
 
 \section{Evaluierung der einzelnen Schritte von MorphNet}
 Im ersten Schritt von MorphNet wird das Netz trainiert um 
@@ -48,7 +46,7 @@ Die in Kapitel \ref{sec:konzept}  vorgestellte Vorgehensweise wir hier verwendet
 
 
 
-\color{black}
+
 
 
 
@@ -56,6 +54,7 @@ Die in Kapitel \ref{sec:konzept}  vorgestellte Vorgehensweise wir hier verwendet
 
 \chapter{Evaluation des Beschneidens des Netzes}\label{sec:ptexperimente}
 \section{Evaluation bei gleichbleibender Batchgröße}
+
 Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Es wird das Ergebnis der Ausführung von PruneTrain auf der Hardware mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. Bei der Evaluierung der Einflüsse werden die veränderbaren Hyperparameter von PruneTrain einzeln verändert, um den Einfluss der einzelnen Veränderungen zu untersuchen.  
 Die veränderbaren Hyperparameter sind:
 \begin{itemize}
@@ -142,7 +141,6 @@ Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffent
 
 
 \section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
-\color{black}
 
 Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet mit einer Grenze bis zu dieser der Speicher ausgelastet werden darf. 
 
@@ -163,7 +161,7 @@ Da sich in Pytorch der freie Speicher nicht direkt auslesen lässt wird mit Hilf
      \caption{Darstellung des Berechnen der Geraden}
      \label{abb:memory}
 \end{figure}
-Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für einen Wert des Speicherverbrauchs abhängig von der Netzarchitektur berechnet, wie groß die Batchgröße maximal sein darf. Zu diesem Zweck wird ein Netz mit drei Phasen betrachtet und ein Modell entwickelt mit dem sich die maximale Batchgröße berechnen lässt. Die maximale Batchgröße hängt ab von:\color{blue1}
+Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für einen Wert des Speicherverbrauchs abhängig von der Netzarchitektur berechnet, wie groß die Batchgröße maximal sein darf. Zu diesem Zweck wird ein Netz mit drei Phasen betrachtet und ein Modell entwickelt mit dem sich die maximale Batchgröße berechnen lässt. Die maximale Batchgröße hängt ab von:
 
 \begin{itemize}
  \item der Blockanzahl
@@ -213,18 +211,15 @@ In Abbildung \ref{abb:bSize2} ist zu sehen, wie gross der Accuracy-Verlust für 
 
 
 
-\color{black}
+
 \chapter{Evaluierung von Net2Net}\label{sec:net2netexperimente}
 Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet mit einer selbst erstellten Implementierung auf Grundlage der Veröffentlichung zum Thema Net2Net \cite{net2net}.
 
 Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, wie in Kapitel \ref{sec:baseline}.
 
-In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um in einem der Stages des Netzes einen neuen Block einzufügen. In der dritten Situation werden beide Operatoren kombiniiert. Mit der Kombination wird der Raum erkundet, der durch die verschieden tiefen und breiten Modelle aufgespannt wird.
-Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben.
-
-
-
-
+In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. 
+In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um zusätzliche Blöcke hinzuzufügen oder bestehenden Blöcken Schichten hinzuzufügen. In der dritten Situation werden beide Operatoren kombiniert. Mit der Kombination wird der Raum erkundet, ausgehend von einem Modell.
+Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben. Anpassungen, wie eine Veränderung der Lernrate werden hier nicht vorgenommen.
 
 \section{Evaluierung des Operators für ein breiteres Netz}
 Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Netzes breiter gemacht wird:
@@ -234,6 +229,22 @@ Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Net
 \end{itemize}
 Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten ausgewählt und transformiert. Um zu evaluieren wie gut diese Methode funktioniert wird sie verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen zusätzlichen Gewichte zufällig initialisiert werden.
 \color{blue1}
+Zum Anwenden des Operators für ein breiteres Netz muss entschieden werden, in welcher Epoche und um welchem Faktor das Netz breiter gemacht werden soll. Wie in Kapitel \ref{sec:baseline} erörte schneidet das Netz besser ab, wenn die Lernrate während dem Training mehrfach angepasst wird. Das heisst, bei einem nicht zufriedenstellenden Ergebnis gibt es hier zwei Möglichkeiten, wie weiter verfahren werden soll.
+
+In Abbildung \ref{abb:deeper1} ist der Verlauf der Trainingsaccuracy des schmallen Baseline Netzes über 180 Epochen ohne Anpassung der Lernrate zu sehen. Dabei ist zu sehen, dass das Netz nicht konvergiert. Zunächst wird der Zeitpunkt gesucht, ab dem das Netz nicht mehr besser wird im Durchschnitt. Damit die Entscheidung in einer Epoche stärker von den näher liegenden vergangenen Epochen abhängig ist, wird ein exponentiell gewichteter Mittelwert berechnet. In die Berchnung eingehen werden letzten $n$ Werte, für ein festes $n$.
+Abbildung \ref{abb:deeper2} zeigt den Verlauf dieses Mittelwert für $n=10$ (Blau) und $n=30$ (Grün).
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/deeperD1.png}\label{abb:deeper2}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/deeperD2.png}\label{abb:deeper2}}\\
+     \caption{}
+     \label{abb:memory}
+\end{figure}
+Im nächsten Schritt muss anhand eines Entscheidungskriteriums 
+
+
+\color{black}
 \subsection{Verbreitern aller Phasen}
 Mit Hilfe verschiedener Trainingsprotokolle wird untersucht, wie der Operator für ein breiteres Netz die Klassifikationsleistung des Netzes verändert.
 Zunächst wird überprüft, welches Ergebnis bei Anwendung des Operators für ein breiteres Netz auf das schmalle Baseline-Netz nach 180 Epochen Training herauskommt. Nachdem Anwenden des Operators wird mit dem gleichen Trainingsprotokoll für weitere 180 Epochen trainiert. In Abbildung \ref{abb:allN2N1} ist abgebildet, wie der Verlauf der Accuracy für Net2Net mit zwei verschiedenen Möglichkeiten, die neuen Gewichte zu initialisieren, ist. In Blau dargstellt wird der Verlauf der Accuracy für die zufällige Initialisierung der neuen Gewichte durch das Verbreitern des Netzes.
@@ -248,14 +259,14 @@ Es ergibt sich, wie in der größeren Abbildung \ref{abb:allN2N2} zu sehen ist e
 \end{figure}
 Um den Operator für ein breiteres Netz besser verwenden zu können wird im nächsten Schritt übrprüft, ob mit einer häufigeren schrittweisen Anpassung der Lernrate und mit weniger trainierten Epochen nach Anwenden des Operator ein besseres Ergebnis möglich ist.
 
-\color{black}
+
 \section{Evaluierung des Operators für ein tieferes Netz}
 Zur Evaluierung des breiteren Netzes wird zunächst wie in der Veröffentlichung jeder Block um eine Schicht erweitert. Dabei werden die zusätzlichen Schichten wie in Kapitel \ref{sec:deep} beschrieben initialisiert. Als Vergleich dient das Baseline-Netz aus Kapitel \ref{sec:baseline}.
 
 \todo{Ergebnisse}
 
 Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen. Der Grund hierfür ist Abbildung \ref{abb:deeper} dargstellt. Dabei soll an einer Verbidung, die bisher die Daten von einer Schicht zur nächsten transportiert ein neuer Block inklusive Kurzschlussverbindung entstehen. Der hinzuzfügende Block blau \todo{blau markieren} markiert. Der neue Block soll wie die Kurzschlussverbindung die Identität berechnen. Betrachtet $x$ als Größe der Identität. Dann wird hier mit dem neuen Block staat $x$ das doppelte, also $``X$ berechnet. Um dieses Problem zu umgehen wird an jeder Additionsstelle für eine Kurzschlussverbindung eine Multiplikation mit 0,5 berechnet (rechte Seite der Grafik). So wird nicht mehr $x$ sondern $0,5x +0,5x=x$ berechnet.
-\color{blue1}
+
 Zunächst wird dieses Netz trainiert ohne einen Operator anzuwenden. In Abbildung \ref{abb:BaselineMul1} ist ein Boxplot abgebildet, der die Accuracy des Netzes mit zusätzlichen multiplikativen Faktoren mit dem Baseline-Netz vergleicht.
 
  \begin{figure}
@@ -287,7 +298,7 @@ Zunächst wird dieses Netz trainiert ohne einen Operator anzuwenden. In Abbildun
      \hfill
 \end{figure}
 
-\color{black}
+
 \chapter{Evaluierung der Kombination von PruneTrain und Net2Net }\label{sec:ptpnet2net}
 Adaptive Kombination of prune and net2net
 

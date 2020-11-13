@@ -1,19 +1,29 @@
 \section{Additive Nethoden}\label{sec:add}
+\color{blue1}
+In diesem Kapitel werden Methoden betrachtet, die nicht direkt den Prozess des Findens der besten Architektur beschleunigen oder automatisieren. 
+Diese Methoden sind in zwei Gruppen aufgeteilt:
+\begin{itemize}
+ \item Methoden, die für einen schnelleren Durchlauf einzelner Trainingsdurchläufe sorgen
+ \item Methoden die helfen PruneTrain und Net2Net zu kombinieren
+\end{itemize}
+\todo[inline]{Übersicht}
 
-
+\color{black}
 \subsection{Verringerung der für Berechnungen nötige Zeit}\label{sec:fp16}
-\todo[inline]{Überarbeiten, fertigschreiben; 3 Stunden}
-
-
-
 Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab von:
 \begin{itemize}
  \item dem verwendeten Zahlenformat
- \item der Filtergr\"osse
- \item der Bildgr\"osse
+ \item der Anzahl an Eingangskanälen $n_{l-1}$
+ \item der Anzahl an Ausgangskanälen $n_l$
+ \item der Filtergr\"osse $s_l$
+ \item der Grösse der Ausgabemerkmalskarte $m_l$ 
  \item dem verwendetem Stride und Padding
 \end{itemize}
-
+Die Zeitkomplexität eines Convolutional Layers errechnet sich aus diesen Größen zu \cite{complex}
+\begin{equation}
+ O\left( \sum_{l=1}^{d} n_{l-1} \cdot s^2_l \cdot n_l \cdot m_l^2 \right) .
+\end{equation}
+Padding hat auf die Ausführungszeit nur insofern einen Einfluss, dass Pixel am Rand der Merkmalskarte ohne Padding nicht Mittelpunkt eines Kernels sein können. 
 
 
 Beim Verändern der Filter- oder der Bildgr\"osse, um Trainingszeit zu sparen, ver\"andert sich auch die Erkennungsleistung \todo{cite}. Dies ist beim Verändern des verwendeten Zahlenformats nicht umbedingt gegeben. Standardformat ist eine 32 Bit Gleitkommazahl. Die einfachste Methode hier Trainingszeit zu sparen ist das Halbieren der Bitanzahl auf 16 Bit. Eine weitere Methode ist das Benutzen von 16 Bit Dynamischen Festkommazahlen.
