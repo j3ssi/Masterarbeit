@@ -1,0 +1,74 @@
+
+
+\chapter{Evaluierung der Kombination von PruneTrain und Net2Net }\label{sec:ptpnet2net}
+
+Trainiere das Netz zunächst bis durch Kleiner machen der Lernrate keine Verbesserung mehr möglich.
+
+Zähle dann, was in den verschiedenen Phasen passiert ist
+
+
+
+
+
+
+\begin{comment}
+Adaptive Kombination of prune and net2net
+
+AKoPaN
+
+Für die Kombination betrachten wir zunächst den Ausgang eines PruneTrain-Durchlaufs über 180 Epochen mit verschieden breiten Netzen:
+
+4,8,16
+
+
+8,16,32
+
+
+16,32,64
+
+
+und verschieden tiefen Netzen:
+
+[3,3,3]
+
+
+[4,4,4]
+
+
+
+
+Gestartet wird wie bei Morphnet einmal mit 
+
+
+4,8,16 und mit 
+
+
+8,16,32
+jeweils mit 3 Blöcken pro Phase
+anlaog zu Kapitel 4.
+
+
+um das Grösserwerden des Netzes nicht ausarten zu lassen sollte es nicht größer werden als 
+das [5,5,5] er Netz mit 16,32,64 als maximalen Größe vorgegeben.
+
+
+
+
+Drei Probleme können beim Training des Ntzes auftauchen:
+\begin{itemize}
+ \item Underfitting
+ \item Overfitting
+ \item Saturation
+ \item Rumspringen ohne eine Tendenz zur Verbesserung
+\end{itemize}
+
+Underfitting erkennen wir durch einen immer noch recht hohen Trainingsfehler und relativ wenig Pruning.
+
+
+Sowohl bei Hinzufügen von neuen Blöcken als auch beim Breiter machen des Netzes kann Overfitting passieren. Kommt es zu Overfitting ist es möglich, den Lasso-Ratio koeffizient weiter zu erhöhen, oder den Grenzwert zum Beschneiden des Netzes zu Erhöhen. Das heisst es ist nötig, Overfitting zu erkennen. Dies wird hier durch Abstand von Trainings und Validierungsfehler. Wird der Abstand hier grösser bei einer Zunnahme des Validierungsfehlers oder  ist die Testaccuracy bei 100 \% angekommen, wird Overfitting diagnostiziert.
+
+
+Saturation
+Bilde aus den letzten 10 Validierungsaccuracy jeweils ein exponentiel geglättetes Mittel gewichtetes Mittel. Zeigt dieses Mittel keine Verbesserung innerhalb der nächsten 10 Epochen -> early stop und je nach vorliegen von Under oder Overfitting weiterverfahren.
+
+\end{comment}

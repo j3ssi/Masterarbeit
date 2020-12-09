@@ -37,7 +37,7 @@
   \pdftrue
   \message{pdfLaTeX}
   
-  \documentclass[pdftex,12pt,a4paper,twoside,numbers=noenddot]{scrbook}
+  \documentclass[pdftex,12pt,a4paper,twoside,numbers=noenddot,table]{scrbook}
   \usepackage{float}
   %\usepackage[pdftex]{thumbpdf}
   \usepackage[pdftex]{pdflscape}
@@ -91,7 +91,6 @@
 % -------------------------------------------------------------------
 \usepackage{ifthen}
 \usepackage[colorinlistoftodos,prependcaption]{todonotes}
-
 % -------------------------------------------------------------------
 \usepackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1mm}
@@ -286,7 +285,13 @@ breaklines=true
 \cleardoublepage
 \input{KapitelPartB/Einleitung}
 
-\input{KapitelPartB/Experimente}
+\input{KapitelPartB/MorphNet}
+
+\input{KapitelPartB/PruneTrain}
+
+\input{KapitelPartB/N2N}
+
+\input{KapitelPartB/KombiPrune}
 
 \input{KapitelPartB/Evaluation}
 

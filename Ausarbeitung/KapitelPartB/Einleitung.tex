@@ -95,13 +95,34 @@ Phase & Schicht/Block  & \#Eingangs- & \#Ausgangs-       & \#Eingangs- & \#Ausga
 
 
 \subsubsection{Evaluierung des breiteren Baseline-Netzes}
-\color{vermi}
 Das Training wird über 180 Epochen durchgeführt. Es werden 5 Experimente durchgeführt. Dabei ergibt sich der in Abbildung \ref{abb:baseAcc1} gezeigte Verlauf der Validierungs-Accuracy für Experiment vier. Bei diesem Training wurde über die gesamten 180 Epochen mit einer Lernrate von 0.1 trainiert. Mit einem Ergebnis von durchschnittlich 81.11 \% über fünf Experimente ist diese Ergebnis leider nicht zufriedenstellend. 
 
 Eine Verkleinerung der Lernrate kann dieses Ergebnis verbessern \cite{CNNBook}. In Abbildung \ref{abb:baseAcc2} wird dargestellt, wie sich der Verlauf ändert durch eine Anpassung der Lernrate bei Epoche 93 und 150. In diesen beiden Epochen wird die Lernrate jeweils auf ein Zehntel verkleinert. 
 
-In Abbildung \ref{abb:baseAcc3} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimenten mit oder ohne Anpassung der Lernrate vergleicht. Es ergibt sich eine deutliche Verbesserung der Accuracy des Baseline-Netzes von 81.24 \% auf 91.89 \% durch diese Anpassung. Aufgrund dieser Verbesserung werden die Experimente mit Anpassung der Lernrate als Grundlage zum Vergleich mit den Experimenten in den weiteren Kapiteln herangezogen. Sie werden in diesen Kapitel nur mit Baseline-Netz bezeichnet.
+In Abbildung \ref{abb:baseAcc3} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimenten mit oder ohne Anpassung der Lernrate vergleicht. Es ergibt sich eine deutliche Verbesserung der Accuracy des Baseline-Netzes von 81.24 \% auf 91.89 \% durch diese Anpassung. 
+\color{blue1}
+Hier wurden die Epochen, zu denen die Lernrate verkleinert wurde manuell ausgesucht. 
 
+
+Da die Accuracy sich mittels der Verkleinerung der Lernrate verbessert und somit bei direktem Verändern der Struktur im aktuellen Modell ungenutztes Potential verbleibt wird das Verkleinern der Lernrate angewendet, bevor die Struktur verändert wird.
+
+
+Somit ist es an dieser Stelle notwendig entweder ein geeignetes bestehendes Verfahren zur automatischen Anpassung der Lernrate zu finden, welches auch mit der Situation eines nicht auf einen bestimmten Accuracy Wert konvergierendes Netz klarkommt. 
+
+Bestehende Verfahren zur Anpassung der Lernrate:
+\begin{itemize}
+ \item Adam
+ \item AdaGrad
+\end{itemize}
+
+
+
+
+\color{black}
+
+\begin{comment}
+Aufgrund dieser Verbesserung werden die Experimente mit Anpassung der Lernrate als Grundlage zum Vergleich mit den Experimenten in den weiteren Kapiteln herangezogen. Sie werden in diesen Kapitel nur mit Baseline-Netz bezeichnet.
+\end{comment}
 \begin{figure}
      \centering
      \subfloat[][]{\includegraphics[width=.49\textwidth]{KapitelPartB/Images/BaseAcc1.png}\label{abb:baseAcc1}}
@@ -125,6 +146,8 @@ $\mu$      & 19,49   & 19,53  & 19,50  & 19,48   & 19,84   & 19,57  & 19,56 & 19
 \end{table}
 \color{black}
 \subsubsection{Evaluierung des schmalleren Baseline-Netzes}
+
+\todo[inline]{schmalles Netz ohne LR-Anpassung}
 Das schmallere Baseline-Netz wird verwendet, um für MorphNet und Net2Net eine schmalle Variante zu haben. Der Grund hierfür ist, dass bei einer durchschnittlichen Accuracy von 93,19 \% des breiten Baseline-Netzes nicht mehr viel Raum für Verbesserungen bleibt. In Abbildung \ref{abb:baseAcc3} sind die Experimente für das breite und schmalle Baseline-Netz mit der Anpassung der Lernrate gegenüber gestellt. Der Unterschied vom breiten zum schmallen Netz ist ein Accuracy-Verlust von 3,1 \%.    
 
 
@@ -143,6 +166,7 @@ In Abbildung \ref{abb:baseAccS1} ist abgebildet, wie sich die Accuracy für das 
 \color{black}
 
 \section{Konzept}\label{sec:konzept}
+\todo[inline]{Überarbeiten}
 In den nachfolgenden Kapiteln wird MorphNet mit einer Kombination aus PruneTrain und Net2Net verglichen. MorphNet ist eine Technik, bei der die Struktur des Netzes durch Wiederholtes Verbreitern des Netzes und Verkleinern des Netzes mittels eines Regularisierers gelernt wird.
 PruneTrain beschneidet das Netz so, dass unwichtige Gewichte auf Null gesetzt werden mit dem Ziel ganze Kanäle auf Null zu setzen um diese zu Entfernen. Mit der Entfernung von Kanälen und falls alle Kanäle einer Schicht auf Null gesetzt wurde auch ganzen Schichten, soll Trainingszeit gespart werden bei möglichst geringem Accuracy Verlust.
 
