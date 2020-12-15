@@ -2,7 +2,7 @@
 \chapter{Evaluation des Beschneidens des Netzes}\label{sec:ptexperimente}
 \section{Evaluation bei gleichbleibender Batchgröße}
 
-Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Das Ergebnis der Ausführung von PruneTrain auf der Hardware wird mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. So kann evaluiert werden, wieviel der PruneTrain Effekte auf des Setup mit mehren GPUs in der Veröffentlichung zurückzuführen sind. 
+Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Das Ergebnis der Ausführung von PruneTrain auf der Hardware wird mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. So kann evaluiert werden, wieviel der PruneTrain Effekte auf das Setup mit mehreren GPUs in der Veröffentlichung zurückzuführen sind. 
 
 Bei der Evaluierung der Einflüsse werden die veränderbaren Hyperparameter von PruneTrain einzeln verändert, um den Einfluss der einzelnen Veränderungen zu untersuchen.  
 Die veränderbaren Hyperparameter sind:
@@ -18,20 +18,21 @@ Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese
 
 \subsubsection{Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}
 Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen Experimenten wird die Lasso-Ratio von 0,05 bis 0,25 in 0,05er Schritten verändert. In Abbildung \ref{abb:lasso1} ist zusehen, dass mit steigender Lasso-Ratio durchschnittlich weniger Trainingszeit gebraucht wird. Für die durchschnittliche Trainingszeit eines Experiments wird das arithmetische Mittel über alle Epochen angewandt. Die Experimente werden dann nach ihrer Zugehörigkeit einsortiert und als Boxplot in Abbildung \ref{abb:lasso1} dargestellt. Trotz der nachlassenden Trainingszeit mit steigender Lasso-Ratio ist die Trainingszeit des Baseline-Netzes signifikant schneller. Dies ist durch den Overhead erklärbar, welcher durch das Beschneiden des Netzes entsteht.
-Um zu überprüfen, wie signifikante diese Unterschiede zwischen den Experimentengruppen hier sind werden paar weise t-Tests mit einem Signifikanzniveau $\alpha=0,05$ durchgeführt. Die resultierenden p-Werte sind in Tabelle \ref{tab:lasso1} zu sehen.
+Um zu überprüfen, wie signifikante diese Unterschiede zwischen den Experimentengruppen hier sind werden paarweise t-Tests mit einem Signifikanzniveau $\alpha=0,05$ durchgeführt. Die resultierenden p-Werte sind in Tabelle \ref{tab:lasso1} zu sehen.
 
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den durchschnittlichen Trainingszeiten der Lasso-Ratio Experimente }
-\begin{tabular}{l|c|c|c|c|c|c|}
-\cline{2-7}
-                                 & \multicolumn{1}{l|}{Baseline} & \multicolumn{1}{l|}{Lasso 0,05} & \multicolumn{1}{l|}{Lasso 0,1} & \multicolumn{1}{l|}{Lasso 0,15} & \multicolumn{1}{l|}{Lasso 0,2} & \multicolumn{1}{l|}{Lasso 0,25} \\ \hline
-\multicolumn{1}{|l|}{Basline}    & X                             & 6,927*10\textasciicircum{}-6    & <2,2*10\textasciicircum{}-16    & <2,2*10\textasciicircum{}-16     & 2,879*10\textasciicircum{}-5   & 4,885*10\textasciicircum{}-5    \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,05} & X                             & X                               & 0,0299                         & 0,0199                          & 0,0002                         & 5,564*10\textasciicircum{}-5    \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,1}  & X                             & X                               & X                              & 0,0025                          & 0,0035                         & 0,0016                          \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,15} & X                             & X                               & X                              & X                               & 0,0046                         & 0,0019                          \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,2}  & X                             & X                               & X                              & X                               & X                              & \cellcolor[HTML]{FE0000}0,2540                          \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,25} & X                             & X                               & X                              & X                               & X                              & X                               \\ \hline
+\centering
+\begin{tabular}{l|c|c|c|c|c|}
+\cline{2-6}
+                                 & \multicolumn{1}{l|}{Lasso $0,05$} & \multicolumn{1}{l|}{Lasso $0,1$} & \multicolumn{1}{l|}{Lasso $0,15$} & \multicolumn{1}{l|}{Lasso $0,2$} & \multicolumn{1}{l|}{Lasso $0,25$} \\ \hline
+\multicolumn{1}{|l|}{Baseline}                             & $6,9\cdot10^{-6}$   & $<2,2\cdot10^{-16} $   & $<2,2\cdot 10^{-16}$     & $2,9\cdot 10^{-5}$   & $4,9\cdot10^{-5}$    \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,05$}                             & X                               & $0,0299$                         & $0,0199$                          & $0,0002$                         & $5,6\cdot 10^{-5}$    \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,1$}                             & X                               & X                              & $0,0025$                          & $0,0035$                         & $0,0016$                          \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,15$}   & X                               & X                              & X                               & $0,0046$                         & $0,0019$                          \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,2$}                             & X                               & X                              & X                               & X                              & \cellcolor[HTML]{FE0000}$0,2540$                          \\ \hline
 \end{tabular}
+\label{tab:lasso1}
 \end{table}
 Da bis auf den t-Test zwischen den Lasso Werten 0,2 und 0,25 alle p-Werte kleiner dem Signifikanzniveau sind ist ein Fehler 1.Art sehr unwahrscheinlich. Daher lässt sich für die übrigen Wertepaare die Aussage treffen, dass sie einen statistisch signifikanten Unterschied der Mittelwerte haben. Somit entsteht durch das Erhöhen der Lasso-Ratio ein signifikante Einsparung an Trainingzeit gegenüber einer kleineren Lasso-Ratio. Gegenüber den durchschnittlichen Trainingszeiten des Baseline-Netzes ist allerdings das Baseline in allen Fällen signifikante schneller.  
 
@@ -42,10 +43,10 @@ In Abbildung \ref{abb:lasso2} ist die Accuracy der verschiedenen Experimente abg
      \subfloat[][]{\includegraphics[width= .5\linewidth]{KapitelPartB/Images/lasso1.png}\label{abb:lasso1}}
      \hfill
      \subfloat[][]{\includegraphics[width=.5\linewidth]{KapitelPartB/Images/lasso2.png}\label{abb:lasso2}}
-     \caption{Lasso-Ratio Experiment: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracys}
+     \caption{Lasso-Ratio Experiment: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracy}
      \label{abb:lasso}
 \end{figure}
-In Tabelle \ref{tab:lasso2} sind die Werte für den paarweisen t-Test zwischen den Accuracys der Experimentegruppen abgebildet. Das Signifikanzniveau beträgt $\alpha =0,05$. In der Tabelle ist zu sehen, dass die rot hinterlegten p-Werte größer als das Signifikanzniveau sind. Somit ist für diese paarweisen Accuracys die Wahrscheinlichkeit für einen Fehler 1. Art zu groß für die Aussage, dass die Accuracys der Experimente einen unterschiedlichen Mittelwert haben. Es lässt sich jedoch erkennen, dass für jede Zeile die p-Werte kleiner werden, je größer die Lasso-Ratio wird. Somit lässt sich die begründete Aussage treffen, dass mit steigender Lasso-Ratio die Accuracy signifikant abnimmt.
+In Tabelle \ref{tab:lasso2} sind die Werte für den paarweisen t-Test zwischen den Accuracy der Experimentegruppen abgebildet. Das Signifikanzniveau beträgt $\alpha =0,05$. In der Tabelle ist zu sehen, dass die rot hinterlegten p-Werte größer als das Signifikanzniveau sind. Somit ist für diese paarweisen Accuracy die Wahrscheinlichkeit für einen Fehler 1. Art zu groß für die Aussage, dass die Accuracy der Experimente einen unterschiedlichen Mittelwert haben. Es lässt sich jedoch erkennen, dass für jede Zeile die p-Werte kleiner werden, je größer die Lasso-Ratio wird. Somit lässt sich die begründete Aussage treffen, dass mit steigender Lasso-Ratio die Accuracy signifikant abnimmt.
 Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen Signifikanz liegen als auch an der kleinen Anzahl an Experimenten pro Gruppe. Da die hier getroffene Aussage allerdings ausreicht wird das Experiment nicht mit grösserer Anzahl wiederholt.
 
 
@@ -53,15 +54,15 @@ Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen
 
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den Accuracy-Werten der Lasso-Ratio Experimente}
-\begin{tabular}{l|c|c|c|c|c|c|}
-\cline{2-7}
-                                 & \multicolumn{1}{l|}{Baseline} & \multicolumn{1}{l|}{Lasso 0,05} & \multicolumn{1}{l|}{Lasso 0,1} & \multicolumn{1}{l|}{Lasso 0,15} & \multicolumn{1}{l|}{Lasso 0,2} & \multicolumn{1}{l|}{Lasso 0,25} \\ \hline
-\multicolumn{1}{|l|}{Basline}    & X                             & \cellcolor[HTML]{FE0000}0,7068  & \cellcolor[HTML]{FE0000}0,4952 & \cellcolor[HTML]{FE0000}0,2586  & 0,0018                         & 8,64*10\textasciicircum{}-6     \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,05} & X                             & X                               & \cellcolor[HTML]{FE0000}0,2898 & \cellcolor[HTML]{FE0000}0,1341  & 0,001887                       & 1,006*10\textasciicircum{}-7    \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,1}  & X                             & X                               & X                              & \cellcolor[HTML]{FE0000}0,653   & 0,004058                       & 7,463*10\textasciicircum{}-5    \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,15} & X                             & X                               & X                              & X                               & 0,007227                       & 0,0001143                       \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,2}  & X                             & X                               & X                              & X                               & X                              & 0,01824                         \\ \hline
-\multicolumn{1}{|l|}{Lasso 0,25} & X                             & X                               & X                              & X                               & X                              & X                               \\ \hline
+\centering
+\begin{tabular}{l|c|c|c|c|c|}
+\cline{2-6}
+                                & \multicolumn{1}{l|}{Lasso $0,05$} & \multicolumn{1}{l|}{Lasso $0,1$} & \multicolumn{1}{l|}{Lasso $0,15$} & \multicolumn{1}{l|}{Lasso $0,2$} & \multicolumn{1}{l|}{Lasso $0,25$} \\ \hline
+\multicolumn{1}{|l|}{Baseline}   & \cellcolor[HTML]{FE0000}$0,7068$  & \cellcolor[HTML]{FE0000}$0,4952$ & \cellcolor[HTML]{FE0000}$0,2586$  & $0,0018$                         & $8,6\cdot 10^{-6}$     \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,05$}& X                               & \cellcolor[HTML]{FE0000}$0,2898$ & \cellcolor[HTML]{FE0000}$0,1341$  & $0,0010$                       & $1,0\cdot 10^{-7}$    \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,1$} & X                               & X                              & \cellcolor[HTML]{FE0000}$0,6530$   & $0,0041$         ig              & $7,5\cdot10^{-5}$    \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,15$}& X                               & X                              & X                               & $0,0072$                       & $0,0001$                       \\ \hline
+\multicolumn{1}{|l|}{Lasso $0,2$} & X                               & X                              & X                               & X                              & $0,0182$                         \\ \hline
 \end{tabular}
 \label{tab:lasso2}
 \end{table}
@@ -69,20 +70,21 @@ Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen
 
 
 \subsubsection{Experimente zum Rekonfigurationsintervall}
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} zu sehen. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen durchschnittlichen Trainingszeiten der Experimente zum Rekonfigurationsintervall kaum Unterschiede erkennen. Daher ist in Abbildung \ref{abb:reconf2} ein Boxplot ohne die Baseline Werte abgebildet. In Tabelle \ref{tab:reconf} ist bestätigt, das zwischen den durchschnittlichen Trainingszeiten der Experimente kein signifikanter Unterschied ist. Dabei ist zu bedenken, dass die Experimentanzahl mit fünf relativ klein ist. Wichtiger als die hier eventuell minimale Einsparung von Trainingszeit ist die Auswirkung auf die Accuracy.
+ Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} zu sehen. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen durchschnittlichen Trainingszeiten der Experimente zum Rekonfigurationsintervall kaum Unterschiede erkennen. Daher ist in Abbildung \ref{abb:reconf2} ein Boxplot ohne die Baseline Werte abgebildet. Vermutlich liegt der fehlende Unterschied hier daran, dass bei diesen Netzen die Ersparnis durch das Pruning und der erhöhte zeitliche Aufwand durch das Prunen nach einer bestimmten Epochenanzahl ausgleichend wirken. 
+ 
+ In Tabelle \ref{tab:reconf} ist bestätigt, das zwischen den durchschnittlichen Trainingszeiten der Experimente kein signifikanter Unterschied ist. Dabei ist zu bedenken, dass die Experimentanzahl mit fünf relativ klein ist. Wichtiger als die hier eventuell minimale Einsparung von Trainingszeit ist die Auswirkung auf die Accuracy.
  
 
 
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den durchschnittlichen Trainingszeiten der Rekonfigurationsinterval Experimente }
-
-\begin{tabular}{l|c|c|c|c|}
-\cline{2-5}
-                                & \multicolumn{1}{l|}{Baseline} & \multicolumn{1}{l|}{Rekonf 2}     & \multicolumn{1}{l|}{Rekonf 5}     & \multicolumn{1}{l|}{Rekonf 10}    \\ \hline
-\multicolumn{1}{|l|}{Baseline}  & X                             & \cellcolor[HTML]{FFFFFF}4.688e-07 & \cellcolor[HTML]{FFFFFF}6.375e-05 & \cellcolor[HTML]{FFFFFF}0.0002435 \\ \hline
-\multicolumn{1}{|l|}{Rekonf 2}  & X                             & X                                 & \cellcolor[HTML]{FE0000}0.6034    & \cellcolor[HTML]{FE0000}0.9859    \\ \hline
-\multicolumn{1}{|l|}{Rekonf 5}  & X                             & X                                 & X                                 & \cellcolor[HTML]{FE0000}0.9859    \\ \hline
-\multicolumn{1}{|l|}{Rekonf 10} & X                             & X                                 & X                                 & X                            ut     \\ \hline
+\centering
+\begin{tabular}{l|c|c|c|}
+\cline{2-4}
+                                & \multicolumn{1}{l|}{Rekonf 2}     & \multicolumn{1}{l|}{Rekonf 5}     & \multicolumn{1}{l|}{Rekonf 10}    \\ \hline
+\multicolumn{1}{|l|}{Baseline}  & \cellcolor[HTML]{FFFFFF}$4,7\cdot 10^{-7}$ & \cellcolor[HTML]{FFFFFF}$6,4\cdot 10^{-5}$ & \cellcolor[HTML]{FFFFFF}$0.0002$ \\ \hline
+\multicolumn{1}{|l|}{Rekonf 2}  & X                                 & \cellcolor[HTML]{FE0000}$0.6034$    & \cellcolor[HTML]{FE0000}$0.9853$    \\ \hline
+\multicolumn{1}{|l|}{Rekonf 5}  & X                                 & X                                 & \cellcolor[HTML]{FE0000}$0.9859$    \\ \hline
 \end{tabular}
 \label{tab:reconf}
 \end{table}
@@ -94,11 +96,11 @@ Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen
      \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/reconf2.png}\label{abb:reconf2}}
      \\
      \subfloat[][]{\includegraphics[width=.45\textwidth]{KapitelPartB/Images/reconf3.png}\label{abb:reconf3}}
-     \caption{Experimente zum Rekonfigurationsintervall: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
+     \caption{Experimente zum Rekonfigurationsintervall: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracy}
      \label{abb:reconf}
 \end{figure}
 
-In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Experimenten verhält. Zu sehen ist, dass die Accuracy keinen klare Tendenz hat. Dies zeigt sich auch in den t-Test in Tabelle \ref{tab:reconf2}. Hier ist die Anzahl an Experimenten wohl zu gering, um eine klare Aussage zu treffen. Daher wird an dieser Stelle die Anzahl an Experimenten auf 20 erhöht. \todo[inline]{Grafiken und t-Test mit n=20}
+In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Experimenten verhält. Zu sehen ist, dass die Accuracy keine klare Tendenz hat. Dies zeigt sich auch in den t-Test in Tabelle \ref{tab:reconf2}. Hier ist die Anzahl an Experimenten wohl zu gering, um eine klare Aussage zu treffen. Daher wird an dieser Stelle die Anzahl an Experimenten auf 20 erhöht. \todo[inline]{Grafiken und t-Test mit n=20}
 
 
 

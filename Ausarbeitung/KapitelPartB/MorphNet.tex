@@ -1,6 +1,6 @@
 \chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
 
-Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für ide Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
+Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für die Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist, wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
 
 \section{Evaluierung der einzelnen Schritte von MorphNet}
 Im ersten Schritt von MorphNet wird das Netz trainiert um 
@@ -22,10 +22,7 @@ In Abbildung \ref{abb:morphFLOPs} ist in Grün abgebildet, wie sich der Wert des
      \label{abb:morph1}
 \end{figure}
 
-Der Effekt von verschieden großen $\lambda$ wird im nächsten Schritt untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert. Auch hier werden nur die ersten beiden Schritte des MorphNet-Algorithmus mehrfach hintereinander durchgeführt. In Abbildung \ref{abb:morphFlops1} ist zu sehen, wie sich der Morph-Net Algorithmus bei verschiedenen $\lambda$ für die Zielgröße FLOPs verhält. 
-
-
-Dabei wird das Netz jeweils für fünf Epochen trainiert und anschliessend wird das Netz beschnitten. Abhängig von der Größe von $\lambda$ wird dem Regularisierer mehr oder weniger Gewicht gegeben. Dies sorgt für eine unterschiedlich große Verkleinerungsrate. In Abbildung \ref{abb:morphSize1} ist abgebildet wie sich die Netzverkleinerungsraten verändern, bei der Zielgröße Modellgröße.  
+Der Effekt von verschieden großen $\lambda$ wird im nächsten Schritt untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert. Dabei wird das Netz jeweils für 180 Epochen trainiert und anschliessend wird das Netz beschnitten. Abhängig von der Größe von $\lambda$ wird dem Regularisierer mehr oder weniger Gewicht gegeben. In Abbildung \ref{abb:morphFlops1} ist zu sehen, wie sich der Morph-Net Algorithmus bei verschiedenen $\lambda$ für die Zielgröße FLOPs verhält. In Abbildung \ref{abb:morphSize1} ist abgebildet wie sich die Netzverkleinerungsraten verändern, bei der Zielgröße Modellgröße. In der Originalveröffentlichung wurde der Effekt von verschiedenen $\lambda$ untersucht und für die Zielgröße Flops per Inferenz auch dargestellt. Dabei zeigte sich, dass mit verschiedenen Werten von $\lambda$ eine Kurve gebildet werden konnte, die für das Verhältnis zwischen Flops per Inferenz und der Accuracy einen Zusammenhang findet: Je kleiner die Flops Anzahl ist, so geringer ist auch die Accuracy. Wie in Abbildung \ref{abb:morphFlops1} für die Zielgröße Flops zu sehen ist, ist dieses Zusammenhang für ein ResNet nicht zu finden. Wie in Kapitel \ref{sec:inception} geschrieben unterscheidet sich das ResNet vom Inception Netz durch das Fehlen von Kurzschlussverbindungen, das Anwenden meherere Filter im Inception Netz und der Tiefe vom Inception Netz. Ein weiterer Unterschied, der für das unterschiedliche Abschneiden verantwortlich sein könnte ist die Verwendung von Cifar10 statt Imagenet. In der MorphNet Veröffentlichung steht außerdem, dass für ein festes $\lambda$ die Resultate reproduzierbar sind. Zu diesem Zweck wird für ein festes $\lambda =3\cdot 10^{-8}$ für die Zielgröße Flops überprüft wie stabil das Ergebnis ist. 
 
 \begin{figure}
      \centering
@@ -37,7 +34,7 @@ Dabei wird das Netz jeweils für fünf Epochen trainiert und anschliessend wird 
      \caption{Effekt verschieden großer $\lambda$ auf  (a) FLOPs (b) Modellgröße }
      \label{abb:morph2}
 \end{figure}
-Im letzten Schritt wird evaluiert, welchen Effekt die verschiedenen $\lambda$ auf den gesamten MorphNet-Algorithmus haben. Auf Grund dieser Ergebnisse werden die Parameter von MorphNet ermittelt, welches im nächsten Unterkapitel mit den Rahmenbedingungen von Kapitel \ref{sec:konzept} evaluiert wird.
+Im letzten Schritt wird evaluiert, welchen Effekt die verschiedenen $\lambda$ auf den gesamten MorphNet-Algorithmus haben. Auf Grund dieser Ergebnisse werden die Parameter von MorphNet ermittelt, welches im nächsten Unterkapitel mit den Rahmenbedingungen von Kapitel \ref{sec:konzept} evaluiert wird. Für diese Evaluierung wird MorphNet 
 
 
 
@@ -58,7 +55,6 @@ Die in Kapitel \ref{sec:konzept}  vorgestellte Vorgehensweise wir hier verwendet
 
 
 
-\chapter{Vergleich}\label{sec:vergleich}
 
 \begin{comment}
 \chapter{Additive Verfahren}

@@ -99,30 +99,8 @@ Das Training wird über 180 Epochen durchgeführt. Es werden 5 Experimente durch
 
 Eine Verkleinerung der Lernrate kann dieses Ergebnis verbessern \cite{CNNBook}. In Abbildung \ref{abb:baseAcc2} wird dargestellt, wie sich der Verlauf ändert durch eine Anpassung der Lernrate bei Epoche 93 und 150. In diesen beiden Epochen wird die Lernrate jeweils auf ein Zehntel verkleinert. 
 
-In Abbildung \ref{abb:baseAcc3} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimenten mit oder ohne Anpassung der Lernrate vergleicht. Es ergibt sich eine deutliche Verbesserung der Accuracy des Baseline-Netzes von 81.24 \% auf 91.89 \% durch diese Anpassung. 
-\color{blue1}
-Hier wurden die Epochen, zu denen die Lernrate verkleinert wurde manuell ausgesucht. 
+In Abbildung \ref{abb:baseAcc3} ist ein Boxplot dargestellt, der die Accuracy von jeweils fünf Experimenten mit oder ohne Anpassung der Lernrate vergleicht. Es ergibt sich eine deutliche Verbesserung der Accuracy des Baseline-Netzes von 81.24 \% auf 91.89 \% durch diese Anpassung. Hier wurden die Epochen, zu denen die Lernrate verkleinert wurde manuell ausgesucht. 
 
-
-Da die Accuracy sich mittels der Verkleinerung der Lernrate verbessert und somit bei direktem Verändern der Struktur im aktuellen Modell ungenutztes Potential verbleibt wird das Verkleinern der Lernrate angewendet, bevor die Struktur verändert wird.
-
-
-Somit ist es an dieser Stelle notwendig entweder ein geeignetes bestehendes Verfahren zur automatischen Anpassung der Lernrate zu finden, welches auch mit der Situation eines nicht auf einen bestimmten Accuracy Wert konvergierendes Netz klarkommt. 
-
-Bestehende Verfahren zur Anpassung der Lernrate:
-\begin{itemize}
- \item Adam
- \item AdaGrad
-\end{itemize}
-
-
-
-
-\color{black}
-
-\begin{comment}
-Aufgrund dieser Verbesserung werden die Experimente mit Anpassung der Lernrate als Grundlage zum Vergleich mit den Experimenten in den weiteren Kapiteln herangezogen. Sie werden in diesen Kapitel nur mit Baseline-Netz bezeichnet.
-\end{comment}
 \begin{figure}
      \centering
      \subfloat[][]{\includegraphics[width=.49\textwidth]{KapitelPartB/Images/BaseAcc1.png}\label{abb:baseAcc1}}
@@ -166,33 +144,13 @@ In Abbildung \ref{abb:baseAccS1} ist abgebildet, wie sich die Accuracy für das 
 \color{black}
 
 \section{Konzept}\label{sec:konzept}
-\todo[inline]{Überarbeiten}
-In den nachfolgenden Kapiteln wird MorphNet mit einer Kombination aus PruneTrain und Net2Net verglichen. MorphNet ist eine Technik, bei der die Struktur des Netzes durch Wiederholtes Verbreitern des Netzes und Verkleinern des Netzes mittels eines Regularisierers gelernt wird.
+
+In den nachfolgenden Kapiteln wird ein Konzept erarbeitet, wie MorphNet mit einer Kombination aus PruneTrain und Net2Net verglichen werden kann. MorphNet ist eine Technik, bei der die Struktur des Netzes durch Wiederholtes Verbreitern des Netzes und Verkleinern des Netzes mittels eines Regularisierers gelernt wird.
 PruneTrain beschneidet das Netz so, dass unwichtige Gewichte auf Null gesetzt werden mit dem Ziel ganze Kanäle auf Null zu setzen um diese zu Entfernen. Mit der Entfernung von Kanälen und falls alle Kanäle einer Schicht auf Null gesetzt wurde auch ganzen Schichten, soll Trainingszeit gespart werden bei möglichst geringem Accuracy Verlust.
+\color{blue1}
+Die Evaluierung von MorphNet wird in Kapitel \ref{sec:morphexperimente} durchgeführt. In Kapitel \ref{sec:ptexperimente} wird das PruneTrain Verfahren evaluiert.  Anschliessend wird in Kapitel \ref{sec:net2netexperimente} das Net2Net Verfahren evaluiert. In Kapitel \ref{sec:vergleich} wird erarbeitet, wie die Kombination aus PruneTrain und Net2Net gestaltet werden könnte. Abschliessend wird in Kapitel \ref{sec:fazit} das Ergebnis der Arbeit zusammengefasst und ein Ausblick auf das weitere mögliche Vorgehen gegeben.
 
-
-
-Um diese beiden Methoden vergleichen zu können werden hier zunächst grundlegende Rahmenbedingungen festgelegt.
-Beide Methoden bekommen drei verschieden ausgeprägte Netzwerke mit jeweils drei Phasen:
-\begin{itemize}
- \item Netz mit $N=[3,3,3]$ und $K=[8,16,32] $
- \item Netz mit $N=[4,4,4]$ und $K=[4,8,16] $
- \item Netz mit $N=[4,4,4]$ und $K=[8,16,32] $
-\end{itemize}
-Dabei können mehrere Durchgänge der Netzvergrösserung durchlaufen werden. Beschränkt sind diese Durchläufe nicht direkt in der Anzahl, da hier beide Methoden verschieden lange Phasen zwischen den Netzvergrösserungsschritten haben. Um trotzdem zeitlich ein Begrenzung zu haben ist es beiden Methonden nicht erlaubt nach 4 Stunden Laufzeit das Netz nochmal zu vergrössern.
-
-Um für die Netze eine Beschränkung zu haben sind maximal die Anzahl Parameter/Flops erlaubt, die das breite Baseline Netz hat.
-
-MorphNet wird in Kapitel \ref{sec:morphexperimente} evaluiert. In Kapitel \ref{sec:ptexperimente} wird PruneTrain so evaluiert, wie es in der vorgefertigten Implementierung \footnote{\url{https://bitbucket.org/lph\_tools/prunetrain/src/master/}} geschrieben wurde. In Kapitel \ref{sec:ptnew} wird die Erhöhung der Batchgröße bei Beschneiden des Netzes evaluiert.
-
-In Kapitel \ref{sec:net2netexperimente} wird Net2Net evaluiert.
-In Kapitel \ref{sec:ptpnet2net} wird die Vorgehensweise zum Kombinieren von PruneTrain und Net2Net beschrieben sowie die Kombination evaluiert.
-
-Der Vergleich der beiden Methoden wird in Kapitel \ref{sec:vergleich} vollzogen.
-\todo[inline]{nur wenn noch Zeit übrig: In Kapitel 8 werden die Ergebnisse aus 6.3 auf einem anderen Datensatz verifiziert. auch wenn noch Zeit: Prüfe wie sich die additiven Verfahren auf 6.3 auswirken Zuletzt werden noch additive Verfahren vorgetellt, welche die Trainingszeit zusätzlich minimieren können. Eine dieser Verfahren, welches in Kapitel evaluiert wird, spart Zeit durch die Verwendung von gemischt präzisen Zahlenformaten.
-Ein weiteres additives Verfahren in Kapitel  überprüft in wiefern mit Hilfe einer adaptiven Anpassung der Lernrate die Batchgröße sinvoll so angepasst werden kann, dass die ganze GPU genutzt werden kann.}
-
-
+\color{black}
 
 
 

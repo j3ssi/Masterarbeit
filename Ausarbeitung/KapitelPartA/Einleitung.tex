@@ -20,14 +20,14 @@ In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durch
  \caption{Abbildung zur Faltung \cite{CNNBook}}
  \label{fig:faltung}
 \end{figure}
-Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird der Eingang des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mittels der Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird eine Rectified Linear Unit (ReLU) als Aktivierungsfunktion benutzt\footnote{Für Erklärung ReLU siehe \cite{neural}}.
+Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird die Merkmalskarte des Eingangs des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mit einer Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird eine Rectified Linear Unit (ReLU) als Aktivierungsfunktion benutzt\footnote{Für Erklärung ReLU siehe \cite{neural}}.
 
 
 
-Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch die Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten autaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird grösser als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
+Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch die Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten autaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird, größer als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
 
 
-Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt, ob und wenn 'ja' wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben, die Pixel am Rand des Bildes(bzw. der Featuremap der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.
+Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt, ob und wenn 'ja' wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben, die Pixel am Rand des Bildes (bzw. der Merkmalskarte der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.
 
 
 
@@ -48,7 +48,7 @@ Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fi
 
 Die voll verbundene Schicht errechnet aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.
 
-Die Filter, die auf die Feature Maps bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen der voll verbundenen Schicht trainierbar. Das heißt, durch den Trainingsprozess wird versucht die Werte in der Filtermatrix und der voll verbundenen Schicht so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
+Die Kernel, die auf die Merkmalskarte bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen der voll verbundenen Schicht trainierbar. Das heißt, durch den Trainingsprozess wird versucht die Werte in der Kernelmatrix und der voll verbundenen Schicht so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
 
 
 
@@ -58,7 +58,7 @@ Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind.
 \end{equation}
 die Definition dieser Menge ist.
 
-Diese Klassifikation ist formal eine Funktion $f$ mit der Eingabe $\mathbf{x}_i$. Da das Bild $\mathbf{x}_i$ bereits vorher klassifiziert wurde hat es ein Label $y_i$, welches die Klasse von $\mathbf{x}_i$ angibt. Mit Hilfe das Labels und der Ausgabe von $f(\mathbf{x}_i, \mathcal{W})$ wird eine Verlust-Funktion $l(f(\mathbf{x}_i,\mathcal{W}),y_i)$ berechnet. Die Verlust-Funktion berechnet wie weit die tatsächliche Klasse $y_i$ von der Ausgabe des Netzes $f(\mathbf{x}_i, \mathcal{W})$ entfernt ist. Wie wäre es mit: Die Fehlerrate Trainingsdaten bei dieser Verlustfunktion wird Trainingsfehler genannt.
+Diese Klassifikation ist formal eine Funktion $f$ mit der Eingabe $\mathbf{x}_i$. Da das Bild $\mathbf{x}_i$ bereits vorher klassifiziert wurde, hat es ein Label $y_i$, welches die Klasse von $\mathbf{x}_i$ angibt. Mit Hilfe das Labels und der Ausgabe von $f(\mathbf{x}_i, \mathcal{W})$ wird eine Verlust-Funktion $l(f(\mathbf{x}_i,\mathcal{W}),y_i)$ berechnet. Die Verlust-Funktion berechnet wie weit die tatsächliche Klasse $y_i$ von der Ausgabe des Netzes $f(\mathbf{x}_i, \mathcal{W})$ entfernt ist. Aus der Anzahl an falsch klassifizierten Trainingsbildern wird berechnet, wie hoch der prozentuale Fehler ist. Dieser wird Trainingsfehler genannt.
 
 
 Die Ableitung dieser Verlust-Funktion wird rückwärts durch das Netz propagiert und damit ein Gradient berechnet. Mittels des Gradientenabstiegsverfahrens wird die Verlust-Funktion minimiert, was dazu führt, dass das Netz die Trainingsbilder besser klassifiziert. 
@@ -97,8 +97,8 @@ Im Anschluss an diese Normalisierung lassen sich die Elemente des Batches durch 
 
 \color{black}
 
-
-\section{ResNet -- eine neuere CNN-Architektur}\label{sec:res}
+\section{CNN- Architekturen}
+\subsection{ResNet -- eine neuere CNN-Architektur}\label{sec:res}
 Die wachsende Tiefe bei CNN-Architekturen geschieht mit dem Hintergrund, dass tiefere Netze größere Modellkomplexität haben. Die klassische CNN-Architektur mit hintereinander geschalteten Conv-Layern schafft es bei wachsender Tiefe des Netzes nicht, diese Komplexität in bessere Klassifikationsleistung umzusetzen. Die Quelle zu diesem Unterkapitel ist das Paper, welches wegweisend für die Verwendung von Residualen Netzen in der Wissenschaft ist \cite{resnet}.
 
 
@@ -123,7 +123,7 @@ Eine weitere Technik, die in residualen Netzen verwendet wird, ist die der Bottl
 
 Die erste Schicht im Bottleneck-Block reduziert dabei die Größe der Feature-Map. Dies hat zur Folge, dass die Durchlaufzeit des mittleren Convolutional Layers geringer ist als bei einem äquivalenten Nicht-Bottleneck-Block. Der letzte Layer des Blockes stellt die Größe vor dem Block wieder her.
 
-Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{abb:bottleneck} ist in Abbildung \ref{abb:nonbottleneck} zusehen. Wird in einem residualen Netz mit 34 Schichten  aus Blöcken wie in Abbildung \ref{abb:nonbottleneck} jeder Block durch einen Block wie in Abbildung \ref{abb:bottleneck} ausgetauscht, so entsteht ein 50- Layer residual Netzwerk mit einer durchschnittlich erhöhten Accuracy.
+Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{abb:bottleneck} ist in Abbildung \ref{abb:nonbottleneck} zusehen. Wird in einem residualen Netz mit 34 Schichten  aus Blöcken wie in Abbildung \ref{abb:nonbottleneck} jeder Block durch einen Block wie in Abbildung \ref{abb:bottleneck} ausgetauscht, so entsteht ein 50 schichtiges residuales Netzwerk mit einer durchschnittlich erhöhten Accuracy.
 
 
 \begin{figure}[h]
@@ -134,7 +134,20 @@ Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{ab
        \caption{Vergleich zweier Residual-Netz-Blöcke \cite{resnet}}
 \end{figure}
 
+\subsection{Inception}
+\color{blue1}
+Inception ist eine CNN- Architektur, die sowohl in der Morph-Net Veröffentlichung als auch in der Net2Net- Veröffentlichung verwendet wurden. Um die Ergebnisse aus den Veröffentlichungen mit den eigenen vergleichen zu können wird hier die Inception Architektur vorgestellt. Soweit nicht explizit anders erwähnt ist die Quelle zu diesem Unterkapitel die Inception Veröffentlichung \cite{Inception}.
 
+
+Beim Versuch ein CNN zu verbessern wird in der Regel das Netz vergrössert, das heißt es werden entweder mehr Schichten benutzt oder das die einzelnen Schichten des Netzes sind breiter. Dies kann zwar eine verbesserte Accuracy bringen sorgt aber auch für ein höheren Berechnungs- und damit Zeitaufwand. Außerdem ist ein grösseres Netzwerk mit mehr Parametern auch mehr anfällig für Overfitting.
+
+Das Inception Netz ist eine Architektur, die ohne diese Nachteile eine bessere Architektur schaffen will.
+
+
+
+
+
+\color{black}
 \section{Vorgehen zur Suche nach dem Stand der Wissenschaft}\label{sec:suche}
 Eine Google-Suche nach ``time efficient training convolutional neural networks'' ergibt ungefähr 12 Millionen Suchergebnisse. Mit dieser Flut an Ergebnissen und vielen populär-wissenschaftlichen Einträgen ist die Suche nicht erfolgreich. Aus diesem Grund wird die Suche auf die Seite arvix.org eingeschränkt. Diese Einschränkung macht Sinn mit dem Hintergrund, dass bereits 2017 über 60\% Prozent der publizierten Paper auf arxiv.org als Preprint veröffentlicht wurden \cite{popular}. Diese Zahl ist seitdem weiter gestiegen, was die Zahl der veröffentlichten Paper im Bereich Machine Learning pro Tag in Abbildung \ref{abb:arxiv} zeigt.
 

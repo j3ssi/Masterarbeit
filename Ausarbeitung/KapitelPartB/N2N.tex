@@ -1,12 +1,12 @@
 
 \chapter{Evaluierung von Net2Net}\label{sec:net2netexperimente}
-Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Unterkapiel evaluiert. Diese Evaluierung arbeitet mit einer selbst erstellten Implementierung auf Grundlage der Veröffentlichung zum Thema Net2Net \cite{net2net}.
+Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in diesem Kapitel evaluiert. Diese Evaluierung arbeitet mit einer selbst erstellten Implementierung auf Grundlage der Veröffentlichung zum Thema Net2Net \cite{net2net}.
 
-Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind analog zu den in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, wie in Kapitel \ref{sec:baseline}.
+Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind ähnlich, wie in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, wie in Kapitel \ref{sec:baseline}. In der Veröffentlichung wird mit einem Inception Net gearbeitet. Das Inception Netz wird in Kapitel \ref{sec:inception} vorgestellt.
 
-In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres ResNet32 zu trainieren. 
-In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um zusätzliche Blöcke hinzuzufügen oder bestehenden Blöcken Schichten hinzuzufügen. In der dritten Situation werden beide Operatoren kombiniert. Mit der Kombination wird der Raum erkundet, ausgehend von einem Modell.
-Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben. Anpassungen der Lernrate werden erst in der dritten Situation vorgenommen
+In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres Baseline Netz zu trainieren. 
+In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um zusätzliche Blöcke hinzuzufügen oder bestehenden Blöcken Schichten hinzuzufügen. In der dritten Situation werden beide Operatoren kombiniert. Mit der Kombination wird der Raum der möglichen Peratoranwendungen erkundet, ausgehend von einem Modell.
+Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben. Anpassungen der Lernrate werden erst in der dritten Situation vorgenommen.
 
 \section{Evaluierung des Operators für ein breiteres Netz}
 Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Netzes breiter gemacht wird:
@@ -14,15 +14,22 @@ Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Net
  \item Alle Phasen
  \item Eine ganze Phase
 \end{itemize}
-Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten ausgewählt und so normalisiert, dass die approximierte Funktion nicht signifikant von der approximierten Funktion mit den neuen Gewichten abweicht. Um zu evaluieren wie gut diese Methode funktioniert wird sie auf das schmalle Baseline-Netz angewendet und verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen Gewichte zufällig initialisiert werden.
-\color{blue1}
+Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten ausgewählt und so normalisiert, dass die approximierte Funktion nach Anwendung des Operators nicht signifikant von der approximierten Funktion mit den neuen Gewichten abweicht. Um zu evaluieren wie gut diese Methode funktioniert wird sie auf das schmalle Baseline Netz angewendet und verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen Gewichte zufällig initialisiert werden.
+\begin{figure}
+     \centering
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/wider1.png}\label{abb:wider1}}     
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/wider2.png}\label{abb:wider2}}
+     \hfill
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/wider3.png}\label{abb:wider3}}
+     
+     \caption{}
+     \label{abb:memory}
+\end{figure}
 
-In Abbildung \ref{abb:deeper1} ist der Verlauf der Trainingsaccuracy des schmallen Baseline Netzes über 180 Epochen ohne Anpassung der Lernrate zu sehen. 
+In Abbildung \ref{abb:wider1} ist der Verlauf der Accuracy des schmallen Baseline Netzes in blau und des breiten Baseline Netzes in schwarz über 180 Epochen ohne Anpassung der Lernrate zu sehen. Es fällt auf, dass das schmalle Baseline Netz währenddem Training wesentlich stabiler trainiert als das breite. Allerdings ist das schmalle Baseline-Netz nach wenigen Epochen bereits so weit, dass es kaum Verbesserungen gibt. Auf das schmalle Baseline Netz wird im nächsten Schritt der Operator für ein breiteres Netz angewendet. In Abbildung \ref{abb:wider2} ist der Verlauf der Accuracy des schmallen Baseline Netzes in blau im Vergleich zum schmallen Baseline Netz mit Anwendung des Operators in grün zu sehen. In Abbildung \ref{abb:wider3} ist ein Ausschnitt von Abbildung \ref{abb:wider2} für die Epochen 90 -180 zu sehen. An den beiden Grafiken ist eindeutig abzulesen, dass der Operator für ein breiteres Netz auf dem Baseline Netz die Accuracy verbessert. Die Verbesserung liegt bei den verglichenen Durchläufen bei 2 \%. 
 
 
 
-Dabei ist zu sehen, dass das Netz nicht konvergiert. Zunächst wird der Zeitpunkt gesucht, ab dem das Netz nicht mehr besser wird im Durchschnitt. Damit die Entscheidung in einer Epoche stärker von den näher liegenden vergangenen Epochen abhängig ist, wird ein exponentiell gewichteter Mittelwert berechnet. In die Berchnung eingehen werden letzten $n$ Werte, für ein festes $n$.
-Abbildung \ref{abb:deeper2} zeigt den Verlauf dieses Mittelwert für $n=10$ (Blau) und $n=30$ (Grün).
 \begin{figure}
      \centering
      \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/deeperD1.png}\label{abb:deeper2}}
