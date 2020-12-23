@@ -1,49 +1,60 @@
 \chapter{Untersuchung von MorphNet}\label{sec:morphexperimente}
 
-Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wird das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird dann überprüft, wie gut der Algorithmus mit den in Kapitel \ref{sec:konzept} genannten Rahmenbedingungen abschneidet. Da für die Untersuchung der einzelnen Schritte von MorphNet die Ausführungszeit unwichtig ist, wird dieser Teil auf der Geforce GTX 1080 Ti ausgeführt.
+Die in Kapitel \ref{sec:morphnet} erläuterte Methode zum ``schnellen Ressourcen beschränkten Strukturlernen'' (MorphNet) wird in diesem Kapitel evaluiert. In Algorithmus \ref{alg:morphnet} wurde das Vorgehen von MorphNet mittels Pseudocode dargestellt. Im ersten Schritt zur Evaluierung werden die einzelnen Schritte in diesem Algorithmus evaluiert. Im zweiten Schritt wird überprüft, wie gut der Algorithmus auf dem Datensatz Cifar10 trainiert auf einem ResNet abschneidet.
+Da als Framework Pytorch verwendet wird kann die ursprängliche Implementation hier nicht verwendet werden. Es erscheint nicht sehr sinnvoll zwei Verfahren zu vergleichen, die auf unterschiedlichen Frameworks aufbauen. Stattdessen wird die im Rahmen einer anderen Veröffentlichung erstellte Implementierung vom MorphNet benutzt\footnote{Die benutzte Implementierung ist auf Github zu finden: \url{https://github.com/cmu-enyac/LeGR/} } \cite{morphImple}. Unterschiede in der Implementierung sollten hier theoretisch nicht vorliegen, da der originale Programmcode von MorphNet verfügbar ist\footnote{Der original Programmcode ist ebenfalls auf Github zu finden: \url{https://github.com/google-research/morph-net}}.
 
 \section{Evaluierung der einzelnen Schritte von MorphNet}
-Im ersten Schritt von MorphNet wird das Netz trainiert um 
+Im ersten Schritt von MorphNet wird das Netz trainiert, so dass
 \begin{equation}
 \mathcal{W}^{\ast}=\underset{\mathcal{W}}{arg min}\; l(f(\mathbf{x_i}, \mathcal{W},y_i) + \lambda \mathcal{G}(\mathcal{W}))
 \end{equation}
-zu finden. Der Regularisierer $\mathcal{G}$ ist in dieser Formel dafür zuständig, dass die gewählte Zielgröße minimiert wird. Die zwei möglichen Zielgrößen sind die Modellgröße und Anzahl an FLOPs. Für beide Zielgrößen gilt, dass die im Regularsierer verwendete Formel nur eine vereinfachte Form der Zielgrösse berechnet. 
-Zunächst wird evaluiert, welchen Effekt der Regularisierer auf die Zielgröße hat. Dabei werden nur die ersten beiden Schritte des MorphNet-Algorithmus durchgeführt.
-In Abbildung \ref{abb:morphFLOPs} ist in Grün abgebildet, wie sich der Wert des Regularisieres für die Zielgrösse FLOPs während dem Training verändert. Die blaue Kurve in Abbildung \ref{abb:morphFLOPs} ist der tatsächliche Verlauf der Flops über die Trainingszeit. Die blaue Kurve wird in Schritten weniger, da das Netz nur alle fünf Epochen mittels der zweiten MorphNet-Schrittes kleiner wird. Die verzögerte Reduzierung der Zielgröße liegt daran, dass erst mit einer gewissen Anzahl entfernbarer Gewichte ttsächlich eine Änderung an den FLOPs passiert. Für die Zielgröße Modellgröße ist der Verlauf der beiden Kurven in Abbildung \ref{sec:morphSize} abgebildet. Für die Zielgröße Modellgröße muss $\lambda$ größer sein um einen Effekt auf die Zielgröße zu haben.
+minimiert wird. Der Regularisierer $\mathcal{G}$ ist in dieser Formel dafür zuständig, dass die gewählte Zielgröße minimiert wird. Die zwei möglichen Zielgrößen sind die Modellgröße und Anzahl an FLOPs. Für beide Zielgrößen gilt, dass die im Regularsierer verwendete Formel nur eine vereinfachte Form der Zielgrösse berechnet. 
+Deshalb wird zunächst evaluiert, welchen Effekt der Regularisierer auf die Zielgröße hat. Dabei werden nur die ersten beiden Schritte des MorphNet-Algorithmus durchgeführt.
+
+
+In Abbildung \ref{abb:morphFLOPs} ist in Grün abgebildet, wie sich der Wert des Regularisieres für die Zielgrösse FLOPs während dem Training verändert. Die blaue Kurve in Abbildung \ref{abb:morphFLOPs} ist der tatsächliche Verlauf der Flops über die Trainingszeit. Die blaue Kurve wird in Schritten weniger, da das Netz nur alle fünf Epochen mittels der zweiten MorphNet-Schrittes beschnitten wird. Die verzögerte Reduzierung der Zielgröße liegt daran, dass erst mit einer gewissen Anzahl entfernbarer Gewichte tatsächlich eine Änderung an den FLOPs passiert. Für die Zielgröße Modellgröße ist der Verlauf der beiden Kurven in Abbildung \ref{abb:morphSize} abgebildet. Für die Zielgröße Modellgröße muss $\lambda$ größer sein um einen Effekt auf die Zielgröße zu haben. Es zeigt sich, dass $\mathcal{G}$ tatsächlich für eine minimierte Zielgröße sorgt.
 
 \begin{figure}
      \centering
-     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph1.png}\label{abb:morphSize}}
+     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph1.png}\label{abb:morphFLOPs}}
      \hfill
-     \subfloat[][]{
-     \includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph2.png}\label{abb:morphFLOPs}
-     }
+     \subfloat[][]{\includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph2.png}\label{abb:morphSize}}
      \caption{Vergleich Zielgröße mit Wert des Regularisierers für (a) FLOPs (b) Modellgröße }
      \label{abb:morph1}
 \end{figure}
 
-Der Effekt von verschieden großen $\lambda$ wird im nächsten Schritt untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert. Dabei wird das Netz jeweils für 180 Epochen trainiert und anschliessend wird das Netz beschnitten. Abhängig von der Größe von $\lambda$ wird dem Regularisierer mehr oder weniger Gewicht gegeben. In Abbildung \ref{abb:morphFlops1} ist zu sehen, wie sich der Morph-Net Algorithmus bei verschiedenen $\lambda$ für die Zielgröße FLOPs verhält. In Abbildung \ref{abb:morphSize1} ist abgebildet wie sich die Netzverkleinerungsraten verändern, bei der Zielgröße Modellgröße. In der Originalveröffentlichung wurde der Effekt von verschiedenen $\lambda$ untersucht und für die Zielgröße Flops per Inferenz auch dargestellt. Dabei zeigte sich, dass mit verschiedenen Werten von $\lambda$ eine Kurve gebildet werden konnte, die für das Verhältnis zwischen Flops per Inferenz und der Accuracy einen Zusammenhang findet: Je kleiner die Flops Anzahl ist, so geringer ist auch die Accuracy. Wie in Abbildung \ref{abb:morphFlops1} für die Zielgröße Flops zu sehen ist, ist dieses Zusammenhang für ein ResNet nicht zu finden. Wie in Kapitel \ref{sec:inception} geschrieben unterscheidet sich das ResNet vom Inception Netz durch das Fehlen von Kurzschlussverbindungen, das Anwenden meherere Filter im Inception Netz und der Tiefe vom Inception Netz. Ein weiterer Unterschied, der für das unterschiedliche Abschneiden verantwortlich sein könnte ist die Verwendung von Cifar10 statt Imagenet. In der MorphNet Veröffentlichung steht außerdem, dass für ein festes $\lambda$ die Resultate reproduzierbar sind. Zu diesem Zweck wird für ein festes $\lambda =3\cdot 10^{-8}$ für die Zielgröße Flops überprüft wie stabil das Ergebnis ist. 
+
+Der Effekt von verschieden großen $\lambda$ wird im nächsten Schritt untersucht. Zu diesen Zweck wird ein Netzwerk mit verschiedenen Werten für $\lambda$ trainiert. Dabei wird das Netz jeweils für 180 Epochen trainiert und anschliessend wird das Netz beschnitten. Abhängig von der Größe von $\lambda$ wird dem Regularisierer mehr oder weniger Gewicht gegeben. In Abbildung \ref{abb:morph3} ist zu sehen, wie sich der Morph-Net Algorithmus bei verschiedenen $\lambda$ für die Zielgröße FLOPs verhält. In Abbildung \ref{abb:morph4} ist abgebildet wie sich die Netzverkleinerungsraten verändern, bei der Zielgröße Modellgröße. In der Originalveröffentlichung wurde der Effekt von verschiedenen $\lambda$ untersucht und für die Zielgröße FLOPs auch dargestellt. Dabei zeigte sich, dass mit verschiedenen Werten von $\lambda$ eine Kurve gebildet werden konnte, die für das Verhältnis zwischen Flops per Inferenz und der Accuracy einen Zusammenhang findet: Je kleiner die Flops Anzahl ist, so geringer ist auch die Accuracy \cite{morphnet}. Wie in Abbildung \ref{abb:morph3} für die Zielgröße Flops zu sehen ist, ist dieser Zusammenhang für ein ResNet nicht zu finden. In Abbildung \ref{abb:morph5} ist abgebildet, wie sich die Zielgröße Flops im Zusammenhang mit der Accuracy verändert, bei einem festen $\lambda = 3 \cdot 10^{-8}$. Im Vergleich zeigt sich jetzt das in Abbildung \ref{abb:morph4} für mehrere verschiedene $\lambda$ eine Accuracy Spanne von x \% ergibt. Bei $\lambda = 3 \cdot 10^{-8}$ ergibt sich eine Spanne von x \%. Damit zeigt sich, dass das Ergebnis nach einem Beschneidungsvorgang nicht stabil ist. Dies könnte an der generellen Instabilität des Trainings liegen (stark sich verändernde Accuracy- Werte) oder an strukturellen Unterschieden zum Inception Netz. Wie in Kapitel \ref{sec:inception} geschrieben unterscheidet sich das ResNet vom Inception Netz durch das Fehlen von Kurzschlussverbindungen, das Anwenden meherere Filter im Inception Netz und der Tiefe vom Inception Netz. Ein weiterer Unterschied, der für das unterschiedliche Abschneiden verantwortlich sein. könnte ist die Verwendung von Cifar10 statt Imagenet.
+
+\todo[inline]{Evaluierung der Laufzeit}
+
 
 \begin{figure}
      \centering
-     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph3.png}\label{abb:morphFlops1}}
+     \subfloat[][]{\includegraphics[width=0.47\textwidth]{KapitelPartB/Images/morph3.png}\label{abb:morph3}}
      \hfill
-%     \subfloat[][]{
-%     \includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph2.png}\label{abb:morphSize1}
-%     }
-     \caption{Effekt verschieden großer $\lambda$ auf  (a) FLOPs (b) Modellgröße }
+     \subfloat[][]{\includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph4.png}\label{abb:morph4}}
+     \subfloat[][]{\includegraphics[width=.47\linewidth]{KapitelPartB/Images/morph5.png}\label{abb:morph5}}
+     \caption{Effekt verschieden großer $\lambda$ auf  (a) FLOPs (b) Modellgröße. (c) Effekt verschiedener Experimente bei festem $\lambda$ }
      \label{abb:morph2}
 \end{figure}
-Im letzten Schritt wird evaluiert, welchen Effekt die verschiedenen $\lambda$ auf den gesamten MorphNet-Algorithmus haben. Auf Grund dieser Ergebnisse werden die Parameter von MorphNet ermittelt, welches im nächsten Unterkapitel mit den Rahmenbedingungen von Kapitel \ref{sec:konzept} evaluiert wird. Für diese Evaluierung wird MorphNet 
-
+Da sich aus dem Experiment für die verschiedenen $\lambda$ kein Kandidat mittels einer Heuristik aussuchen lässt findet die Evaluierung in nächsten Unterkapitel mit mehreren $\lambda$ statt.
 
 
 \section{Evaluierung der Ergebnisse von MorphNet}
 
-Die in Kapitel \ref{sec:konzept}  vorgestellte Vorgehensweise wir hier verwendet, um MorphNet zu evaluieren. Dies bildet die Grundlage zum Vergleich in Kapitel \ref{sec:vergleich}.
+Um zu evaluieren, wie gut MorphNet auf einem ResNet mit Cifar10 abschneidet wird für verschiedene Werte von $\lambda$ der gesamte Algorithmus mehrfach ausgeführt. Die Grundlage bietet das schmalle Baseline-Netz.
+
+
+\todo[inline]{Grafiken die zeigen, dass das alles hier nicht besser abschneidet als das breite Baseline-Netz.}
 
 
 
+Der Grund, wieso MorphNet hier nicht besser abschneidet kann zwei Gründe haben:
+\begin{itemize}
+ \item Fehler in der Implementierung, der dafür sorgt, dass das Pruning an den Grenzen der Blöcke schwächer gewichtet ist als das Prunen innerhalb der Blöcke -> Abhilfe wie bei PruneTrain Lasso berechnen.
+ \item das breite Baseline-Netz ist bereits die bestes Struktur die man sich wünschen kann. Besser wird es nur noch durch andere Lernrate oder tiefere Struktur
+\end{itemize}
 
 
 

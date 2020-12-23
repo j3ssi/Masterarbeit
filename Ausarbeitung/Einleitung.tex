@@ -1,56 +1,45 @@
 \chapter{Einleitung}
 \label{sec:EinleitungGesamt}
 
-\section{Motivation und Hintergrund dieser Arbeit}
-Wird die Zeit-Effizienz eines Convolutional Neural Networks betrachtet, so ist die Betrachtung mehrerer Größen möglich. Im Rahmen dieser Arbeit soll dafür die Zeit betrachtet werden, die bei einem neuen Datensatz aufgebracht werden muss, bis eine gute Netzarchitektur und die passenden Hyperparameter gefunden sind. Um diese Zeit zu verkürzen sind zwei Herangehensweisen möglich. Die erste Herangehensweise beschleunigt und automatisiert den Prozess des Findens der besten Hyperparameter, in dem das Netz nach Änderungen von bestimmten Hyperparametern weiterverwendet wird. Für dieses Weitertrainieren werden zwei Operatoren verwendet, die das Netz breiter und/oder tiefer machen können. Da ein größeres bzw. breiteres Netz anfälliger für Overfitting ist wird dem Vergrössern des Netzes ein Beschneidungsalgorithmus entgegengesetzt, der unwichtige Gewichte entfernt. Das Entfernen unwichtiger Gewichte funktioniert hier mit Hilfe eines Regularisieres, der auch ganze Kanäle entfernen kann, falls diese unwichtig für den Ausgang des Netzes sind. 
+
+In diesem Kapitel wird zunächst die Motivation und das Ziel dieser Arbeit in Kapitel \ref{sec:first} erläutert. In Kapitel \ref{sec:ergebnis} werden die Ergebnissen dieser Arbeit kurz vorgestellt. Abschließend wird in Kapitel \ref{sec:aufbau} ein Überblick über den Aufbau dieser Arbeit gegeben.
+
+\section{Motivation und Ziel dieser Arbeit}\label{sec:first}
+Wird die Zeit-Effizienz des Trainings eines Convolutional Neural Networks betrachtet, so ist die Betrachtung mehrerer Größen möglich. Es kann gemessen werden, wie lange eine Epoche des Netzes trainiert. Außerdem kann gemessen werden, wieviel Trainingszeit beziehungsweise Durchgänge gebraucht werden, bis die Hyperparameter gefunden wurde, die ein zufriedenstellendes Ergebnis für die Testdaten ergeben. Im Rahmen dieser Arbeit soll evaluiert werden, welche Möglichkeiten es gibt, um den Prozess des Findens dieser Hyperparameter zu automatisieren und damit zu beschleunigen. Ohne diese Automatisierung muss nach jeden Trainingsdurchgang, bei nicht zufriedenstellenden Ergebnissen, manuell eine Anpassung der Hyperparmeter erfolgen. 
 
 
-Diese Technik des Vergrössern und wieder Kleiner machen wird einer ähnlichen Technik gegenübergestellt, welche das komplette Netz mit Hilfe eines Breitenmultiplikators breiter macht und mit Hilfe eines Regularisieres wieder schmaller aber nicht kleiner macht.
-
-Dabei ist das in dieser Arbeit vorgestellte Verfahren flexibler und kann das Netz zielgerichteter vergrössern beziehungsweise tiefer machen.
-
-Eine weitere zusätzliche Herangehensweise ist das Beschleunigen einzelner Trainingsdurchläufe, in dem das Training einer einzelnen Epoche beschleunigt wird. Zu dieser Herangehensweise werden Techniken vorgestellt, welche aber nicht praktisch evaluiert werden. 
-
-\section{Ziel der Arbeit}
-Ziel der Arbeit ist es, dieses Verfahren mit einem weiteren zu vergleichen.
-
-Diese Technik des Vergrössern und wieder Kleiner machen wird einer ähnlichen Technik gegenübergestellt, welche das komplette Netz mit Hilfe eines Breitenmultiplikators breiter macht und mit Hilfe eines Regularisieres wieder schmaller aber nicht kleiner macht.
-
-Dabei ist das in dieser Arbeit vorgestellte Verfahren flexibler und kann das Netz zielgerichteter vergrössern beziehungsweise tiefer machen.
-
-Die Evaluation soll ergeben, welches der beiden vorgestellten Verfahren bei einem Datensatz besser ein geeignetes Netz findet.
+Ein bestehendes Konzept, welches diesen Ansatz bereits verfolgt ist das "`schnelle Ressourcen beschränkte Struktur lernen tiefer Netzwerke"', kurz MorphNet \cite{morphnet}. Mit MorphNet wird mittels zwei konkurrierender Verfahren die Struktur des Netzes bestimmt. Die konkurrierenden Verfahren sind das Breiter machen des gesamten Netzes mittels eines Breitenmultiplikator und das Beschneiden des Netzes mit Hilfe eines Regulierers. 
 
 
-\section{Ergebnisse der Arbeit}
+Neben diesem Verfahren wird ein eigenes Konzept erarbeitet für ein alternatives Verfahren, mit ebenfalls zwei konkurrierenden Verfahren. Der Vorteil dieses alternativen Verfahrens gegenüber MorphNet ist, das neben der Breite auch die Tiefe des Netzes geändert werden kann. In diesem neuen Verfahren wird als beschneidende Methode PruneTrain benutzt, welches zusätzlich zum Trainingsfehler auch die Gewichte zusammenhängender Kanäle gemeinsam minimiert \cite{prunetrain}. PruneTrain hat den Vorteil, dass auch ganze Blöcke des verwendeten ResNet entfernt werden können. Als vergrößerndes Verfahren wird Net2Net benutzt. Net2Net arbeitet mit drei Operatoren, einen der das Netz breiter macht und zwei, die das Netz tiefer machen \cite{net2net}. Dabei werden die zusätzlichen Gewichte so initialisiert, dass das Netz approximativ die gleiche Funktion berechnet. 
 
 
-\section{Aufbau der Arbeit}
-In Kapitel \ref{sec:wissenschaft} wird zunächst der aktuelle Stand der Wissenschaft erläutert. Zu diesem Zweck werden zunächst in Unterkapitel \ref{sec:conv} die Grundlagen und Funktionsweisen eines CNNs erklärt. Die in dieser Arbeit verwendete CNN-Architektur ResNet wird darauf aufbauend in Unterkapitel \ref{sec:res} beschrieben. In Kapitel \ref{sec:suche} wird eine Bibliometrie zum Thema der Arbeit vorgestellt. Dies ermöglicht dem Leser nachzuvollziehen wie das Fundament auf dem diese Arbeit beruht gefunden wurde. 
+\section{Ergebnisse der Arbeit}\label{sec:ergebnis}
+MorphNet zeigt bei der Evaluierung auf einem Resnet mit dem Datensatz Cifar10 Schwächen. Diese Schwächen liegen sowohl bei fehlender Flexibilität, was die Tiefe des Netzes angeht als auch beim Umgang mit einem nicht stabil trainierenden Netz.
+
+Die Evaluierung von PruneTrain zeigt, dass bei einfachem Beschneiden des Netzes keine Trainingszeit gespart werden kann. Um hier beim Trainieren Zeit zu sparen, bei gleicher Speicherauslastung muss mit dem Beschneiden des Netzes auch die Batchgröße erhöht werden. Eine weitere Erkenntnis ist, dass in der Regel ein Gewinn an Trainingszeit mit einem Verlust an Accuracy einhergeht.
+
+Bei Net2Net zeigte sich, dass ein flacheres oder schmaleres Netz die Instabilität beim Training verringern kann. Mit Anwendung eines Operators, der das Netz breiter oder tiefer macht wird diese Stabilität erhalten. Der Operator für ein breiteres Netz schafft es, die Accuracy gegenüber einem genauso breiten ohne Änderung trainierten Netz zu verbessern. In der vorliegenden Evaluierungssituation schafft der Operator für ein tieferes Netz dies nicht.
+\todo[inline]{Ergebnis von Net2Net room}
 
 
-In Kapitel \ref{sec:prunetrain} wird das Beschneiden des Netzes vorgestellt, welches das Netz von unwichtigen Gewichten befreien soll und so das Wachstum des Netzes in Grenzen halten soll. In Kapitel \ref{sec:net2net} werden die Operatoren vorgestellt, welche das Netz breiter beziehungsweise tiefer machen sollen.
+Mit diesen Ergebnissen von PruneTrain und Net2Net hat das Konzept aus der Kombination dieser beiden das Potential besser als MorphNet zu werden.
+
+\section{Aufbau der Arbeit}\label{sec:aufbau}
+In Kapitel \ref{sec:wissenschaft} wird zunächst der aktuelle Stand der Wissenschaft erläutert. Zu diesem Zweck werden zunächst in Unterkapitel \ref{sec:conv} die Grundlagen und Funktionsweisen eines CNNs erklärt. Die in dieser Arbeit verwendeten CNN-Architekturen ResNet und Inception werden darauf aufbauend in Unterkapitel \ref{sec:archit} beschrieben. In Kapitel \ref{sec:suche} wird eine Bibliometrie zum Thema der Arbeit vorgestellt. Dies ermöglicht dem Leser nachzuvollziehen wie das Fundament auf dem diese Arbeit beruht gefunden wurde. 
+
+
+In Kapitel \ref{sec:prunetrain} wird das Beschneiden des Netzes vorgestellt, welches Gewichte so minimiert, dass unwichtige Kanäle auf Null gesetzt und dann entfernt werden können ohne große Accuracy Verluste. In Kapitel \ref{sec:net2net} werden die Operatoren vorgestellt, welche das Netz breiter beziehungsweise tiefer machen sollen.
 
 
 In Kapitel \ref{sec:auto} wird ein Überblick über das Thema der automatischen Architektursuche gegeben, um das Strukturlernen des Netzes im Kontext seiner Forschungsrichtung zu betrachten. In Kapitel \ref{sec:morphnet} wird die Vergleichsmethode vorgestellt, welche mit Hilfe von Strukturlernen versucht eine bessere Netzstruktur zu finden.
 
 
-Zeitsparen: \ref{sec:time}
+In Kapitel \ref{sec:experimente} wird ein Überblick über den praktischen Teil der Arbeit gegeben. Dazu wird zunächst das Setup des praktischen Teils beschrieben in Kapitel \ref{sec:setup}. In Kapitel \ref{sec:konzept} wird das Konzept für die darauf folgenden Kapitel beleuchtet.
 
-Additive Methoden \ref{sec:add}
 
-Experimente:\ref{sec:experimente}
+Die Evaluierung von MorphNet ist in Kapitel \ref{sec:morphexperimente} zu finden. 
+PruneTrain wird in Kapitel \ref{sec:ptexperimente} evaluiert. Anschließend wird Net2Net in Kapitel \ref{sec:net2netexperimente} evaluiert.
 
-Setup der Experimente \ref{sec:setup}
-
-PruneTrain Experimente: \ref{sec:ptexperimente}
-
-Net2Net Experimente: \ref{sec:net2netexperimente}
-
-MorphNet: \ref{sec:morphexperimente}
-
-Net2Net + PruneTrain: \ref{sec:ptpnet2net}
-
-Evaluation: \ref{sec:evaluation}
-
-Fazit: \ref{sec:fazit}
-\color{black}
+Abschließend werden die Erkenntnisse in Kapitel \ref{sec:fazit}
+ zusammengefasst und ein Fazit gezogen.

@@ -7,6 +7,10 @@ J.F. Couchot, R.~Couturier, C.~Guyeux, and M.~Salomon.
   convolution filters.
 \newblock {\em CoRR}, 2016.
 
+\bibitem[CDZM20]{morphImple}
+Ting-Wu Chin, Ruizhou Ding, Cha Zhang, and Diana Marculescu.
+\newblock Towards efficient model compression via learned global ranking, 2020.
+
 \bibitem[CGS15]{net2net}
 Tianqi Chen, Ian Goodfellow, and Jonathon Shlens.
 \newblock Net2net: Accelerating learning via knowledge transfer.
@@ -29,6 +33,14 @@ Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock {\em Deep Learningo}.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem[GEN{\etalchar{+}}18]{morphnet}
+A.~{Gordon}, E.~{Eban}, O.~{Nachum}, B.~{Chen}, H.~{Wu}, T.~{Yang}, and
+  E.~{Choi}.
+\newblock Morphnet: Fast simple resource-constrained structure learning of deep
+  networks.
+\newblock In {\em 2018 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition}, 2018.
 
 \bibitem[Hay98]{neural}
 S.~Haykin.

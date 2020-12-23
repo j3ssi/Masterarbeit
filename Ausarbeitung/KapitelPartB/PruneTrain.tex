@@ -21,17 +21,17 @@ Die Lasso-Ratio gibt an, wie stark das Netz beschnitten werden soll. In diesen E
 Um zu überprüfen, wie signifikante diese Unterschiede zwischen den Experimentengruppen hier sind werden paarweise t-Tests mit einem Signifikanzniveau $\alpha=0,05$ durchgeführt. Die resultierenden p-Werte sind in Tabelle \ref{tab:lasso1} zu sehen.
 
 \begin{table}[]
-\caption{p-Werte für den t-Tests zu den durchschnittlichen Trainingszeiten der Lasso-Ratio Experimente }
 \centering
 \begin{tabular}{l|c|c|c|c|c|}
 \cline{2-6}
-                                 & \multicolumn{1}{l|}{Lasso $0,05$} & \multicolumn{1}{l|}{Lasso $0,1$} & \multicolumn{1}{l|}{Lasso $0,15$} & \multicolumn{1}{l|}{Lasso $0,2$} & \multicolumn{1}{l|}{Lasso $0,25$} \\ \hline
+& \multicolumn{1}{l|}{Lasso $0,05$} & \multicolumn{1}{l|}{Lasso $0,1$} & \multicolumn{1}{l|}{Lasso $0,15$} & \multicolumn{1}{l|}{Lasso $0,2$} & \multicolumn{1}{l|}{Lasso $0,25$} \\ \hline
 \multicolumn{1}{|l|}{Baseline}                             & $6,9\cdot10^{-6}$   & $<2,2\cdot10^{-16} $   & $<2,2\cdot 10^{-16}$     & $2,9\cdot 10^{-5}$   & $4,9\cdot10^{-5}$    \\ \hline
 \multicolumn{1}{|l|}{Lasso $0,05$}                             & X                               & $0,0299$                         & $0,0199$                          & $0,0002$                         & $5,6\cdot 10^{-5}$    \\ \hline
 \multicolumn{1}{|l|}{Lasso $0,1$}                             & X                               & X                              & $0,0025$                          & $0,0035$                         & $0,0016$                          \\ \hline
 \multicolumn{1}{|l|}{Lasso $0,15$}   & X                               & X                              & X                               & $0,0046$                         & $0,0019$                          \\ \hline
 \multicolumn{1}{|l|}{Lasso $0,2$}                             & X                               & X                              & X                               & X                              & \cellcolor[HTML]{FE0000}$0,2540$                          \\ \hline
 \end{tabular}
+\caption{p-Werte für den t-Tests zu den durchschnittlichen Trainingszeiten der Lasso-Ratio Experimente}
 \label{tab:lasso1}
 \end{table}
 Da bis auf den t-Test zwischen den Lasso Werten 0,2 und 0,25 alle p-Werte kleiner dem Signifikanzniveau sind ist ein Fehler 1.Art sehr unwahrscheinlich. Daher lässt sich für die übrigen Wertepaare die Aussage treffen, dass sie einen statistisch signifikanten Unterschied der Mittelwerte haben. Somit entsteht durch das Erhöhen der Lasso-Ratio ein signifikante Einsparung an Trainingzeit gegenüber einer kleineren Lasso-Ratio. Gegenüber den durchschnittlichen Trainingszeiten des Baseline-Netzes ist allerdings das Baseline in allen Fällen signifikante schneller.  
@@ -70,7 +70,8 @@ Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen
 
 
 \subsubsection{Experimente zum Rekonfigurationsintervall}
- Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} zu sehen. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen durchschnittlichen Trainingszeiten der Experimente zum Rekonfigurationsintervall kaum Unterschiede erkennen. Daher ist in Abbildung \ref{abb:reconf2} ein Boxplot ohne die Baseline Werte abgebildet. Vermutlich liegt der fehlende Unterschied hier daran, dass bei diesen Netzen die Ersparnis durch das Pruning und der erhöhte zeitliche Aufwand durch das Prunen nach einer bestimmten Epochenanzahl ausgleichend wirken. 
+ Als nächste Größe wird der Einfluss des Rekonfigurationsintervalls überprüft. Die entsprechenden Grafiken sind in Abbildung \ref{abb:reconf} zu sehen. In Abbildung \ref{abb:reconf1} sind für die verschiedenen Experimente die Trainingszeiten pro Epoche zu sehen. Dabei werden drei verschiedene Rekonfigurationsintervalle (2,5 und 10) verglichen. In Abbildung \ref{abb:reconf1} lässt sich für die verschiedenen durchschnittlichen Trainingszeiten der Experimente zum Rekonfigurationsintervall kaum Unterschiede erkennen. Daher ist in Abbildung \ref{abb:reconf2} ein Boxplot ohne die Baseline Werte abgebildet. Der Grund hierfür ist, dass sich die Zeitersparnis durch das vermehrte Beschneiden aufgrund einem kleinerem Rekonfigurationsintervall mit dem nötigen Overhead der häufigeren Rekonfiguration aufhebt.
+ 
  
  In Tabelle \ref{tab:reconf} ist bestätigt, das zwischen den durchschnittlichen Trainingszeiten der Experimente kein signifikanter Unterschied ist. Dabei ist zu bedenken, dass die Experimentanzahl mit fünf relativ klein ist. Wichtiger als die hier eventuell minimale Einsparung von Trainingszeit ist die Auswirkung auf die Accuracy.
  
@@ -100,8 +101,7 @@ Die fehlende Signifikanz dieser Paare kann sowohl an der fehlenden statistischen
      \label{abb:reconf}
 \end{figure}
 
-In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Experimenten verhält. Zu sehen ist, dass die Accuracy keine klare Tendenz hat. Dies zeigt sich auch in den t-Test in Tabelle \ref{tab:reconf2}. Hier ist die Anzahl an Experimenten wohl zu gering, um eine klare Aussage zu treffen. Daher wird an dieser Stelle die Anzahl an Experimenten auf 20 erhöht. \todo[inline]{Grafiken und t-Test mit n=20}
-
+In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Experimenten verhält. Zu sehen ist, dass die Accuracy keine klare Tendenz hat. Dies zeigt sich auch in den t-Test in Tabelle \ref{tab:reconf2}. Hier ist die Anzahl an Experimenten wohl zu gering, um eine klare Aussage zu treffen. Da die Unterschiede hier aber so gering sind ist die Wahl des Rekonfigurationsintervall nicht so wichtig.
 
 
 \begin{table}[]
@@ -119,8 +119,12 @@ In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Ex
  
   
 \subsubsection{Experimente zur Lernrate}
+\todo[inline]{Vergleich mit Baseline und verschiedenen LR}
 Der Einfluss der Lernrate auf das Beschneiden des Netzes wird mit fünf verschiedenen Lernraten untersucht. Beginnend mit der Lernrate $0,2$ und für jede weitere der fünf Lernraten die Hälfte der vorherigen.
-Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Es ist deutlich zu sehen, dass mit sinkender Lernrate die Trainingszeit steigt. Das bedeutet, dass mit sinkender Lernrate weniger von Netz beschnitten wird. In Tabelle \ref{tab:lr1} sind die p-Werte für die paarweisen t-Test zu sehen, die berechnen wie wahrscheinlich es ist, dass ein Fehler 1. Art auftritt. Da die p-Werte bis auf einen Wert unter dem Signifikanzniveau von $\alpha = 0,05$ ist die hier getroffene Aussage statistisch belegt.
+Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Es ist deutlich zu sehen, dass mit sinkender Lernrate die Trainingszeit steigt. Das bedeutet, dass mit sinkender Lernrate weniger von Netz beschnitten wird, dies sorgt allerdings nicht zu einem verringerten Overhead. Der Overhead hängt bei diesem Verfahren von der Häufigkeit der Rekonfiguration ab.
+
+
+In Tabelle \ref{tab:lr1} sind die p-Werte für die paarweisen t-Test zu sehen, die berechnen wie wahrscheinlich es ist, dass ein Fehler 1. Art auftritt. Da die p-Werte bis auf einen Wert unter dem Signifikanzniveau von $\alpha = 0,05$ ist die hier getroffene Aussage statistisch belegt.
 
 
 \begin{table}[]
@@ -146,7 +150,7 @@ Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist i
      \label{abb:lr}
 \end{figure}
 
- In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernraten abgildet. Die Lernrate $0.1$ schneidet hier am Besten ab. Dies kann darauff zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht. In Tabelle \ref{tab:lr2} sind die p-Werte der paarweisen t-Tests zu sehen. Bis auf zwei Werte sind diese kleiner als das Signifikanzniveau $\alpha=0,05$. Damit ist die Wahrscheinlichkeit für einen Fehler 1.Art bis auf diese zwei Werte kleiner als 5 \%. Damit sind die hier getroffenen Aussagen statistisch belegt sind.
+ In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernraten abgildet. Die Lernrate $0.1$ schneidet hier am Besten ab. Dies kann darauf zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht wird oder mit der kleinen Lernrate ein lokales Minimum nicht verlassen werden kann. In Tabelle \ref{tab:lr2} sind die p-Werte der paarweisen t-Tests zu sehen. Bis auf zwei Werte sind diese kleiner als das Signifikanzniveau $\alpha=0,05$. Damit ist die Wahrscheinlichkeit für einen Fehler 1.Art bis auf diese zwei Werte kleiner als 5 \%. Damit sind die hier getroffenen Aussagen statistisch belegt sind.
  
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den Accuracys der Experimente zu den Lernraten}
@@ -164,7 +168,7 @@ Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist i
  
 \subsubsection{Experimente zum Grenzwert}
 
-Der Einfluss des gewählten Thresholds wird hier untersucht. In Abbildung \ref{abb:thres1} sind die durchschnittlichen Trainingszeiten abgebildet. Auch hier ist zu sehen, dass die durchschnittliche Trainingszeit durch die Anwendung des PruneTrain- Algorithmus zunimmt. Ab einem bestimmten Threshold-Wert sind hier die durchschnittlichen Trainingszeiten nicht mehr unterscheidbar. In Tabelle \ref{tab:thres1} sind die p-Werte des t-Tests abgebildet, der untersuchen soll wo ein statistisch signifikanter Unterschied zwischen den durchschnittlichen Trainingszeiten der Experimentengruppen herrscht. Die p-Werte stützen die Aussagen.
+Der Einfluss des gewählten Thresholds wird hier untersucht. In Abbildung \ref{abb:thres1} sind die durchschnittlichen Trainingszeiten abgebildet. Auch hier ist zu sehen, dass die durchschnittliche Trainingszeit durch die Anwendung des PruneTrain Algorithmus zunimmt.Unter einem bestimmten Threshold-Wert sind hier die durchschnittlichen Trainingszeiten nicht mehr unterscheidbar. In Tabelle \ref{tab:thres1} sind die p-Werte des t-Tests abgebildet, der untersuchen soll wo ein statistisch signifikanter Unterschied zwischen den durchschnittlichen Trainingszeiten der Experimentengruppen herrscht. Die p-Werte stützen die Aussagen.
 
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den durchschnittlichen Trainingszeiten der Experimente zum Threshold}
@@ -214,8 +218,8 @@ Die Anpassung der Batchgröße des Netzwerks in der Veröffentlichung arbeitet m
 
 Die Berechnung der maximalen Batchgröße für eine gegegebene Speichergrösse und Netzarchitektur wird in Kapitel \ref{sec:batch} beschrieben.
 
-\subsection{Berchnung der Batchgröße abhängig vom Speicherverbrauch}\label{sec:batch}
-Da sich in Pytorch der freie Speicher nicht direkt auslesen lässt wird mit Hilfe von Experimenten, die auf der GPU durchgeführt werden gemessen wie sich die Speicherauslastung verhält. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung proportional zur Batchgröße verhält. Es ist gut zu erkennen, dass der Zusammenhang linear ist. Die Passgenauigkeit dieses Zusammenhangs kann mittels einer linearen Regression bestimmt werden.  Daher wird  die rote Gerade wurde einer linearen Regression berechnet. Der maximale Abstand der gemessenen Punkte zur Gerade ist $0,19$ für Punkte, die unter der Gerade liegen sowie $0,67$ für Punkte die über der Gerade liegen. Zusammen mit der graphischen Übereinstimmung ergibt sich klar ein linearer Zusammenhang mit kleinen Abweichungen.
+\subsection{Berechnung der Batchgröße abhängig vom Speicherverbrauch}\label{sec:batch}
+Da sich in Pytorch der freie Speicher nicht direkt auslesen lässt wird mit Hilfe von Experimenten, die auf der GPU durchgeführt werden gemessen wie sich die Speicherauslastung verhält. In Abbildung \ref{abb:memory1} ist zu sehen, wie sich die Speicherauslastung proportional zur Batchgröße verhält. Es ist gut zu erkennen, dass der Zusammenhang linear ist. Die Passgenauigkeit dieses Zusammenhangs kann mittels einer linearen Regression bestimmt werden.  Daher wird mit der roten Gerade eine lineare Regression berechnet. Der maximale Abstand der gemessenen Punkte zur Gerade ist $0,19$ für Punkte, die unter der Gerade liegen sowie $0,67$ für Punkte die über der Gerade liegen. Zusammen mit der graphischen Übereinstimmung ergibt sich klar ein linearer Zusammenhang mit kleinen Abweichungen.
  \begin{figure}
      \centering
      \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/memory1.png}\label{abb:memory1}}
@@ -237,8 +241,11 @@ Durch diesen linearen Zusammenhang reicht es ein Modell zu bilden, welches für 
  \item der Anzahl an Schichten pro Block
  \item Breite der Schichten je Phase
 \end{itemize}
-In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl bei gleichbleibender Speicherauslastung auf die maximale Batchgröße auswirkt. Die Blockanzahl wirkt sich wie zu sehen ist nicht linear auf die maximale Batchgröße aus. Betrachtet man hingegen den Zusammenhang zwischen Blockanzahl und Parameteranzahl, wie in Abbildung \ref{abb:memory3} abgebildet, so ergibt sich hier ein linearer Zusammenhang. In Abbildung \ref{abb:memory4} ist der Zusammenhang zwischen Blockanzahl und dem Quotienten aus Parameteranzahl und Blockanzahl zu sehen. Der Verlauf dieser Kurve ähnelt dem Verlauf von Abbildung \ref{abb:memory2}. In Abbildung \ref{abb:memory5} wird daher der Quotient aus diesen beiden Größen gegen die Blockanzahl geplottet und eine Gerade mit linearer Regression berechnet.
-Um die Wahrscheinlichkeit zu prüfen, mit fälschlicherweise angenommen wird, dass in Abbildung \ref{abb:memory} ein linearer Zusammenhang besteht wird ein t-Test ausgeführt.
+In Abbildung \ref{abb:memory2} ist abgebildet, wie sich die Blockanzahl bei gleichbleibender Speicherauslastung auf die maximale Batchgröße auswirkt. Die Blockanzahl wirkt sich wie zu sehen ist nicht linear auf die maximale Batchgröße aus. Die maximale Blockanzahl hängt ab von der maximalen Speicherauslastung während einer Epoche. Dies ist abhängig von der Blockgröße, da aufgrund der Kurzschlussverbindungen die Ausgabe jedes Blocks zwischengespeichert werden muss.
+Betrachtet man hingegen den Zusammenhang zwischen Blockanzahl und Parameteranzahl, wie in Abbildung \ref{abb:memory3} abgebildet, so ergibt sich hier ein linearer Zusammenhang. In Abbildung \ref{abb:memory4} ist der Zusammenhang zwischen Blockanzahl und dem Quotienten aus Parameteranzahl und Blockanzahl zu sehen. Der Verlauf dieser Kurve ähnelt dem Verlauf von Abbildung \ref{abb:memory2}. In Abbildung \ref{abb:memory5} wird daher der Quotient aus diesen beiden Größen gegen die Blockanzahl abgebildet und eine Gerade mit linearer Regression berechnet.
+
+
+Um die Wahrscheinlichkeit zu prüfen, dass in Abbildung \ref{abb:memory} fälschlicher Weise ein linearer Zusammenhang angenommen wird, wird ein t-Test ausgeführt.
 Es ergibt sich die Alternativ- und Nullhypothese:
 \begin{align*}
  H_0: \text{Es besteht kein linearer Zusammenhang zwischen dem Quotienten } G \\
@@ -255,12 +262,12 @@ Mit Hilfe dieses linearen Zusammenhangs lässt sich bei gegebener Parameteranzah
 \end{equation}
 
 
-Da einzelne Punkte einen maximalen Abstand von $d_{-}=2,07$ zur Geraden wurde das Ergebnis durch Multiplikation mit $0,98$ ein Sicherheitsabstand eingeführt.
+Da einzelne Punkte einen maximalen Abstand von $d=2,07$ zur Geraden wurde das Ergebnis durch Multiplikation mit $0,98$ ein Sicherheitsabstand eingeführt.
 
 
 \subsection{Evaluierung der Anpassung der Batchgröße an die Netzgröße}
 
-Da sich für ein gegebenes Netz die Speicherauslastung abhängig von der Batchgröße ein linearer Zusammenhang ergibt, kann die Batchgröße direkt angepasst werden, sobald das beschnittene Netz für eine Epoche trainiert hat. Es wird per Dreisatz berechnet wie groß die Batchgröße sein darf, bei gegebener maximaler Speicherauslastung. In Abbildung \ref{abb:bSize1} ist zu sehen wie sich die durchschnittliche Trainingszeit pro Epoche entwickelt, bei Anpassung der Batchgröße. Für Abbildung \ref{abb:bSize1} werden zwei verschieden große Lasso-Ratio Werte $(LaR)$ $(0,2 \text{und} 0,25)$ getestet. Bei der Lasso-Ratio von $LaR=0,25$ ergibt sich ein Gewinn an durchschnittlicher Trainingszeit pro Epoche. Zum Vergleich enthält die Abbildung auch die entsprechenden Experimente aus den Experimente zur Lasso-Ratio ohne Anpassung der Batchgröße. Die durchschnittliche Trainingszeit sinkt signifikant im Vergleich zum entsprechenden Experiment ohne Anpassung der Batchgröße. Für die Lasso-Ratio von $LaR=0,25$ ergibt sich bei einem t-Test ein p-Wert von $p=6.445\cdot 10^{-05}$. Für die Lasso-Ratio von $LaR=0,2$ ergibt sich bei einem t-Test ein p-Wert von $p=0,0004$. 
+Da sich für ein gegebenes Netz die Speicherauslastung abhängig von der Batchgröße ein linearer Zusammenhang ergibt, kann die Batchgröße direkt angepasst werden, sobald das beschnittene Netz für eine Epoche trainiert hat. Es wird per Dreisatz berechnet wie groß die Batchgröße sein darf, bei gegebener maximaler Speicherauslastung. In Abbildung \ref{abb:bSize1} ist zu sehen wie sich die durchschnittliche Trainingszeit pro Epoche entwickelt, bei Anpassung der Batchgröße. Für Abbildung \ref{abb:bSize1} werden zwei verschieden große Lasso-Ratio Werte $(LaR)$ $(0,2 \text{und} 0,25)$ getestet. Bei der Lasso-Ratio von $LaR=0,25$ ergibt sich ein Gewinn an durchschnittlicher Trainingszeit pro Epoche. Zum Vergleich enthält die Abbildung auch die entsprechenden Experimente aus den Experimente zur Lasso-Ratio ohne Anpassung der Batchgröße. Die durchschnittliche Trainingszeit sinkt signifikant im Vergleich zum entsprechenden Experiment ohne Anpassung der Batchgröße, da mit einer höheren Batchgröße weniger Durchläufe gebraucht werden um die Epoche abzuschliessen. Für die Lasso-Ratio von $LaR=0,25$ ergibt sich bei einem t-Test ein p-Wert von $p=6.445\cdot 10^{-05}$. Für die Lasso-Ratio von $LaR=0,2$ ergibt sich bei einem t-Test ein p-Wert von $p=0,0004$. 
 
 
 
@@ -273,7 +280,7 @@ Da sich für ein gegebenes Netz die Speicherauslastung abhängig von der Batchgr
      \label{abb:bSize}
 \end{figure}
 
-In Abbildung \ref{abb:bSize2} ist zu sehen, wie gross der Accuracy-Verlust für das PruneTrain-Netz mit Anpassung der Batchgröße ist. Für PruneTrain mit einer Lasso-Ratio von 0,2 ergibt sich ein Accuracy Verlust von durchschnittlich 4,18 \%. Für eine höhere Lasso-Ratio ergibt sich ein Accuracy-Verlust von 7,24 \%. Diese Verluste sind wahrscheinlich auf eine nicht passende Anpassung der Lernrate in Abhängigkeit von der Änderung der Batchgröße zurückzuführen.
+In Abbildung \ref{abb:bSize2} ist zu sehen, wie gross der Accuracy-Verlust für das PruneTrain-Netz mit Anpassung der Batchgröße ist. Für PruneTrain mit einer Lasso-Ratio von 0,2 ergibt sich ein Accuracy Verlust von durchschnittlich 4,18 \%. Für eine höhere Lasso-Ratio ergibt sich ein Accuracy-Verlust von 7,24 \%. Diese Verluste sind wahrscheinlich auf eine nicht passende Anpassung der Lernrate in Abhängigkeit von der Änderung der Batchgröße zurückzuführen oder einer weniger häufigen Anpassung der Gewichte. Lernrate und Batchgröße hängen durch die ANzahl an Anpassungen der Gewichte zusammen: Steigt die Batchgröße, so werden weniger Durchläufe und damit weniger Gewichtsanpassungen durchgeführt. Um den geringeren zurück gelegten Weg in Richtung eines Minimum zu kopmensieren kann die Lernrate erhöht werden.
 
 
 

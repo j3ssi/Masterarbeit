@@ -3,51 +3,51 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Thesis_Buehler.aux
 The style file: alpha.bst
 Database file #1: Literature.bib
+Warning--I didn't find a database entry for "Inception"
 Warning--I didn't find a database entry for "complex"
-Warning--I didn't find a database entry for "lars"
 Warning--to sort, need author or key in ptImpl
 Warning--to sort, need author or key in ieee
 Warning--empty journal in net2net
 Warning--empty author in ieee
-You've used 16 entries,
+You've used 18 entries,
             2543 wiz_defined-function locations,
-            638 strings with 7014 characters,
-and the built_in function-call counts, 5878 in all, are:
-= -- 558
-> -- 359
+            648 strings with 7426 characters,
+and the built_in function-call counts, 6787 in all, are:
+= -- 635
+> -- 435
 < -- 3
-+ -- 130
-- -- 129
-* -- 399
-:= -- 1006
-add.period$ -- 47
-call.type$ -- 16
-change.case$ -- 109
-chr.to.int$ -- 16
-cite$ -- 22
-duplicate$ -- 232
-empty$ -- 382
-format.name$ -- 141
-if$ -- 1173
++ -- 159
+- -- 158
+* -- 470
+:= -- 1164
+add.period$ -- 52
+call.type$ -- 18
+change.case$ -- 128
+chr.to.int$ -- 18
+cite$ -- 24
+duplicate$ -- 259
+empty$ -- 438
+format.name$ -- 171
+if$ -- 1349
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 82
-num.names$ -- 42
-pop$ -- 124
+missing$ -- 16
+newline$ -- 91
+num.names$ -- 48
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 126
+purify$ -- 147
 quote$ -- 0
-skip$ -- 213
+skip$ -- 237
 stack$ -- 0
-substring$ -- 133
-swap$ -- 36
+substring$ -- 147
+swap$ -- 39
 text.length$ -- 3
 text.prefix$ -- 1
 top$ -- 0
-type$ -- 120
+type$ -- 136
 warning$ -- 4
-while$ -- 41
-width$ -- 18
-write$ -- 196
+while$ -- 47
+width$ -- 20
+write$ -- 218
 (There were 6 warnings)

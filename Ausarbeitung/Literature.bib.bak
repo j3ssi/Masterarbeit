@@ -287,4 +287,13 @@
   year   = {2020},
 }
 
+@Misc{morphImple,
+  author        = {Ting-Wu Chin and Ruizhou Ding and Cha Zhang and Diana Marculescu},
+  title         = {Towards Efficient Model Compression via Learned Global Ranking},
+  year          = {2020},
+  archiveprefix = {arXiv},
+  eprint        = {1904.12368},
+  primaryclass  = {cs.CV},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

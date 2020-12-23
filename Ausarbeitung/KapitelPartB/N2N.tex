@@ -4,16 +4,14 @@ Die Operatoren zur Beschleunigung des Lernens durch Wissenstransfer werden in di
 
 Die Evaluierung umfasst drei unterschiedliche Situationen, diese Situation sind ähnlich, wie in der dazugehörigen Quelle \cite{net2net}. Die Evaluierung arbeitet mit einem ResNet, wie in Kapitel \ref{sec:baseline}. In der Veröffentlichung wird mit einem Inception Net gearbeitet. Das Inception Netz wird in Kapitel \ref{sec:inception} vorgestellt.
 
-In der ersten Situation wird der Operator für ein breiteres Netz verwendet, um ein schmalleres Baseline Netz zu trainieren. 
-In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um zusätzliche Blöcke hinzuzufügen oder bestehenden Blöcken Schichten hinzuzufügen. In der dritten Situation werden beide Operatoren kombiniert. Mit der Kombination wird der Raum der möglichen Peratoranwendungen erkundet, ausgehend von einem Modell.
-Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben. Anpassungen der Lernrate werden erst in der dritten Situation vorgenommen.
+In der ersten Situation wird der Operator für ein breiteres Netz evaluiert, in dem das Netz breiter gemacht wird. 
+In der zweiten Situation wird der Operator für ein tieferes Netz benutzt um zusätzliche Blöcke hinzuzufügen oder bestehenden Blöcken Schichten hinzuzufügen. In der dritten Situation werden beide Operatoren kombiniert. Mit der Kombination wird der Raum der möglichen Operatoranwendungen erkundet, ausgehend von einem Modell.
+Die drei Situationen werden in den drei folgenden Unterkapiteln näher beschrieben. Anpassungen der Lernrate werden hier nicht vorgenommen.
 
 \section{Evaluierung des Operators für ein breiteres Netz}
-Evaluiert wird der Operator durch verschiedene Optionen, welcher Bereich des Netzes breiter gemacht wird:
-\begin{itemize}
- \item Alle Phasen
- \item Eine ganze Phase
-\end{itemize}
+Der Operator für ein breiteres Netz wird evaluiert, in dem ein schmalles Baseline-Netz für 90 Epochen trainiert wird. Dann wird der Operator angewendet. Nach der Anwendung wird für weitere 90 Epochen trainiert. Der Operator für ein breiteres Netz macht das Netz für diese Evaluierung doppelt so breit.
+
+
 Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breiteres Netz die Gewichte für die neu hinzugefügten Gewichte aus den ursprünglichen Gewichten ausgewählt und so normalisiert, dass die approximierte Funktion nach Anwendung des Operators nicht signifikant von der approximierten Funktion mit den neuen Gewichten abweicht. Um zu evaluieren wie gut diese Methode funktioniert wird sie auf das schmalle Baseline Netz angewendet und verglichen mit dem schmallen und breiten Baseline-Netz. Um die Methode der Initialisierung der zusätzlichen Kanäle zu evaluieren wird als Vergleich ein Netz trainiert, bei welchem die zusätzlichen Gewichte zufällig initialisiert werden.
 \begin{figure}
      \centering
@@ -21,6 +19,7 @@ Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breit
      \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/wider2.png}\label{abb:wider2}}
      \hfill
      \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/wider3.png}\label{abb:wider3}}
+     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/baselineS.png}\label{abb:wider4}}
      
      \caption{}
      \label{abb:memory}
@@ -28,45 +27,45 @@ Wie in Kapitel \ref{sec:net2net} beschrieben werden beim Operator für ein breit
 
 In Abbildung \ref{abb:wider1} ist der Verlauf der Accuracy des schmallen Baseline Netzes in blau und des breiten Baseline Netzes in schwarz über 180 Epochen ohne Anpassung der Lernrate zu sehen. Es fällt auf, dass das schmalle Baseline Netz währenddem Training wesentlich stabiler trainiert als das breite. Allerdings ist das schmalle Baseline-Netz nach wenigen Epochen bereits so weit, dass es kaum Verbesserungen gibt. Auf das schmalle Baseline Netz wird im nächsten Schritt der Operator für ein breiteres Netz angewendet. In Abbildung \ref{abb:wider2} ist der Verlauf der Accuracy des schmallen Baseline Netzes in blau im Vergleich zum schmallen Baseline Netz mit Anwendung des Operators in grün zu sehen. In Abbildung \ref{abb:wider3} ist ein Ausschnitt von Abbildung \ref{abb:wider2} für die Epochen 90 -180 zu sehen. An den beiden Grafiken ist eindeutig abzulesen, dass der Operator für ein breiteres Netz auf dem Baseline Netz die Accuracy verbessert. Die Verbesserung liegt bei den verglichenen Durchläufen bei 2 \%. 
 
+Gegenüber dem breiten Baseline Netz spart dieses Training mit dem Operator dadurch Zeit, dass in den ersten 90 Epochen weniger Trainingszeit verbraucht wird. In Abbildung \ref{abb:wider4} ist die durchschnittliche Trainingszeit des schmallen Baseline Netz verglichen mit dem breiten in einem Boxplot zu sehen. Bei der hier verwendeten Größe des Netzes dauert die Anwendung des Operators für ein breiteres Netz etwa 0,3 Sekunden. Damit liegt die Trainingszeit des Netzes mit Anwendung des Operators zwischen schmallen und breiten Baseline-Netz.
+
+
+Bei dem hier verwendeten Netz und Datensatz macht die Anwendung des Operators Sinn, dass sie das Training stabiler, schneller und besser macht.
+
+
+
+
+
+\section{Evaluierung des Operators für ein tieferes Netz}
+Zur Evaluierung des Operators für ein tieferes Netz wird zunächst wie in der Veröffentlichung jeder Block um eine Schicht erweitert. Dafür wird mit einem Netz gestartet, welches jeweils nur eine Convolution und Batchnormalisation Schicht pro Block hat $ (l=1)$. 
+
+Dabei werden die zusätzlichen Schichten wie in Kapitel \ref{sec:net2net} beschrieben initialisiert. Als Vergleich dient das Baseline-Netz aus Kapitel \ref{sec:baseline}. Ein weiterer Vergleichspunkt ist das Netz, mit welchem trainiert wird beovr der Operator abgewendet wird. Dieses Netz wird zusätzlich über 180 Epochen trainiert, um die Auswirkungen des Operators zu sehen. Die Accuracy des Ausgangsnetzes ist in Abbildung \todo{ref} zu sehen. Zu beobachten ist, dass das Augangsnetz auch unstabil trainiert. 
+
+
+Wird in Epoche 90 der Operator für ein tieferes Netz angewendet, so wird im Gegensatz zum Operator für ein breiteres Netz danach ein deutliches Abfallen der Accuracy auf unter 30 \% beobachtet. Allerdings lässt sich hier auch eine leicht erhöhte Stabilität des Trainings beobachten.  Dies ist Abbildung \ref{abb:n2ndeeper1} in grün abgebildet. Die blaue Kurve in Abbildung \ref{abb:n2ndeeper2} zeigt eine andere Initialisierungsmethode. Diese fügt zusätzlich noch eine normalverteilte Störung mit $\mu = 0, \sigma^2 = 0.1$ ,den Gewichten die gleich Null sind nach der Initialisierung, hinzu. 
+
+Zu beobachten ist, dass das Netz von vorne anfängt zu trainieren. Trotz dieses Problem wird Zeit gespart, durch die schnellere Trainingszeit bis zum Anwenden des Operators. Da beim Ausgangsnetz bereits recht schnell keine Verbesserung auftritt zeigt Abbildung \ref{abb:n2ndeeper3} das Ergebnis bei Anwendung des Operators in Epoche 50. 
+Es zeigt sich, dass bei der Verwendung dieser Netzstruktur auf dem Datensatz Cifar10 keine wesentliche Verbesserung gegenüber der Netzstruktur nachdem Anwenden des Operators ergibt. Es ergibt sich jedoch eine Verbesserung gegenüber dem Ausgangsnetz und die Stabilität des Trainings steigt.
+
+
+
+Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen, da durch das Hinzufügen eines Blockes die vom Netz berechnete Funktion von der vorher berechneten Funktion abweicht. Gelöst wird dies, in dem alle Blöcke vor der Addition mittels eines muliplikativen Faktors skaliert werden. Wie in Abbildung \todo{ref} abgebildet ist, wird alle muliplikativen Faktoren des Ausgangsnetzes auf 1 gesetzt, sodass hier kein Effekt auf die berechnende Funktion entsteht. Beim neu hinzuzufügenden Block werden die beiden multiplikativen Faktoren auf 0,5 gesetzt. Da der neu hinzuzufügende Block ein Identitätsblock ist wird das Ergebnis des Identitätsblockes und der Kurzschlussverbindung zusammen keinen Effekt auf die vom Netz berechnete Funktion haben. In Abbildung \ref{diagramm} ist zu sehen, wie der neue Block in das Gefüge der anderen Blocks passt.
+
+
+In Abbildung \todo{ref} ist abgebildet, wie sich die Accuracy eines Netzes mit den multiplikativen Faktoren über 180 Epochen verhält.
 
 
 \begin{figure}
      \centering
-     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/deeperD1.png}\label{abb:deeper2}}
-     \hfill
-     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/deeperD2.png}\label{abb:deeper2}}\\
+     \subfloat[][Diagramm 1]{\input{KapitelPartB/Diagramm1}}     
+     \subfloat[][Diagramm 2]{\input{KapitelPartB/Diagramm2}}
+     \subfloat[][Diagramm 3]{\input{KapitelPartB/Diagramm3}}
      \caption{}
-     \label{abb:memory}
+     \label{abb:diagramm}
 \end{figure}
-Im nächsten Schritt muss anhand eines Entscheidungskriteriums 
 
 
-\color{black}
-\subsection{Verbreitern aller Phasen}
-Mit Hilfe verschiedener Trainingsprotokolle wird untersucht, wie der Operator für ein breiteres Netz die Klassifikationsleistung des Netzes verändert.
-Zunächst wird überprüft, welches Ergebnis bei Anwendung des Operators für ein breiteres Netz auf das schmalle Baseline-Netz nach 180 Epochen Training herauskommt. Nachdem Anwenden des Operators wird mit dem gleichen Trainingsprotokoll für weitere 180 Epochen trainiert. In Abbildung \ref{abb:allN2N1} ist abgebildet, wie der Verlauf der Accuracy für Net2Net mit zwei verschiedenen Möglichkeiten, die neuen Gewichte zu initialisieren, ist. In Blau dargstellt wird der Verlauf der Accuracy für die zufällige Initialisierung der neuen Gewichte durch das Verbreitern des Netzes.
-Es ergibt sich, wie in der größeren Abbildung \ref{abb:allN2N2} zu sehen ist eine minimale Verschlechterung durch das Anwenden des Operator für ein breiteres Netz im Vergleich zum Baseline-Netz.
- \begin{figure}
-     \centering
-     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/n2nWiderAll1.png}\label{abb:allN2N1}}
-     \hfill
-     \subfloat[][]{\includegraphics[width= .47\textwidth]{KapitelPartB/Images/n2nWiderAll2.png}\label{abb:allN2N2}}\\
-     \caption{Vergleich der Accuracy bei verschiedenen Initialisierungsmöglichkeiten des Operators für ein breiteres mit dem Baseline Netz: (a) alle Epochen (b) Zoom auf die Epochen 90 bis 180. Blau zeigt die Accuracy der Initialisierung der zusätzlichen Gewichte mit zufälligen Werten. Grün zeigt die Initialisierung mit den Werten aus dem restlichen Tensor. Schwarz zeigt das Baseline-Netz als Vergleich.}
-     \label{abb:memory}
-\end{figure}
-Um den Operator für ein breiteres Netz besser verwenden zu können wird im nächsten Schritt übrprüft, ob mit einer häufigeren schrittweisen Anpassung der Lernrate und mit weniger trainierten Epochen nach Anwenden des Operator ein besseres Ergebnis möglich ist.
-
-
-\section{Evaluierung des Operators für ein tieferes Netz}
-Zur Evaluierung des breiteren Netzes wird zunächst wie in der Veröffentlichung jeder Block um eine Schicht erweitert. Dabei werden die zusätzlichen Schichten wie in Kapitel \ref{sec:deep} beschrieben initialisiert. Als Vergleich dient das Baseline-Netz aus Kapitel \ref{sec:baseline}.
-
-\todo{Ergebnisse}
-
-Eine weitere Verwendung des Operators für ein tieferes Netz ist die Möglichkeit einen neuen Block hinzuzufügen. Nur ein einfaches Hinzufügen würde hier zu Problemen führen. Der Grund hierfür ist Abbildung \ref{abb:deeper} dargstellt. Dabei soll an einer Verbidung, die bisher die Daten von einer Schicht zur nächsten transportiert ein neuer Block inklusive Kurzschlussverbindung entstehen. Der hinzuzfügende Block blau \todo{blau markieren} markiert. Der neue Block soll wie die Kurzschlussverbindung die Identität berechnen. Betrachtet $x$ als Größe der Identität. Dann wird hier mit dem neuen Block staat $x$ das doppelte, also $``X$ berechnet. Um dieses Problem zu umgehen wird an jeder Additionsstelle für eine Kurzschlussverbindung eine Multiplikation mit 0,5 berechnet (rechte Seite der Grafik). So wird nicht mehr $x$ sondern $0,5x +0,5x=x$ berechnet.
-
-Zunächst wird dieses Netz trainiert ohne einen Operator anzuwenden. In Abbildung \ref{abb:BaselineMul1} ist ein Boxplot abgebildet, der die Accuracy des Netzes mit zusätzlichen multiplikativen Faktoren mit dem Baseline-Netz vergleicht.
-
- \begin{figure}
+\begin{figure}
      \centering
      \subfloat[][]{\includegraphics[width= .75\textwidth]{KapitelPartB/Images/baselineMul1.png}\label{abb:BaselineMul1}}
      \hfill
@@ -75,12 +74,6 @@ Zunächst wird dieses Netz trainiert ohne einen Operator anzuwenden. In Abbildun
 \end{figure}
 
 
-\begin{figure}[h]
- \centering
- \includegraphics[width=0.5\textwidth, angle=90]{KapitelPartB/Images/deeper.pdf}
- % deeper.pdf: 0x0 px, 300dpi, 0.00x0.00 cm, bb=
- \label{abb:deeper}
-\end{figure}
 
 
 

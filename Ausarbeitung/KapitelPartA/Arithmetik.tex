@@ -1,14 +1,5 @@
 \section{Additive Nethoden}\label{sec:add}
-\color{blue1}
-In diesem Kapitel werden Methoden betrachtet, die nicht direkt den Prozess des Findens der besten Architektur beschleunigen oder automatisieren. 
-Diese Methoden sind in zwei Gruppen aufgeteilt:
-\begin{itemize}
- \item Methoden, die für einen schnelleren Durchlauf einzelner Trainingsdurchläufe sorgen
- \item Methoden die helfen PruneTrain und Net2Net zu kombinieren
-\end{itemize}
-\todo[inline]{Übersicht}
-
-\color{black}
+In diesem Kapitel werden Methoden betrachtet, die nicht direkt den Prozess des Findens der besten Architektur beschleunigen oder automatisieren. Die hier aufgelisteten Methoden dienen der Beschleunigung einzelner Trainingsdurchläufe. In Kapitel \ref{sec:fp16} wird beleuchtet, wie durch das Verwenden von anderen Zahlenformaten Zeit gespart werden kann. In Kapitel \ref{sec:grad} werden Verfahren vorgestellt, wie das Berechnen des Gradienten beschleunigt werden kann.
 \subsection{Verringerung der für Berechnungen nötige Zeit}\label{sec:fp16}
 Die Zeit, die ein Convolutional Layer braucht um berechnet zu werden hängt ab von:
 \begin{itemize}

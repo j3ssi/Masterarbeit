@@ -1,62 +1,49 @@
 \babel@toc {german}{}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation und Hintergrund dieser Arbeit}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Ziel der Arbeit}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Ergebnisse der Arbeit}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Aufbau der Arbeit}{2}{section.1.4}
+\contentsline {section}{\numberline {1.1}Motivation und Ziel dieser Arbeit}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Ergebnisse der Arbeit}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Aufbau der Arbeit}{2}{section.1.3}
 \contentsline {chapter}{\numberline {2}Stand der Wissenschaft}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Funktionsweise eines CNN}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}CNN- Architekturen}{9}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}ResNet -- eine neuere CNN-Architektur}{9}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Inception}{11}{section.2.3}
-\contentsline {section}{\numberline {2.4}Vorgehen zur Suche nach dem Stand der Wissenschaft}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Beschneidung des Netzes zur Beschleunigung des Trainings}{13}{section.2.5}
-\contentsline {section}{\numberline {2.6}Beschleunigung des Lernens durch Wissenstransfer}{17}{section.2.6}
-\contentsline {subsubsection}{\nonumberline Operator f\IeC {\"u}r breiteres Netz}{17}{section*.13}
-\contentsline {subsubsection}{\nonumberline Tieferes Netz}{19}{section*.15}
-\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{19}{section*.16}
-\contentsline {section}{\numberline {2.7}Automatische Architektursuche}{19}{section.2.7}
-\contentsline {section}{\numberline {2.8}Schnelles Ressourcen-beschr\IeC {\"a}nktes Strukturlernen tiefer Netzwerke}{20}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Definition der Nebenbedingung}{22}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Regularsierer}{23}{subsection.2.8.2}
-\contentsline {section}{\numberline {2.9}Additive Nethoden}{24}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Verringerung der f\IeC {\"u}r Berechnungen n\IeC {\"o}tige Zeit}{24}{subsection.2.9.1}
-\contentsline {paragraph}{\nonumberline Berechnung mit 16 Bit Gleitkomma}{25}{section*.19}
-\contentsline {subsection}{\numberline {2.9.2}Beschleunigung der Berechnung des Gradientenabstiegsverfahren}{26}{subsection.2.9.2}
-\contentsline {subsubsection}{\nonumberline Accelerating CNN Training by Sparsifying Activation Gradients}{27}{section*.25}
-\contentsline {subsubsection}{\nonumberline Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks}{27}{section*.26}
-\contentsline {subsubsection}{\nonumberline Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent}{27}{section*.27}
-\contentsline {subsubsection}{\nonumberline Accelerated CNN Training Through Gradient Approximation}{27}{section*.28}
-\contentsline {subsection}{\numberline {2.9.3}Verfahren zum Verwenden maximaler Batchgr\IeC {\"o}\IeC {\ss }en}{27}{subsection.2.9.3}
-\contentsline {chapter}{\numberline {3}\IeC {\"U}berblick \IeC {\"u}ber die Arbeit}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Experimentelles Setup}{29}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Hardware}{29}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Wahl des Frameworks}{29}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}verwendete Netzarchitektur}{30}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Baseline Netz}{31}{subsection.3.1.4}
-\contentsline {subsubsection}{\nonumberline Evaluierung des breiteren Baseline-Netzes}{31}{section*.33}
-\contentsline {subsubsection}{\nonumberline Evaluierung des schmalleren Baseline-Netzes}{33}{section*.36}
-\contentsline {section}{\numberline {3.2}Konzept}{35}{section.3.2}
-\contentsline {chapter}{\numberline {4}Untersuchung von MorphNet}{39}{chapter.4}
-\contentsline {section}{\numberline {4.1}Evaluierung der einzelnen Schritte von MorphNet}{39}{section.4.1}
-\contentsline {section}{\numberline {4.2}Evaluierung der Ergebnisse von MorphNet}{41}{section.4.2}
-\contentsline {chapter}{\numberline {5}Evaluation des Beschneidens des Netzes}{43}{chapter.5}
-\contentsline {section}{\numberline {5.1}Evaluation bei gleichbleibender Batchgr\IeC {\"o}\IeC {\ss }e}{43}{section.5.1}
-\contentsline {subsubsection}{\nonumberline Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}{44}{section*.43}
-\contentsline {subsubsection}{\nonumberline Experimente zum Rekonfigurationsintervall}{45}{section*.47}
-\contentsline {subsubsection}{\nonumberline Experimente zur Lernrate}{47}{section*.52}
-\contentsline {subsubsection}{\nonumberline Experimente zum Grenzwert}{48}{section*.56}
-\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{49}{section*.60}
-\contentsline {section}{\numberline {5.2}Experimente zur Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e beim Beschneiden des Netzes}{50}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Berchnung der Batchgr\IeC {\"o}\IeC {\ss }e abh\IeC {\"a}ngig vom Speicherverbrauch}{50}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Evaluierung der Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e an die Netzgr\IeC {\"o}\IeC {\ss }e}{52}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}Evaluierung von Net2Net}{55}{chapter.6}
-\contentsline {section}{\numberline {6.1}Evaluierung des Operators f\IeC {\"u}r ein breiteres Netz}{55}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Verbreitern aller Phasen}{57}{subsection.6.1.1}
-\contentsline {section}{\numberline {6.2}Evaluierung des Operators f\IeC {\"u}r ein tieferes Netz}{57}{section.6.2}
-\contentsline {section}{\numberline {6.3}Erkunden des Modellraums}{58}{section.6.3}
-\contentsline {chapter}{\numberline {7}Vergleich}{61}{chapter.7}
-\contentsline {chapter}{\numberline {8}Ausblick und Fazit}{63}{chapter.8}
-\contentsline {chapter}{\numberline {A}d}{65}{appendix.A}
-\contentsline {chapter}{Abbildungsverzeichnis}{68}{chapter*.71}
-\contentsline {chapter}{Literaturverzeichnis}{69}{chapter*.71}
+\contentsline {subsection}{\numberline {2.2.2}Inception}{11}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Vorgehen zur Suche nach dem Stand der Wissenschaft}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Beschneidung des Netzes zur Beschleunigung des Trainings}{13}{section.2.4}
+\contentsline {section}{\numberline {2.5}Beschleunigung des Lernens durch Wissenstransfer}{17}{section.2.5}
+\contentsline {subsubsection}{\nonumberline Operator f\IeC {\"u}r breiteres Netz}{18}{section*.14}
+\contentsline {subsubsection}{\nonumberline Tieferes Netz}{19}{section*.16}
+\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{19}{section*.17}
+\contentsline {section}{\numberline {2.6}Automatische Architektursuche}{20}{section.2.6}
+\contentsline {section}{\numberline {2.7}Schnelles Ressourcen-beschr\IeC {\"a}nktes Strukturlernen tiefer Netzwerke}{21}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Definition der Nebenbedingung}{22}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Regularsierer}{23}{subsection.2.7.2}
+\contentsline {chapter}{\numberline {3}\IeC {\"U}berblick \IeC {\"u}ber die Arbeit}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Experimentelles Setup}{25}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Hardware}{25}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Wahl des Frameworks}{25}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}verwendete Netzarchitektur}{26}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Baseline Netz}{27}{subsection.3.1.4}
+\contentsline {subsubsection}{\nonumberline Evaluierung des breiteren Baseline-Netzes}{27}{section*.20}
+\contentsline {subsubsection}{\nonumberline Evaluierung des schmalleren Baseline-Netzes}{30}{section*.23}
+\contentsline {section}{\numberline {3.2}Konzept}{30}{section.3.2}
+\contentsline {chapter}{\numberline {4}Untersuchung von MorphNet}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Evaluierung der einzelnen Schritte von MorphNet}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Evaluierung der Ergebnisse von MorphNet}{36}{section.4.2}
+\contentsline {chapter}{\numberline {5}Evaluation des Beschneidens des Netzes}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evaluation bei gleichbleibender Batchgr\IeC {\"o}\IeC {\ss }e}{37}{section.5.1}
+\contentsline {subsubsection}{\nonumberline Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}{38}{section*.30}
+\contentsline {subsubsection}{\nonumberline Experimente zum Rekonfigurationsintervall}{39}{section*.34}
+\contentsline {subsubsection}{\nonumberline Experimente zur Lernrate}{41}{section*.38}
+\contentsline {subsubsection}{\nonumberline Experimente zum Grenzwert}{42}{section*.43}
+\contentsline {subsubsection}{\nonumberline Diskussion der Methode}{44}{section*.47}
+\contentsline {section}{\numberline {5.2}Experimente zur Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e beim Beschneiden des Netzes}{44}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Berechnung der Batchgr\IeC {\"o}\IeC {\ss }e abh\IeC {\"a}ngig vom Speicherverbrauch}{44}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Evaluierung der Anpassung der Batchgr\IeC {\"o}\IeC {\ss }e an die Netzgr\IeC {\"o}\IeC {\ss }e}{47}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}Evaluierung von Net2Net}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Evaluierung des Operators f\IeC {\"u}r ein breiteres Netz}{49}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluierung des Operators f\IeC {\"u}r ein tieferes Netz}{51}{section.6.2}
+\contentsline {section}{\numberline {6.3}Erkunden des Modellraums}{52}{section.6.3}
+\contentsline {chapter}{\numberline {7}Ausblick und Fazit}{55}{chapter.7}
+\contentsline {chapter}{Abbildungsverzeichnis}{58}{chapter*.57}
+\contentsline {chapter}{Literaturverzeichnis}{59}{chapter*.57}
