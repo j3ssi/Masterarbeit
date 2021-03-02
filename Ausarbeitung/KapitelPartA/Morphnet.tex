@@ -75,7 +75,7 @@ Hier wird in den Ausgangskanälen von Schicht 1 und 2 sowie in den Eingangskanä
 Bei einem residualen Netzwerk kann weiterhin ein ganzer Block wegfallen. In diesem Fall müssen die Kanal-Union-Listen angepasst werden, die weitere Aktion wird ohne diesen Block im um mehrere Schichten verkürzten Netzwerk weiter geführt
 
 
-Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speicherplatz gespart wird, kann bei gleicher Speicherauslastung die Batchgröße erhöht werden. Da die verwendete Technik für die Erhöhung der Batchgröße in der Quelle nicht angegeben ist und in der verwendeten Implementierung fehlt, wurde diese nachimplementiert. Dies wird in Kapitel \ref{sec:ptEva} erläutert \cite{ptImpl}. Hierbei wird die Lernrate an die erhöhte Batchgröße angepasst um negative Effekte für die Accuracy abzumildern oder auszuschließen. 
+Da mit dem Verkleinern des Netzes nicht nur potentiell Zeit sondern auch Speicherplatz gespart wird, kann bei gleicher Speicherauslastung die Batchgröße erhöht werden. Da die verwendete Technik für die Erhöhung der Batchgröße in der Quelle nicht angegeben ist und in der verwendeten Implementierung fehlt, wurde diese nachimplementiert. Dies wird in Kapitel \ref{sec:ptnew} erläutert \cite{ptImpl}. Hierbei wird die Lernrate an die erhöhte Batchgröße angepasst um negative Effekte für die Accuracy abzumildern oder auszuschließen. 
 
 Damit lassen sich Netzverkleinerungsraten von etwa 50 \% erreichen bei weniger als 2 \% Accuracy-Verlust auf dem Datensatz Cifar10. Andere Techniken schaffen zwar zwischen 70 - 80 \% Netzverkleinerungsraten brauchen jedoch wesentlich mehr Trainingszeit \cite{lottery}. Diese großen Verkleinerungsraten sind dort sehr stark abhängig von der Initialisierung \cite{lottery}. Das heißt, nur einzelne Initialisierungen führen zu so starken Verkleinerungsraten, was insgesamt zu einer längeren Trainingszeit führt \cite{lottery}. 
 
@@ -99,7 +99,7 @@ Beim Trainieren eines CNNs kommt es häufig vor, dass nach initialem Wählen der
 Wie in Abbildung \ref{abb:net2net} abgebildet ist, lässt sich so der Arbeitsablauf zum Finden der passenden Netzstruktur anders gestalten. Der Net2Net-Operator macht hier das Netz entweder breiter (mehr Kanäle in bestimmten Schichten) oder tiefer (zusätzliche Schichten). Diese beiden Operatoren werden nun vorgestellt.
 
 \subsubsection{Operator für breiteres Netz}
-Beim Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der die Ausgangskanäle hinzugefügt werden, wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der die Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Filterkerneln. 
+Beim Operator für ein breiteres Netz werden für eine bestimmte Schicht Ausgangskanäle und für die nachfolgende Schicht Eingangskanäle hinzugefügt. Die Schicht, der die Ausgangskanäle hinzugefügt werden, wird mit $j$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_j$ mit der Dimensionalität von $n \times l \times d(h_{l,1}) \times d(h_{l,2}$. Die Schicht, der die Eingangskanäle hinzugefügt werden wird mit $j+1$ bezeichnet und hat den Gewichtstensor $\mathbf{W}_{j+1}$ mit der Dimensionalität von $m \times n \times d(h_{j+1,1}) \times d(h_{j+1,2})$. Dem Layer $j$ werden $q$ Kanäle hinzugefügt. Dies entspricht wie in Abbildung \ref{abb:channels} abgebildet ist $q \cdot l $ zusätzlichen Kerneln. 
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.6\textwidth]{KapitelPartA/images/channels.png}
@@ -158,8 +158,6 @@ Als Beispiel kann hier eine Radaranlage zur Aufnahme von Bilder dienen \cite{pol
 
 
 Eine weitere Möglichkeit die Trainingszeit zu minimieren ist es, den Suchraum deutlich zu verkleinern und die Anzahl an Durchläufen zu minimieren. Der Nachteil ist dann allerdings, dass die Wahrscheinlichkeit, ein Netz in einem globalen Optimum zu finden bezüglich des Suchraumes klein ist. Eine Methode die dies nutzt, wird im nächsten Unterkapitel vorgestellt.
-\color{black}
-
 
 \section{Schnelles Ressourcen-beschränktes Strukturlernen tiefer Netzwerke}\label{sec:morphnet}
 Im Gegensatz zu den Kapiteln \ref{sec:prunetrain} und \ref{sec:net2net}, in denen jeweils eine Möglichkeit, ein CNN kleiner sowie größer zu machen vorgestellt wurden, geht es jetzt darum, dies zu kombinieren. Die Quelle für diese Kapitel ist, soweit nicht anders gekennzeichnet, das Paper, welches die Methode vorgestellt hat.
@@ -177,7 +175,7 @@ Die Breite der Ausgangskanäle für alle $J$ Schichten wird mit $\mathcal{C}_{1:
 
 Der Anfangspunkt dieser Methode ist ein Netz $\mathcal{W}^1$ mit einer initialen Breite der Ausgangskanäle sowie fixen Filtergrößen. Die Nebenbedingung wird mit der Funktion $\mathcal{F}$ bezeichnet. Sie optimiert entweder die Modellgröße oder die Anzahl an Flops per Inferenz. Die Methode optimiert formal gesehen also folgendes:
 \begin{equation}
- \mathcal{W}^{\ast}= \underset{\mathcal{F}(\mathcal{C}_{1:J})\leq \zeta}{\text{arg min}} \underset{\mathcal{W}}{\text{ min}}\; l(f(\mathbf{x_i}, \mathcal{W}),y_i)\label{equ:morph1}
+ \mathcal{W}^{\ast}= \underset{\mathcal{F}(\mathcal{C}_{1:J})\leq \zeta}{\text{arg min}} \underset{\mathcal{W},\mathbf{x}_i \in \mathcal{B}}{\text{ min}}\; l(f(\mathbf{x_i}, \mathcal{W}),y_i)\label{equ:morph1}
 \end{equation}
 
 Das Vergrößern des Netzes basiert auf einer Lösung für die Gleichung \ref{equ:morph1}: dem Breitenmultiplikator $\omega$. 
@@ -210,7 +208,7 @@ Dieser Algorithmus kann so oft durchlaufen werden bis entweder die Performance d
 
 
 \subsection{Definition der Nebenbedingung}
-Die Nebenbedingung $\mathcal{F}$ lässt sich für verschiedene zu optimierende Zielgrößen definieren. Eine einfache Nebenbedingungen, die Modellgröße wird hier beispielhaft erläutert. Die Größe dieser Nebenbedingung wird vor allem durch Schichten mit Matrixmultiplikation dominiert. Die Modellgröße ergibt sich durch die Größe der Tensoren der einzelnen Schichten. Da die Größe der Tensoren der einzelnen Schichten abhängig von der Anzahl der Eingangs- und Ausgangskänäle sowie der Filtergröße und nicht von der Position im Netzwerk ist, lässt sich $\mathcal{F}(\mathcal{C}_{1:J})$ auf die einzelnen Schichten zurückführen. Es gilt:
+Die Nebenbedingung $\mathcal{F}$ lässt sich für verschiedene zu optimierende Zielgrößen definieren. Eine einfache Nebenbedingungen, die Modellgröße wird hier beispielhaft erläutert. Die Größe dieser Nebenbedingung wird vor allem durch Schichten mit Matrixmultiplikation dominiert. Die Modellgröße ergibt sich durch die Größe der Tensoren der einzelnen Schichten. Da die Größe der Tensoren der einzelnen Schichten abhängig von der Anzahl der Eingangs- und Ausgangskanäle sowie der Filtergröße und nicht von der Position im Netzwerk ist, lässt sich $\mathcal{F}(\mathcal{C}_{1:J})$ auf die einzelnen Schichten zurückführen. Es gilt:
 \begin{equation}
  \mathcal{F}(\mathcal{C}_{1:J})=\sum_{j=1}^{J} \mathcal{F}(j)
 \end{equation}
@@ -226,7 +224,7 @@ Da durch die Anwendung des Regularisierers einzelne Kanäle auf Null gesetzt wer
 \end{equation}
 
 
-\subsection{Regularsierer}
+\subsection{Regularisierer}
 Beim Verkleinern des Netzes soll die Verlustfunktion $l$ des CNN mit der Nebenbedingung $\mathcal{F}(\mathcal{C}_{1:J})\leq \zeta$ minimiert werden. Bei der Wahl des Regularisierers muss bedacht werden, dass der Regularisierer und seine Ableitung kontinuierlich definiert sein müssen, da die Parameter im Netz durch ein Gradientenabstiegsverfahren gelernt werden. Zusätzlich kann eine Nebenbedingung nicht direkt durch ein Gradientenabstiegsverfahren gelernt werden. Daher wird $\mathcal{F}$ in veränderter Form als Regulariser gewählt. Die Veränderung umfasst das Hinzufügen von $\gamma$, die ähnlich einer Batchnormalisierung genutzt werden:
 \begin{equation}
 \mathcal{G}(j)=\left(\sum_{k=1}^{k_l-1} A_{k_l,j} \sum_{c=1}^{c_l-1} |\gamma_{c, j} | \right) \cdot \left(\sum_{k=1}^{k_l-1} |\gamma_{k,j} |   \sum_{c=1}^{c_l-1} B_{c,j}\right) \cdot d(h_{j,1}) \cdot d(h_{j,2})  

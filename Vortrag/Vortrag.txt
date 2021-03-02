@@ -1,0 +1,29 @@
+Zeiteffizientes Training von CNNs
+
+1. Ausgangssituation
+
+Unbekannter Datensatz, mit gelabelten Trainingsdaten
+
+Aufgabe: Finde bei vorgegebener Grundarchitektur die besten Hyperparameter
+
+Und das zeiteffizient
+
+2. Bisherige Arbeiten zum Thema
+
+Automatische Architektursuche: zu aufwändig
+
+
+MorphNet
+
+
+
+3. Wie funktioniert MorphNet
+
+ 
+Morphnet vergrössert und verkleinert konkurrierend das Netz um die besten Hyperparameter zu finden
+
+
+
+
+
+

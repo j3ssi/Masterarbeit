@@ -42,6 +42,11 @@ A.~{Gordon}, E.~{Eban}, O.~{Nachum}, B.~{Chen}, H.~{Wu}, T.~{Yang}, and
 \newblock In {\em 2018 IEEE/CVF Conference on Computer Vision and Pattern
   Recognition}, 2018.
 
+\bibitem[Gos08]{stat}
+William~Sealy Gosset.
+\newblock The probable error of a mean.
+\newblock {\em Biometrika}, 6, March 1908.
+
 \bibitem[Hay98]{neural}
 S.~Haykin.
 \newblock {\em Neural Networks: A Comprehensive Foundation}.
@@ -51,10 +56,6 @@ S.~Haykin.
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Deep residual learning for image recognition.
 \newblock {\em CoRR}, 2015.
-
-\bibitem[iee85]{ieee}
-Ieee standard for binary floating-point arithmetic.
-\newblock {\em ANSI/IEEE Std 754-1985}, 1985.
 
 \bibitem[IS15]{batchnorm}
 Sergey Ioffe and Christian Szegedy.
@@ -94,6 +95,13 @@ Prune train implementierung.
 Charles~A. Sutton and Linan Gong.
 \newblock Popularity of arxiv.org within computer science.
 \newblock {\em CoRR}, 2017.
+
+\bibitem[SLJ{\etalchar{+}}15]{inception}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock {\em 2015 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2015.
 
 \bibitem[SXZ{\etalchar{+}}20]{gen}
 Yanan Sun, Bing Xue, Mengjie Zhang, Gary~G Yen, and Jiancheng Lv.

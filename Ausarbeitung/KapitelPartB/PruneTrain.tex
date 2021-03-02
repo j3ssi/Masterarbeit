@@ -2,10 +2,10 @@
 \chapter{Evaluation des Beschneidens des Netzes}\label{sec:ptexperimente}
 \section{Evaluation bei gleichbleibender Batchgröße}
 
-Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Das Ergebnis der Ausführung von PruneTrain auf der Hardware wird mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. So kann evaluiert werden, wieviel der PruneTrain Effekte auf das Setup mit mehreren GPUs in der Veröffentlichung zurückzuführen sind. 
+Die Untersuchung von PruneTrain basiert auf einer bereits vorgefertigten Implementierung \cite{ptImpl}. In dieser Implementierung ist alles bis auf die Anpassung der Batchgröße an das kleiner werdende Netz enthalten. Das Ergebnis der Ausführung von PruneTrain auf der Hardware wird mit den Ergebnissen aus der Veröffentlichung verglichen \cite{prunetrain}. Ziel der Experimente ist es zu evaluieren, wie eine Änderung der verschiedenen Hyperparameter die Trainingszeit und die Accuracy beeinflusst. Im Gegensatz zur Veröffentlichung von PruneTrain wird hier statt auf mehreren GPUs nur auf einer GPU gerechnet. So kann evaluiert werden, wie viel der PruneTrain Effekte auf das Setup mit mehreren GPUs in der Veröffentlichung zurückzuführen sind. 
 
 Bei der Evaluierung der Einflüsse werden die veränderbaren Hyperparameter von PruneTrain einzeln verändert, um den Einfluss der einzelnen Veränderungen zu untersuchen.  
-Die veränderbaren Hyperparameter sind:
+Die veränderbaren Hyperparameter sind\footnote{Diese Größen werden in Kapitel \ref{sec:prunetrain} erklärt}:
 \begin{itemize}
  \item Lasso-Ratio $0,2$
  \item Rekonfigurationsinterval $5$
@@ -13,7 +13,7 @@ Die veränderbaren Hyperparameter sind:
  \item Lernrate $0,1$
 \end{itemize}
 Hinter den veränderbaren Hyperparameter steht jeweils der Wert, den der Hyperparameter hat, wenn er im aktuellen Experiment nicht verändert wird.
-Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. Für jede Gruppe von Experimenten werden 5 Experimente durchgeführt. 
+Betrachte eine feste Batchgröße von 256 über 180 Epochen und vergleiche diese mit dem Baseline-Netzes aus Kapitel \ref{sec:baseline}. Für jede Gruppe von Experimenten werden fünf Experimente durchgeführt. 
 
 
 \subsubsection{Einfluss von verschiedenen Lasso-Ratio Werten auf das Netz}
@@ -119,7 +119,6 @@ In Abbildung \ref{abb:reconf3} ist zu sehen, wie sich die Accuracy bei diesen Ex
  
   
 \subsubsection{Experimente zur Lernrate}
-\todo[inline]{Vergleich mit Baseline und verschiedenen LR}
 Der Einfluss der Lernrate auf das Beschneiden des Netzes wird mit fünf verschiedenen Lernraten untersucht. Beginnend mit der Lernrate $0,2$ und für jede weitere der fünf Lernraten die Hälfte der vorherigen.
 Die durchschnittliche Trainingszeit in Sekunden für verschiedene Lernrate ist in Abbildung \ref{abb:lr} zu sehen. Es ist deutlich zu sehen, dass mit sinkender Lernrate die Trainingszeit steigt. Das bedeutet, dass mit sinkender Lernrate weniger von Netz beschnitten wird, dies sorgt allerdings nicht zu einem verringerten Overhead. Der Overhead hängt bei diesem Verfahren von der Häufigkeit der Rekonfiguration ab.
 
@@ -132,11 +131,11 @@ In Tabelle \ref{tab:lr1} sind die p-Werte für die paarweisen t-Test zu sehen, d
 \begin{tabular}{l|c|c|c|c|l|}
 \cline{2-6}
                                & \multicolumn{1}{l|}{Baseline} & \multicolumn{1}{l|}{LR 0,2} & \multicolumn{1}{l|}{LR 0,1}                       & \multicolumn{1}{l|}{LR 0,05} & LR 0,025                       \\ \hline
-\multicolumn{1}{|l|}{Baseline} & X                             & 0,0003                      & \multicolumn{1}{l|}{5,265*10\textasciicircum{}-5} & \multicolumn{1}{l|}{0,0003}  & 4,888*10\textasciicircum{}-6   \\ \hline
-\multicolumn{1}{|l|}{LR 0,2}   & X                             & X                           & 0,0001                                            & 0,0011                       & 9,211*10\textasciicircum{}-7   \\ \hline
+\multicolumn{1}{|l|}{Baseline} & X                             & 0,0003                      & \multicolumn{1}{l|}{$5,3\cdot10^{-5}$} & \multicolumn{1}{l|}{0,0003}  & $4,9\cdot10^{-6}$   \\ \hline
+\multicolumn{1}{|l|}{LR 0,2}   & X                             & X                           & 0,0001                                            & 0,0011                       & $9,2\cdot10^{-7}$   \\ \hline
 \multicolumn{1}{|l|}{LR 0,1}   & X                             & X                           & X                                                 & 0,0332                       & 0.0011                         \\ \hline
 \multicolumn{1}{|l|}{LR 0,05}  & X                             & X                           & X                                                 & X                            & \cellcolor[HTML]{FE0000}0,9074 \\ \hline
-\multicolumn{1}{|l|}{LR 0,025} & X                             & X                           & X                                                 & X                            & \multicolumn{1}{c|}{X}         \\ \hline
+\multicolumn{1}{|l|}{LR 0,0250} & X                             & X                           & X                                                 & X                            & \multicolumn{1}{c|}{X}         \\ \hline
 \end{tabular}
 \label{tab:lr1}
 \end{table}
@@ -145,13 +144,15 @@ In Tabelle \ref{tab:lr1} sind die p-Werte für die paarweisen t-Test zu sehen, d
      \centering
      \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr1.png}\label{abb:lr1}}
      \hfill
-     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr2.png}\label{abb:lr2}}
-     \caption{Experimente zur Lernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
+     \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr2.png}\label{abb:lr2}}\\
+    \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/lr3.png}\label{abb:lr3}}
+     \caption{Experimente zur Lernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracys (c) Boxplot ausgewählter Accuracys}
      \label{abb:lr}
 \end{figure}
 
- In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernraten abgildet. Die Lernrate $0.1$ schneidet hier am Besten ab. Dies kann darauf zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht wird oder mit der kleinen Lernrate ein lokales Minimum nicht verlassen werden kann. In Tabelle \ref{tab:lr2} sind die p-Werte der paarweisen t-Tests zu sehen. Bis auf zwei Werte sind diese kleiner als das Signifikanzniveau $\alpha=0,05$. Damit ist die Wahrscheinlichkeit für einen Fehler 1.Art bis auf diese zwei Werte kleiner als 5 \%. Damit sind die hier getroffenen Aussagen statistisch belegt sind.
+ In Abbildung \ref{abb:lr2} sind die Accuracy der verschiedenen Lernraten abgebildet. Die Lernrate $0,05$ schneidet hier am Besten ab. Dies kann darauf zurück geführt werden, dass bei einer größeren Lernrate weniger Minima in der Verlustfunktion gefunden werden können. Der Effekt bei wesentlich kleineren Lernraten ist, dass der Trainingsprozess zwar mit jedem Schritt in die Richtung des Minimums geht, dabei aber durch die kleine Lernrate das tatsächliche Minimum innerhalb der 180 Epochen nicht erreicht wird oder mit der kleinen Lernrate ein lokales Minimum nicht verlassen werden kann. In Tabelle \ref{tab:lr2} sind die p-Werte der paarweisen t-Tests zu sehen. Bis auf zwei Werte sind diese kleiner als das Signifikanzniveau $\alpha=0,05$. Damit ist die Wahrscheinlichkeit für einen Fehler 1.Art bis auf diese zwei Werte kleiner als 5 \%. Für PruneTrain mit der Lernrate $0,05$ stellt sich die Frage ob der Effekt, dass dieser Wert hier am Besten und vergleichbar zum Baseline-Netz am Baseline-Netz selber oder an Effekten von PruneTrain liegt. Um dies zu klären wurde zusätzlich das Baseline-Netz mit der Lernrate $0,05$ trainiert. Das Ergbenis ist in Abbildung \ref{abb:lr3} zu sehen. Da das Baseline-Netz mit Lernrate $0,05$ hier wesentlich schlechter als das Baseline Netz mit Lernrate $0,1$ abschneidet ist der Effekt auf PruneTrain zurückzuführen.
  
+
 \begin{table}[]
 \caption{p-Werte für den t-Tests zu den Accuracys der Experimente zu den Lernraten}
 \begin{tabular}{l|c|c|c|c|l|}
@@ -191,7 +192,7 @@ Der Einfluss des gewählten Thresholds wird hier untersucht. In Abbildung \ref{a
      \hfill
      \subfloat[][]{\includegraphics[width= .45\textwidth]{KapitelPartB/Images/thres2.png}\label{abb:thres2}}
      \caption{Experimente zur Threshold: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys}
-     \label{abb:lr}
+     \label{abb:thres}
 \end{figure}
 In Abbildung \ref{abb:thres2} ist die Accuracy zu sehen. Aus dieser Abbildung lässt sich keine Tendenz erkennen. Diese Aussage wird durch die p-Werte der paarweisen t-Tests in Tabelle \ref{tab:thres2} gestützt.
  \begin{table}[]
@@ -208,9 +209,8 @@ In Abbildung \ref{abb:thres2} ist die Accuracy zu sehen. Aus dieser Abbildung l�
 \label{tab:thres2}
 \end{table}
 \subsubsection{Diskussion der Methode}
-
 Für die Evaluation des Beschneiden des Netzes werden in der Original-Veröffentlichung mehrere GPUs verwendet \cite{prunetrain}. Dies führt dazu, dass bereits in diesem Teil der Implementierung Trainingszeit durch verminderte Kommunikation zwischen den GPUs gespart wird. Da hier nur mit einer GPU evaluiert wird ergibt sich hier noch keine direkte Einsparung an Trainingszeit. Eine weitere Möglichkeit Trainingszeit zu sparen ergibt sich durch Erhöhen der Batchgröße bei kleiner werdendem Netz. Zu beachten ist hier, dass die Speicherauslastung gleich bleiben sollte und eine Vergleichbarkeit mit der Veröffentlichung zu gewährleisten. Diese Evaluierung wird in Kapitel \ref{sec:ptnew} durchgeführt.
-
+Die Ergebnisse dieser Evaluierung lassen sich schlecht mit denen in der Originalveröffentlichung vergleichen, da dort die Wahl der Hyperparameter nicht direkt evaluiert werden.
 
 \section{Experimente zur Anpassung der Batchgröße beim Beschneiden des Netzes}\label{sec:ptnew}
 

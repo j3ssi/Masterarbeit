@@ -1,14 +1,13 @@
 
 \chapter{Ausblick und Fazit}\label{sec:fazit}
-
 Es hat sich gezeigt, dass MorphNet den Nachteil hat, dass die Tiefe des Netzes nicht verändert werden kann. Diesen Nachteil kann Net2Net als potentieller Kandidat einer erweiternden Methode einer Kombination ausgleichen. Es zeigt sich bei allen Verfahren, dass eine Anpassung der Lernrate Sinn macht. 
 
-Es wäre sowohl für MorphNet als auch für die Kombination ein potentieller Gewinn, wenn die Lernrate automatisch angepasst werden würde, bevor eine Anpassung der Struktur passiert. Der Grund, wieso dies sinnvoll ist liegt daran, dass ohne Anpassung der Lernrate nicht das volle Potential jedes Modells genutzt werden kann. Hierwäre es allerdings notwendig nach der Veränderung der Struktur zu evaluieren, wie mit der Lernrate weiter zu verfahren ist. Die Anpassung der Lernrate sollte hier sowohl bei einem Plateau in der Accuracy als auch bei nicht stabilen Training funktionieren.
+Es wäre sowohl für MorphNet als auch für die Kombination ein potentieller Gewinn, wenn die Lernrate automatisch angepasst werden würde, bevor eine Anpassung der Struktur passiert. Der Grund, wieso dies sinnvoll ist liegt daran, dass ohne Anpassung der Lernrate nicht das volle Potential jedes Modells genutzt werden kann. Hier wäre es allerdings notwendig nach der Veränderung der Struktur zu evaluieren, wie mit der Lernrate weiter zu verfahren ist. Die Anpassung der Lernrate sollte hier sowohl bei einem Plateau in der Accuracy als auch bei nicht stabilen Training funktionieren.
 
 
 Da sich beim Training der verschiedenen Netze gezeigt hat, dass diese unterschiedlich lange brauchen, um ihr Potential auszuschöpfen ist es sinnvoll die Epoche zu der ein Operator von Net2Net angewendet wird flexibel anhand des Accuracy Verlaufs zu gestalten.  
 
 
-
+Die Erkundung des Modellraumes zeigt, dass sich Net2Net auch bei kleinen Ausgangsnetzen lohnt. Für die Kombination wäre es hilfreich, mit Hilfe der Ergebnisse des Beschneidens zu entscheiden welcher Operator angewendet wird. 
 
 Bei den verschiedenen Verfahren ist zu beobachten, dass in allen vorgestellten Fällen ein Trade-off zwischen Accuracy und Trainingszeit zu beobachten ist.

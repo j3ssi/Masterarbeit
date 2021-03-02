@@ -20,8 +20,7 @@ MorphNet zeigt bei der Evaluierung auf einem Resnet mit dem Datensatz Cifar10 Sc
 Die Evaluierung von PruneTrain zeigt, dass bei einfachem Beschneiden des Netzes keine Trainingszeit gespart werden kann. Um hier beim Trainieren Zeit zu sparen, bei gleicher Speicherauslastung muss mit dem Beschneiden des Netzes auch die Batchgröße erhöht werden. Eine weitere Erkenntnis ist, dass in der Regel ein Gewinn an Trainingszeit mit einem Verlust an Accuracy einhergeht.
 
 Bei Net2Net zeigte sich, dass ein flacheres oder schmaleres Netz die Instabilität beim Training verringern kann. Mit Anwendung eines Operators, der das Netz breiter oder tiefer macht wird diese Stabilität erhalten. Der Operator für ein breiteres Netz schafft es, die Accuracy gegenüber einem genauso breiten ohne Änderung trainierten Netz zu verbessern. In der vorliegenden Evaluierungssituation schafft der Operator für ein tieferes Netz dies nicht.
-\todo[inline]{Ergebnis von Net2Net room}
-
+Die Erkundung des Modellraumes zeigt, dass Net2Net auch bei kleinen Ausgangsnetzen funktioniert. Bei der Anwendung von mehreren Operatoren hintereinander ist die Reihenfolge dieser Operatoren wichtig.
 
 Mit diesen Ergebnissen von PruneTrain und Net2Net hat das Konzept aus der Kombination dieser beiden das Potential besser als MorphNet zu werden.
 

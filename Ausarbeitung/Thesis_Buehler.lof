@@ -1,35 +1,40 @@
 \babel@toc {german}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Abbildung zur Faltung \cite {CNNBook}\relax }}{6}{figure.caption.5}
-\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Convolutional Neural Net \cite {CNNImg}\relax }}{7}{figure.caption.6}
-\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces Abbildung der Kurzschlussverbindung \cite {resnet}\relax }}{10}{figure.caption.7}
-\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Vergleich zweier Residual-Netz-Bl\IeC {\"o}cke \cite {resnet}\relax }}{11}{figure.caption.8}
-\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces T\IeC {\"a}gliche Submissionen der Kategory Machine Learning auf arxiv \cite {cornell}\relax }}{12}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Mindmap zu den Suchbegriffen bez\IeC {\"u}glich des aktuellen wissenschaftlichen Stands\relax }}{13}{figure.caption.10}
-\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Beispielhafte Darstellung des Kanal-Union-Verfahrens\relax }}{14}{figure.caption.11}
-\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces Beispielhafte Durchf\IeC {\"u}hrung des Channel Union-Verfahrens\relax }}{16}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 2.9}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{17}{figure.caption.13}
-\contentsline {figure}{\numberline {\relax 2.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le\relax }}{18}{figure.caption.15}
+\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Abbildung zur Faltung \cite {CNNBook}\relax }}{6}{figure.caption.4}
+\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Convolutional Neural Net \cite {CNNImg}\relax }}{7}{figure.caption.5}
+\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces Abbildung der Kurzschlussverbindung \cite {resnet}\relax }}{10}{figure.caption.6}
+\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Darstellung der Parallelit\IeC {\"a}t von Inception\relax }}{11}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces T\IeC {\"a}gliche Submissionen der Kategorie Machine Learning auf arxiv \cite {cornell}\relax }}{12}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Mindmap zu den Suchbegriffen bez\IeC {\"u}glich des aktuellen wissenschaftlichen Stands\relax }}{13}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Beispielhafte Darstellung des Kanal-Union-Verfahrens\relax }}{14}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces Beispielhafte Durchf\IeC {\"u}hrung des Channel Union-Verfahrens\relax }}{16}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 2.9}{\ignorespaces Traditioneller Workflow vs. Net2Net Workflow\relax }}{17}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 2.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die zus\IeC {\"a}tzlichen Kan\IeC {\"a}le\relax }}{18}{figure.caption.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Basisblock\relax }}{27}{figure.caption.18}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces \IeC {\"U}bergangsblock\relax }}{27}{figure.caption.18}
-\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Grafische Darstellung Basis- und \IeC {\"U}bergangsblock\relax }}{27}{figure.caption.18}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Vergleich zwischen (a) Baseline-Netz ohne Anpassung der Lernrate und (b) Baseline-Netz mit Anpassung der Lernrate in Epoche 93 und 150. (c) Boxplot der Accuracys\relax }}{29}{figure.caption.21}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces \relax }}{31}{figure.caption.25}
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Basisblock\relax }}{27}{figure.caption.17}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces \IeC {\"U}bergangsblock\relax }}{27}{figure.caption.17}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Grafische Darstellung Basis- und \IeC {\"U}bergangsblock\relax }}{27}{figure.caption.17}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Vergleich zwischen (a) Baseline-Netz ohne Anpassung der Lernrate und (b) Baseline-Netz mit Anpassung der Lernrate in Epoche 93 und 150. (c) Boxplot der Accuracys\relax }}{29}{figure.caption.20}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Accuracy des schmalen Baseline-Netzes (a) ohne Anpassung der Lernrate. (b) Boxplot zum Vergleich vom schmalem Baseline Netz ohne Anpassung der Lernrate mit dem schmalen Baseline Netz mit Anpassung der Lernrate (c) Boxplot f\IeC {\"u}r den Vergleich der Trainingszeiten des schmallen und breiten Baseline-Netzes\relax }}{31}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Vergleich Zielgr\IeC {\"o}\IeC {\ss }e mit Wert des Regularisierers f\IeC {\"u}r (a) FLOPs (b) Modellgr\IeC {\"o}\IeC {\ss }e \relax }}{34}{figure.caption.26}
-\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Effekt verschieden gro\IeC {\ss }er $\lambda $ auf (a) FLOPs (b) Modellgr\IeC {\"o}\IeC {\ss }e. (c) Effekt verschiedener Experimente bei festem $\lambda $ \relax }}{35}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Vergleich Zielgr\IeC {\"o}\IeC {\ss }e mit Wert des Regularisierers f\IeC {\"u}r (a) FLOPs (b) Modellgr\IeC {\"o}\IeC {\ss }e \relax }}{34}{figure.caption.24}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Effekt verschieden gro\IeC {\ss }er $\lambda $ auf (a) FLOPs (b) Modellgr\IeC {\"o}\IeC {\ss }e. (c) Effekt verschiedener Experimente bei festem $\lambda $ \relax }}{36}{figure.caption.26}
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Struktur eines Basisblocks als Ergebnis von MorphNet 1\relax }}{37}{figure.caption.27}
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Struktur eines Basisblocks als Ergebnis von MorphNet 2\relax }}{37}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Effekt verschieden gro\IeC {\ss }er $\lambda $ auf die Accuracy nach 210 Epochen im Vergleich zum Baseline Netz f\IeC {\"u}r (a) $\lambda = 1 \cdot 10^{-8}$ (b) $\lambda = 2 \cdot 10^{-8}$ (c) $\lambda = 3 \cdot 10^{-8}$ (d) $\lambda = 4 \cdot 10^{-8}$. (e) Boxplot zum Vergleich der durchschnittlichen Trainingszeit von Baseline Netz mit dem MorphNet Netz\relax }}{38}{figure.caption.29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Lasso-Ratio Experiment: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracy\relax }}{39}{figure.caption.32}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Experimente zum Rekonfigurationsintervall: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracy\relax }}{40}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Experimente zur Lernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys\relax }}{42}{figure.caption.41}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Experimente zur Threshold: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys\relax }}{43}{figure.caption.45}
-\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Darstellung des Berechnen der Geraden\relax }}{45}{figure.caption.48}
-\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces Vergleich von (a) Durchschnittlicher Trainingszeit (b) Accuracys von PruneTrain mit Anpassung der Batchgr\IeC {\"o}\IeC {\ss }eund Baseline-Netz\relax }}{48}{figure.caption.49}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Lasso-Ratio Experiment: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracy\relax }}{43}{figure.caption.32}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Experimente zum Rekonfigurationsintervall: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracy\relax }}{44}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Experimente zur Lernrate: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der Accuracys (c) Boxplot ausgew\IeC {\"a}hlter Accuracys\relax }}{46}{figure.caption.40}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Experimente zur Threshold: (a) Boxplot der durchschnittlichen Trainingszeit (b) Boxplot der durchschnittlichen Trainingszeit ohne Baseline-Netz (c) Boxplot der Accuracys\relax }}{48}{figure.caption.44}
+\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Darstellung des Berechnen der Geraden\relax }}{50}{figure.caption.47}
+\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces Vergleich von (a) Durchschnittlicher Trainingszeit (b) Accuracys von PruneTrain mit Anpassung der Batchgr\IeC {\"o}\IeC {\ss }eund Baseline-Netz\relax }}{53}{figure.caption.48}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces \relax }}{50}{figure.caption.50}
-\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces \relax }}{53}{figure.caption.54}
-\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Vergleich von \relax }}{54}{figure.caption.55}
-\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Anzahl an Bl\IeC {\"o}cken pro Phase; Breite der ersten Schicht; Schichten pro Block\relax }}{54}{figure.caption.56}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces \relax }}{56}{figure.caption.49}
+\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces \relax }}{58}{figure.caption.50}
+\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces (a) Aufbau eines Blockes mit multiplikativen Faktoren. (b-c) \IeC {\"U}bersicht wie das Einf\IeC {\"u}gen eines neuen Blockes von statten geht\relax }}{60}{figure.caption.51}
+\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Vergleich der Accuracy vom Baseline Netz und dem Baseline Netz mit multiplikativen Faktoren\relax }}{61}{figure.caption.52}
+\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Anwendung der Operatoren auf das Ausgangsnetz. Beschriftung der Knoten: \{Anzahl an Bl\IeC {\"o}cken pro Phase; Breite der ersten Schicht; Schichten pro Block \}. Tiefer 1 bezeichnet den Operator, der jedem Block eine zus\IeC {\"a}tzliche Schicht hinzuf\IeC {\"u}gt. Tiefer 2 bezeichnet den Operator, der jeder Phase einen zus\IeC {\"a}tzlichen Block hinzuf\IeC {\"u}gt.\relax }}{61}{figure.caption.53}
+\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces \relax }}{62}{figure.caption.54}
 \addvspace {10\p@ }

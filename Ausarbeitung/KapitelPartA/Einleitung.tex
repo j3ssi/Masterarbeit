@@ -1,18 +1,18 @@
 \chapter{Stand der Wissenschaft}\label{sec:wissenschaft}
-Diese Kapitel soll dem Leser eine Übersicht über den aktuellen Stand der Wissenschaft geben. Zu diesem Zweck hat dieses Kapitel zwei Teile. Im ersten Teil wird zunächst grundlegend die Funktionsweise eines Convolutional Neural Networks (CNNs) erläutert. Im zweiten Teil des Kapitels wird ein Überblick über die bisherigen wissenschaftlichen Erkenntnisse im Themenbereich dieser Arbeit vorgetellt.
+Diese Kapitel soll dem Leser eine Übersicht über den aktuellen Stand der Wissenschaft geben. Zu diesem Zweck hat dieses Kapitel zwei Teile. Im ersten Teil wird zunächst grundlegend die Funktionsweise eines Convolutional Neural Networks (CNNs) erläutert. Im zweiten Teil des Kapitels wird ein Überblick über die bisherigen wissenschaftlichen Erkenntnisse im Themenbereich dieser Arbeit vorgestellt.
 \section{Funktionsweise eines CNN}\label{sec:conv}
 
 Die Quelle für dieses Unterkapitel ist soweit nicht anders vermerkt ein Buch über \enquote{Deep Learning} \cite{CNNBook}.
 
-CNNs sind spezielle neuronale Netze. Der Unterschied zu einem \enquote{Multilayer-Perzeptron (MLP)\footnote{Die Hintergründe des MLPs und allgemein neuronaler Netzwerke werden hier nicht behandelt. Für eine Einführung in neuronale Netzwerke kann aber \cite{neural} herangezogen werden}} ist, dass bei einem MLP jede Verbindung zwischen Neuronen und die Neuronen selbst ein eigenes trainierbares Gewicht haben. Aus diesen trainierbaren Werten wird mittels einer Matrixmultiplikation mit den Eingabedaten bzw. den Daten der vorherigen Schicht die Ausgabe jedes Neurons berechnet.
+CNNs sind spezielle neuronale Netze. Der Unterschied zu einem \enquote{Multilayer-Perzeptron (MLP)\footnote{Die Hintergründe des MLPs und allgemein neuronaler Netzwerke werden hier nicht behandelt. Für eine Einführung in neuronale Netzwerke kann aber \cite{neural} herangezogen werden}} ist, dass bei einem MLP jede Verbindung zwischen Neuronen und die Neuronen selbst ein eigenes trainierbares Gewicht haben. Aus diesen trainierbaren Werten wird mittels einer Matrixmultiplikation mit den Eingabedaten beziehungsweise den Daten der vorherigen Schicht die Ausgabe jedes Neurons berechnet.
 Im Gegensatz dazu sind CNNs neuronale Netze, die in mindestens einer ihrer Schichten die Faltung anstelle der allgemeinen Matrixmultiplikation verwenden.
 
 
-Dies bedeutet, dass die Eingabedaten für ein CNN für diese Faltung geeignet sein muss. Geeignet für die Faltung sind Eingabedaten, die gridförmig angeordnet sind. Bilddaten sind ein grosser Anwendungsbereich für CNNs.
+Dies bedeutet, dass die Eingabedaten für ein CNN für diese Faltung geeignet sein muss. Geeignet für die Faltung sind Eingabedaten, die gridförmig angeordnet sind. Bilddaten sind ein großer Anwendungsbereich für CNNs.
 
 Bei der Faltung wird auf die Eingabedaten beziehungsweise die Daten der vorherigen Schicht ein Kernel angewendet.
 
-In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Grösse des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Merkmalskarte.
+In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durchgeführt wird. Der Kernel wird auf jedes Teilbild mit der Größe des Kernels angewendet. Die korrespondierenden Felder werden multipliziert und alle entstehenden Produkte werden addiert. So entsteht aus der Faltung des Kernels mit der Eingabe in die entsprechende Schicht eine Merkmalskarte.
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.45 \textwidth,keepaspectratio=true]{images/convolution.png}
@@ -20,14 +20,14 @@ In Abbildung \ref{fig:faltung} ist zu sehen wie die Faltung auf einem Bild durch
  \caption{Abbildung zur Faltung \cite{CNNBook}}
  \label{fig:faltung}
 \end{figure}
-Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird die Merkmalskarte des Eingangs des Layers wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mit einer Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird eine Rectified Linear Unit (ReLU) als Aktivierungsfunktion benutzt\footnote{Für Erklärung ReLU siehe \cite{neural}}.
+Mehrere dieser Kernel bilden zusammen ein Teil des Convolutional Layer. Dabei wird die Merkmalskarte des Eingangs der Schicht wie in Abbildung \ref{fig:cnn} gezeigt auf jeden Kernel mit einer Faltung angewendet. Durch diese Faltung entstehen erste Merkmalskarten. Diese Merkmalskarten werden im nächsten Schritt komponentenweise als Eingabe für eine Aktivierungsfunktion benutzt. In Abbildung \ref{fig:cnn} wird eine Rectified Linear Unit (ReLU) als Aktivierungsfunktion benutzt\footnote{Für Erklärung ReLU siehe \cite{neural}}.
 
 
 
-Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch die Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten autaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird, größer als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
+Um die Größe der Merkmalskarte zu reduzieren kann nach dem Anwenden der Aktivierungsfunktion eine Pooling Operation eingeführt werden. Durch die Verkleinerung der Merkmalskarte wird es weniger wichtig wo genau ein Merkmal in den Daten auftaucht. Für ein Feld in der Ausgabe der Pooling Operation ist der Bereich, der von diesem Feld wahrgenommen wird, größer als ohne die Pooling Operation. Ein Nebeneffekt des Poolings ist die Vermeidung beziehungsweise Verringerung von Overfitting. 
 
 
-Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt, ob und wenn 'ja' wieviele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben, die Pixel am Rand des Bildes (bzw. der Merkmalskarte der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.
+Der Begriff Padding aus Abbildung \ref{fig:cnn} enthält einen Wert, der aussagt, ob und wenn 'ja' wie viele Pixel um das eigentlich Bild gelegt werden. Dies geschieht, um dem Kernel die Möglichkeit zu geben, die Pixel am Rand des Bildes (beziehungsweise der Merkmalskarte der vorherigen Schicht) in mehreren Teilbildern zu verarbeiten.
 
 
 
@@ -48,11 +48,11 @@ Eine beispielhafte Übersicht über die CNN-Architektur ist in Abbildung \ref{fi
 
 Die voll verbundene Schicht errechnet aus den Ausgängen der Convolutional-Layer, in welche Klasse ein Objekt klassifiziert werden soll.
 
-Die Kernel, die auf die Merkmalskarte bzw. die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen der voll verbundenen Schicht trainierbar. Das heißt, durch den Trainingsprozess wird versucht die Werte in der Kernelmatrix und der voll verbundenen Schicht so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
+Die Kernel, die auf die Merkmalskarte beziehungsweise die Eingabebilder angewendet werden, sind trainierbar. Zusätzlich sind auch die Gewichtungen der voll verbundenen Schicht trainierbar. Das heißt, durch den Trainingsprozess wird versucht die Werte in der Kernelmatrix und der voll verbundenen Schicht so zu verändern, dass das gesamte CNN besser klassifizieren kann. 
 
 
 
-Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der aufeinanderfolgenden Eingabe der Bilder $\mathbf{x}_i$ eines Batches von Trainingsdaten in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weitergerechnet. Die Ausgabe einer Faltungsschicht wird $\mathbf{u}_{i,j}$ angegeben, wobei $i$ für den Platz im jeweiligen Batch steht und $j$ für die Nummer der entsprechenden Schicht. In der letzten, voll verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Die Gewichte der Schichten werden mit $W_{j}$ bezeichnet, wobei $j$ die Schicht der Gewichte angibt. Alle Gewichte des Netzwerkes werden mit $\mathcal{W}$ bezeichnet, wobei 
+Die Trainingsdaten sind Daten aus dem Datensatz, die bereits klassifiziert sind. Diese Trainingsdaten werden in Batches aufgeteilt. Der Trainingsprozess beginnt mit der aufeinanderfolgenden Eingabe der Bilder $\mathbf{x}_i$ eines Batches von Trainingsdaten in die erste Schicht. In jeder Schicht des Netzes wird mit der Eingabe aus der vorherigen Schicht weiter gerechnet. Die Ausgabe einer Faltungsschicht wird $\mathbf{u}_{i,j}$ angegeben, wobei $i$ für den Platz im jeweiligen Batch steht und $j$ für die Nummer der entsprechenden Schicht. In der letzten, voll verbundenen Schicht ist das Ergebnis eines einzelnen Bildes die Klasse, die durch die aktuellen Belegung der Gewichte des Netzes klassifiziert wird. Die Gewichte der Schichten werden mit $W_{j}$ bezeichnet, wobei $j$ die Schicht der Gewichte angibt. Alle Gewichte des Netzwerkes werden mit $\mathcal{W}$ bezeichnet, wobei 
 \begin{equation}
 \mathcal{W}=\left\{ W^{1}, \ldots W^{J} \right\}
 \end{equation}
@@ -69,7 +69,7 @@ Im Anschluss an diesen Trainingsprozess können Bilder, die ohne zugehöriges La
 
 Mit Hilfe des Trainings- und Testfehlers lässt sich die Klassifikationsleistung des Netzes beurteilen. Sind beide Fehlerarten hoch, so muss das Netz entweder noch weiter trainieren oder an der Struktur beziehungsweise den Hyperparametern muss etwas geändert werden. Ist jedoch nur der Testfehler hoch, so ist die Generalisierungsfähigkeit des Netzes nicht gut. 
 
-Eine weitere Technik, die zur Verbesserung der Generalisierungsfähigkeit führen kann ist die Batchnormalisierung. Diese Technik wird zum Ende dieses Unterkapitels betrachtet \cite{batchnorm}. Beim Training eines CNNs ändert sich die Verteilung der Eingabewerte während des Trainings durch Veränderung der Gewichte der vorherigen Schicht. Dies führt zu einem langsameren Training, da es kleinere Lernraten hat und damit mehr Durchläufe braucht damit das Netz konvergiert. Dieses Phänomen wird interne Kovarianzeverschiebung genannt und durch eine Normalisierung gelöst. In Algorithmus \ref{alg:bn} ist zu sehen, wie dies schrittweise geschieht.
+Eine weitere Technik, die zur Verbesserung der Generalisierungsfähigkeit führen kann ist die Batchnormalisierung. Diese Technik wird zum Ende dieses Unterkapitels betrachtet \cite{batchnorm}. Beim Training eines CNNs ändert sich die Verteilung der Eingabewerte während des Trainings durch Veränderung der Gewichte der vorherigen Schicht. Dies führt zu einem langsameren Training, da es kleinere Lernraten hat und damit mehr Durchläufe braucht damit das Netz konvergiert. Dieses Phänomen wird interne Kovarianzverschiebung genannt und durch eine Normalisierung gelöst. In Algorithmus \ref{alg:bn} ist zu sehen, wie dies schrittweise geschieht.
 
 
 Zunächst bekommt die Batchnormalisierungsschicht die Eingabewerte $u_{i,j}$, wobei $j$ die Nummer der entsprechenden Schicht angibt und $i$ angibt welches Element in der jeweiligen Batch $\mathcal{B}$ gemeint ist. Zunächst wird aus allen Elementen des aktuellen Batches $\mathcal{B}$ der Mittelwert $\mu_{i,\mathcal{B}}$ berechnet. Mit Hilfe dieses Wertes wird im nächsten Schritt die Varianz des Batches $\mathcal{B}$ berechnet. Diese beiden Werte werden benutzt, um Elemente des Batches $\mathcal{B}$ so zu normalisieren, dass der Batch einen Mittelwert von Null und eine Varianz von Eins hat. Der in dieser Formel aufgeführte Wert $\epsilon$ wird zur quadratischen Varianz addiert um zusätzliche numerische Stabilität zu gewähren. 
@@ -95,14 +95,13 @@ Im Anschluss an diese Normalisierung lassen sich die Elemente des Batches durch 
 \end{algorithm}
 
 
-\color{black}
-
 \section{CNN- Architekturen}\label{sec:archit}
+In diesem Kapitel werden die zwei in dieser Arbeit verwendeten CNN-Architekturen vorgestellt. In Kapitel \ref{sec:res} wird zunächst die Architektur eine residualen Netzwerks (ResNet) vorgestellt. In Kapitel \ref{sec:inception} wird die Architektur eines Inception Netzes vorgestellt.
 \subsection{ResNet -- eine neuere CNN-Architektur}\label{sec:res}
 Die wachsende Tiefe bei CNN-Architekturen geschieht mit dem Hintergrund, dass tiefere Netze größere Modellkomplexität haben. Die klassische CNN-Architektur mit hintereinander geschalteten Conv-Layern schafft es bei wachsender Tiefe des Netzes nicht, diese Komplexität in bessere Klassifikationsleistung umzusetzen. Die Quelle zu diesem Unterkapitel ist das Paper, welches wegweisend für die Verwendung von Residualen Netzen in der Wissenschaft ist \cite{resnet}.
 
 
-Neuere CNN-Architekturen schaffen es, dieses Problem zu vermeiden. Eine dieser neueren Architekturen ist das ResNet. Das ResNet ist ein Residualnetz, welches Kurzschlussverbindungen einführt. In Abbildung \ref{abb:residual} ist zu sehen wie eine Kurzschlussverbindung aussieht. Durch die Kurzschlussverbindungen in den einzelnen Blöcken ist es für das Netzwerk einfacher, Funktionsbestandteile, die ähnlich einer Idenditätsfunktion sind, zu erlernen.   
+Neuere CNN-Architekturen schaffen es, dieses Problem zu vermeiden. Eine dieser neueren Architekturen ist das ResNet. Das ResNet ist ein residuales Netz, welches Kurzschlussverbindungen einführt. In Abbildung \ref{abb:residual} ist zu sehen wie eine Kurzschlussverbindung aussieht. Durch die Kurzschlussverbindungen in den einzelnen Blöcken ist es für das Netzwerk einfacher, Funktionsbestandteile, die ähnlich einer Identitätsfunktion sind, zu erlernen.   
 
 \begin{figure}[h]
  \centering
@@ -114,40 +113,36 @@ Neuere CNN-Architekturen schaffen es, dieses Problem zu vermeiden. Eine dieser n
 
 
 
-Vermieden wird damit im Vergleich zu einem klassischen CNN das Problem des verschwindenden Gradienten. Bei einem klassischen CNN wird mit der letzten Schicht begonnen und der Gradient wird durch die Kettenregel bis zur ersten Schicht berechnet. Je tiefer das Netz wird, desto kleiner werden die Veränderungen des Gradienten für die ersten Schichten. Die Gewichte konvergieren dann sehr langsam bzw. teilweise gar nicht mehr in die gewünschte Richtung.
+Vermieden wird damit im Vergleich zu einem klassischen CNN das Problem des verschwindenden Gradienten. Bei einem klassischen CNN wird mit der letzten Schicht begonnen und der Gradient wird durch die Kettenregel bis zur ersten Schicht berechnet. Je tiefer das Netz wird, desto kleiner werden die Veränderungen des Gradienten für die ersten Schichten. Die Gewichte konvergieren dann sehr langsam beziehungsweise teilweise gar nicht mehr in die gewünschte Richtung.
 
 
-Residuale Netze vermeiden dies, indem sie aus vielen kleineren Netzen bestehen. Hier wird der Gradient nicht auf einer Linie zur Eingangsschicht zurück propagiert, sondern auch über die Kurzschlussverbindungen. So entsteht ein Netz, welches sehr viel tiefer sein kann ohne die Probleme des verschwindenden Gradienten zu haben. Durch den Wegfall dieses Problems lassen sich mit residualen Netzen bessere Traningsfehler und Testfehlerraten erreichen.
+Residuale Netze vermeiden dies, indem sie aus vielen kleineren Netzen bestehen. Hier wird der Gradient nicht auf einer Linie zur Eingangsschicht zurück propagiert, sondern auch über die Kurzschlussverbindungen. So entsteht ein Netz, welches sehr viel tiefer sein kann ohne die Probleme des verschwindenden Gradienten zu haben. Durch den Wegfall dieses Problems lassen sich mit residualen Netzen bessere Trainingsfehler und Testfehlerraten erreichen.
 
-Eine weitere Technik, die in residualen Netzen verwendet wird, ist die der Bottleneck-Blocks. Dies resultiert aus dem Problem der stark steigenden Trainingszeiten, je breiter die Blöcke sind. Ein Bottleneck-Block ist in Abbildung \ref{abb:bottleneck} abgebildet.
 
-Die erste Schicht im Bottleneck-Block reduziert dabei die Größe der Feature-Map. Dies hat zur Folge, dass die Durchlaufzeit des mittleren Convolutional Layers geringer ist als bei einem äquivalenten Nicht-Bottleneck-Block. Der letzte Layer des Blockes stellt die Größe vor dem Block wieder her.
 
-Ein von der Zeitkomplexität ähnlicher Block wie der Block in Abbildung \ref{abb:bottleneck} ist in Abbildung \ref{abb:nonbottleneck} zusehen. Wird in einem residualen Netz mit 34 Schichten  aus Blöcken wie in Abbildung \ref{abb:nonbottleneck} jeder Block durch einen Block wie in Abbildung \ref{abb:bottleneck} ausgetauscht, so entsteht ein 50 schichtiges residuales Netzwerk mit einer durchschnittlich erhöhten Accuracy.
+\subsection{Inception}\label{sec:inception}
+Inception ist eine CNN- Architektur, die sowohl in der MorphNet Veröffentlichung als auch in der Net2Net- Veröffentlichung verwendet wurden. Um die Ergebnisse aus den Veröffentlichungen mit den eigenen vergleichen zu können wird hier die Inception Architektur vorgestellt. Soweit nicht explizit anders erwähnt ist die Quelle zu diesem Unterkapitel die Inception Veröffentlichung \cite{inception}.
+
+
+Beim Versuch ein CNN zu verbessern wird in der Regel das Netz vergrößert, das heißt es werden entweder mehr Schichten benutzt oder das die einzelnen Schichten des Netzes sind breiter. Dies kann zwar eine verbesserte Accuracy bringen sorgt aber auch für ein höheren Berechnungs- und damit Zeitaufwand. Außerdem ist ein größeres Netzwerk mit mehr Parametern auch mehr anfällig für Overfitting.
+
+Das Inception Netz ist eine Architektur, die ohne diese Nachteile eine bessere Architektur schaffen will. Der Ansatz, der bei dieser Architektur verfolgt wird ist der, dass mehrere Kernel in verschiedenen Größen parallel auf den Ausgang der vorherigen Schicht beziehungsweise der Eingabedaten angewendet wird. Eine grafische  Darstellung dieser Parallelität ist in Abbildung \ref{abb:inception} abgebildet. Diese Parallelität erhöht die Accuracy auf Grund dessen, dass Klassen unterscheidende Merkmale unterschiedlich groß sind.
+Die zusätzlichen 1x1-Convolutional Layer sorgen für eine Dimensionsreduktion, welches zur Einsparung von Trainingszeit sorgt.
 
 
 \begin{figure}[h]
  \centering
- \subfloat[][Bottleneck]{\includegraphics[width=0.4\textwidth]{KapitelPartA/images/bottleneck.png}\label{abb:bottleneck}}
- \qquad
- \subfloat[][Nicht-Bottleneck]{\includegraphics[width=0.4\textwidth]{KapitelPartA/images/plain.png}\label{abb:nonbottleneck}}
-       \caption{Vergleich zweier Residual-Netz-Blöcke \cite{resnet}}
-\end{figure}
-
-\subsection{Inception}\label{sec:inception}
-\color{blue1}
-Inception ist eine CNN- Architektur, die sowohl in der Morph-Net Veröffentlichung als auch in der Net2Net- Veröffentlichung verwendet wurden. Um die Ergebnisse aus den Veröffentlichungen mit den eigenen vergleichen zu können wird hier die Inception Architektur vorgestellt. Soweit nicht explizit anders erwähnt ist die Quelle zu diesem Unterkapitel die Inception Veröffentlichung \cite{Inception}.
-
-
-Beim Versuch ein CNN zu verbessern wird in der Regel das Netz vergrössert, das heißt es werden entweder mehr Schichten benutzt oder das die einzelnen Schichten des Netzes sind breiter. Dies kann zwar eine verbesserte Accuracy bringen sorgt aber auch für ein höheren Berechnungs- und damit Zeitaufwand. Außerdem ist ein grösseres Netzwerk mit mehr Parametern auch mehr anfällig für Overfitting.
-
-Das Inception Netz ist eine Architektur, die ohne diese Nachteile eine bessere Architektur schaffen will.
+ \includegraphics[width=0.75\textwidth]{KapitelPartA/images/inception.png}
+ % inception.png: 441x213 px, 72dpi, 15.56x7.51 cm, bb=0 0 441 213
+ \caption{Darstellung der Parallelität von Inception}
+\label{abb:inception}
+ 
+ \end{figure}
 
 
 
 
 
-\color{black}
 \section{Vorgehen zur Suche nach dem Stand der Wissenschaft}\label{sec:suche}
 Eine Google-Suche nach ``time efficient training convolutional neural networks'' ergibt ungefähr 12 Millionen Suchergebnisse. Mit dieser Flut an Ergebnissen und vielen populär-wissenschaftlichen Einträgen ist die Suche nicht erfolgreich. Aus diesem Grund wird die Suche auf die Seite arvix.org eingeschränkt. Diese Einschränkung macht Sinn mit dem Hintergrund, dass bereits 2017 über 60\% Prozent der publizierten Paper auf arxiv.org als Preprint veröffentlicht wurden \cite{popular}. Diese Zahl ist seitdem weiter gestiegen, was die Zahl der veröffentlichten Paper im Bereich Machine Learning pro Tag in Abbildung \ref{abb:arxiv} zeigt.
 
@@ -155,7 +150,7 @@ Eine Google-Suche nach ``time efficient training convolutional neural networks''
  \centering
  \includegraphics[width=0.5\textwidth]{KapitelPartA/images/arxiv.png}
  % arxiv.png: 622x500 px, 72dpi, 21.94x17.64 cm, bb=0 0 622 500
- \caption{Tägliche Submissionen der Kategory Machine Learning auf arxiv \cite{cornell}}
+ \caption{Tägliche Submissionen der Kategorie Machine Learning auf arxiv \cite{cornell}}
  \label{abb:arxiv}
 \end{figure}
 
